@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cua0fhfbu5gg1"]
+
+[ext_resource type="PackedScene" uid="uid://cl844rkgxivpm" path="res://Assets/selectionroom.glb" id="1_m6x4c"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m6x4c"]
+sky_energy_multiplier = 6.05
+
+[sub_resource type="Sky" id="Sky_oqbs2"]
+sky_material = SubResource("ProceduralSkyMaterial_m6x4c")
+
+[sub_resource type="Environment" id="Environment_5dbda"]
+background_mode = 2
+sky = SubResource("Sky_oqbs2")
+
+[node name="Main Menu" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.985313, -0.0441959, 0.164941, -1.13133e-08, 0.965926, 0.258819, -0.17076, 0.255018, -0.951739, 19.3777, 6.36014, 30.0742)
+
+[node name="selectionroom" parent="." instance=ExtResource("1_m6x4c")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5dbda")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 21.0
+offset_top = 26.0
+offset_right = -28.0
+offset_bottom = 92.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[color=cyan]airplane game name goes here[/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 75.0
+offset_bottom = 54.0
