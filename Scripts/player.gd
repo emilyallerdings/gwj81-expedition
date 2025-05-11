@@ -9,6 +9,7 @@ extends CharacterBody3D
 
 var forward_direction: Vector3 = Vector3(0,0,1)
 var target_velocity: Vector3 = Vector3.ZERO
+var speed_threshold: float = 0.1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -55,4 +56,14 @@ func _physics_process(delta: float) -> void:
 	print(velocity)
 
 	# Move the luggage
+	
+	play_wheel_sound()
 	move_and_slide()
+
+func play_wheel_sound() -> void:
+	if velocity.length() > speed_threshold:
+		if not SoundBus.rolling_suitcase.playing:
+			SoundBus.rolling_suitcase.play()
+	else:
+		if SoundBus.rolling_suitcase.playing:
+			SoundBus.rolling_suitcase.stop()

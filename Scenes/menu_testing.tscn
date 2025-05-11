@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cua0fhfbu5gg1"]
+[gd_scene load_steps=16 format=3 uid="uid://cua0fhfbu5gg1"]
 
 [ext_resource type="Script" uid="uid://ieq2hasgdd62" path="res://Scripts/main_menu.gd" id="1_34v3d"]
 [ext_resource type="PackedScene" uid="uid://cl844rkgxivpm" path="res://Assets/selectionroom.glb" id="1_m6x4c"]
@@ -33,10 +33,19 @@ shader_parameter/vortex_amt = 0.0
 shader_parameter/rotation = 1.49012e-07
 shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbgsc"]
+albedo_color = Color(0.552962, 1.35969e-06, 4.81307e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ni8b3"]
+albedo_color = Color(0.620041, 0.620041, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxmc4"]
+albedo_color = Color(0.521141, 0.521141, 0.521141, 1)
+
 [node name="Main Menu" type="Node3D"]
 script = ExtResource("1_34v3d")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Main Menu Camera" type="Camera3D" parent="."]
 transform = Transform3D(-0.815615, -0.17541, 0.551366, 0, 0.952938, 0.303165, -0.578596, 0.247266, -0.77723, 25.7932, 17.8789, 20.6814)
 
 [node name="selectionroom" parent="." instance=ExtResource("1_m6x4c")]
@@ -73,33 +82,45 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Play" type="Button" parent="Main Menu UI"]
-layout_mode = 0
-offset_left = 116.0
-offset_top = 315.0
-offset_right = 242.0
-offset_bottom = 401.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 114.0
+offset_top = -43.0
+offset_right = 240.0
+offset_bottom = 43.0
+grow_vertical = 2
 theme = ExtResource("2_5dbda")
 theme_override_fonts/font = ExtResource("3_ycoxo")
 theme_override_font_sizes/font_size = 50
 text = "Play"
 
 [node name="Options" type="Button" parent="Main Menu UI"]
-layout_mode = 0
-offset_left = 116.0
-offset_top = 418.0
-offset_right = 265.0
-offset_bottom = 504.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 114.0
+offset_top = 77.0
+offset_right = 263.0
+offset_bottom = 163.0
+grow_vertical = 2
 theme = ExtResource("2_5dbda")
 theme_override_fonts/font = ExtResource("3_ycoxo")
 theme_override_font_sizes/font_size = 50
 text = "Options"
 
 [node name="Credits" type="Button" parent="Main Menu UI"]
-layout_mode = 0
-offset_left = 116.0
-offset_top = 522.0
-offset_right = 258.0
-offset_bottom = 608.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 114.0
+offset_top = 197.0
+offset_right = 256.0
+offset_bottom = 283.0
+grow_vertical = 2
 theme = ExtResource("2_5dbda")
 theme_override_fonts/font = ExtResource("3_ycoxo")
 theme_override_font_sizes/font_size = 50
@@ -111,7 +132,7 @@ position = Vector2(623, 100)
 scale = Vector2(3, 3)
 texture = ExtResource("4_ycoxo")
 
-[node name="SuitecaseSprite" type="Sprite2D" parent="."]
+[node name="SuitecaseSprite" type="Sprite2D" parent="Main Menu UI"]
 material = SubResource("ShaderMaterial_fbgsc")
 position = Vector2(65, 357)
 scale = Vector2(0.785156, 0.785156)
@@ -120,9 +141,39 @@ texture = ExtResource("7_vxmc4")
 [node name="luggage" parent="." instance=ExtResource("8_vxmc4")]
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 18.3622, 3, 33.2047)
 
+[node name="Options Menu" type="Node3D" parent="."]
+
+[node name="luggage2" parent="Options Menu" instance=ExtResource("8_vxmc4")]
+transform = Transform3D(1.13133e-08, 0.258819, 0.965926, 1, -4.37114e-08, 0, 4.2222e-08, 0.965926, -0.258819, -13.0736, 5.31538, -2.23038)
+
+[node name="luggage3" parent="Options Menu" instance=ExtResource("8_vxmc4")]
+transform = Transform3D(0.5, -0.75, 0.433013, 0.836136, 0.548295, -0.0158119, -0.22556, 0.369963, 0.901249, -4.37206, 4.31538, -1.60532)
+
+[node name="Case" parent="Options Menu/luggage3" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fbgsc")
+
+[node name="luggage4" parent="Options Menu" instance=ExtResource("8_vxmc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4532, 3, -5.76783)
+
+[node name="Case" parent="Options Menu/luggage4" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ni8b3")
+
+[node name="luggage5" parent="Options Menu" instance=ExtResource("8_vxmc4")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.75903, 6, -5.67985)
+
+[node name="Case" parent="Options Menu/luggage5" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vxmc4")
+
+[node name="Options Menu Camera" type="Camera3D" parent="Options Menu"]
+transform = Transform3D(-0.0243974, -0.303075, 0.952654, 0, 0.952938, 0.303165, -0.999702, 0.00739644, -0.0232492, 10.6243, 19.6267, -2.90478)
+
 [connection signal="mouse_entered" from="Main Menu UI/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="Main Menu UI/Play" to="." method="_on_play_pressed"]
 [connection signal="mouse_entered" from="Main Menu UI/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="Main Menu UI/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="Main Menu UI/Credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="Main Menu UI/Credits" to="." method="_on_credits_pressed"]
+
+[editable path="Options Menu/luggage3"]
+[editable path="Options Menu/luggage4"]
+[editable path="Options Menu/luggage5"]

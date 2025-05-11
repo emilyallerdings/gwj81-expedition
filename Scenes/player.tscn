@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://hjiekxqvl8nf"]
+
+[ext_resource type="Script" uid="uid://bk7goqj06c30l" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://c3st1sbq1ewwj" path="res://Scenes/luggage.tscn" id="2_6t5aa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjgbg"]
+albedo_color = Color(0.176419, 0.176419, 0.176419, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bo1nx"]
+material = SubResource("StandardMaterial3D_jjgbg")
+size = Vector3(1, 1, 2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jjgbg"]
+points = PackedVector3Array(0.5, 0.5, 1, 0.5, -0.5, 1, 0.5, 0.5, -1, -0.5, 0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, -1, -0.5, 0.5, -1, -0.5, -0.5, -1)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_cvnsp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 3.9, 0)
+visible = false
+mesh = SubResource("BoxMesh_bo1nx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 3.9, 0)
+shape = SubResource("ConvexPolygonShape3D_jjgbg")
+
+[node name="luggage" parent="." instance=ExtResource("2_6t5aa")]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 0, 3, 0)
