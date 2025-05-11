@@ -9,8 +9,11 @@ var playing = false
 func _ready() -> void:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	SoundBus.song_1.play()
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 	playing = true
