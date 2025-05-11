@@ -28,4 +28,7 @@ shape = SubResource("BoxShape3D_cvnsp")
 [node name="luggage" parent="." instance=ExtResource("2_6t5aa")]
 transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 0, 3, 0)
 
+[node name="Cube" parent="luggage" index="2"]
+surface_material_override/0 = null
+
 [editable path="luggage"]

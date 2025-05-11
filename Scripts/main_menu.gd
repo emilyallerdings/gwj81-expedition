@@ -25,19 +25,38 @@ extends Node3D
 #endregion
 
 #region selection menu ui buttons
-
+@onready var selection_back = $"Selection Menu/Selection Menu UI/Selection Back"
+@onready var right_button = $"Selection Menu/Selection Menu UI/Right Button"
+@onready var left_button = $"Selection Menu/Selection Menu UI/Left Button"
+@onready var selection_play = $"Selection Menu/Selection Menu UI/Selection Play"
 #endregion
+
+@onready var selection_stage = $SelectionStage
 
 var camera_transition := false
 var transition_speed := 5.0
 var from_camera : Camera3D = null
 var to_camera : Camera3D = null
 
+var luggages : Array[PackedScene] = [preload("res://Scenes/luggage.tscn"), preload("res://Scenes/selection_test_luggage.tscn")]
+var i : int = 0
+var current_luggage_type = luggages[i]
+#enum luggage_types {
+	#BASIC,
+	#BIGDADDY,
+	#HOTROD,
+	#SPARKLECORN
+#}
+#
+#var current_luggage_type := luggage_types.BASIC
+
 func _ready() -> void:
 	SoundBus.airport_ambience.play()
 	main_menu_ui.visible = true
 	options_menu_ui.visible = false
+	selection_menu_ui.visible = false
 	suitecase_sprite.position = Vector2(play.position.x - 50.0, play.position.y + 35.0)
+	selection_stage.add_child(luggages[0].instantiate())
 
 func _process(delta: float) -> void:
 	lerp_camera(delta)
@@ -60,7 +79,8 @@ func transition_cameras(curr_camera: Camera3D, next_camera: Camera3D) -> void:
 	to_camera = next_camera
 	
 	camera_transition = true
-	
+
+#region button press logic
 func _on_play_pressed() -> void:
 	SoundBus.button.play()
 	SoundBus.whoosh.play()
@@ -69,6 +89,7 @@ func _on_play_pressed() -> void:
 	selection_menu_ui.visible = true
 	#await get_tree().create_timer(0.5).timeout
 	main_menu_ui.visible = false
+	suitecase_sprite.position = Vector2(selection_back.position.x - 50.0, selection_back.position.y + 35.0)
 
 func _on_options_pressed() -> void:
 	SoundBus.button.play()
@@ -90,9 +111,28 @@ func _on_options_back_pressed():
 	main_menu_ui.visible = true
 	suitecase_sprite.position = Vector2(options.position.x - 50.0, options.position.y + 35.0)
 
+func _on_selection_back_pressed():
+	SoundBus.button.play()
+	SoundBus.whoosh.play()
+	
+	transition_cameras(selection_menu_camera, main_menu_camera)
+	
+	selection_menu_ui.visible = false
+	#await get_tree().create_timer(0.5).timeout
+	main_menu_ui.visible = true
+	suitecase_sprite.position = Vector2(play.position.x - 50.0, play.position.y + 35.0)
+
 func _on_credits_pressed() -> void:
 	SoundBus.button.play()
 
+func _on_selection_play_pressed():
+	SoundBus.button.play()
+	SoundBus.whoosh.play()
+
+#endregion
+
+
+#region mouse hover logic
 func _on_play_mouse_entered() -> void:
 	suitecase_sprite.position = Vector2(play.position.x - 50.0, play.position.y + 35.0)
 	SoundBus.button_hover_click.play()
@@ -106,5 +146,34 @@ func _on_credits_mouse_entered() -> void:
 	SoundBus.button_hover_click.play()
 
 func _on_options_back_mouse_entered() -> void:
-	SoundBus.button_hover_click.play()
 	suitecase_sprite.position = Vector2(options_back.position.x - 50.0, options_back.position.y + 35.0)
+	SoundBus.button_hover_click.play()
+
+func _on_selection_back_mouse_entered():
+	suitecase_sprite.position = Vector2(selection_back.position.x - 50.0, selection_back.position.y + 35.0)
+	SoundBus.button_hover_click.play()
+
+func _on_selection_play_mouse_entered():
+	suitecase_sprite.position = Vector2(selection_play.position.x - 50.0, selection_play.position.y + 35.0)
+	SoundBus.button_hover_click.play()
+#endregion
+
+
+func _on_right_button_pressed():
+	
+	i = (i + 1) % len(luggages)
+	var luggage = luggages[i].instantiate()
+	selection_stage.get_child(0).queue_free()
+	selection_stage.add_child(luggage)
+	
+	
+	#match current_luggage_type:
+		#
+		#luggage_types.BASIC:
+			#pass
+		#luggage_types.BIGDADDY:
+			#pass
+		#luggage_types.HOTROD:
+			#pass
+		#luggage_types.SPARKLECORN:
+			#pass

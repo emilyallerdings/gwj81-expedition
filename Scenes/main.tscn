@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://gavvic7ehdce" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="Script" path="res://Scripts/boarding_ramp.gd" id="2_6bp64"]
 [ext_resource type="Material" uid="uid://be84a2c0jteaf" path="res://Materials/side_mat.tres" id="2_8gbba"]
-[ext_resource type="BoxMesh" path="res://Assets/pillar.tres" id="3_344ge"]
+[ext_resource type="BoxMesh" uid="uid://v8vbrc02ekty" path="res://Assets/pillar.tres" id="3_344ge"]
 [ext_resource type="Script" uid="uid://clhf3pglcbiyf" path="res://Scripts/pillars.gd" id="3_jjvhh"]
 [ext_resource type="BoxMesh" uid="uid://dxbiwm4aixnwi" path="res://Assets/window.tres" id="6_hptm8"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="7_6bp64"]
