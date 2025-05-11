@@ -351,8 +351,8 @@ text = "Fly!"
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 54.498, 3, -37.5734)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(-0.717844, -0.661484, -0.217116, 0.0135006, -0.325025, 0.945609, -0.696073, 0.675868, 0.242247, 49.2127, 30.8952, -32.1071)
-light_energy = 50.0
+transform = Transform3D(-0.733117, -0.679142, 0.0361344, 0, 0.0531308, 0.998588, -0.680103, 0.732081, -0.0389511, 53.3648, 35.1774, -36.1202)
+light_energy = 500.0
 light_volumetric_fog_energy = 50.0
 shadow_enabled = true
 spot_range = 28.667

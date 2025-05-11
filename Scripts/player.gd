@@ -20,6 +20,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	
+	#if not is_on_floor():
+		#velocity.y += -9.81 * delta
 	# Always move forward
 	forward_direction = transform.basis.z
 
@@ -56,3 +59,9 @@ func _physics_process(delta: float) -> void:
 
 	# Move the luggage
 	move_and_slide()
+
+func play_rolling():
+	if velocity.length() > 0.1:
+		SoundBus.rolling_suitcase.play()
+	else:
+		SoundBus.rolling_suitcase.stop()

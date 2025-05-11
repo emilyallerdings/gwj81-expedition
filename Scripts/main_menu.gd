@@ -67,7 +67,7 @@ func _on_play_pressed() -> void:
 	transition_cameras(main_menu_camera, selection_menu_camera)
 	
 	selection_menu_ui.visible = true
-	await get_tree().create_timer(0.5)
+	#await get_tree().create_timer(0.5).timeout
 	main_menu_ui.visible = false
 
 func _on_options_pressed() -> void:
@@ -76,7 +76,7 @@ func _on_options_pressed() -> void:
 	transition_cameras(main_menu_camera, options_menu_camera)
 	
 	main_menu_ui.visible = false
-	await get_tree().create_timer(0.5)
+	#await get_tree().create_timer(0.5).timeout
 	options_menu_ui.visible = true
 	suitecase_sprite.position = Vector2(options_back.position.x - 50.0, options_back.position.y + 35.0)
 
@@ -86,7 +86,7 @@ func _on_options_back_pressed():
 	transition_cameras(options_menu_camera, main_menu_camera)
 	
 	options_menu_ui.visible = false
-	await get_tree().create_timer(0.5)
+	#await get_tree().create_timer(0.5).timeout
 	main_menu_ui.visible = true
 	suitecase_sprite.position = Vector2(options.position.x - 50.0, options.position.y + 35.0)
 
