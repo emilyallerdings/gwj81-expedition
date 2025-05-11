@@ -22,6 +22,9 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Always move forward
+	if not is_on_floor():
+		velocity.y += -9.81 * delta
+	
 	forward_direction = transform.basis.z
 
 	# Get input for turning
@@ -53,10 +56,11 @@ func _physics_process(delta: float) -> void:
 
 	# Smooth velocity adjustment
 	velocity = lerp(velocity, target_velocity, smooth_factor)
-	print(velocity)
-
-	# Move the luggage
+	#print(velocity)
 	
+	# TODO implement aligning to track
+	
+	# Move the luggage
 	play_wheel_sound()
 	move_and_slide()
 
