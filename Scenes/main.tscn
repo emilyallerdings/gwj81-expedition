@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ckjr7lbj1cxxq"]
+[gd_scene load_steps=13 format=3 uid="uid://ckjr7lbj1cxxq"]
 
 [ext_resource type="Script" uid="uid://gavvic7ehdce" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="Material" uid="uid://be84a2c0jteaf" path="res://Materials/side_mat.tres" id="2_8gbba"]
@@ -44,9 +44,7 @@ size = Vector3(0.5, 2, 200)
 albedo_color = Color(0.140447, 0.140447, 0.140447, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jjgbg"]
-lightmap_size_hint = Vector2i(502, 2502)
 material = SubResource("StandardMaterial3D_7u77a")
-add_uv2 = true
 size = Vector2(100, 500)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bo1nx"]
@@ -75,64 +73,53 @@ albedo_color = Color(1, 1, 1, 0.207843)
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jjgbg")
 
-[node name="BoardingRamp" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-script = ExtResource("2_21xkr")
-length = 300.0
-
-[node name="PillarsLeft" type="MultiMeshInstance3D" parent="BoardingRamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -5)
-multimesh = SubResource("MultiMesh_21xkr")
-script = ExtResource("3_jjvhh")
-
-[node name="PillarsRight" type="MultiMeshInstance3D" parent="BoardingRamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -5)
-multimesh = SubResource("MultiMesh_21xkr")
-script = ExtResource("3_jjvhh")
-
-[node name="Floor" type="StaticBody3D" parent="BoardingRamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 145)
-
-[node name="FloorMesh" type="MeshInstance3D" parent="BoardingRamp/Floor"]
-mesh = SubResource("BoxMesh_6bp64")
-
-[node name="Roof" type="StaticBody3D" parent="BoardingRamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.10206, 145)
-
-[node name="RoofMesh" type="MeshInstance3D" parent="BoardingRamp/Roof"]
-mesh = SubResource("BoxMesh_ynf5e")
-
-[node name="SideLeft" type="StaticBody3D" parent="BoardingRamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 145)
-
-[node name="SideLeftMesh" type="MeshInstance3D" parent="BoardingRamp/SideLeft"]
-mesh = SubResource("BoxMesh_21xkr")
-
-[node name="SideLeftColl" type="CollisionShape3D" parent="BoardingRamp/SideLeft"]
-shape = SubResource("BoxShape3D_21xkr")
-
-[node name="SideRight" type="StaticBody3D" parent="BoardingRamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 145)
-
-[node name="SideRightMesh" type="MeshInstance3D" parent="BoardingRamp/SideRight"]
-mesh = SubResource("BoxMesh_21xkr")
-
-[node name="SideRightColl" type="CollisionShape3D" parent="BoardingRamp/SideRight"]
-shape = SubResource("BoxShape3D_21xkr")
-
-[node name="WindowLeft" type="MeshInstance3D" parent="BoardingRamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 6.01, 145)
-mesh = ExtResource("6_hptm8")
-
-[node name="WindowRight" type="MeshInstance3D" parent="BoardingRamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 6.001, 145)
-mesh = ExtResource("6_hptm8")
-
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_jjgbg")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jjvhh")
+
+[node name="PillarsLeft" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 5, -5)
+multimesh = SubResource("MultiMesh_21xkr")
+script = ExtResource("3_jjvhh")
+
+[node name="PillarsRight" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75, 5, -5)
+multimesh = SubResource("MultiMesh_21xkr")
+script = ExtResource("3_jjvhh")
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 95)
+use_collision = true
+size = Vector3(8, 0.1, 200)
+material = ExtResource("2_8gbba")
+
+[node name="SideLeft" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 1, 0)
+use_collision = true
+size = Vector3(0.5, 2, 200)
+material = ExtResource("2_8gbba")
+
+[node name="SideRight" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75, 1, 0)
+use_collision = true
+size = Vector3(0.5, 2, 200)
+material = ExtResource("2_8gbba")
+
+[node name="WindowRight" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75, 4.501, 0)
+cast_shadow = 0
+use_collision = true
+size = Vector3(0.1, 5, 200)
+material = SubResource("StandardMaterial3D_jjvhh")
+
+[node name="WindowLeft" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 4.501, 0)
+cast_shadow = 0
+use_collision = true
+size = Vector3(0.1, 5, 200)
+material = SubResource("StandardMaterial3D_jjvhh")
 
 [node name="MainCamera" type="Camera3D" parent="."]
 transform = Transform3D(-1, 8.72541e-08, -1.23233e-07, 0, 0.816138, 0.577858, 1.50996e-07, 0.577858, -0.816138, 0, 8.5, -2.5)
@@ -141,10 +128,6 @@ fov = 80.0
 
 [node name="Player" parent="." instance=ExtResource("4_jjvhh")]
 
-[node name="luggage" parent="Player" instance=ExtResource("5_kry3j")]
-transform = Transform3D(-8.74228e-09, -1.71612e-16, -0.2, 0.175167, 0.096522, -7.6568e-09, 0.096522, -0.175167, -4.21911e-09, 0, 3.41741, 1.04387)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.602206, -0.740214, 0.299052, 0.210739, 0.508695, 0.834756, -0.770025, -0.439673, 0.462331, 0, 0, 0)
-light_bake_mode = 1
 shadow_enabled = true

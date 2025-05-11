@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="GWJ81-Expedition"
-run/main_scene="uid://cua0fhfbu5gg1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://dvpdrtsv0ogbq"
 config/icon="res://icon.svg"
@@ -68,6 +67,10 @@ common/enable_object_picking=false
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=2
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=4
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality.mobile=2
 
 [shader_globals]
 
