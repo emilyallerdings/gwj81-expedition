@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://dvqp7asptarb8"]
 
-[ext_resource type="FontFile" uid="uid://bafns24uaw6y5" path="res://Materials/NixieOne.ttf" id="1_88cmt"]
+[ext_resource type="FontFile" uid="uid://d4da0phun8v4d" path="res://Materials/Fair Prosper.ttf" id="1_c5ure"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_88cmt"]
 
@@ -75,11 +75,12 @@ Button/colors/icon_hover_color = Color(1, 1, 1, 1)
 Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/icon_normal_color = Color(1, 1, 1, 1)
 Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
-Button/fonts/font = ExtResource("1_88cmt")
+Button/font_sizes/font_size = 50
+Button/fonts/font = ExtResource("1_c5ure")
 Button/styles/disabled = null
 Button/styles/focus = SubResource("StyleBoxEmpty_88cmt")
 Button/styles/hover = SubResource("StyleBoxFlat_5dbda")
 Button/styles/normal = SubResource("StyleBoxFlat_ycoxo")
 Button/styles/pressed = SubResource("StyleBoxFlat_34v3d")
 RichTextLabel/font_sizes/normal_font_size = 50
-RichTextLabel/fonts/normal_font = ExtResource("1_88cmt")
+RichTextLabel/fonts/normal_font = ExtResource("1_c5ure")

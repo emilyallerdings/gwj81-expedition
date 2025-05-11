@@ -1,0 +1,372 @@
+[gd_scene load_steps=24 format=3 uid="uid://cua0fhfbu5gg1"]
+
+[ext_resource type="Script" uid="uid://ieq2hasgdd62" path="res://Scripts/main_menu.gd" id="1_yhxw7"]
+[ext_resource type="PackedScene" uid="uid://cl844rkgxivpm" path="res://Assets/selectionroom.glb" id="2_trj04"]
+[ext_resource type="Shader" uid="uid://ud44g8ahsyxi" path="res://Materials/pseudo_3d.gdshader" id="3_16hvj"]
+[ext_resource type="Texture2D" uid="uid://ge4oyevnnxel" path="res://UI Assets/suitecase_sprite.png" id="4_vr1f0"]
+[ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="5_t1dhk"]
+[ext_resource type="FontFile" uid="uid://d4da0phun8v4d" path="res://Materials/Fair Prosper.ttf" id="6_5egv6"]
+[ext_resource type="Texture2D" uid="uid://crjk38l5pjmae" path="res://UI Assets/title_splash.png" id="7_vtepg"]
+[ext_resource type="PackedScene" uid="uid://c3st1sbq1ewwj" path="res://Scenes/luggage.tscn" id="8_8dnnj"]
+[ext_resource type="Texture2D" uid="uid://drup8k7ldow28" path="res://UI Assets/PNG/Grey/Double/arrow_basic_e.png" id="9_16hvj"]
+[ext_resource type="Texture2D" uid="uid://dbny84hi1f3de" path="res://UI Assets/PNG/Yellow/Double/arrow_basic_e.png" id="9_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://d0fyfowx2t2an" path="res://UI Assets/PNG/Yellow/Double/arrow_basic_w.png" id="10_t1dhk"]
+[ext_resource type="Texture2D" uid="uid://bcstmcu7cxqvx" path="res://UI Assets/PNG/Grey/Double/arrow_basic_w.png" id="10_vr1f0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m6x4c"]
+
+[sub_resource type="Sky" id="Sky_oqbs2"]
+sky_material = SubResource("ProceduralSkyMaterial_m6x4c")
+
+[sub_resource type="Environment" id="Environment_5dbda"]
+background_mode = 2
+sky = SubResource("Sky_oqbs2")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbgsc"]
+shader = ExtResource("3_16hvj")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 2.00001
+shader_parameter/x_rot = 2.00001
+shader_parameter/inset = 0.0
+shader_parameter/hovering = 0.0
+shader_parameter/rand_trans_power = 1.0
+shader_parameter/rand_seed = 0.5
+shader_parameter/vortex_amt = 0.0
+shader_parameter/rotation = 1.49012e-07
+shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbgsc"]
+albedo_color = Color(0.552962, 1.35969e-06, 4.81307e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ni8b3"]
+albedo_color = Color(0.620041, 0.620041, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxmc4"]
+albedo_color = Color(0.521141, 0.521141, 0.521141, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16hvj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1dhk"]
+texture = ExtResource("9_vr1f0")
+expand_margin_right = 70.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vr1f0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5egv6"]
+texture = ExtResource("10_t1dhk")
+
+[node name="Main Menu" type="Node3D"]
+script = ExtResource("1_yhxw7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5dbda")
+
+[node name="selectionroom" parent="." instance=ExtResource("2_trj04")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -3.75321, 0, 26.172)
+
+[node name="selectionroom2" parent="." instance=ExtResource("2_trj04")]
+transform = Transform3D(-0.720418, 0, -0.69354, 0, 1, 0, 0.69354, 0, -0.720418, 70.7084, -3.8147e-06, -49.8002)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.973853, -0.18732, 0.128535, -8.27961e-09, 0.565788, 0.824551, -0.227178, -0.802992, 0.550994, 0, 0, 0)
+light_energy = 16.0
+shadow_enabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9564, 12.5784, 0)
+light_energy = 25.0
+light_volumetric_fog_energy = 10.0
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 50.0
+
+[node name="SuitecaseSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_fbgsc")
+position = Vector2(-80, 352)
+scale = Vector2(0.785156, 0.785156)
+texture = ExtResource("4_vr1f0")
+
+[node name="Main Menu" type="Node3D" parent="."]
+
+[node name="Main Menu Camera" type="Camera3D" parent="Main Menu"]
+transform = Transform3D(-0.815614, -0.17541, 0.551366, 0, 0.952938, 0.303165, -0.578596, 0.247266, -0.77723, 25.7932, 17.8789, 20.6814)
+
+[node name="Main Menu UI" type="Control" parent="Main Menu"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="Main Menu/Main Menu UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 23.0
+offset_top = 60.0
+offset_right = -26.0
+offset_bottom = 208.0
+grow_horizontal = 2
+theme = ExtResource("5_t1dhk")
+theme_override_colors/font_outline_color = Color(0.964367, 0.596282, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("6_5egv6")
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[color=#005EF6]A Stirring in Paradise[/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="Main Menu/Main Menu UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 114.0
+offset_top = -43.0
+offset_right = 240.0
+offset_bottom = 43.0
+grow_vertical = 2
+theme = ExtResource("5_t1dhk")
+theme_override_fonts/font = ExtResource("6_5egv6")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Options" type="Button" parent="Main Menu/Main Menu UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 114.0
+offset_top = 77.0
+offset_right = 263.0
+offset_bottom = 163.0
+grow_vertical = 2
+theme = ExtResource("5_t1dhk")
+theme_override_fonts/font = ExtResource("6_5egv6")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="Credits" type="Button" parent="Main Menu/Main Menu UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 114.0
+offset_top = 197.0
+offset_right = 256.0
+offset_bottom = 283.0
+grow_vertical = 2
+theme = ExtResource("5_t1dhk")
+theme_override_fonts/font = ExtResource("6_5egv6")
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+
+[node name="TitleSplash" type="Sprite2D" parent="Main Menu/Main Menu UI"]
+show_behind_parent = true
+position = Vector2(623, 100)
+scale = Vector2(3, 3)
+texture = ExtResource("7_vtepg")
+
+[node name="luggage" parent="Main Menu" instance=ExtResource("8_8dnnj")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 18.3622, 3, 33.2047)
+
+[node name="Options Menu" type="Node3D" parent="."]
+
+[node name="luggage2" parent="Options Menu" instance=ExtResource("8_8dnnj")]
+transform = Transform3D(1.13133e-08, 0.258819, 0.965926, 1, -4.37114e-08, 0, 4.2222e-08, 0.965926, -0.258819, -13.0736, 5.31538, -2.23038)
+
+[node name="luggage3" parent="Options Menu" instance=ExtResource("8_8dnnj")]
+transform = Transform3D(0.5, -0.75, 0.433013, 0.836136, 0.548295, -0.0158119, -0.22556, 0.369963, 0.901249, -4.37206, 4.31538, -1.60532)
+
+[node name="Case" parent="Options Menu/luggage3" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fbgsc")
+
+[node name="luggage4" parent="Options Menu" instance=ExtResource("8_8dnnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4532, 3, -5.76783)
+
+[node name="Case" parent="Options Menu/luggage4" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ni8b3")
+
+[node name="luggage5" parent="Options Menu" instance=ExtResource("8_8dnnj")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.75903, 6, -5.67985)
+
+[node name="Case" parent="Options Menu/luggage5" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vxmc4")
+
+[node name="Options Menu Camera" type="Camera3D" parent="Options Menu"]
+transform = Transform3D(-0.0243974, -0.303075, 0.952654, 0, 0.952938, 0.303165, -0.999702, 0.00739644, -0.0232492, 10.6243, 19.6267, -2.90478)
+
+[node name="Options Menu UI" type="Control" parent="Options Menu"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" type="RichTextLabel" parent="Options Menu/Options Menu UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 23.0
+offset_top = 13.0
+offset_right = -26.0
+offset_bottom = 161.0
+grow_horizontal = 2
+theme = ExtResource("5_t1dhk")
+theme_override_colors/font_outline_color = Color(0.964367, 0.596282, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("6_5egv6")
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[color=#005EF6]Options[/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options Back" type="Button" parent="Options Menu/Options Menu UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -116.0
+offset_right = 50.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_t1dhk")
+theme_override_fonts/font = ExtResource("6_5egv6")
+text = "Back"
+
+[node name="Selection Menu" type="Node3D" parent="."]
+
+[node name="Selection Menu Camera" type="Camera3D" parent="Selection Menu"]
+transform = Transform3D(0.702745, 0.232159, -0.672497, 0, 0.945259, 0.326321, 0.711442, -0.22932, 0.664276, 39.0334, 20.0006, -22.1463)
+
+[node name="Selection Menu UI" type="Control" parent="Selection Menu"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Selection" type="RichTextLabel" parent="Selection Menu/Selection Menu UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 23.0
+offset_top = 5.0
+offset_right = -26.0
+offset_bottom = 153.0
+grow_horizontal = 2
+theme = ExtResource("5_t1dhk")
+theme_override_colors/font_outline_color = Color(0.964367, 0.596282, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("6_5egv6")
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[color=#005EF6]Find Your Luggage[/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Selection Back" type="Button" parent="Selection Menu/Selection Menu UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = -121.0
+offset_right = 145.0
+offset_bottom = -35.0
+grow_vertical = 0
+theme = ExtResource("5_t1dhk")
+text = "Back"
+
+[node name="Right Button" type="Button" parent="Selection Menu/Selection Menu UI"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -372.0
+offset_top = -36.0
+offset_right = -300.0
+offset_bottom = 36.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/icon_hover_color = Color(0.972549, 0.796078, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.972549, 0.796078, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_16hvj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t1dhk")
+icon = ExtResource("9_16hvj")
+flat = true
+
+[node name="Left Button" type="Button" parent="Selection Menu/Selection Menu UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 300.0
+offset_top = -36.0
+offset_right = 372.0
+offset_bottom = 36.0
+grow_vertical = 2
+theme_override_colors/icon_hover_color = Color(0.972549, 0.796078, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.972549, 0.796078, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vr1f0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5egv6")
+icon = ExtResource("10_vr1f0")
+flat = true
+
+[node name="Selection Play" type="Button" parent="Selection Menu/Selection Menu UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -121.0
+offset_right = -41.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("5_t1dhk")
+text = "Fly!"
+
+[node name="luggage" parent="." instance=ExtResource("8_8dnnj")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 54.498, 3, -37.5734)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.696515, -0.717542, 0.00057136, 0, 0.000796274, 1, -0.717542, 0.696515, -0.000554617, 54.2699, 30.8952, -37.102)
+light_energy = 50.0
+light_volumetric_fog_energy = 50.0
+shadow_enabled = true
+spot_range = 28.667
+spot_angle = 12.43
+
+[connection signal="mouse_entered" from="Main Menu/Main Menu UI/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="Main Menu/Main Menu UI/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Main Menu/Main Menu UI/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="Main Menu/Main Menu UI/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="Main Menu/Main Menu UI/Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="pressed" from="Main Menu/Main Menu UI/Credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="Options Menu/Options Menu UI/Options Back" to="." method="_on_options_back_mouse_entered"]
+[connection signal="pressed" from="Options Menu/Options Menu UI/Options Back" to="." method="_on_options_back_pressed"]
+
+[editable path="Options Menu/luggage3"]
+[editable path="Options Menu/luggage4"]
+[editable path="Options Menu/luggage5"]
