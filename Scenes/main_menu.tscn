@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ieq2hasgdd62" path="res://Scripts/main_menu.gd" id="1_yhxw7"]
 [ext_resource type="PackedScene" uid="uid://cl844rkgxivpm" path="res://Assets/selectionroom.glb" id="2_trj04"]
-[ext_resource type="Shader" path="res://Materials/pseudo_3d.gdshader" id="3_16hvj"]
+[ext_resource type="Shader" uid="uid://ud44g8ahsyxi" path="res://Materials/pseudo_3d.gdshader" id="3_16hvj"]
 [ext_resource type="Texture2D" uid="uid://ge4oyevnnxel" path="res://UI Assets/suitecase_sprite.png" id="4_vr1f0"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="5_t1dhk"]
 [ext_resource type="FontFile" uid="uid://d4da0phun8v4d" path="res://Materials/Fair Prosper.ttf" id="6_5egv6"]
@@ -351,7 +351,7 @@ text = "Fly!"
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 54.498, 3, -37.5734)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(-0.696515, -0.717542, 0.00057136, 0, 0.000796274, 1, -0.717542, 0.696515, -0.000554617, 54.2699, 30.8952, -37.102)
+transform = Transform3D(-0.717844, -0.661484, -0.217116, 0.0135006, -0.325025, 0.945609, -0.696073, 0.675868, 0.242247, 49.2127, 30.8952, -32.1071)
 light_energy = 50.0
 light_volumetric_fog_energy = 50.0
 shadow_enabled = true
