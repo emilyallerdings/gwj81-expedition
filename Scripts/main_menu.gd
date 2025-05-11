@@ -1,60 +1,96 @@
 extends Node3D
 
+@onready var suitecase_sprite = $SuitecaseSprite
+
 #region menus
-@onready var main_menu_ui = $"Main Menu UI"
-@onready var main_menu_camera = $"Main Menu Camera"
+@onready var main_menu_ui = $"Main Menu/Main Menu UI"
+@onready var options_menu_ui = $"Options Menu/Options Menu UI"
+
+@onready var main_menu_camera = $"Main Menu/Main Menu Camera"
 @onready var options_menu_camera = $"Options Menu/Options Menu Camera"
 #endregion
 
-@onready var play = $"Main Menu UI/Play"
-@onready var options = $"Main Menu UI/Options"
-@onready var credits = $"Main Menu UI/Credits"
-@onready var suitecase_sprite = $"Main Menu UI/SuitecaseSprite"
+#region main menu ui buttons
+@onready var play = $"Main Menu/Main Menu UI/Play"
+@onready var options = $"Main Menu/Main Menu UI/Options"
+@onready var credits = $"Main Menu/Main Menu UI/Credits"
+#endregion
 
-var is_lerping_to_options := false
+#region options menu ui buttons
+@onready var options_back = $"Options Menu/Options Menu UI/Options Back"
+#endregion
+
+var camera_transition := false
 var transition_speed := 5.0
+var from_camera : Camera3D = null
+var to_camera : Camera3D = null
 
 func _ready() -> void:
 	SoundBus.airport_ambience.play()
+	main_menu_ui.visible = true
+	options_menu_ui.visible = false
 	suitecase_sprite.position = Vector2(play.position.x - 50.0, play.position.y + 35.0)
 
 func _process(delta: float) -> void:
 	lerp_camera(delta)
+	pass
 
 func lerp_camera(delta: float) -> void:
-	if is_lerping_to_options and main_menu_camera:
-		# Interpolate position
-		var target_pos = options_menu_camera.global_transform.origin
-		var new_pos = main_menu_camera.global_transform.origin.lerp(target_pos, delta * transition_speed)  # adjust speed
+	
+	if camera_transition:
+		to_camera.make_current()
+		from_camera.clear_current()
+		
+		# no idea how to make the camera switch smooth
+		#from_camera.position.slerp(to_camera.position, transition_speed)
+		#from_camera.rotation.slerp(to_camera.rotation, transition_speed)
+		camera_transition = false
+	
 
-		# Interpolate rotation (using basis slerp)
-		var target_basis = options_menu_camera.global_transform.basis
-		var new_basis = main_menu_camera.global_transform.basis.slerp(target_basis, delta * transition_speed)
-
-		# Apply new transform
-		main_menu_camera.global_transform = Transform3D(new_basis, new_pos)
-
-		# Stop lerping when close enough
-		if main_menu_camera.global_transform.origin.distance_to(target_pos) < 0.1:
-			is_lerping_to_options = false
-			options_menu_camera.make_current()
-
+func transition_cameras(curr_camera: Camera3D, next_camera: Camera3D) -> void:
+	from_camera = curr_camera
+	to_camera = next_camera
+	
+	camera_transition = true
+	
 func _on_play_pressed() -> void:
 	SoundBus.button.play()
 
 func _on_options_pressed() -> void:
 	SoundBus.button.play()
-	is_lerping_to_options = true
+	SoundBus.whoosh.play()
+	transition_cameras(main_menu_camera, options_menu_camera)
+	
+	main_menu_ui.visible = false
+	await get_tree().create_timer(0.5)
+	options_menu_ui.visible = true
+	suitecase_sprite.position = Vector2(options_back.position.x - 50.0, options_back.position.y + 35.0)
+
+func _on_options_back_pressed():
+	SoundBus.button.play()
+	SoundBus.whoosh.play()
+	transition_cameras(options_menu_camera, main_menu_camera)
+	
+	options_menu_ui.visible = false
+	await get_tree().create_timer(0.5)
+	main_menu_ui.visible = true
+	suitecase_sprite.position = Vector2(options.position.x - 50.0, options.position.y + 35.0)
 
 func _on_credits_pressed() -> void:
 	SoundBus.button.play()
 
 func _on_play_mouse_entered() -> void:
-	print(play.position)
 	suitecase_sprite.position = Vector2(play.position.x - 50.0, play.position.y + 35.0)
+	SoundBus.button_hover_click.play()
 
 func _on_options_mouse_entered() -> void:
 	suitecase_sprite.position = Vector2(options.position.x - 50.0, options.position.y + 35.0)
+	SoundBus.button_hover_click.play()
 
 func _on_credits_mouse_entered() -> void:
 	suitecase_sprite.position = Vector2(credits.position.x - 50.0, credits.position.y + 35.0)
+	SoundBus.button_hover_click.play()
+
+func _on_options_back_mouse_entered():
+	SoundBus.button_hover_click.play()
+	suitecase_sprite.position = Vector2(options_back.position.x - 50.0, options_back.position.y + 35.0)
