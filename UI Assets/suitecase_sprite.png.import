@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ge4oyevnnxel"
-path="res://.godot/imported/suitecase_sprite.png-15983e0ca1550193215ab47173d3c71d.ctex"
+path="res://.godot/imported/suitecase_sprite.png-f8ba7bd579421951363c405f8a488fe5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/suitecase_sprite.png"
-dest_files=["res://.godot/imported/suitecase_sprite.png-15983e0ca1550193215ab47173d3c71d.ctex"]
+source_file="res://UI Assets/suitecase_sprite.png"
+dest_files=["res://.godot/imported/suitecase_sprite.png-f8ba7bd579421951363c405f8a488fe5.ctex"]
 
 [params]
 

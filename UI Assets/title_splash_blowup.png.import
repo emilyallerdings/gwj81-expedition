@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvpdrtsv0ogbq"
-path="res://.godot/imported/title_splash_blowup.png-1920873cd2a8b5b045d30667aaef4187.ctex"
+path="res://.godot/imported/title_splash_blowup.png-a214e69c343810dbb56ad40487197096.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/title_splash_blowup.png"
-dest_files=["res://.godot/imported/title_splash_blowup.png-1920873cd2a8b5b045d30667aaef4187.ctex"]
+source_file="res://UI Assets/title_splash_blowup.png"
+dest_files=["res://.godot/imported/title_splash_blowup.png-a214e69c343810dbb56ad40487197096.ctex"]
 
 [params]
 
