@@ -12,3 +12,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	main_camera.global_position.z = $Player.global_position.z - 2.5
 	pass
+
+# YAY
