@@ -1,15 +1,4 @@
 extends Node
 
-#region sfx
 @onready var airport_ambience = $"Airport Ambience"
 @onready var button = $Button
-@onready var rolling_suitcase = $"Rolling Suitcase"
-@onready var button_hover_click = $"Button Hover Click"
-@onready var whoosh = $Whoosh
-
-#endregion
-
-#region music
-@onready var song_1 = $Song1
-
-#endregion

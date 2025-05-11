@@ -1,12 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqxl7brt3g1wi"]
+[gd_scene load_steps=4 format=3 uid="uid://dqxl7brt3g1wi"]
 
 [ext_resource type="Script" uid="uid://bijmlxakyblxw" path="res://Scripts/sound_bus.gd" id="1_oofcd"]
 [ext_resource type="AudioStream" uid="uid://c3ynucxb1maka" path="res://Sounds/airport_ambience_with_planes.ogg" id="2_otb3e"]
 [ext_resource type="AudioStream" uid="uid://cx1e1cs24em1k" path="res://Sounds/airport_button.ogg" id="3_otb3e"]
-[ext_resource type="AudioStream" uid="uid://bbiieojf6d6te" path="res://Sounds/luggage_rolling.ogg" id="4_yghvr"]
-[ext_resource type="AudioStream" uid="uid://caypbwsrlveqw" path="res://Sounds/click.ogg" id="5_qdc24"]
-[ext_resource type="AudioStream" uid="uid://x0j456glqskj" path="res://Sounds/giant_steps.ogg" id="5_s22cy"]
-[ext_resource type="AudioStream" uid="uid://b132spue567og" path="res://Sounds/whoosh.ogg" id="6_4mo3c"]
 
 [node name="SoundBus" type="Node"]
 script = ExtResource("1_oofcd")
@@ -14,34 +10,7 @@ script = ExtResource("1_oofcd")
 [node name="Airport Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_otb3e")
 volume_db = -5.0
-bus = &"SFX"
 
 [node name="Button" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_otb3e")
 volume_db = -5.0
-bus = &"SFX"
-
-[node name="Rolling Suitcase" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_yghvr")
-volume_db = -5.0
-bus = &"SFX"
-
-[node name="Button Hover Click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_qdc24")
-volume_db = -5.0
-max_polyphony = 10
-bus = &"SFX"
-
-[node name="Whoosh" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_4mo3c")
-volume_db = -5.0
-max_polyphony = 10
-bus = &"SFX"
-
-[node name="Song1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_s22cy")
-volume_db = -5.0
-bus = &"Music"
-
-[node name="Song2" type="AudioStreamPlayer" parent="."]
-bus = &"Music"

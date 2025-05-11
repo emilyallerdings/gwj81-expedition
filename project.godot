@@ -11,14 +11,10 @@ config_version=5
 [application]
 
 config/name="GWJ81-Expedition"
-run/main_scene="uid://cua0fhfbu5gg1"
+run/main_scene="uid://ckjr7lbj1cxxq"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://dvpdrtsv0ogbq"
 config/icon="res://icon.svg"
-
-[audio]
-
-buses/default_bus_layout="res://Sounds/default_bus_layout.tres"
 
 [autoload]
 
