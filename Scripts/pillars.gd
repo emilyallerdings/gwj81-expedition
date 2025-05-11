@@ -3,9 +3,6 @@ extends MultiMeshInstance3D
 class_name MultiPillar
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	remesh(50)
 
 func remesh(num):
 	multimesh.instance_count = num
