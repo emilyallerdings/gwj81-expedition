@@ -5,12 +5,7 @@
 [ext_resource type="Material" uid="uid://be84a2c0jteaf" path="res://Materials/side_mat.tres" id="2_8gbba"]
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 [ext_resource type="BoxMesh" path="res://Assets/pillar.tres" id="3_344ge"]
-=======
-[ext_resource type="Script" uid="uid://bk7goqj06c30l" path="res://Scripts/player.gd" id="2_bo1nx"]
-[ext_resource type="BoxMesh" uid="uid://v8vbrc02ekty" path="res://Assets/pillar.tres" id="3_344ge"]
->>>>>>> Stashed changes
 =======
 [ext_resource type="Script" uid="uid://bk7goqj06c30l" path="res://Scripts/player.gd" id="2_bo1nx"]
 [ext_resource type="BoxMesh" uid="uid://v8vbrc02ekty" path="res://Assets/pillar.tres" id="3_344ge"]
