@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cua0fhfbu5gg1"]
+[gd_scene load_steps=9 format=3 uid="uid://cua0fhfbu5gg1"]
 
+[ext_resource type="Script" uid="uid://ieq2hasgdd62" path="res://Scripts/main_menu.gd" id="1_34v3d"]
 [ext_resource type="PackedScene" uid="uid://cl844rkgxivpm" path="res://Assets/selectionroom.glb" id="1_m6x4c"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="2_5dbda"]
 [ext_resource type="FontFile" uid="uid://d4da0phun8v4d" path="res://Materials/Fair Prosper.ttf" id="3_ycoxo"]
@@ -16,6 +17,7 @@ background_mode = 2
 sky = SubResource("Sky_oqbs2")
 
 [node name="Main Menu" type="Node3D"]
+script = ExtResource("1_34v3d")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.985313, -0.0441959, 0.164941, -1.13133e-08, 0.965926, 0.258819, -0.17076, 0.255018, -0.951739, 19.3777, 6.36014, 30.0742)
@@ -90,3 +92,7 @@ show_behind_parent = true
 position = Vector2(623, 100)
 scale = Vector2(3, 3)
 texture = ExtResource("4_ycoxo")
+
+[connection signal="pressed" from="Main Menu UI/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main Menu UI/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Main Menu UI/Credits" to="." method="_on_credits_pressed"]

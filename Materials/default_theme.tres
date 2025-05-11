@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_88cmt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dbda"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.758192, 0.758192, 0.758192, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -64,8 +64,8 @@ shadow_offset = Vector2(-2, 2)
 [resource]
 Button/colors/font_color = Color(0, 0.419608, 0.87451, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
-Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_focus_color = Color(0, 0.419608, 0.87451, 1)
+Button/colors/font_hover_color = Color(0.964706, 0.596078, 0, 1)
 Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0, 0.419608, 0.87451, 1)

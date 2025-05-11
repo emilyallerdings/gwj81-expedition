@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://dvpdrtsv0ogbq"
 config/icon="res://icon.svg"
 
+[autoload]
+
+SoundBus="*res://Scenes/sound_bus.tscn"
+
 [file_customization]
 
 folder_colors={
@@ -23,6 +27,7 @@ folder_colors={
 "res://Materials/": "yellow",
 "res://Scenes/": "red",
 "res://Scripts/": "blue",
+"res://Sounds/": "green",
 "res://UI Assets/": "purple"
 }
 
