@@ -13,13 +13,22 @@ config_version=5
 config/name="GWJ81-Expedition"
 run/main_scene="uid://ckjr7lbj1cxxq"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/image="uid://dvpdrtsv0ogbq"
 config/icon="res://icon.svg"
+
+[autoload]
+
+SoundBus="*res://Scenes/sound_bus.tscn"
 
 [file_customization]
 
 folder_colors={
+"res://Assets/": "teal",
+"res://Materials/": "yellow",
 "res://Scenes/": "red",
-"res://Scripts/": "blue"
+"res://Scripts/": "blue",
+"res://Sounds/": "green",
+"res://UI Assets/": "purple"
 }
 
 [input]
@@ -52,5 +61,13 @@ common/enable_object_picking=false
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[shader_globals]
+
+mouse_screen_pos={
+"type": "vec2",
+"value": Vector2(0, 0)
+}
