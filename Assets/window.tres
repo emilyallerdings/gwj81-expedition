@@ -1,0 +1,9 @@
+[gd_resource type="BoxMesh" load_steps=2 format=3 uid="uid://d2dv7brjgmq5e"]
+
+[ext_resource type="Material" uid="uid://ns24hp7m6pds" path="res://Materials/window_mat.tres" id="1_ptafq"]
+
+[resource]
+lightmap_size_hint = Vector2i(1504, 1586)
+material = ExtResource("1_ptafq")
+add_uv2 = true
+size = Vector3(0.1, 8, 300)

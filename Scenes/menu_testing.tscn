@@ -1,0 +1,128 @@
+[gd_scene load_steps=13 format=3 uid="uid://bqtcu4mbtjvj8"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_34v3d"]
+[ext_resource type="PackedScene" uid="uid://cl844rkgxivpm" path="res://Assets/selectionroom.glb" id="1_m6x4c"]
+[ext_resource type="Theme" uid="uid://dvqp7asptarb8" path="res://Materials/default_theme.tres" id="2_5dbda"]
+[ext_resource type="FontFile" uid="uid://d4da0phun8v4d" path="res://Materials/Fair Prosper.ttf" id="3_ycoxo"]
+[ext_resource type="Texture2D" uid="uid://crjk38l5pjmae" path="res://UI Assets/title_splash.png" id="4_ycoxo"]
+[ext_resource type="Shader" path="res://Materials/pseudo_3d.gdshader" id="6_fmuvw"]
+[ext_resource type="Texture2D" uid="uid://ge4oyevnnxel" path="res://UI Assets/suitecase_sprite.png" id="7_vxmc4"]
+[ext_resource type="PackedScene" uid="uid://c3st1sbq1ewwj" path="res://Scenes/luggage.tscn" id="8_vxmc4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m6x4c"]
+sky_energy_multiplier = 6.05
+
+[sub_resource type="Sky" id="Sky_oqbs2"]
+sky_material = SubResource("ProceduralSkyMaterial_m6x4c")
+
+[sub_resource type="Environment" id="Environment_5dbda"]
+background_mode = 2
+sky = SubResource("Sky_oqbs2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbgsc"]
+shader = ExtResource("6_fmuvw")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+shader_parameter/hovering = 0.0
+shader_parameter/rand_trans_power = 1.0
+shader_parameter/rand_seed = 0.0
+shader_parameter/vortex_amt = 0.0
+shader_parameter/rotation = 0.0
+shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
+
+[node name="Main Menu" type="Node3D"]
+script = ExtResource("1_34v3d")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.815615, -0.17541, 0.551366, 0, 0.952938, 0.303165, -0.578596, 0.247266, -0.77723, 25.7932, 17.8789, 20.6814)
+
+[node name="selectionroom" parent="." instance=ExtResource("1_m6x4c")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -3.75321, 0, 26.172)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5dbda")
+
+[node name="Main Menu UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="Main Menu UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 23.0
+offset_top = 60.0
+offset_right = -26.0
+offset_bottom = 208.0
+grow_horizontal = 2
+theme = ExtResource("2_5dbda")
+theme_override_colors/font_outline_color = Color(0.964367, 0.596282, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("3_ycoxo")
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[color=#005EF6]A Stirring in Paradise[/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="Main Menu UI"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 315.0
+offset_right = 242.0
+offset_bottom = 401.0
+theme = ExtResource("2_5dbda")
+theme_override_fonts/font = ExtResource("3_ycoxo")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Options" type="Button" parent="Main Menu UI"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 418.0
+offset_right = 265.0
+offset_bottom = 504.0
+theme = ExtResource("2_5dbda")
+theme_override_fonts/font = ExtResource("3_ycoxo")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="Credits" type="Button" parent="Main Menu UI"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 522.0
+offset_right = 258.0
+offset_bottom = 608.0
+theme = ExtResource("2_5dbda")
+theme_override_fonts/font = ExtResource("3_ycoxo")
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+
+[node name="TitleSplash" type="Sprite2D" parent="Main Menu UI"]
+show_behind_parent = true
+position = Vector2(623, 100)
+scale = Vector2(3, 3)
+texture = ExtResource("4_ycoxo")
+
+[node name="SuitecaseSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_fbgsc")
+position = Vector2(65, 357)
+scale = Vector2(0.785156, 0.785156)
+texture = ExtResource("7_vxmc4")
+
+[node name="luggage" parent="." instance=ExtResource("8_vxmc4")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 18.3622, 3, 33.2047)
+
+[connection signal="mouse_entered" from="Main Menu UI/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="Main Menu UI/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Main Menu UI/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="Main Menu UI/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="Main Menu UI/Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="pressed" from="Main Menu UI/Credits" to="." method="_on_credits_pressed"]
