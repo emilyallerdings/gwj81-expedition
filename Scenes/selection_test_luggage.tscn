@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgnwq0c85jvav"]
+[gd_scene load_steps=4 format=3 uid="uid://bgnwq0c85jvav"]
 
 [ext_resource type="PackedScene" uid="uid://t54luoyhamqx" path="res://Assets/luggage.glb" id="1_y08q4"]
+[ext_resource type="Script" uid="uid://l15sdjdmvg3m" path="res://Scripts/selection_test_luggage.gd" id="2_froxk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y08q4"]
 albedo_color = Color(0.632225, 1.9493e-06, 3.36915e-07, 1)
 
 [node name="luggage" instance=ExtResource("1_y08q4")]
+script = ExtResource("2_froxk")
+title = "test luggage"
 
 [node name="Case" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_y08q4")

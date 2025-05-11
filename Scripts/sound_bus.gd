@@ -11,5 +11,6 @@ extends Node
 
 #region music
 @onready var song_1 = $Song1
+@onready var song_2 = $Song2
 
 #endregion

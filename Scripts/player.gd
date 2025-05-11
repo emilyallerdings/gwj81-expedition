@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 @export var forward_speed: float = 10.0
 @export var turn_speed: float = 2.0
 @export var max_turn_angle: float = 30.0
@@ -55,13 +54,16 @@ func _physics_process(delta: float) -> void:
 
 	# Smooth velocity adjustment
 	velocity = lerp(velocity, target_velocity, smooth_factor)
-	print(velocity)
+	print(velocity.length())
 
 	# Move the luggage
+	play_rolling()
 	move_and_slide()
 
 func play_rolling():
 	if velocity.length() > 0.1:
-		SoundBus.rolling_suitcase.play()
+		if not SoundBus.rolling_suitcase.playing:
+			SoundBus.rolling_suitcase.play()
 	else:
-		SoundBus.rolling_suitcase.stop()
+		if SoundBus.rolling_suitcase.playing:
+			SoundBus.rolling_suitcase.stop()

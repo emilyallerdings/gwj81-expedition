@@ -29,6 +29,8 @@ extends Node3D
 @onready var right_button = $"Selection Menu/Selection Menu UI/Right Button"
 @onready var left_button = $"Selection Menu/Selection Menu UI/Left Button"
 @onready var selection_play = $"Selection Menu/Selection Menu UI/Selection Play"
+@onready var luggage_type = $"Selection Menu/Selection Menu UI/Luggage Type"
+@onready var luggage_stats = $"Selection Menu/Selection Menu UI/Luggage Stats"
 #endregion
 
 @onready var selection_stage = $SelectionStage
@@ -40,21 +42,19 @@ var to_camera : Camera3D = null
 
 var luggages : Array[PackedScene] = [preload("res://Scenes/luggage.tscn"), preload("res://Scenes/selection_test_luggage.tscn")]
 var i : int = 0
-var current_luggage_type = luggages[i]
-#enum luggage_types {
-	#BASIC,
-	#BIGDADDY,
-	#HOTROD,
-	#SPARKLECORN
-#}
-#
-#var current_luggage_type := luggage_types.BASIC
+var current_luggage_type = luggages[i].instantiate()
 
 func _ready() -> void:
 	SoundBus.airport_ambience.play()
+	SoundBus.song_2.play()
 	main_menu_ui.visible = true
 	options_menu_ui.visible = false
 	selection_menu_ui.visible = false
+	luggage_type.text = current_luggage_type.title
+	luggage_stats.text = "[color=cyan]Speed: " \
+	+ str(current_luggage_type.speed) + "\nHandling: " \
+	+ str(current_luggage_type.handling) + "\nBoost: " \
+	+ str(current_luggage_type.boost) + "[/color]"
 	suitecase_sprite.position = Vector2(play.position.x - 50.0, play.position.y + 35.0)
 	selection_stage.add_child(luggages[0].instantiate())
 
@@ -160,20 +160,25 @@ func _on_selection_play_mouse_entered():
 
 
 func _on_right_button_pressed():
-	
+	SoundBus.button.play()
 	i = (i + 1) % len(luggages)
 	var luggage = luggages[i].instantiate()
 	selection_stage.get_child(0).queue_free()
 	selection_stage.add_child(luggage)
+	luggage_type.text = luggage.title
+	luggage_stats.text = "[color=cyan]Speed: " \
+	+ str(luggage.speed) + "\nHandling: " \
+	+ str(luggage.handling) + "\nBoost: " \
+	+ str(luggage.boost) + "[/color]"
 	
-	
-	#match current_luggage_type:
-		#
-		#luggage_types.BASIC:
-			#pass
-		#luggage_types.BIGDADDY:
-			#pass
-		#luggage_types.HOTROD:
-			#pass
-		#luggage_types.SPARKLECORN:
-			#pass
+func _on_left_button_pressed():
+	SoundBus.button.play()
+	i = (i - 1) % len(luggages)
+	var luggage = luggages[i].instantiate()
+	selection_stage.get_child(0).queue_free()
+	selection_stage.add_child(luggage)
+	luggage_type.text = luggage.title
+	luggage_stats.text = "[color=cyan]Speed: " \
+	+ str(luggage.speed) + "\nHandling: " \
+	+ str(luggage.handling) + "\nBoost: " \
+	+ str(luggage.boost) + "[/color]"

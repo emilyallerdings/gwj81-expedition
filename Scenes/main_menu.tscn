@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bb1tofq712yq0"]
+[gd_scene load_steps=25 format=3 uid="uid://bb1tofq712yq0"]
 
 [ext_resource type="Script" uid="uid://ieq2hasgdd62" path="res://Scripts/main_menu.gd" id="1_yhxw7"]
 [ext_resource type="PackedScene" uid="uid://cl844rkgxivpm" path="res://Assets/selectionroom.glb" id="2_trj04"]
@@ -39,6 +39,15 @@ shader_parameter/rand_seed = 0.5
 shader_parameter/vortex_amt = 0.0
 shader_parameter/rotation = 1.49012e-07
 shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtepg"]
+albedo_color = Color(0.327628, 0.107484, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5egv6"]
+albedo_color = Color(0.687954, 0.687954, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dnnj"]
+albedo_color = Color(0.69246, 1.841e-06, 7.70092e-07, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16hvj"]
 
@@ -177,20 +186,20 @@ transform = Transform3D(1.13133e-08, 0.258819, 0.965926, 1, -4.37114e-08, 0, 4.2
 [node name="luggage3" parent="Options Menu" instance=ExtResource("8_8dnnj")]
 transform = Transform3D(0.5, -0.75, 0.433013, 0.836136, 0.548295, -0.0158119, -0.22556, 0.369963, 0.901249, -4.37206, 4.31538, -1.60532)
 
-[node name="Cube" parent="Options Menu/luggage3" index="2"]
-surface_material_override/0 = null
+[node name="Case" parent="Options Menu/luggage3" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vtepg")
 
 [node name="luggage4" parent="Options Menu" instance=ExtResource("8_8dnnj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4532, 3, -5.76783)
 
-[node name="Cube" parent="Options Menu/luggage4" index="2"]
-surface_material_override/0 = null
+[node name="Case" parent="Options Menu/luggage4" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5egv6")
 
 [node name="luggage5" parent="Options Menu" instance=ExtResource("8_8dnnj")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.75903, 6, -5.67985)
 
-[node name="Cube" parent="Options Menu/luggage5" index="2"]
-surface_material_override/0 = null
+[node name="Case" parent="Options Menu/luggage5" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8dnnj")
 
 [node name="Options Menu Camera" type="Camera3D" parent="Options Menu"]
 transform = Transform3D(-0.0243974, -0.303075, 0.952654, 0, 0.952938, 0.303165, -0.999702, 0.00739644, -0.0232492, 10.6243, 19.6267, -2.90478)
@@ -380,7 +389,7 @@ offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("5_t1dhk")
-text = "Fly!"
+text = "Next"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-0.733117, -0.679142, 0.0361344, 0, 0.0531308, 0.998588, -0.680103, 0.732081, -0.0389511, 53.3648, 35.1774, -36.1202)
@@ -404,6 +413,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.498, 3, -37.573)
 [connection signal="mouse_entered" from="Selection Menu/Selection Menu UI/Selection Back" to="." method="_on_selection_back_mouse_entered"]
 [connection signal="pressed" from="Selection Menu/Selection Menu UI/Selection Back" to="." method="_on_selection_back_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Menu UI/Right Button" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Menu UI/Left Button" to="." method="_on_left_button_pressed"]
 [connection signal="mouse_entered" from="Selection Menu/Selection Menu UI/Selection Play" to="." method="_on_selection_play_mouse_entered"]
 [connection signal="pressed" from="Selection Menu/Selection Menu UI/Selection Play" to="." method="_on_selection_play_pressed"]
 
