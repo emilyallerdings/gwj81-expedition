@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ckjr7lbj1cxxq"]
+[gd_scene load_steps=20 format=3 uid="uid://ckjr7lbj1cxxq"]
 
 [ext_resource type="Script" uid="uid://gavvic7ehdce" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="Script" path="res://Scripts/boarding_ramp.gd" id="2_6bp64"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://clhf3pglcbiyf" path="res://Scripts/pillars.gd" id="3_jjvhh"]
 [ext_resource type="BoxMesh" uid="uid://dxbiwm4aixnwi" path="res://Assets/window.tres" id="6_hptm8"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="7_6bp64"]
+[ext_resource type="Material" uid="uid://bwfcdgloump5l" path="res://Assets/speed_lines_material.tres" id="7_344ge"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_21xkr"]
 transform_format = 1
@@ -125,6 +126,24 @@ environment = SubResource("Environment_jjvhh")
 transform = Transform3D(-1, 8.72541e-08, -1.23233e-07, 0, 0.816138, 0.577858, 1.50996e-07, 0.577858, -0.816138, 0, 8.5, -2.5)
 current = true
 fov = 80.0
+
+[node name="Speed Lines" type="Control" parent="MainCamera"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainCamera/Speed Lines"]
+material = ExtResource("7_344ge")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.602206, -0.740214, 0.299052, 0.210739, 0.508695, 0.834756, -0.770025, -0.439673, 0.462331, 0, 0, 0)

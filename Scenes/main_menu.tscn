@@ -97,7 +97,6 @@ texture = ExtResource("4_vr1f0")
 transform = Transform3D(-0.815614, -0.17541, 0.551366, 0, 0.952938, 0.303165, -0.578596, 0.247266, -0.77723, 25.7932, 17.8789, 20.6814)
 
 [node name="Main Menu UI" type="Control" parent="Main Menu"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -255,6 +254,7 @@ text = "Back"
 transform = Transform3D(0.702745, 0.232159, -0.672497, 0, 0.945259, 0.326321, 0.711442, -0.229321, 0.664276, 39.0334, 16.8401, -22.1463)
 
 [node name="Selection Menu UI" type="Control" parent="Selection Menu"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
