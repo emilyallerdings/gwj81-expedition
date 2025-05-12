@@ -7,6 +7,7 @@ extends Node
 @onready var button_hover_click = $"Button Hover Click"
 @onready var whoosh = $Whoosh
 @onready var start_game = $"Start Game"
+@onready var flyby = $Flyby
 
 #endregion
 
