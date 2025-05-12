@@ -6,3 +6,6 @@
 [node name="luggage" instance=ExtResource("1_iiv55")]
 script = ExtResource("2_n4s8n")
 title = "basic luggage"
+description = "Your basic luggage. 
+
+Nothing special, gets the job done."

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GWJ81-Expedition"
-run/main_scene="uid://ckjr7lbj1cxxq"
+run/main_scene="uid://bb1tofq712yq0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://dvpdrtsv0ogbq"
 config/icon="res://icon.svg"
@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 SoundBus="*res://Scenes/sound_bus.tscn"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [file_customization]
 

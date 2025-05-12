@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgv1aicjqdiw7"]
+
+[ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_c4g4b"]
+[ext_resource type="Texture2D" uid="uid://pacecgjr5n6t" path="res://UI Assets/PNG/Blue/Double/arrow_decorative_e.png" id="2_wqgbf"]
+
+[node name="Transition Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -41.0
+offset_right = -52.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c4g4b")
+theme_override_colors/font_outline_color = Color(0.964706, 0.596078, 0, 1)
+theme_override_constants/outline_size = 25
+bbcode_enabled = true
+text = "[color=cyan]Home[/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -41.0
+offset_right = 345.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c4g4b")
+theme_override_colors/font_outline_color = Color(0.964706, 0.596078, 0, 1)
+theme_override_constants/outline_size = 25
+bbcode_enabled = true
+text = "[color=cyan]Destination[/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wqgbf")

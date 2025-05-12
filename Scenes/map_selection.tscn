@@ -1,0 +1,308 @@
+[gd_scene load_steps=11 format=3 uid="uid://o8j1yog4j76a"]
+
+[ext_resource type="Script" uid="uid://cltxwf8dswcs1" path="res://Scripts/map_selection.gd" id="1_nk6go"]
+[ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="2_nk6go"]
+[ext_resource type="FontFile" uid="uid://bafns24uaw6y5" path="res://Materials/NixieOne.ttf" id="2_vh24d"]
+[ext_resource type="FontFile" uid="uid://cwp8ay1qwwtb0" path="res://Materials/Terminal F4.ttf" id="4_68n23"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nk6go"]
+bg_color = Color(0.947199, 0.947199, 0.947199, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68n23"]
+bg_color = Color(0.168627, 0.329412, 0.509804, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 10
+border_color = Color(0.084423, 0.188224, 0.304363, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwpe3"]
+bg_color = Color(0.813257, 0.813258, 0.813258, 1)
+border_width_top = 10
+border_width_bottom = 10
+border_color = Color(0.466181, 0.466181, 0.466181, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1vtq"]
+bg_color = Color(0.647715, 0.751657, 0.88579, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.745098, 0.815686, 0.921569, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xn5i6"]
+bg_color = Color(0.431872, 0.579515, 0.768414, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.745098, 0.815686, 0.921569, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7b5r"]
+bg_color = Color(0.647715, 0.751657, 0.88579, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.745098, 0.815686, 0.921569, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Map Selection" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -525.0
+offset_top = -284.0
+offset_right = 530.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nk6go")
+
+[node name="ColorRect" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nk6go")
+
+[node name="Topbar" type="Panel" parent="."]
+layout_mode = 1
+offset_left = -10.0
+offset_right = 1058.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_68n23")
+
+[node name="Travel Itinerary Title" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 369.0
+offset_bottom = 109.0
+theme = ExtResource("2_nk6go")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+bbcode_enabled = true
+text = "Travel Itinerary"
+vertical_alignment = 1
+
+[node name="Trip Start" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 78.5
+offset_top = 31.0
+offset_right = 529.5
+offset_bottom = 78.0
+grow_horizontal = 2
+theme = ExtResource("2_nk6go")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.00392157, 0.721569, 0.976471, 1)
+theme_override_fonts/normal_font = ExtResource("2_vh24d")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Trip Start: "
+
+[node name="Trip Start2" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -516.5
+offset_top = 153.0
+offset_right = -324.5
+offset_bottom = 304.0
+grow_horizontal = 2
+theme = ExtResource("2_nk6go")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.00392157, 0.721569, 0.976471, 1)
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Current Location: Home"
+fit_content = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 134.0
+offset_right = 852.0
+offset_bottom = 536.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Departure Map" type="Panel" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(290, 401)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vwpe3")
+
+[node name="Level Indicator" type="RichTextLabel" parent="ScrollContainer/HBoxContainer/Departure Map"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.0
+offset_top = 15.0
+offset_right = 135.0
+offset_bottom = 73.0
+grow_horizontal = 2
+theme = ExtResource("2_nk6go")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[color=orange]Level 1[/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/Departure Map"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 90.0
+offset_right = -8.0
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 140
+
+[node name="Button" type="Button" parent="ScrollContainer/HBoxContainer/Departure Map/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_nk6go")
+theme_override_fonts/font = ExtResource("4_68n23")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_b1vtq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xn5i6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v7b5r")
+text = "Tokyo, Japan"
+
+[node name="Button2" type="Button" parent="ScrollContainer/HBoxContainer/Departure Map/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_nk6go")
+theme_override_fonts/font = ExtResource("4_68n23")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_b1vtq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xn5i6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v7b5r")
+text = "Paris, France
+"
+
+[node name="Departure Map2" type="Panel" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(290, 401)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vwpe3")
+
+[node name="Level Indicator" type="RichTextLabel" parent="ScrollContainer/HBoxContainer/Departure Map2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.0
+offset_top = 15.0
+offset_right = 135.0
+offset_bottom = 73.0
+grow_horizontal = 2
+theme = ExtResource("2_nk6go")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[color=orange]Level 1[/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/Departure Map2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 90.0
+offset_right = -8.0
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 140
+
+[node name="Button" type="Button" parent="ScrollContainer/HBoxContainer/Departure Map2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_nk6go")
+theme_override_fonts/font = ExtResource("4_68n23")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_b1vtq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xn5i6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v7b5r")
+text = "Tokyo, Japan"
+
+[node name="Button2" type="Button" parent="ScrollContainer/HBoxContainer/Departure Map2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_nk6go")
+theme_override_fonts/font = ExtResource("4_68n23")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_b1vtq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xn5i6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v7b5r")
+text = "Paris, France
+"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 445.0
+offset_right = 128.0
+offset_bottom = 531.0
+theme = ExtResource("2_nk6go")
+text = "Back"
+
+[node name="Fly" type="Button" parent="."]
+layout_mode = 0
+offset_left = 897.0
+offset_top = 256.0
+offset_right = 1006.0
+offset_bottom = 342.0
+theme = ExtResource("2_nk6go")
+text = "Fly!"
+
+[connection signal="mouse_entered" from="Back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="Fly" to="." method="_on_fly_mouse_entered"]
+[connection signal="pressed" from="Fly" to="." method="_on_fly_pressed"]

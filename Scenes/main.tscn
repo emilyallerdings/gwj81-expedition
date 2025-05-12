@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://clhf3pglcbiyf" path="res://Scripts/pillars.gd" id="3_jjvhh"]
 [ext_resource type="BoxMesh" uid="uid://dxbiwm4aixnwi" path="res://Assets/window.tres" id="6_hptm8"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="7_6bp64"]
-[ext_resource type="Material" uid="uid://bwfcdgloump5l" path="res://Assets/speed_lines_material.tres" id="7_344ge"]
+[ext_resource type="Material" uid="uid://bwfcdgloump5l" path="res://Materials/speed_lines_material.tres" id="7_344ge"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_21xkr"]
 transform_format = 1

@@ -1,0 +1,127 @@
+[gd_scene load_steps=5 format=3 uid="uid://dap32foqet7n"]
+
+[ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_r18jl"]
+[ext_resource type="FontFile" uid="uid://cwp8ay1qwwtb0" path="res://Materials/Terminal F4.ttf" id="2_gryuy"]
+[ext_resource type="Shader" uid="uid://b6iunul8h752c" path="res://Materials/crt_shader.gdshader" id="3_ccovl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bamb"]
+shader = ExtResource("3_ccovl")
+shader_parameter/resolution = Vector2(1152, 640)
+shader_parameter/scan_line_amount = 0.0
+shader_parameter/warp_amount = 0.0
+shader_parameter/noise_amount = 0.2
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 1.0
+shader_parameter/roll_line_amount = 0.2
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
+[node name="Credits" type="Control"]
+custom_minimum_size = Vector2(680, 512)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.710739, 0.815449, 1)
+
+[node name="Credits Title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 94.0
+grow_horizontal = 2
+theme = ExtResource("1_r18jl")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "Credits"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 49.0
+offset_top = 106.0
+offset_right = 560.0
+offset_bottom = 247.0
+theme = ExtResource("1_r18jl")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_gryuy")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Programming: 
+Unconscious
+A_KimB0"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 49.0
+offset_top = 230.0
+offset_right = 560.0
+offset_bottom = 371.0
+theme = ExtResource("1_r18jl")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_gryuy")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Music: 
+blee628"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 49.0
+offset_top = 318.0
+offset_right = 560.0
+offset_bottom = 459.0
+theme = ExtResource("1_r18jl")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_gryuy")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Models:
+KITSUNEMAESTRO
+Xury Greer
+drmadness3d"
+fit_content = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1bamb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

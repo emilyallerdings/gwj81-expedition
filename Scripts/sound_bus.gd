@@ -6,6 +6,7 @@ extends Node
 @onready var rolling_suitcase = $"Rolling Suitcase"
 @onready var button_hover_click = $"Button Hover Click"
 @onready var whoosh = $Whoosh
+@onready var start_game = $"Start Game"
 
 #endregion
 
