@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dqxl7brt3g1wi"]
 
-[ext_resource type="Script" uid="uid://bijmlxakyblxw" path="res://Scripts/sound_bus.gd" id="1_oofcd"]
+[ext_resource type="Script" uid="uid://bijmlxakyblxw" path="res://Scripts/Globals/sound_bus.gd" id="1_oofcd"]
 [ext_resource type="AudioStream" uid="uid://c3ynucxb1maka" path="res://Sounds/airport_ambience_with_planes.ogg" id="2_otb3e"]
 [ext_resource type="AudioStream" uid="uid://cx1e1cs24em1k" path="res://Sounds/airport_button.ogg" id="3_otb3e"]
 [ext_resource type="AudioStream" uid="uid://bbiieojf6d6te" path="res://Sounds/luggage_rolling.ogg" id="4_yghvr"]

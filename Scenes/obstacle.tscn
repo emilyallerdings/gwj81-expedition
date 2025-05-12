@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy8fe1r61jocd"]
+
+[ext_resource type="Script" uid="uid://bjtxwl4xukg3x" path="res://Scripts/obstacle.gd" id="1_15o2q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_344ge"]
+albedo_color = Color(1, 0, 0, 1)
+roughness = 0.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ynf5e"]
+material = SubResource("StandardMaterial3D_344ge")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6bp64"]
+
+[node name="Obstacle" type="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
+script = ExtResource("1_15o2q")
+
+[node name="ObstacleMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_ynf5e")
+
+[node name="ObstacleCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_6bp64")

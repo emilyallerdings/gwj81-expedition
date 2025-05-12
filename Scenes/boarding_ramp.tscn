@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://xicolt62u2x5"]
+
+[ext_resource type="Script" uid="uid://bem4xdckxwof0" path="res://Scripts/boarding_ramp.gd" id="1_vf4kb"]
+[ext_resource type="BoxMesh" uid="uid://v8vbrc02ekty" path="res://Assets/pillar.tres" id="2_3b8ky"]
+[ext_resource type="Script" uid="uid://clhf3pglcbiyf" path="res://Scripts/pillars.gd" id="3_lgt4c"]
+[ext_resource type="Material" uid="uid://be84a2c0jteaf" path="res://Materials/side_mat.tres" id="4_1j28i"]
+[ext_resource type="BoxMesh" uid="uid://dxbiwm4aixnwi" path="res://Assets/window.tres" id="5_fgggt"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_21xkr"]
+transform_format = 1
+instance_count = 75
+mesh = ExtResource("2_3b8ky")
+buffer = PackedFloat32Array(1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 4, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 8, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 12, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 16, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 20, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 24, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 28, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 32, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 36, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 40, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 44, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 48, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 52, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 56, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 60, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 64, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 68, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 72, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 76, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 80, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 84, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 88, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 92, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 96, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 100, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 104, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 108, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 112, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 116, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 120, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 124, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 128, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 132, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 136, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 140, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 144, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 148, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 152, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 156, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 160, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 164, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 168, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 172, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 176, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 180, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 184, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 188, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 192, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 196, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 200, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 204, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 208, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 212, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 216, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 220, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 224, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 228, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 232, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 236, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 240, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 244, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 248, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 252, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 256, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 260, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 264, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 268, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 272, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 276, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 280, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 284, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 288, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 292, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 296)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6bp64"]
+lightmap_size_hint = Vector2i(1054, 1007)
+material = ExtResource("4_1j28i")
+size = Vector3(20, 0.1, 300)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bp64"]
+albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
+roughness = 0.49
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ynf5e"]
+lightmap_size_hint = Vector2i(1604, 1507)
+material = SubResource("StandardMaterial3D_6bp64")
+add_uv2 = true
+size = Vector3(20, 0.1, 300)
+
+[sub_resource type="BoxMesh" id="BoxMesh_21xkr"]
+lightmap_size_hint = Vector2i(1006, 1026)
+material = ExtResource("4_1j28i")
+size = Vector3(0.5, 2, 300)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_21xkr"]
+size = Vector3(0.5, 2, 300)
+
+[node name="BoardingRamp" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+script = ExtResource("1_vf4kb")
+width = 15.0
+length = 300.0
+
+[node name="PillarsLeft" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2, -5)
+multimesh = SubResource("MultiMesh_21xkr")
+script = ExtResource("3_lgt4c")
+
+[node name="PillarsRight" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 2, -5)
+multimesh = SubResource("MultiMesh_21xkr")
+script = ExtResource("3_lgt4c")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 145)
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_6bp64")
+
+[node name="Roof" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.10206, 145)
+
+[node name="RoofMesh" type="MeshInstance3D" parent="Roof"]
+mesh = SubResource("BoxMesh_ynf5e")
+
+[node name="SideLeft" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, 145)
+
+[node name="SideLeftMesh" type="MeshInstance3D" parent="SideLeft"]
+mesh = SubResource("BoxMesh_21xkr")
+
+[node name="SideLeftColl" type="CollisionShape3D" parent="SideLeft"]
+shape = SubResource("BoxShape3D_21xkr")
+
+[node name="SideRight" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, 145)
+
+[node name="SideRightMesh" type="MeshInstance3D" parent="SideRight"]
+mesh = SubResource("BoxMesh_21xkr")
+
+[node name="SideRightColl" type="CollisionShape3D" parent="SideRight"]
+shape = SubResource("BoxShape3D_21xkr")
+
+[node name="WindowLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 6.01, 145)
+mesh = ExtResource("5_fgggt")
+
+[node name="WindowRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 6.001, 145)
+mesh = ExtResource("5_fgggt")

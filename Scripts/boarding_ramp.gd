@@ -47,9 +47,11 @@ func set_size():
 	roof.position.z = (length / 2.0) - 5.0
 
 	side_left_mesh.mesh.size.z = length
+	side_left_coll.shape.size.z = length
 	side_left.position.z = (length / 2.0) - 5.0
 	side_left.position.x = width/2.0
 	
+	side_right_coll.shape.size.z = length
 	side_right.position.z = (length / 2.0) - 5.0
 	side_right.position.x = -width/2.0
 	

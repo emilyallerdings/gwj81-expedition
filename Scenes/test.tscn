@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dtg3cx3jbhtog"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 2
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 1147.0
+offset_bottom = 643.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 200
+
+[node name="Panel" type="Panel" parent="Panel/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 600)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="Panel/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="Panel/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Panel4" type="Panel" parent="Panel/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2

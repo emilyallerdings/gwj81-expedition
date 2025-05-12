@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ObstaclePattern" load_steps=9 format=3 uid="uid://ddv1f6y1mhklf"]
+
+[ext_resource type="Script" uid="uid://cnhl0u3fbdlnh" path="res://Scripts/obstacle_info.gd" id="1_a78ku"]
+[ext_resource type="Script" uid="uid://dwp21mkadf4ja" path="res://Scripts/obstacle_pattern.gd" id="2_m2l8k"]
+
+[sub_resource type="Resource" id="Resource_bxf0v"]
+script = ExtResource("1_a78ku")
+position = Vector3(8, 2, 7)
+type = 0
+
+[sub_resource type="Resource" id="Resource_6ns5d"]
+script = ExtResource("1_a78ku")
+position = Vector3(5, 2, 7)
+type = 0
+
+[sub_resource type="Resource" id="Resource_4sxpj"]
+script = ExtResource("1_a78ku")
+position = Vector3(2, 2, 7)
+type = 0
+
+[sub_resource type="Resource" id="Resource_etero"]
+script = ExtResource("1_a78ku")
+position = Vector3(-2, 2, 0)
+type = 0
+
+[sub_resource type="Resource" id="Resource_xbohg"]
+script = ExtResource("1_a78ku")
+position = Vector3(-5, 2, 0)
+type = 0
+
+[sub_resource type="Resource" id="Resource_vyg5x"]
+script = ExtResource("1_a78ku")
+position = Vector3(-8, 2, 0)
+type = 0
+
+[resource]
+script = ExtResource("2_m2l8k")
+difficulty = 2
+length = 8.0
+obstacles = Array[ExtResource("1_a78ku")]([SubResource("Resource_bxf0v"), SubResource("Resource_6ns5d"), SubResource("Resource_4sxpj"), SubResource("Resource_etero"), SubResource("Resource_xbohg"), SubResource("Resource_vyg5x")])

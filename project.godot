@@ -19,14 +19,23 @@ config/icon="res://icon.svg"
 [autoload]
 
 SoundBus="*res://Scenes/sound_bus.tscn"
+Enums="*res://Scripts/Globals/enums.gd"
+PatternManager="*res://Scripts/Globals/ObstaclePatternManager.gd"
+
+[display]
+
+window/layer_2=""
+window/layer_1=""
 
 [file_customization]
 
 folder_colors={
 "res://Assets/": "teal",
 "res://Materials/": "yellow",
+"res://Patterns/": "gray",
 "res://Scenes/": "red",
 "res://Scripts/": "blue",
+"res://Shaders/": "blue",
 "res://Sounds/": "green",
 "res://UI Assets/": "purple"
 }
@@ -52,6 +61,11 @@ boost={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+3d_render/layer_1="Main"
+3d_render/layer_2="PlayerLuggage"
 
 [physics]
 

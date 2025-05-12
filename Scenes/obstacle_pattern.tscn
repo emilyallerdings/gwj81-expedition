@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://s230dmf3pmfq"]
+
+[ext_resource type="PackedScene" uid="uid://dy8fe1r61jocd" path="res://Scenes/obstacle.tscn" id="1_a00dk"]
+
+[node name="ObstaclePattern" type="Node3D"]
+
+[node name="Obstacle" parent="." instance=ExtResource("1_a00dk")]

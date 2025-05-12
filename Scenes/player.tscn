@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://chp52opwuhulv"]
+[gd_scene load_steps=8 format=3 uid="uid://chp52opwuhulv"]
 
 [ext_resource type="Script" uid="uid://bk7goqj06c30l" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://c3st1sbq1ewwj" path="res://Scenes/luggage.tscn" id="2_6t5aa"]
+[ext_resource type="Shader" uid="uid://d14rdrytptm7w" path="res://Shaders/blinking.gdshader" id="2_vgqql"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fkybt"]
+render_priority = 0
+shader = ExtResource("2_vgqql")
+shader_parameter/alpha = 1.0
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjgbg"]
 albedo_color = Color(0.176419, 0.176419, 0.176419, 1)
@@ -11,10 +18,11 @@ material = SubResource("StandardMaterial3D_jjgbg")
 size = Vector3(1, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvnsp"]
-size = Vector3(1.48914, 1.9856, 0.988617)
+size = Vector3(1.48914, 2.22073, 0.988617)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_cvnsp")
+shader_material = SubResource("ShaderMaterial_fkybt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 3.9, 0)
@@ -22,10 +30,22 @@ visible = false
 mesh = SubResource("BoxMesh_bo1nx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 4.47035e-08, 0, -4.47035e-08, 1, 0.00872803, 4.26502, -0.0162868)
+transform = Transform3D(1, 0, 0, 0, 1, 4.47035e-08, 0, -4.47035e-08, 1, 0.00872803, 1.13216, -0.0162868)
 shape = SubResource("BoxShape3D_cvnsp")
 
 [node name="luggage" parent="." instance=ExtResource("2_6t5aa")]
-transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 0, 3, 0)
+transform = Transform3D(-1.08863e-08, 9.52425e-10, -0.25, 0.0217889, 0.249049, 0, 0.249049, -0.0217889, -1.09278e-08, 0, 0, 0)
+
+[node name="Case" parent="luggage" index="0"]
+layers = 2
+
+[node name="Wheels" parent="luggage" index="1"]
+layers = 2
+
+[node name="Cube" parent="luggage" index="2"]
+layers = 2
+
+[node name="Cube_001" parent="luggage" index="3"]
+layers = 2
 
 [editable path="luggage"]

@@ -1,0 +1,131 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdnobkkcqjpt8"]
+
+[ext_resource type="PackedScene" uid="uid://xicolt62u2x5" path="res://Scenes/boarding_ramp.tscn" id="1_pf0re"]
+[ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="2_pf0re"]
+[ext_resource type="PackedScene" uid="uid://dy8fe1r61jocd" path="res://Scenes/obstacle.tscn" id="3_fj5ct"]
+
+[sub_resource type="GDScript" id="GDScript_fj5ct"]
+script/source = "@tool
+extends Node3D
+
+@onready var obstacle_pattern: Node3D = $ObstaclePattern
+
+@export_category(\"Making\")
+@export var pattern_name:String = \"name\"
+@export var pattern_difficulty:Enums.PatternDifficulty
+@export_tool_button(\"Place New Obstacle\", \"Add\") var place = place_obstacle
+@export_tool_button(\"Save Obstacle Pattern\", \"AssetLib\") var make = make_obstacle
+
+
+@export_category(\"Loading\")
+@export var load_name:String = \"name\"
+@export_tool_button(\"Load Obstacle Pattern\", \"Load\") var load = load_pattern
+
+
+@export_category(\"CLEAR\")
+@export_tool_button(\"Clear Current Loaded\", \"KeyInvalid\") var clear = clear_pattern
+
+
+@export var cur_loading = false
+
+func place_obstacle():
+	var n_ob = PatternManager.OBSTACLE.instantiate()
+	obstacle_pattern.add_child(n_ob)
+	n_ob.owner = get_tree().edited_scene_root
+	n_ob.name = \"Obstacle\"
+
+func make_obstacle():
+	var new_pattern = ObstaclePattern.new()
+	new_pattern.difficulty = pattern_difficulty
+	
+	var obstacles = obstacle_pattern.get_children()
+	
+	var closest_z = +INF
+	var furthest_z = -INF
+	for obstacle:Obstacle in obstacles:
+		var ob_z = obstacle.position.z
+		closest_z = min(closest_z, ob_z - 0.5)
+		furthest_z = max(furthest_z, ob_z + 0.5)
+	var length = furthest_z - closest_z
+	new_pattern.length = length
+	print(length)
+	for obstacle:Obstacle in obstacles:
+		var new_obstacle_info = ObstacleInfo.new()
+		new_obstacle_info.position = obstacle.position
+		new_obstacle_info.type = obstacle.type
+		new_pattern.obstacles.append(new_obstacle_info)
+	ResourceSaver.save(new_pattern, PatternManager.test_path + pattern_name + \".tres\")
+	return
+
+func load_pattern_from_file(load_name:String):
+
+	var dir = DirAccess.open(PatternManager.test_path)
+	var files = dir.get_files()
+	
+	var found = false
+	
+	for file in files:
+		file = file.trim_suffix(\".remap\")
+		var no_suffix = file.trim_suffix(\".tres\")
+		if no_suffix == load_name:
+			var loaded_pattern = load(PatternManager.test_path + file)
+			return loaded_pattern
+	push_warning(\"Pattern '\" + load_name + \"' not found.\")
+	return null
+
+func load_pattern():
+	if cur_loading:
+		return
+	cur_loading = true
+	var loaded_pattern:ObstaclePattern = load_pattern_from_file(load_name)
+	if loaded_pattern == null:
+		push_warning(\"error\")
+		return
+	pattern_name = load_name
+	pattern_difficulty = loaded_pattern.difficulty
+	clear_pattern()
+	await get_tree().create_timer(0.1).timeout
+	place_pattern(loaded_pattern)
+	cur_loading = false
+
+func clear_pattern():
+	for child in obstacle_pattern.get_children():
+		child.queue_free()
+	
+func place_pattern(pattern:ObstaclePattern):
+	for obstacle in pattern.obstacles:
+		var n_obstacle = PatternManager.OBSTACLE.instantiate()
+		n_obstacle.position = obstacle.position
+		n_obstacle.type = obstacle.type
+		obstacle_pattern.add_child(n_obstacle)
+		n_obstacle.owner = get_tree().edited_scene_root
+		n_obstacle.name = \"Obstacle\"
+	
+"
+
+[node name="ObstacleTest" type="Node3D"]
+script = SubResource("GDScript_fj5ct")
+pattern_name = "DoublesSides"
+load_name = "SingleMiddle"
+
+[node name="BoardingRamp" parent="." instance=ExtResource("1_pf0re")]
+width = 20.0
+length = 20.0
+
+[node name="Player" parent="." instance=ExtResource("2_pf0re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6)
+
+[node name="ObstaclePattern" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Obstacle" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 2, 5)
+
+[node name="Obstacle2" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 2, 5)
+
+[node name="Obstacle3" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5, 2, 5)
+
+[node name="Obstacle4" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 2, 5)

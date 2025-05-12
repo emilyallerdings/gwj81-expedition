@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ObstaclePattern" load_steps=4 format=3 uid="uid://v5tmnhh5p46l"]
+
+[ext_resource type="Script" uid="uid://cnhl0u3fbdlnh" path="res://Scripts/obstacle_info.gd" id="1_5auu5"]
+[ext_resource type="Script" uid="uid://dwp21mkadf4ja" path="res://Scripts/obstacle_pattern.gd" id="2_ay7cc"]
+
+[sub_resource type="Resource" id="Resource_5auu5"]
+script = ExtResource("1_5auu5")
+position = Vector3(0, 2, 5)
+type = 0
+
+[resource]
+script = ExtResource("2_ay7cc")
+difficulty = 0
+length = 1.0
+obstacles = Array[ExtResource("1_5auu5")]([SubResource("Resource_5auu5")])
