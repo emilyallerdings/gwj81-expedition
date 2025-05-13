@@ -1,8 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://bb1tofq712yq0"]
+[gd_scene load_steps=35 format=3 uid="uid://bb1tofq712yq0"]
 
 [ext_resource type="Script" uid="uid://ieq2hasgdd62" path="res://Scripts/main_menu.gd" id="1_yhxw7"]
 [ext_resource type="PackedScene" uid="uid://cl844rkgxivpm" path="res://Assets/selectionroom.glb" id="2_trj04"]
-[ext_resource type="Shader" path="res://Materials/pseudo_3d.gdshader" id="3_16hvj"]
+[ext_resource type="Shader" uid="uid://ud44g8ahsyxi" path="res://Shaders/pseudo_3d.gdshader" id="3_16hvj"]
 [ext_resource type="Texture2D" uid="uid://ge4oyevnnxel" path="res://UI Assets/suitecase_sprite.png" id="4_vr1f0"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="5_t1dhk"]
 [ext_resource type="FontFile" uid="uid://d4da0phun8v4d" path="res://Materials/Fair Prosper.ttf" id="6_5egv6"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://c3st1sbq1ewwj" path="res://Scenes/luggage.tscn" id="8_8dnnj"]
 [ext_resource type="FontFile" uid="uid://bafns24uaw6y5" path="res://Materials/NixieOne.ttf" id="9_5egv6"]
 [ext_resource type="Texture2D" uid="uid://drup8k7ldow28" path="res://UI Assets/PNG/Grey/Double/arrow_basic_e.png" id="9_16hvj"]
+[ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="9_mkpwh"]
 [ext_resource type="Texture2D" uid="uid://dbny84hi1f3de" path="res://UI Assets/PNG/Yellow/Double/arrow_basic_e.png" id="9_vr1f0"]
+[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="10_4nkqq"]
 [ext_resource type="PackedScene" uid="uid://ktrvywf80aja" path="res://Assets/monitor.glb" id="10_m3bi6"]
 [ext_resource type="Texture2D" uid="uid://d0fyfowx2t2an" path="res://UI Assets/PNG/Yellow/Double/arrow_basic_w.png" id="10_t1dhk"]
 [ext_resource type="Texture2D" uid="uid://bcstmcu7cxqvx" path="res://UI Assets/PNG/Grey/Double/arrow_basic_w.png" id="10_vr1f0"]
@@ -44,14 +46,50 @@ shader_parameter/vortex_amt = 0.0
 shader_parameter/rotation = 1.49012e-07
 shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtepg"]
-albedo_color = Color(4.62055e-06, 0.551805, 0.333811, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ehtkc"]
+render_priority = 0
+shader = ExtResource("9_mkpwh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dk6o"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_ehtkc")
+shader = ExtResource("10_4nkqq")
+shader_parameter/color = Color(0.687823, 0, 0.13686, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mkpwh"]
+render_priority = 0
+shader = ExtResource("9_mkpwh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4nkqq"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_mkpwh")
+shader = ExtResource("10_4nkqq")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5egv6"]
 albedo_color = Color(0.761362, 0.761362, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dnnj"]
-albedo_color = Color(0.69246, 1.841e-06, 7.70092e-07, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jr6u5"]
+render_priority = 0
+shader = ExtResource("9_mkpwh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6m47u"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_jr6u5")
+shader = ExtResource("10_4nkqq")
+shader_parameter/color = Color(0.7, 0.12, 0.86, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16hvj"]
 
@@ -199,7 +237,10 @@ transform = Transform3D(1.13133e-08, 0.258819, 0.965926, 1, -4.37114e-08, 0, 4.2
 transform = Transform3D(0.702017, -0.579701, 0.413665, 0.675496, 0.725998, -0.128963, -0.22556, 0.369963, 0.901249, -4.37206, 4.31538, -1.60532)
 
 [node name="Case" parent="Options Menu/luggage3" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_vtepg")
+material_overlay = SubResource("ShaderMaterial_6dk6o")
+
+[node name="Cube" parent="Options Menu/luggage3" index="2"]
+material_overlay = SubResource("ShaderMaterial_4nkqq")
 
 [node name="luggage4" parent="Options Menu" instance=ExtResource("8_8dnnj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4532, 3, -5.76783)
@@ -211,7 +252,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5egv6")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.75903, 6, -5.67985)
 
 [node name="Case" parent="Options Menu/luggage5" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_8dnnj")
+material_overlay = SubResource("ShaderMaterial_6m47u")
 
 [node name="Options Menu Camera" type="Camera3D" parent="Options Menu"]
 transform = Transform3D(-0.0243974, -0.303075, 0.952654, 0, 0.952938, 0.303165, -0.999702, 0.00739644, -0.0232492, 10.6243, 19.6267, -2.90478)

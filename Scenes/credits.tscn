@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_r18jl"]
 [ext_resource type="FontFile" uid="uid://cwp8ay1qwwtb0" path="res://Materials/Terminal F4.ttf" id="2_gryuy"]
-[ext_resource type="Shader" uid="uid://b6iunul8h752c" path="res://Materials/crt_shader.gdshader" id="3_ccovl"]
+[ext_resource type="Shader" uid="uid://b6iunul8h752c" path="res://Shaders/crt_shader.gdshader" id="3_ccovl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bamb"]
 shader = ExtResource("3_ccovl")

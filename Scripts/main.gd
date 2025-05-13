@@ -92,6 +92,7 @@ func start_game():
 func _process(delta: float) -> void:
 	$"FPS Counter/FPSLabel".text = "FPS: " + str(Engine.get_frames_per_second())
 	main_camera.global_position.z = player.global_position.z - 4.0
+	main_camera.global_position.x = player.global_position.x
 	pass
 
 #func start_speed_lines() -> void:

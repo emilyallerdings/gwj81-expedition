@@ -1,0 +1,6 @@
+[gd_resource type="CurveTexture" load_steps=2 format=3 uid="uid://c0y7eoxgv12jp"]
+
+[sub_resource type="Curve" id="Curve_kiaro"]
+
+[resource]
+curve = SubResource("Curve_kiaro")

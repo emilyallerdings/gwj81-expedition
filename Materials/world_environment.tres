@@ -8,4 +8,5 @@ sky_material = SubResource("ProceduralSkyMaterial_bo1nx")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_8gbba")
+tonemap_mode = 3
 glow_intensity = 0.29
