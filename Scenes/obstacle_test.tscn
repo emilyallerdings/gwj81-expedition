@@ -128,6 +128,7 @@ func _get_property_list():
 "
 
 [node name="ObstacleTest" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0183983, -0.0457115, 0.05653)
 script = SubResource("GDScript_fj5ct")
 pattern_name = "CloseZigZag"
 pattern_difficulty = 2
@@ -135,8 +136,7 @@ load_name = "CloseZigZag"
 
 [node name="BoardingRamp" parent="." instance=ExtResource("1_pf0re")]
 transform = Transform3D(1, 0, 0, 0, 0.999848, -0.0174524, 0, 0.0174524, 0.999848, 0, 3, 0)
-width = 20.0
-length = 20.0
+length = 8.0
 
 [node name="Player" parent="." instance=ExtResource("2_pf0re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6)

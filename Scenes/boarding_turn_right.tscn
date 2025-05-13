@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://dd128yi7b3crk"]
+
+[ext_resource type="Script" uid="uid://bgb8u2ax3k34i" path="res://Scenes/boarding_turn.gd" id="1_benry"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k17x7"]
+albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
+roughness = 0.49
+
+[sub_resource type="BoxMesh" id="BoxMesh_rbw5i"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(1054, 1007)
+material = SubResource("StandardMaterial3D_k17x7")
+size = Vector3(20, 0.1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bp64"]
+albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
+roughness = 0.49
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_lgt4c"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(204, 107)
+material = SubResource("StandardMaterial3D_6bp64")
+add_uv2 = true
+size = Vector3(20, 0.1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_offkc"]
+albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
+roughness = 0.49
+
+[sub_resource type="BoxMesh" id="BoxMesh_q5qwj"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(1006, 1026)
+material = SubResource("StandardMaterial3D_offkc")
+size = Vector3(0.5, 9.5, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0qim7"]
+resource_local_to_scene = true
+size = Vector3(0.5, 2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slby5"]
+albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
+roughness = 0.49
+
+[sub_resource type="BoxMesh" id="BoxMesh_lsugm"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(1006, 1026)
+material = SubResource("StandardMaterial3D_slby5")
+size = Vector3(0.5, 9.5, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gmw5r"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(1006, 1026)
+material = SubResource("StandardMaterial3D_slby5")
+size = Vector3(0.5, 9.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rbw5i"]
+resource_local_to_scene = true
+size = Vector3(0.5, 2, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x2d4l"]
+size = Vector3(20, 2, 18)
+
+[node name="BoardingRamp" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+script = ExtResource("1_benry")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_rbw5i")
+
+[node name="Roof" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.102, 10)
+
+[node name="RoofMesh" type="MeshInstance3D" parent="Roof"]
+mesh = SubResource("BoxMesh_lgt4c")
+
+[node name="SideLeft" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 10)
+
+[node name="SideLeftMesh" type="MeshInstance3D" parent="SideLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, 0)
+mesh = SubResource("BoxMesh_q5qwj")
+
+[node name="SideLeftColl" type="CollisionShape3D" parent="SideLeft"]
+shape = SubResource("BoxShape3D_0qim7")
+
+[node name="SideRight" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 20)
+
+[node name="SideRightMesh" type="MeshInstance3D" parent="SideRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, 0)
+mesh = SubResource("BoxMesh_lsugm")
+
+[node name="SideRightMesh2" type="MeshInstance3D" parent="SideRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 3.8, -10)
+mesh = SubResource("BoxMesh_gmw5r")
+
+[node name="SideRightColl" type="CollisionShape3D" parent="SideRight"]
+shape = SubResource("BoxShape3D_rbw5i")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_x2d4l")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
