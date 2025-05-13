@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://22kb8tb4d3pq"]
+
+[resource]
+resource_name = "Pink Plastic"
+cull_mode = 2
+albedo_color = Color(0.648731, 0, 0.408087, 1)

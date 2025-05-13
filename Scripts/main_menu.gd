@@ -1,6 +1,9 @@
 extends Node3D
 
-@export var luggages : Array[PackedScene] = [preload("res://Scenes/luggage.tscn"), preload("res://Scenes/selection_test_luggage.tscn")]
+@export var luggages : Array[PackedScene] = [preload("res://Scenes/official_luggage_mainmenu.tscn"), 
+preload("res://Scenes/big_daddy_mainmenu.tscn"),
+preload("res://Scenes/sparklecorn_mainmenu.tscn"),
+preload("res://Scenes/hot_rod_mainmenu.tscn")]
 @export var rotation_speed : Vector3 = Vector3(0, 20, 0)
 
 @onready var suitecase_sprite = $SuitecaseSprite
@@ -40,9 +43,9 @@ extends Node3D
 @onready var right_button = $"Selection Menu/Selection Menu UI/Right Button"
 @onready var left_button = $"Selection Menu/Selection Menu UI/Left Button"
 @onready var selection_play = $"Selection Menu/Selection Menu UI/Selection Play"
-@onready var luggage_type = $"Selection Menu/Selection Menu UI/Luggage Type"
+@onready var luggage_type = $"Selection Menu/Selection Menu UI/Panel2/Luggage Type"
 @onready var luggage_stats = $"Selection Menu/Selection Menu UI/Luggage Stats"
-@onready var luggage_description = $"Selection Menu/Selection Menu UI/Luggage Description"
+@onready var luggage_description = $"Selection Menu/Selection Menu UI/Panel/Luggage Description"
 #endregion
 
 @onready var selection_stage = $SelectionStage
@@ -64,14 +67,10 @@ func _ready() -> void:
 	credits_menu_ui.visible = false
 	map_selection.visible = false
 	
-	luggage_type.text = current_luggage_type.title
-	luggage_stats.text = "[color=cyan]Speed: " \
-	+ str(current_luggage_type.speed) + "\nHandling: " \
-	+ str(current_luggage_type.handling) + "\nBoost: " \
-	+ str(current_luggage_type.boost) + "[/color]"
-	luggage_description.text = current_luggage_type.description
+	update_luggage_object()
+	
 	suitecase_sprite.position = Vector2(play.position.x - 50.0, play.position.y + 35.0)
-	selection_stage.add_child(luggages[0].instantiate())
+	
 
 func _process(delta: float) -> void:
 	selection_stage.rotation_degrees += rotation_speed * delta
@@ -95,6 +94,21 @@ func transition_cameras(curr_camera: Camera3D, next_camera: Camera3D) -> void:
 	from_camera = curr_camera
 	to_camera = next_camera
 	camera_transition = true
+
+func update_luggage_object():
+	current_luggage_type = luggages[i].instantiate()
+	if selection_stage.get_children():
+		selection_stage.get_child(0).queue_free()
+	selection_stage.add_child(current_luggage_type)
+	luggage_type.text = current_luggage_type.title
+	luggage_type.add_theme_font_override("normal_font", current_luggage_type.font)
+	luggage_stats.text = "Top Speed: " \
+	+ str(current_luggage_type.top_speed) + "\nHandling: " \
+	+ str(current_luggage_type.handling) + "\nBoost: " \
+	+ str(current_luggage_type.boost)
+	luggage_description.text = current_luggage_type.description
+	#selection_stage.add_child(current_luggage_type)
+	GameManager.select_luggage.emit(luggages[i])
 
 #region button press logic
 func _on_play_pressed() -> void:
@@ -161,31 +175,13 @@ func _on_selection_play_pressed():
 func _on_right_button_pressed():
 	SoundBus.button.play()
 	i = (i + 1) % len(luggages)
-	var luggage = luggages[i].instantiate()
-	selection_stage.get_child(0).queue_free()
-	selection_stage.add_child(luggage)
-	luggage_type.text = luggage.title
-	luggage_stats.text = "[color=cyan]Speed: " \
-	+ str(luggage.speed) + "\nHandling: " \
-	+ str(luggage.handling) + "\nBoost: " \
-	+ str(luggage.boost) + "[/color]"
-	luggage_description.text = luggage.description
+	update_luggage_object()
 
 func _on_left_button_pressed():
 	SoundBus.button.play()
 	i = (i - 1) % len(luggages)
+	update_luggage_object()
 	
-	var luggage = luggages[i].instantiate()
-	selection_stage.get_child(0).queue_free()
-	selection_stage.add_child(luggage)
-	
-	luggage_type.text = luggage.title
-	luggage_stats.text = "[color=cyan]Speed: " \
-	+ str(luggage.speed) + "\nHandling: " \
-	+ str(luggage.handling) + "\nBoost: " \
-	+ str(luggage.boost) + "[/color]"
-	luggage_description.text = luggage.description
-
 #endregion
 
 

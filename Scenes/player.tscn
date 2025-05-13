@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://chp52opwuhulv"]
+[gd_scene load_steps=12 format=3 uid="uid://chp52opwuhulv"]
 
 [ext_resource type="Script" uid="uid://bk7goqj06c30l" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://c3st1sbq1ewwj" path="res://Scenes/luggage.tscn" id="2_6t5aa"]
 [ext_resource type="Shader" uid="uid://d14rdrytptm7w" path="res://Shaders/blinking.gdshader" id="2_vgqql"]
+[ext_resource type="PackedScene" uid="uid://cbex0prspcmjo" path="res://Scenes/official_luggage_mainmenu.tscn" id="4_vgqql"]
+[ext_resource type="PackedScene" uid="uid://c0fcllhaw72sa" path="res://Scenes/sparklecorn_mainmenu.tscn" id="5_fkybt"]
+[ext_resource type="PackedScene" uid="uid://d244p6nhd00ic" path="res://Scenes/big_daddy_mainmenu.tscn" id="6_x3wgy"]
+[ext_resource type="PackedScene" uid="uid://c6ck5g5hhoxiy" path="res://Scenes/hot_rod_mainmenu.tscn" id="7_3smsa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fkybt"]
 render_priority = 0
@@ -18,7 +22,7 @@ material = SubResource("StandardMaterial3D_jjgbg")
 size = Vector3(1, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvnsp"]
-size = Vector3(1.48914, 2.22073, 0.988617)
+size = Vector3(1.66766, 2.47614, 1.39808)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_cvnsp")
@@ -30,11 +34,12 @@ visible = false
 mesh = SubResource("BoxMesh_bo1nx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 4.47035e-08, 0, -4.47035e-08, 1, 0.00872803, 1.13216, -0.0162868)
+transform = Transform3D(1, 0, 0, 0, 1, 4.47035e-08, 0, -4.47035e-08, 1, 0.0014528, 1.25987, -0.105046)
 shape = SubResource("BoxShape3D_cvnsp")
 
 [node name="luggage" parent="." instance=ExtResource("2_6t5aa")]
 transform = Transform3D(-1.08863e-08, 9.52425e-10, -0.25, 0.0217889, 0.249049, 0, 0.249049, -0.0217889, -1.09278e-08, 0, 0, 0)
+visible = false
 
 [node name="Case" parent="luggage" index="0"]
 layers = 2
@@ -47,5 +52,24 @@ layers = 2
 
 [node name="Cube_001" parent="luggage" index="3"]
 layers = 2
+
+[node name="official_luggage" parent="." instance=ExtResource("4_vgqql")]
+transform = Transform3D(-4.35451e-08, 3.8097e-09, -1, 0.0871557, 0.996195, 7.24364e-15, 0.996195, -0.0871557, -4.37114e-08, 0, 0, 0)
+visible = false
+
+[node name="sparklecorn" parent="." instance=ExtResource("5_fkybt")]
+transform = Transform3D(-4.35451e-08, 3.8097e-09, -1, 0.0871558, 0.996195, 4.17711e-15, 0.996195, -0.0871558, -4.37114e-08, 0, 0, 0)
+visible = false
+
+[node name="big_daddy" parent="." instance=ExtResource("6_x3wgy")]
+transform = Transform3D(-4.35451e-08, 3.8097e-09, -1, 0.0871557, 0.996195, 0, 0.996195, -0.0871557, -4.37114e-08, 0, 0, 0)
+visible = false
+description = "Made out of the world's strongest metal, plotarmorium, this mean machine has at least 5 baby mamas and requires a tank to knock it over.
+
+Higher health and top speed, but at the cost of a wider frame and top speed. Acceleration with boost is slower."
+
+[node name="hot_rod" parent="." instance=ExtResource("7_3smsa")]
+transform = Transform3D(-4.35451e-08, 3.8097e-09, -1, 0.0871557, 0.996195, 7.96561e-16, 0.996195, -0.0871557, -4.37114e-08, 0, 0, 0)
+visible = false
 
 [editable path="luggage"]
