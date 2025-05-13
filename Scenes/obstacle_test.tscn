@@ -3,11 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://xicolt62u2x5" path="res://Scenes/boarding_ramp.tscn" id="1_pf0re"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="2_pf0re"]
 [ext_resource type="PackedScene" uid="uid://dy8fe1r61jocd" path="res://Scenes/obstacle.tscn" id="3_fj5ct"]
-<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://Scripts/obstacle.gd" id="4_uv7gd"]
-=======
-[ext_resource type="Script" uid="uid://bjtxwl4xukg3x" path="res://Scripts/obstacle.gd" id="4_fj5ct"]
->>>>>>> Stashed changes
 
 [sub_resource type="GDScript" id="GDScript_fj5ct"]
 script/source = "@tool
@@ -134,14 +130,8 @@ func _get_property_list():
 
 [node name="ObstacleTest" type="Node3D"]
 script = SubResource("GDScript_fj5ct")
-<<<<<<< Updated upstream
 pattern_name = "DoublesSides"
 load_name = "DoublesSides"
-=======
-pattern_name = "CloseZigZag"
-pattern_difficulty = 2
-load_name = "CloseZigZag"
->>>>>>> Stashed changes
 
 [node name="BoardingRamp" parent="." instance=ExtResource("1_pf0re")]
 transform = Transform3D(1, 0, 0, 0, 0.999848, -0.0174524, 0, 0.0174524, 0.999848, 0, 3, 0)
@@ -155,7 +145,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Obstacle" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-<<<<<<< Updated upstream
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 2, 5)
 script = ExtResource("4_uv7gd")
 
@@ -170,27 +159,3 @@ script = ExtResource("4_uv7gd")
 [node name="Obstacle4" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 2, 5)
 script = ExtResource("4_uv7gd")
-=======
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 2, 0)
-script = ExtResource("4_fj5ct")
-
-[node name="Obstacle2" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 2, 0)
-script = ExtResource("4_fj5ct")
-
-[node name="Obstacle3" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 2, 0)
-script = ExtResource("4_fj5ct")
-
-[node name="Obstacle4" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 2, 7)
-script = ExtResource("4_fj5ct")
-
-[node name="Obstacle5" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5, 2, 7)
-script = ExtResource("4_fj5ct")
-
-[node name="Obstacle6" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 2, 7)
-script = ExtResource("4_fj5ct")
->>>>>>> Stashed changes

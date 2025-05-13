@@ -15,7 +15,7 @@ buffer = PackedFloat32Array(1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1
 [sub_resource type="BoxMesh" id="BoxMesh_6bp64"]
 lightmap_size_hint = Vector2i(1054, 1007)
 material = ExtResource("4_1j28i")
-size = Vector3(15, 0.1, 300)
+size = Vector3(20, 0.1, 300)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bp64"]
 albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
@@ -24,10 +24,10 @@ emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 5.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_ynf5e"]
-lightmap_size_hint = Vector2i(1579, 1507)
+lightmap_size_hint = Vector2i(1604, 1507)
 material = SubResource("StandardMaterial3D_6bp64")
 add_uv2 = true
-size = Vector3(15, 0.1, 300)
+size = Vector3(20, 0.1, 300)
 
 [sub_resource type="BoxMesh" id="BoxMesh_21xkr"]
 lightmap_size_hint = Vector2i(1006, 1026)
@@ -44,29 +44,29 @@ width = 15.0
 length = 300.0
 
 [node name="PillarsLeft" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2, 0.051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2, -5)
 multimesh = SubResource("MultiMesh_21xkr")
 script = ExtResource("3_lgt4c")
 
 [node name="PillarsRight" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 2, 0.051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 2, -5)
 multimesh = SubResource("MultiMesh_21xkr")
 script = ExtResource("3_lgt4c")
 
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 150)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 145)
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("BoxMesh_6bp64")
 
 [node name="Roof" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.10206, 150)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.10206, 145)
 
 [node name="RoofMesh" type="MeshInstance3D" parent="Roof"]
 mesh = SubResource("BoxMesh_ynf5e")
 
 [node name="SideLeft" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, 150)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, 145)
 
 [node name="SideLeftMesh" type="MeshInstance3D" parent="SideLeft"]
 mesh = SubResource("BoxMesh_21xkr")
@@ -75,7 +75,7 @@ mesh = SubResource("BoxMesh_21xkr")
 shape = SubResource("BoxShape3D_21xkr")
 
 [node name="SideRight" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, 150)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, 145)
 
 [node name="SideRightMesh" type="MeshInstance3D" parent="SideRight"]
 mesh = SubResource("BoxMesh_21xkr")
@@ -84,9 +84,9 @@ mesh = SubResource("BoxMesh_21xkr")
 shape = SubResource("BoxShape3D_21xkr")
 
 [node name="WindowLeft" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 6.01, 150)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 6.01, 145)
 mesh = ExtResource("5_fgggt")
 
 [node name="WindowRight" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 6.001, 150)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 6.001, 145)
 mesh = ExtResource("5_fgggt")
