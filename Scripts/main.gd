@@ -2,6 +2,10 @@ extends Node3D
 
 @onready var player: CharacterBody3D = %Player
 @onready var main_camera: Camera3D = $MainCamera
+#@onready var speed_lines = $"MainCamera/Speed Lines"
+
+#@onready var speed_tweener := get_tree().create_tween().set_loops()
+#var shader_material : ShaderMaterial = preload("res://Assets/speed_lines_material.tres")
 
 @export var starting_z:float = 10.0
 @export var difficulty:float = 8.0
@@ -90,6 +94,9 @@ func _process(delta: float) -> void:
 	main_camera.global_position.z = player.global_position.z - 4.0
 	pass
 
+#func start_speed_lines() -> void:
+	#speed_tweener.tween_property(shader_material, "shader_parameter/sample_radius", 1.0, 0.5).as_relative()
+	#speed_tweener.tween_property(shader_material, "shader_parameter/sample_radius", 0.0, 0.5).as_relative()
 # YAY
 
 

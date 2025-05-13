@@ -35,6 +35,24 @@ transform = Transform3D(-1, 8.72542e-08, -1.23234e-07, 0, 0.816138, 0.577858, 1.
 current = true
 fov = 90.0
 
+[node name="Speed Lines" type="Control" parent="MainCamera"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainCamera/Speed Lines"]
+material = ExtResource("7_344ge")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.592756, -0.224943, 0.773331, -0.236016, 0.869533, 0.43383, -0.770024, -0.439673, 0.462331, 0, 0, 0)
 light_bake_mode = 1

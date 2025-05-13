@@ -121,11 +121,13 @@ func _physics_process(delta: float) -> void:
 	#print(velocity)
 
 	# Move the luggage
+	play_rolling()
 	move_and_slide()
 
 func play_rolling():
 	if velocity.length() > 0.1:
-		SoundBus.rolling_suitcase.play()
+		if not SoundBus.rolling_suitcase.playing:
+			SoundBus.rolling_suitcase.play()
 	else:
 		SoundBus.rolling_suitcase.stop()
 
