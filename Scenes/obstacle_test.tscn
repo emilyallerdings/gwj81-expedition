@@ -130,8 +130,9 @@ func _get_property_list():
 
 [node name="ObstacleTest" type="Node3D"]
 script = SubResource("GDScript_fj5ct")
-pattern_name = "DoublesSides"
-load_name = "DoublesSides"
+pattern_name = "CloseZigZag"
+pattern_difficulty = 2
+load_name = "CloseZigZag"
 
 [node name="BoardingRamp" parent="." instance=ExtResource("1_pf0re")]
 transform = Transform3D(1, 0, 0, 0, 0.999848, -0.0174524, 0, 0.0174524, 0.999848, 0, 3, 0)
@@ -145,17 +146,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Obstacle" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 2, 5)
-script = ExtResource("4_uv7gd")
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 2, 0)
+script = ExtResource("4_fj5ct")
 
 [node name="Obstacle2" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 2, 5)
-script = ExtResource("4_uv7gd")
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 2, 0)
+script = ExtResource("4_fj5ct")
 
 [node name="Obstacle3" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5, 2, 5)
-script = ExtResource("4_uv7gd")
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 2, 0)
+script = ExtResource("4_fj5ct")
 
 [node name="Obstacle4" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 2, 5)
-script = ExtResource("4_uv7gd")
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 2, 7)
+script = ExtResource("4_fj5ct")
+
+[node name="Obstacle5" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5, 2, 7)
+script = ExtResource("4_fj5ct")
+
+[node name="Obstacle6" type="Area3D" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 2, 7)
+script = ExtResource("4_fj5ct")

@@ -40,26 +40,26 @@ func _ready() -> void:
 func set_size():
 	floor_mesh.mesh.size.z = length
 	floor_mesh.mesh.size.x = width
-	floor.position.z = (length / 2.0) - 5.0
+	floor.position.z = (length / 2.0)
 	
 	roof_mesh.mesh.size.z = length
 	roof_mesh.mesh.size.x = width
-	roof.position.z = (length / 2.0) - 5.0
+	roof.position.z = (length / 2.0)
 
 	side_left_mesh.mesh.size.z = length
 	side_left_coll.shape.size.z = length
-	side_left.position.z = (length / 2.0) - 5.0
+	side_left.position.z = (length / 2.0)
 	side_left.position.x = width/2.0
 	
 	side_right_coll.shape.size.z = length
-	side_right.position.z = (length / 2.0) - 5.0
+	side_right.position.z = (length / 2.0)
 	side_right.position.x = -width/2.0
 	
 	window_left.mesh.size.z = length
-	window_left.position.z = (length / 2.0) - 5.0
+	window_left.position.z = (length / 2.0)
 	window_left.position.x = width/2.0	
 	
-	window_right.position.z = (length / 2.0) - 5.0
+	window_right.position.z = (length / 2.0)
 	window_right.position.x = -width/2.0
 	
 	pillars_left.position.x = width/2.0
