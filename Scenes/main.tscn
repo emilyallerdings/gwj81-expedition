@@ -22,7 +22,6 @@ font_color = Color(0.541176, 1, 0, 1)
 script = ExtResource("1_jjgbg")
 
 [node name="BoardingRamp" parent="." instance=ExtResource("2_jjvhh")]
-width = 20.0
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_jjgbg")

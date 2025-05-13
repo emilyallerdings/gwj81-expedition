@@ -30,14 +30,8 @@ extends Node3D
 @onready var window_right: MeshInstance3D = $WindowRight
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	self.position.y = 3.0
-	set_size()
-	pass # Replace with function body.
-
-
 func set_size():
+	self.position.y = 3.0
 	floor_mesh.mesh.size.z = length
 	floor_mesh.mesh.size.x = width
 	floor.position.z = (length / 2.0)
@@ -51,6 +45,7 @@ func set_size():
 	side_left.position.z = (length / 2.0)
 	side_left.position.x = width/2.0
 	
+	side_right_mesh.mesh.size.z = length
 	side_right_coll.shape.size.z = length
 	side_right.position.z = (length / 2.0)
 	side_right.position.x = -width/2.0
@@ -59,14 +54,15 @@ func set_size():
 	window_left.position.z = (length / 2.0)
 	window_left.position.x = width/2.0	
 	
+	window_right.mesh.size.z = length
 	window_right.position.z = (length / 2.0)
 	window_right.position.x = -width/2.0
 	
 	pillars_left.position.x = width/2.0
 	pillars_right.position.x = -width/2.0
 	
-	pillars_left.remesh(int(ceil(length/4.1)) + 1)
-	pillars_right.remesh(int(ceil(length/4.1)) + 1)
+	pillars_left.remesh(int(ceil(length/4)) + 1)
+	pillars_right.remesh(int(ceil(length/4)) + 1)
 	
 	
 	
