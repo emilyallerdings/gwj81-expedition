@@ -1,8 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dap32foqet7n"]
+[gd_scene load_steps=6 format=3 uid="uid://dap32foqet7n"]
 
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_r18jl"]
 [ext_resource type="FontFile" uid="uid://cwp8ay1qwwtb0" path="res://Materials/Terminal F4.ttf" id="2_gryuy"]
 [ext_resource type="Shader" uid="uid://b6iunul8h752c" path="res://Shaders/crt_shader.gdshader" id="3_ccovl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccovl"]
+bg_color = Color(0, 0.709804, 0.815686, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bamb"]
 shader = ExtResource("3_ccovl")
@@ -36,14 +44,14 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0.710739, 0.815449, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ccovl")
 
 [node name="Credits Title" type="RichTextLabel" parent="."]
 layout_mode = 1

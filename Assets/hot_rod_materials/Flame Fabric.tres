@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dxleeqdsi0516"]
+
+[ext_resource type="Texture2D" uid="uid://bw163gq3khjq6" path="res://Assets/hot_rod_Flame.png" id="1_s0cg3"]
+
+[resource]
+resource_name = "Flame Fabric"
+cull_mode = 2
+albedo_texture = ExtResource("1_s0cg3")
+uv1_offset = Vector3(0.7, 0, 0)

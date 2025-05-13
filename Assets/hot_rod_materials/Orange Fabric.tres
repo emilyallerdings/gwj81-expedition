@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://iuxbmk6h3yiq"]
+
+[resource]
+resource_name = "Orange Fabric"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)

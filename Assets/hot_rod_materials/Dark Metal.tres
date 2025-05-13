@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://capf4fy2ekjj"]
+
+[resource]
+resource_name = "Dark Metal"
+cull_mode = 2
+albedo_color = Color(0.218349, 0.218349, 0.218349, 1)
+metallic = 1.0
+roughness = 0.523511

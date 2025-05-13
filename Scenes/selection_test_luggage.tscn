@@ -9,7 +9,6 @@ albedo_color = Color(0.632225, 1.9493e-06, 3.36915e-07, 1)
 [node name="luggage" instance=ExtResource("1_y08q4")]
 script = ExtResource("2_froxk")
 title = "Hot Rod"
-speed = 10.0
 handling = 11.0
 boost = 12.0
 description = "Slower top speed, boosts like you slapped your mother. 

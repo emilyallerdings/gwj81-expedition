@@ -1,7 +1,5 @@
 extends CharacterBody3D
 
-
-
 @export var max_speed:float = 10.0
 var forward_speed: float = 0.0
 
@@ -11,8 +9,8 @@ var forward_speed: float = 0.0
 @export var smooth_factor: float = 0.1
 @export var turn_slowdown_factor: float = 0.005
 
-
-@onready var luggage: Node3D = $luggage
+@export var luggage : PackedScene = null
+#@onready var luggage: Node3D = $luggage
 
 @export var blink_interval: float = 0.1
 @export var blink_duration: float = 1.0
@@ -28,25 +26,30 @@ var boost_bonus := 10.0
 var blinking = false
 var elapsed_time = 0.0
 var all_materials = {}
+var luggage_object = null
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
+	
+	luggage = GameManager.chosen_luggage
+	luggage_object = luggage.instantiate()
+	luggage_object.scale = Vector3(1, 1, 1)
+	self.add_child(luggage_object)
 
 	# Apply the shared shader material to all mesh surfaces in the group
-	for child in luggage.get_children():
-		if child is MeshInstance3D and child.mesh:
-			var mesh = child.mesh
-			for surface in mesh.get_surface_count():
-				var original_material = mesh.surface_get_material(surface)
-				if original_material:
-					all_materials[original_material] = original_material.albedo_color
-			for surface in child.get_surface_override_material_count():
-				var override_mat = child.get_surface_override_material(surface)
-				if override_mat:
-					all_materials[override_mat] = override_mat.albedo_color
-	print(all_materials.size())
+	#for child in luggage_object.get_children():
+		#if child is MeshInstance3D and child.mesh:
+			#var mesh = child.mesh
+			#for surface in mesh.get_surface_count():
+				#var original_material = mesh.surface_get_material(surface)
+				#if original_material:
+					#all_materials[original_material] = original_material.albedo_color
+			#for surface in child.get_surface_override_material_count():
+				#var override_mat = child.get_surface_override_material(surface)
+				#if override_mat:
+					#all_materials[override_mat] = override_mat.albedo_color
+	#print(all_materials.size())
 	pass # Replace with function body.
 
 

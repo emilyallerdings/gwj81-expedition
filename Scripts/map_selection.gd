@@ -19,6 +19,7 @@ func _on_fly_pressed():
 	SoundBus.start_game.play()
 	SoundBus.airport_ambience.stop()
 	SoundBus.song_2.stop()
+	GameManager.select_luggage.emit(GameManager.chosen_luggage)
 	get_tree().change_scene_to_packed(transition_screen)
 
 #func _on_back_mouse_entered():
