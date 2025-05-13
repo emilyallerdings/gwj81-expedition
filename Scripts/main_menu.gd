@@ -74,7 +74,7 @@ func _ready() -> void:
 	selection_stage.add_child(luggages[0].instantiate())
 
 func _process(delta: float) -> void:
-	selection_stage.get_child(0).rotation_degrees += rotation_speed * delta
+	selection_stage.rotation_degrees += rotation_speed * delta
 	lerp_camera(delta)
 
 func lerp_camera(_delta: float) -> void:

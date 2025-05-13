@@ -1,11 +1,81 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3st1sbq1ewwj"]
+[gd_scene load_steps=13 format=3 uid="uid://c3st1sbq1ewwj"]
 
 [ext_resource type="PackedScene" uid="uid://t54luoyhamqx" path="res://Assets/luggage.glb" id="1_iiv55"]
 [ext_resource type="Script" uid="uid://c0dvlbuemp5wx" path="res://Scripts/luggage.gd" id="2_n4s8n"]
+[ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="3_bdxgq"]
+[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="4_b3ov1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdxgq"]
+render_priority = 0
+shader = ExtResource("3_bdxgq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rvwm1"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_bdxgq")
+shader = ExtResource("4_b3ov1")
+shader_parameter/color = Color(0, 0.427451, 0.592157, 1)
+shader_parameter/specular = Color(0.223103, 0.223103, 0.223103, 0.5)
+shader_parameter/fresnel = Color(0, 0, 0, 0.3)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qgt8l"]
+render_priority = 0
+shader = ExtResource("3_bdxgq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p63ud"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_qgt8l")
+shader = ExtResource("4_b3ov1")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b3ov1"]
+render_priority = 0
+shader = ExtResource("3_bdxgq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qt5sr"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_b3ov1")
+shader = ExtResource("4_b3ov1")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hohiq"]
+render_priority = 0
+shader = ExtResource("3_bdxgq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtgqh"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_hohiq")
+shader = ExtResource("4_b3ov1")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
 
 [node name="luggage" instance=ExtResource("1_iiv55")]
 script = ExtResource("2_n4s8n")
 title = "basic luggage"
 description = "Your basic luggage. 
 
-[node name="
+Nothing special, gets the job done."
+
+[node name="Case" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_rvwm1")
+
+[node name="Wheels" parent="." index="1"]
+material_override = SubResource("ShaderMaterial_p63ud")
+
+[node name="Cube" parent="." index="2"]
+material_override = SubResource("ShaderMaterial_qt5sr")
+
+[node name="Cube_001" parent="." index="3"]
+material_override = SubResource("ShaderMaterial_qtgqh")

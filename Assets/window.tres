@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://b1rk01s3g06te" path="res://Materials/window_mat.tres" id="1_ptafq"]
 
 [resource]
-lightmap_size_hint = Vector2i(104, 186)
+lightmap_size_hint = Vector2i(1504, 1586)
 material = ExtResource("1_ptafq")
 add_uv2 = true
-size = Vector3(0.1, 8, 20)
+size = Vector3(0.1, 8, 300)
