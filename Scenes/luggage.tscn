@@ -1,7 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3st1sbq1ewwj"]
 
 [ext_resource type="PackedScene" uid="uid://t54luoyhamqx" path="res://Assets/luggage.glb" id="1_iiv55"]
-[ext_resource type="Material" uid="uid://de0p4dv3cs42" path="res://Assets/luggage/handle_metal.tres" id="2_n4s8n"]
 [ext_resource type="Script" uid="uid://c0dvlbuemp5wx" path="res://Scripts/luggage.gd" id="2_n4s8n"]
 
 [node name="luggage" instance=ExtResource("1_iiv55")]
@@ -9,6 +8,4 @@ script = ExtResource("2_n4s8n")
 title = "basic luggage"
 description = "Your basic luggage. 
 
-[node name="Cube" parent="." index="2"]
-surface_material_override/0 = ExtResource("2_n4s8n")
-Nothing special, gets the job done."
+[node name="
