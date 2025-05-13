@@ -121,7 +121,7 @@ func _physics_process(delta: float) -> void:
 
 	# Smooth velocity adjustment
 	velocity = lerp(velocity, target_velocity, smooth_factor)
-	print(velocity.length())
+	#print(velocity.length())
 
 	# Move the luggage
 	play_rolling()

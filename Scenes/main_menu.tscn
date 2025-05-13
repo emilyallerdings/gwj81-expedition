@@ -601,6 +601,7 @@ theme = ExtResource("5_t1dhk")
 theme_override_fonts/normal_font = ExtResource("9_5egv6")
 bbcode_enabled = true
 text = "basic luggage"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 2
 

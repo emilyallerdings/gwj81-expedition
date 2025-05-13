@@ -23,6 +23,7 @@ script = ExtResource("1_jjgbg")
 
 [node name="BoardingRamp" parent="." instance=ExtResource("2_jjvhh")]
 width = 20.0
+length = 100.0
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_jjgbg")
@@ -61,7 +62,6 @@ shadow_enabled = true
 unique_name_in_owner = true
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.35489, 0)
-luggage = null
 blink_interval = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="Player"]

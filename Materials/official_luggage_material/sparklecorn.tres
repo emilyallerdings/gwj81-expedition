@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bm5wooing53qc"]
+
+[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="1_rmcge"]
+[ext_resource type="Texture2D" uid="uid://1wndrnxomnbk" path="res://Assets/sparklecorn_materials/Unicorn.png" id="2_cntga"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rmcge")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/base_texture = ExtResource("2_cntga")
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/uv_scale = Vector2(1, -1)
+shader_parameter/uv_offset = Vector2(0, 0)

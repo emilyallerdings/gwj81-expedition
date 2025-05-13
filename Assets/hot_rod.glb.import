@@ -42,10 +42,6 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://Assets/hot_rod_materials/Flame Fabric.tres"
 },
-"Orange Fabric": {
-"use_external/enabled": true,
-"use_external/path": "res://Assets/hot_rod_materials/Orange Fabric.tres"
-},
 "Orange Plastic": {
 "use_external/enabled": true,
 "use_external/path": "res://Assets/hot_rod_materials/Orange Plastic.tres"
