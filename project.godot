@@ -24,12 +24,9 @@ PatternManager="*res://Scripts/Globals/ObstaclePatternManager.gd"
 
 [display]
 
+window/stretch/mode="canvas_items"
 window/layer_2=""
 window/layer_1=""
-
-[display]
-
-window/stretch/mode="canvas_items"
 
 [file_customization]
 
