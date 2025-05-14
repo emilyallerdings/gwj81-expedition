@@ -7,3 +7,5 @@ extends Node3D
 @export_multiline var description : String = ""
 
 @export var font : FontFile = preload("res://Materials/NixieOne.ttf")
+
+@export var luggage_collider : CollisionShape3D = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://c6ck5g5hhoxiy"]
+[gd_scene load_steps=23 format=4 uid="uid://c6ck5g5hhoxiy"]
 
 [ext_resource type="PackedScene" uid="uid://dj8x5ubmuwq83" path="res://Assets/hot_rod.glb" id="1_badxc"]
 [ext_resource type="Script" uid="uid://c0dvlbuemp5wx" path="res://Scripts/luggage.gd" id="2_068ws"]
@@ -263,7 +263,10 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_fbp52")
 size = Vector2(2, 2)
 
-[node name="hot_rod" instance=ExtResource("1_badxc")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gp2kb"]
+size = Vector3(1.5818, 2.8717, 2.09546)
+
+[node name="hot_rod" node_paths=PackedStringArray("luggage_collider") instance=ExtResource("1_badxc")]
 transform = Transform3D(-1.39876e-07, 0, -3.2, 0, 3.2, 0, 3.2, 0, -1.39876e-07, 0, 0, 0)
 script = ExtResource("2_068ws")
 title = "Hot Rod"
@@ -274,6 +277,7 @@ description = "Kicks like you slapped your mama! Not for the faint of heart.
 
 Trades top speed and maneuverability for insane boost! Really nice fuel efficiency of a whopping 10 MPG."
 font = ExtResource("3_t2c5w")
+luggage_collider = NodePath("CollisionShape3D")
 
 [node name="Flame Luggage Bars" parent="." index="0"]
 mesh = SubResource("ArrayMesh_068ws")
@@ -301,3 +305,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73196e-08, 0, 0.625)
 amount = 12
 process_material = SubResource("ParticleProcessMaterial_gp2kb")
 draw_pass_1 = SubResource("QuadMesh_fbp52")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0144425, 1.60309, 0.00223347)
+shape = SubResource("BoxShape3D_gp2kb")

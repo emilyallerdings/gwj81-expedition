@@ -29,6 +29,7 @@ const REFUND_PER_METER = 0.5
 
 var obstacles = []
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().create_timer(0.01).timeout
@@ -41,6 +42,8 @@ func _ready() -> void:
 	boarding_generator.connect("player_left_turn", turn_player_left)
 	boarding_generator.connect("player_right_turn", turn_player_right)
 	start_game()
+	speed_lines.visible = false
+	main_camera.fov = 90.0
 
 func ready_stage():
 	
@@ -96,7 +99,11 @@ func place_pattern(pattern:ObstaclePattern, z_pos:float):
 		n_ob.position = Vector3(ob.position.x, ob.position.y, ob.position.z + z_pos)
 		#n_ob.connect("body_entered", _on_obstacle_body_entered)
 	return
-
+	
+#func initialize_player() -> void:
+	#var player = self.get_node("Player")
+	#player.collision_shape = player.get_child(3).get_child(5)
+	
 func start_game():
 	
 	SoundBus.song_1.play()
@@ -113,6 +120,16 @@ func _process(delta: float) -> void:
 	$Speed/SpeedLabel.text = "Speed: " + str + "m/s"
 	main_camera_anchor.global_position.z = player.global_position.z
 	main_camera_anchor.global_position.x = player.global_position.x
+
+	
+	if player.velocity.length() > player.max_speed + (player.boost_bonus / 2):
+		var camera_increase := get_tree().create_tween()
+		camera_increase.tween_property(main_camera, "fov", 110.0, 0.25)
+		
+	else:
+		var camera_increase := get_tree().create_tween()
+		camera_increase.tween_property(main_camera, "fov", 90.0, 0.25)
+		
 	pass
 
 #func start_speed_lines() -> void:

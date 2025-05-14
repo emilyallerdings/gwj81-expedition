@@ -10,12 +10,13 @@ var forward_speed: float = 0.0
 @export var turn_slowdown_factor: float = 0.005
 
 @export var luggage : PackedScene = null
-#@onready var luggage: Node3D = $luggage
 
 @export var blink_interval: float = 0.1
 @export var blink_duration: float = 1.0
 @export var blink_intensity: float = 0.7
 @export var shader_material: ShaderMaterial
+
+@onready var collision_shape = $CollisionShape3D
 
 var forward_direction: Vector3 = Vector3(0,0,1)
 var target_velocity: Vector3 = Vector3.ZERO
@@ -37,6 +38,11 @@ func _ready() -> void:
 		luggage = load("res://Scenes/official_luggage_mainmenu.tscn")
 	luggage_object = luggage.instantiate()
 	luggage_object.scale = Vector3(1, 1, 1)
+	collision_shape.shape = luggage_object.luggage_collider.shape
+	collision_shape.position = luggage_object.luggage_collider.position
+	collision_shape.rotation = luggage_object.rotation
+	collision_shape.shape.size = luggage_object.luggage_collider.shape.size
+	
 	self.add_child(luggage_object)
 
 	# Apply the shared shader material to all mesh surfaces in the group

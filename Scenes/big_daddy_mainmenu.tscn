@@ -1,11 +1,12 @@
-[gd_scene load_steps=17 format=4 uid="uid://d244p6nhd00ic"]
+[gd_scene load_steps=21 format=4 uid="uid://d244p6nhd00ic"]
 
 [ext_resource type="PackedScene" uid="uid://6wc1ufbdp8jr" path="res://Assets/big_daddy.glb" id="1_ovv6o"]
 [ext_resource type="Script" uid="uid://c0dvlbuemp5wx" path="res://Scripts/luggage.gd" id="2_tdoey"]
 [ext_resource type="Material" uid="uid://dy1idrww4vro2" path="res://Materials/official_luggage_material/dark_metal_material.tres" id="2_xbtjx"]
 [ext_resource type="Material" uid="uid://e363r7m2s217" path="res://Materials/official_luggage_material/black_material.tres" id="3_ovv6o"]
 [ext_resource type="FontFile" uid="uid://c2cwoacpy0sr5" path="res://Materials/Capture it.ttf" id="3_tdoey"]
-[ext_resource type="Material" uid="uid://xexnvc4jdw7q" path="res://Materials/official_luggage_material/big_daddy.tres" id="5_s6js4"]
+[ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="5_edyp5"]
+[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="6_71hyn"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6vqf4"]
 _surfaces = [{
@@ -39,6 +40,22 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6vqf4")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tdoey"]
+render_priority = 0
+shader = ExtResource("5_edyp5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yeu0c"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_tdoey")
+shader = ExtResource("6_71hyn")
+shader_parameter/color = Color(0.537011, 0.537011, 0.537011, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/metallic = 1.0
+shader_parameter/roughness = 0.05
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_0hwsg"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2.72636, 2),
@@ -63,7 +80,7 @@ _surfaces = [{
 "index_count": 612,
 "index_data": PackedByteArray("UABRAFIAUAA9AFEADAA9AFAADABQAFMAUwBQADwAPABQAFIAUwA8AFQAVAA8ADoAVAA6AFUAPABSACkAOgA8ACkAVgApAFIAVgBSAA0AVwApAFYAVwA5ACkAOgApADkAWAA5AFcAVQA6AFkAOQBZADoAVQBZAAsAWABaADkAOQBaAFkADgBaAFgAWgBbAFkADgA7AFoAWgA7AFsAXABdAF4AXAAxAF0AEAAxAFwAEABcAF8AXwBcACAAIABcAF4AXwAgAGAAYQBeAF0AYQBdABEAYgBeAGEAYgAeAF4AIABeAB4AHgBiAGMAYAAgACEAIQAgAB4AYAAhAGQAHgBjAB8AIQAeAB8AZQAfAGMAZAAhAGYAHwBmACEAZABmAGcAZQBoAB8AHwBoAGYADwBoAGUADwAyAGgAaAAyAGkAaABpAGYAZwBmAGkAZwBpABIAMwAiAGoAAgBrAGoAAgBqAGwAbABqACIAbAAiAG0AbQAiADQAbQA0AG4AbgA0ADUAbgA1AAQANQA0ADYAIgA2ADQANQA2AG8ABQBvADYABQA2AAMAIgA3ADYANwADADYAMwA3ACIAAQA3ADMANwABAAMAAQAzAAAAAQA4AAMAcAADADgAAQAjADgAcAAHAAMAIwABAAgAcQAHAHAAIwAIAHIAcQBzAAcAcgAIAHQABgBzAHEAcgB0AHUABgB2AHMAdQB0AHcAdgAGAHgAdQB3AHkAdgB4AHoAeQB3AHsAfAB6AHgAeQB7ACQAfAB9AHoAJAB7AAoAfgB9AHwAJAAKAH8AfgAJAH0AfwAKAIAAJQAJAH4AfwCAAIEAJQCCAAkAgQCAAIMAggAlAIQAgQCDAIQAggCEAIMAJgA+AD8APwCFACYAPwCGAIUAhgA/AEAAhgBAABwAQAA/AD4AQAA+AIcAHQCHAD4AiAAmAIUAHQA+ABkAiACJACYAGgCJAIgAGgCKAIkAQQAmAIkAJgBCAD4AQQBCACYAGQA+AEIAFABCAEEAGQBCABQAFABBABsAQwAZABQAiwAZAEMAQwAUABMAiwAYABkAEwAUABUAjAAYAIsAEwAVAI0AjACOABgAjQAVAI8ARACOAIwAjQCPAJAARACRAI4AkACPAJIAkwCRAEQAkACSAJQAkwCVAJEAlACSAJYAlwCVAJMAlACWACgAlwCYAJUAKACWABYAmQCYAJcAKAAWAJoAmQAXAJgAmgAWAJsAJwAXAJkAmgCbAJwAJwCdABcAnACbAJ4AnwCdACcAnACeAJ8AnwCeAJ0AoAChAEUARQChAKIAKwCgAEUARQCiAEYASQArAEUASQCjACsARQBGAEcASQBFAEcARgCkAEcApAClAEcARwClAEgASQCmAKMASQCnAKYApwBJACoASQBHAEoASgBHAEgAKgBJAEoASgBIACwAKgBKAKgAqQBKACwASgCqAKgAqgBKAKkAqwCsAEsASwCsAK0AMACrAEsASwCtAC4ATgAwAEsATgCuADAASwAuAEwATgBLAEwALgCvAEwArwCwAEwATACwAE0ATgCxAK4ATgCyALEAsgBOAC0ATgBMAE8ATwBMAE0ALQBOAE8ATwBNAC8ALQBPALMAtABPAC8ATwC1ALMAtQBPALQA"),
 "lods": [0.068192, PackedByteArray("MQARAB4AHgARAA8AIAAxAB4AEAAxACAAHgAPAB8ADwAyAB8AIQAgAB4AEAAgACEAIQAeAB8AHwAyACEAEAAhABIAMgASACEAMwAiAAIAAgAiADQAAgA0AAQABAA0ADUANQA0ADYAIgA2ADQANQA2AAUAMwA3ACIAIgA3ADYABQA2AAMANwADADYAAQA3ADMANwABAAMAAQAzAAAAAQA4AAMAOAAHAAMAAQAjADgABgAHADgAIwABAAgABwAGACUAIwAIAAoABwAlAAkAIwAKACQACQAlACQACQAkAAoAOQALADoAOQA7AAsADAA6AAsADgA7ADkADgA5ACkAOgApADkADgApAA0ADAA8ADoAOgA8ACkAPAANACkADAA9ADwAPAA9AA0AJgA+AD8APwAaACYAPwAcABoAHAA/AEAAQAA/AD4AQAA+AB0AQQAmABoAHQA+ABkAJgBCAD4AQQBCACYAGQA+AEIAFABCAEEAGQBCABQAFABBABsAQwAZABQAQwAYABkAQwAUABMARAAYAEMAEwAUABUAJwAYAEQAEwAVABYAJwAXABgAEwAWACgAKAAXACcAKAAWABcARQBGAEcARQArAEYARgBIAEcASQArAEUASQBFAEcASQAqACsASgBHAEgASQBHAEoAKgBJAEoASgBIACwAKgBKACwASwAuAEwASwAwAC4ALgBNAEwATgAwAEsATgBLAEwATgAtADAATwBMAE0ATgBMAE8ALQBOAE8ATwBNAC8ALQBPAC8A"), 0.15479, PackedByteArray("EAARAB4AHgARAB8ADwAfABEAIAAQAB4AHwAPACEAIQAeAB8AIQAgAB4AEAAgACEADwASACEAEAAhABIAAAAiAAIAAgAiAAQAAAABACIAIgADAAQAIgABAAMABAADAAUAAQAjAAMAIwABAAgABgADACMAIwAIACQABgAHAAMAJAAIAAoAJQAHAAYACQAkAAoAJQAJAAcACQAlACQAJgAZABwAHAAaACYAHAAZAB0AGwAmABoAGwAUACYAJgAUABkAEwAZABQAEwAUABUAJwAZABMAEwAVACgAJwAYABkAKAAVABYAJwAXABgAKAAWABcAKAAXACcACwApAA4ADgApAA0ACwAMACkADAANACkAKgArACwALQAuAC8ALQAwAC4A"), 1.16248, PackedByteArray("AAABAAIAAgABAAMAAgADAAQABAADAAUAAQAGAAMABgAHAAMABgABAAgABgAJAAcABgAIAAoACQAGAAoACwAMAA0ADgALAA0ADwAQABEAEgAQAA8AEwAUABUAEwAVABYAEwAWABcAEwAXABgAEwAYABkAEwAZABQAGQAaABQAFAAaABsAGQAcABoAHQAcABkA")],
-"material": ExtResource("5_s6js4"),
+"material": SubResource("ShaderMaterial_yeu0c"),
 "name": "Blue Fabric.001",
 "primitive": 3,
 "uv_scale": Vector4(1.69862, 2, 0, 0),
@@ -219,7 +236,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l4xbc")
 
-[node name="big_daddy" instance=ExtResource("1_ovv6o")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_edyp5"]
+size = Vector3(1.83698, 2.8717, 2.67381)
+
+[node name="big_daddy" node_paths=PackedStringArray("luggage_collider") instance=ExtResource("1_ovv6o")]
 transform = Transform3D(-1.39876e-07, 0, -3.2, 0, 3.2, 0, 3.2, 0, -1.39876e-07, 0, 0, 0)
 script = ExtResource("2_tdoey")
 title = "BIG DADDY"
@@ -230,6 +250,7 @@ description = "Made out of the world's strongest metal, plotarmorium, this mean 
 
 Higher health and boost, but at the cost of a wider frame, top speed, and maneuverability."
 font = ExtResource("3_tdoey")
+luggage_collider = NodePath("CollisionShape3D")
 
 [node name="Big Luggage Bars" parent="." index="0"]
 mesh = SubResource("ArrayMesh_tdoey")
@@ -245,3 +266,7 @@ mesh = SubResource("ArrayMesh_edyp5")
 
 [node name="Big Luggage Zipper" parent="." index="4"]
 mesh = SubResource("ArrayMesh_xbtjx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00283815, 1.60309, -0.00691988)
+shape = SubResource("BoxShape3D_edyp5")

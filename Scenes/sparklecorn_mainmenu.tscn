@@ -1,9 +1,9 @@
-[gd_scene load_steps=22 format=4 uid="uid://c0fcllhaw72sa"]
+[gd_scene load_steps=23 format=4 uid="uid://c0fcllhaw72sa"]
 
 [ext_resource type="PackedScene" uid="uid://c4a6bg0ddyvmj" path="res://Assets/sparklecorn.glb" id="1_xlbl3"]
 [ext_resource type="Script" uid="uid://c0dvlbuemp5wx" path="res://Scripts/luggage.gd" id="2_wmmgg"]
+[ext_resource type="FontFile" uid="uid://brm3h3rux1f3" path="res://Materials/Because I am Happy Regular.ttf" id="3_u3d1e"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="3_wvnd7"]
-[ext_resource type="FontFile" uid="uid://dva5ww46awuv0" path="res://Materials/Pretty Girls Script Demo.ttf" id="3_yhw8e"]
 [ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="4_yhw8e"]
 [ext_resource type="Material" uid="uid://bm5wooing53qc" path="res://Materials/official_luggage_material/sparklecorn.tres" id="5_c5ap0"]
 [ext_resource type="Texture2D" uid="uid://bbj14frmq7i62" path="res://Assets/sparklecorn_materials/Glitter.png" id="5_phb58"]
@@ -22,6 +22,8 @@ shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/base_texture = ExtResource("5_phb58")
 shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.5
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 
@@ -261,17 +263,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w7vbr")
 
-[node name="sparklecorn" instance=ExtResource("1_xlbl3")]
-transform = Transform3D(-1.39876e-07, 0, -3.2, 0, 3.2, 0, 3.2, 0, -1.39876e-07, 0, 0, 0)
+[sub_resource type="BoxShape3D" id="BoxShape3D_u3d1e"]
+size = Vector3(0.908936, 1.69067, 1.27136)
+
+[node name="sparklecorn" node_paths=PackedStringArray("luggage_collider") instance=ExtResource("1_xlbl3")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 0, 0, 0)
 script = ExtResource("2_wmmgg")
 title = "⋆˙⟡Sparklecorn⟡˙⋆"
 top_speed = 8.0
 handling = 6.0
 boost = 2.0
-description = "Every little girls' dream suitcase! High top speed, good maneuverability, small frame, but low health and boost.
+description = "Every little girls' dream suitcase! Use ONLY if you're feeling ⋆˙⟡bonita⟡˙⋆
 
-Use ONLY if you're feeling ⋆˙⟡bonita⟡˙⋆"
-font = ExtResource("3_yhw8e")
+High top speed, good maneuverability, small frame, but low health and boost."
+font = ExtResource("3_u3d1e")
+luggage_collider = NodePath("CollisionShape3D")
 
 [node name="Unicorn Body" parent="." index="0"]
 mesh = SubResource("ArrayMesh_phb58")
@@ -287,3 +293,7 @@ mesh = SubResource("ArrayMesh_e4wp4")
 
 [node name="Unicorn Zipper" parent="." index="4"]
 mesh = SubResource("ArrayMesh_knafu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.013, 0)
+shape = SubResource("BoxShape3D_u3d1e")

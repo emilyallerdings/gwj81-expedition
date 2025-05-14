@@ -56,6 +56,8 @@ uniform vec4 specular: source_color = vec4(0.3, 0.3, 0.3, 0.5);
 uniform sampler2D specular_texture: hint_default_white;
 uniform vec4 fresnel: source_color = vec4(0.2, 0.2, 0.2, 0.3);
 uniform sampler2D fresnel_texture: hint_default_white;
+uniform float metallic: hint_range(0.0, 1.0) = 0.0;
+uniform float roughness: hint_range(0.0, 1.0) = 0.5;
 group_uniforms;
 
 varying vec3 SPECULAR_COLOR;
@@ -93,6 +95,9 @@ void fragment() {
 	SPECULAR_STRENGTH = specular.a * texture(specular_texture, UV).a;
 	FRESNEL_COLOR = fresnel.rgb * texture(fresnel_texture, UV).rgb;
 	FRESNEL_STRENGTH = fresnel.a * texture(fresnel_texture, UV).a;
+	
+	METALLIC = metallic;
+	ROUGHNESS = roughness;
 	
 #if USE_EMISSION
 	EMISSION += emission_fragment(UV);
