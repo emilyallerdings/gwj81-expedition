@@ -151,6 +151,9 @@ func _physics_process(delta: float) -> void:
 
 	# Combine forward and strafe motion
 	target_velocity += strafe
+	
+	if target_velocity.length() > 0:
+		target_velocity = target_velocity.normalized() * current_speed
 
 	# Smooth velocity adjustment
 	velocity = lerp(velocity, target_velocity, smooth_factor)
