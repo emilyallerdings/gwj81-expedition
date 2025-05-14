@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy8fe1r61jocd"]
+[gd_scene load_steps=6 format=3 uid="uid://dy8fe1r61jocd"]
 
-[ext_resource type="Script" uid="uid://bjtxwl4xukg3x" path="res://Scripts/obstacle.gd" id="1_15o2q"]
+[ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_15o2q"]
+[ext_resource type="PackedScene" uid="uid://dslth8rxf62cv" path="res://Assets/characters/character_rig.glb" id="2_2p81s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_344ge"]
 albedo_color = Color(1, 0, 0, 1)
@@ -16,7 +17,45 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
 script = ExtResource("1_15o2q")
 
 [node name="ObstacleMesh" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_ynf5e")
 
 [node name="ObstacleCollision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_6bp64")
+
+[node name="character_rig" parent="." instance=ExtResource("2_2p81s")]
+transform = Transform3D(2.005, 0, 0, 0, 2.005, 0, 0, 0, 2.005, 0, -1, 0)
+
+[node name="Skeleton3D" parent="character_rig/Armature" index="0"]
+bones/1/position = Vector3(-0.0146369, -0.0444243, 0.426089)
+bones/1/rotation = Quaternion(0.680371, -0.0296112, 0.027532, 0.731751)
+bones/2/rotation = Quaternion(0.144996, 2.63019e-10, -1.84245e-09, 0.989432)
+bones/3/rotation = Quaternion(-0.157357, 2.8356e-10, 1.81725e-09, 0.987542)
+bones/5/rotation = Quaternion(-0.160111, -3.6655e-10, -3.71526e-09, 0.987099)
+bones/6/rotation = Quaternion(-0.485888, -0.344047, -0.406371, 0.693114)
+bones/7/rotation = Quaternion(-0.461608, -0.421462, 0.38699, 0.677884)
+bones/8/rotation = Quaternion(-0.578485, -0.0102484, 0.00953571, 0.815573)
+bones/9/rotation = Quaternion(-0.0209348, -0.0606303, 0.0285881, 0.997531)
+bones/11/rotation = Quaternion(-0.485888, 0.344047, 0.406371, 0.693114)
+bones/12/rotation = Quaternion(-0.461608, 0.421462, -0.38699, 0.677884)
+bones/13/rotation = Quaternion(-0.578485, 0.0102484, -0.00953572, 0.815573)
+bones/14/rotation = Quaternion(-0.0209348, 0.0606303, -0.0285881, 0.997531)
+bones/15/rotation = Quaternion(0.454082, 0.656957, -0.351952, -0.488208)
+bones/16/rotation = Quaternion(0.469675, 0.782301, -0.111332, -0.393721)
+bones/17/rotation = Quaternion(0.999345, 0.0286876, 0.0137697, 0.0172091)
+bones/17/scale = Vector3(1.00005, 1, 1.00001)
+bones/18/rotation = Quaternion(0.279409, 0.00724165, 0.0261699, 0.959788)
+bones/19/rotation = Quaternion(-0.0387688, 0.765128, -0.642282, 0.0234515)
+bones/19/scale = Vector3(0.999952, 0.999994, 1)
+bones/20/rotation = Quaternion(0.267617, -1.28203e-08, -1.58706e-06, 0.963525)
+bones/22/rotation = Quaternion(0.99252, -0.0654299, -0.0526939, 0.0885797)
+bones/22/scale = Vector3(1.00005, 1, 1)
+bones/23/rotation = Quaternion(0.438654, -0.00677305, -0.0410851, 0.897691)
+bones/24/rotation = Quaternion(-0.0142773, 0.698388, -0.714558, -0.0381846)
+bones/24/scale = Vector3(0.999949, 0.999999, 1)
+bones/25/rotation = Quaternion(0.267618, -3.37164e-07, 2.84714e-06, 0.963525)
+bones/26/position = Vector3(-0.0146369, -0.0444243, 0.426089)
+bones/26/rotation = Quaternion(-4.34036e-17, -0.0404331, 1.38397e-09, 0.999182)
+bones/29/rotation = Quaternion(3.22582e-06, -0.202615, 0.979259, -8.85658e-09)
+
+[editable path="character_rig"]

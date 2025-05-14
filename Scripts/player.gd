@@ -10,7 +10,6 @@ var forward_speed: float = 0.0
 @export var turn_slowdown_factor: float = 0.005
 
 @export var luggage : PackedScene = null
-#@onready var luggage: Node3D = $luggage
 
 @export var blink_interval: float = 0.1
 @export var blink_duration: float = 1.0
@@ -36,11 +35,7 @@ func _ready() -> void:
 	
 	luggage = GameManager.chosen_luggage
 	luggage_object = luggage.instantiate()
-	#print(luggage_object.luggage_collider)
-	#collision_shape = luggage_object.luggage_collider
 	luggage_object.scale = Vector3(1, 1, 1)
-	#TODO SET COLLISION SHAPE
-	#var luggage_script = luggage_object as Node3D
 	collision_shape.shape = luggage_object.luggage_collider.shape
 	collision_shape.position = luggage_object.luggage_collider.position
 	collision_shape.rotation = luggage_object.rotation

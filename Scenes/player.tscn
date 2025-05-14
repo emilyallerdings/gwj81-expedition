@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://chp52opwuhulv"]
+[gd_scene load_steps=7 format=3 uid="uid://chp52opwuhulv"]
 
 [ext_resource type="Script" uid="uid://bk7goqj06c30l" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Shader" uid="uid://d14rdrytptm7w" path="res://Shaders/blinking.gdshader" id="2_vgqql"]
-[ext_resource type="PackedScene" uid="uid://c0fcllhaw72sa" path="res://Scenes/sparklecorn_mainmenu.tscn" id="5_fkybt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fkybt"]
 render_priority = 0
@@ -31,10 +30,4 @@ mesh = SubResource("BoxMesh_bo1nx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 4.47035e-08, 0, -4.47035e-08, 1, 0.0014528, 1.25987, -0.105046)
-visible = false
 shape = SubResource("BoxShape3D_cvnsp")
-
-[node name="sparklecorn" parent="." instance=ExtResource("5_fkybt")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
-
-[editable path="sparklecorn"]

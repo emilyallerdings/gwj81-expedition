@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://ckjr7lbj1cxxq"]
+[gd_scene load_steps=22 format=3 uid="uid://ckjr7lbj1cxxq"]
 
 [ext_resource type="Script" uid="uid://gavvic7ehdce" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://xicolt62u2x5" path="res://Scenes/boarding_ramp.tscn" id="2_jjvhh"]
 [ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="2_kry3j"]
+[ext_resource type="Shader" uid="uid://bdihhwuhk1cn8" path="res://Shaders/speed_lines.gdshader" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="7_6bp64"]
 
 [sub_resource type="Gradient" id="Gradient_21xkr"]
@@ -10,6 +11,8 @@ offsets = PackedFloat32Array(0.619205, 0.620861)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6bp64"]
 noise_type = 3
+seed = 45
+frequency = 0.0355
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6m47u"]
 seamless = true
@@ -58,6 +61,24 @@ material = SubResource("StandardMaterial3D_7u77a")
 add_uv2 = true
 size = Vector2(100, 500)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kry3j"]
+noise_type = 3
+frequency = 0.055
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_21xkr"]
+noise = SubResource("FastNoiseLite_kry3j")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bp64"]
+shader = ExtResource("5_kry3j")
+shader_parameter/noise = SubResource("NoiseTexture2D_21xkr")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_count = 2.0
+shader_parameter/line_density = 0.385
+shader_parameter/line_faloff = 1.0
+shader_parameter/mask_size = 0.312
+shader_parameter/mask_edge = 0.505
+shader_parameter/animation_speed = 20.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_jjvhh"]
 font_size = 30
 font_color = Color(0.541176, 1, 0, 1)
@@ -88,13 +109,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="MainCamera/Speed Lines"]
+material = SubResource("ShaderMaterial_6bp64")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.592756, -0.224943, 0.773331, -0.236016, 0.869533, 0.43383, -0.770024, -0.439673, 0.462331, 0, 0, 0)

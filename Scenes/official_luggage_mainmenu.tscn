@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cbex0prspcmjo"]
+[gd_scene load_steps=17 format=4 uid="uid://cbex0prspcmjo"]
 
 [ext_resource type="PackedScene" uid="uid://d032cbpjc4bax" path="res://Assets/official_luggage.glb" id="1_fakku"]
 [ext_resource type="Material" uid="uid://chktpch7mxrfq" path="res://Materials/official_luggage_material/metal_material.tres" id="2_l7glm"]
@@ -220,11 +220,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ilybr")
 
-[node name="official_luggage" instance=ExtResource("1_fakku")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_qu1v0"]
+size = Vector3(1.5818, 2.8717, 2.09546)
+
+[node name="official_luggage" node_paths=PackedStringArray("luggage_collider") instance=ExtResource("1_fakku")]
 transform = Transform3D(-1.39876e-07, 0, -3.2, 0, 3.2, 0, 3.2, 0, -1.39876e-07, 0, 0, 0)
 script = ExtResource("2_qu1v0")
 title = "basic luggage"
 description = "Your basic luggage. Nothing fancy, gets the job done, no frills. Some would say, the quintessential carry-on due to its compact size and surprisingly large storage capacity."
+luggage_collider = NodePath("CollisionShape3D")
 
 [node name="Default Luggage Bars" parent="." index="0"]
 mesh = SubResource("ArrayMesh_ke1yc")
@@ -240,3 +244,7 @@ mesh = SubResource("ArrayMesh_c0myj")
 
 [node name="Default Luggage Zipper" parent="." index="4"]
 mesh = SubResource("ArrayMesh_l7glm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0144425, 1.60309, 0.00223347)
+shape = SubResource("BoxShape3D_qu1v0")

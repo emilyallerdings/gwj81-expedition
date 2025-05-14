@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var player: CharacterBody3D = %Player
 @onready var main_camera: Camera3D = $MainCamera
-#@onready var speed_lines = $"MainCamera/Speed Lines"
+@onready var speed_lines = $"MainCamera/Speed Lines"
 
 #@onready var speed_tweener := get_tree().create_tween().set_loops()
 #var shader_material : ShaderMaterial = preload("res://Assets/speed_lines_material.tres")
@@ -26,11 +26,14 @@ const REFUND_PER_METER = 0.5
 
 var obstacles = []
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#initialize_player()
 	ready_stage()
 	start_game()
+	speed_lines.visible = false
+	main_camera.fov = 90.0
 
 func ready_stage():
 	var total_dist = $BoardingRamp.length - 10.0
@@ -98,6 +101,15 @@ func _process(delta: float) -> void:
 	$"FPS Counter/FPSLabel".text = "FPS: " + str(Engine.get_frames_per_second())
 	main_camera.global_position.z = player.global_position.z - 4.0
 	main_camera.global_position.x = player.global_position.x
+	
+	if player.velocity.length() > player.max_speed + (player.boost_bonus / 2):
+		var camera_increase := get_tree().create_tween()
+		camera_increase.tween_property(main_camera, "fov", 110.0, 0.25)
+		speed_lines.visible = true
+	else:
+		var camera_increase := get_tree().create_tween()
+		camera_increase.tween_property(main_camera, "fov", 90.0, 0.25)
+		speed_lines.visible = false
 	pass
 
 #func start_speed_lines() -> void:
