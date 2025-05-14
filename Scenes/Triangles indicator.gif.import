@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://b8ti4uwg407xs"
+path="res://.godot/imported/Triangles indicator.gif-7b4a60a6db3f9af3b153277036f99d1a.tres"
+
+[deps]
+
+source_file="res://Scenes/Triangles indicator.gif"
+dest_files=["res://.godot/imported/Triangles indicator.gif-7b4a60a6db3f9af3b153277036f99d1a.tres"]
+
+[params]
+
+frames_per_second=30

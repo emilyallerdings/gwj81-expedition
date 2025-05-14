@@ -1,8 +1,11 @@
 extends Node3D
 
+@onready var boarding_generator: Node3D = $BoardingGenerator
+
 @onready var player: CharacterBody3D = %Player
-@onready var main_camera: Camera3D = $MainCamera
-@onready var speed_lines = $"MainCamera/Speed Lines"
+@onready var main_camera: Camera3D = $MainCameraAnchor/MainCamera
+#@onready var speed_lines = $"MainCamera/Speed Lines"
+@onready var main_camera_anchor: Node3D = $MainCameraAnchor
 
 #@onready var speed_tweener := get_tree().create_tween().set_loops()
 #var shader_material : ShaderMaterial = preload("res://Assets/speed_lines_material.tres")
@@ -14,7 +17,7 @@ var total_credits = difficulty * 50
 var current_credits = total_credits
 
 const difficulty_max = 10.0
-const BASE_MIN_GAP = 20.0
+const BASE_MIN_GAP = 30.0
 const BASE_MAX_GAP = 50.0
 
 const EASY_COST_M = 1.0
@@ -29,13 +32,20 @@ var obstacles = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#initialize_player()
-	ready_stage()
+	await get_tree().create_timer(0.01).timeout
+	#ready_stage()
+	await get_tree().create_timer(0.01).timeout
+	
+	boarding_generator.generate()
+	
+	await boarding_generator.finished_generation
+	boarding_generator.connect("player_left_turn", turn_player_left)
+	boarding_generator.connect("player_right_turn", turn_player_right)
 	start_game()
-	speed_lines.visible = false
 	main_camera.fov = 90.0
 
 func ready_stage():
+	
 	var total_dist = $BoardingRamp.length - 10.0
 	var cur_position = starting_z
 	# Raw weights: harder stages → more weight on HARD, less on EASY
@@ -49,9 +59,12 @@ func ready_stage():
 	var p_med:float  = weight_med  / sum_w
 	var p_hard:float = weight_hard / sum_w
 
-	var gap_bias:float = 1.0 - (difficulty - 1) * 0.05   # goes from 1.0 → 0.55
+	var gap_bias:float = 1.0 - (difficulty - 1) * 0.1   # goes from 1.0 → 0.55
 	var min_gap:float = BASE_MIN_GAP * gap_bias
 	var max_gap:float = BASE_MAX_GAP * gap_bias
+	
+	print("min gap: ", min_gap)
+	print("max gap: ", max_gap)
 	
 	while cur_position < total_dist:
 		var remaining_distance = total_dist - cur_position
@@ -74,7 +87,7 @@ func ready_stage():
 		if pattern == null:
 			break
 		place_pattern(pattern, cur_position)
-		
+		cur_position += pattern.length
 	return
 
 func place_pattern(pattern:ObstaclePattern, z_pos:float):
@@ -83,7 +96,7 @@ func place_pattern(pattern:ObstaclePattern, z_pos:float):
 		$BoardingRamp.add_child(n_ob)
 		n_ob.type = ob.type
 		n_ob.position = Vector3(ob.position.x, ob.position.y, ob.position.z + z_pos)
-		n_ob.connect("body_entered", _on_obstacle_body_entered)
+		#n_ob.connect("body_entered", _on_obstacle_body_entered)
 	return
 	
 #func initialize_player() -> void:
@@ -99,17 +112,23 @@ func start_game():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$"FPS Counter/FPSLabel".text = "FPS: " + str(Engine.get_frames_per_second())
-	main_camera.global_position.z = player.global_position.z - 4.0
-	main_camera.global_position.x = player.global_position.x
+	var str = "%.2f"
+	var speed = $Player.velocity.length()
+	#print($Player.velocity)
+	str = (str % speed)
+	$Speed/SpeedLabel.text = "Speed: " + str + "m/s"
+	main_camera_anchor.global_position.z = player.global_position.z
+	main_camera_anchor.global_position.x = player.global_position.x
+
 	
 	if player.velocity.length() > player.max_speed + (player.boost_bonus / 2):
 		var camera_increase := get_tree().create_tween()
 		camera_increase.tween_property(main_camera, "fov", 110.0, 0.25)
-		speed_lines.visible = true
+		
 	else:
 		var camera_increase := get_tree().create_tween()
 		camera_increase.tween_property(main_camera, "fov", 90.0, 0.25)
-		speed_lines.visible = false
+		
 	pass
 
 #func start_speed_lines() -> void:
@@ -123,3 +142,30 @@ func _on_obstacle_body_entered(body: Node3D) -> void:
 		player.on_hit_obstacle()
 		
 	pass # Replace with function body.
+
+func turn_player_right():
+
+	$Player.forward_direction = $Player.forward_direction.rotated(Vector3.UP, deg_to_rad(90))
+	#print($Player.forward_direction)
+	rotate_cam_smooth(90)
+	return
+	
+func turn_player_left():
+	$Player.forward_direction = $Player.forward_direction.rotated(Vector3.UP, deg_to_rad(-90))
+	rotate_cam_smooth(-90)
+	#print($Player.forward_direction)
+	return
+
+func rotate_cam_smooth(degrees:float):
+	var target_rotation = main_camera_anchor.rotation_degrees.y + degrees
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(
+		main_camera_anchor, 
+		"rotation_degrees:y", 
+		target_rotation, 
+		0.2,  # Duration (fast but smooth)
+	)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_OUT)

@@ -1,17 +1,15 @@
-[gd_scene load_steps=22 format=3 uid="uid://xicolt62u2x5"]
+[gd_scene load_steps=18 format=3 uid="uid://xicolt62u2x5"]
 
 [ext_resource type="Script" uid="uid://bem4xdckxwof0" path="res://Scripts/boarding_ramp.gd" id="1_vf4kb"]
 [ext_resource type="Script" uid="uid://clhf3pglcbiyf" path="res://Scripts/pillars.gd" id="3_lgt4c"]
+[ext_resource type="Material" uid="uid://ioqjey8l3e5m" path="res://Materials/boarding_ramp_white.tres" id="3_tjkg0"]
 [ext_resource type="Material" uid="uid://b1rk01s3g06te" path="res://Materials/window_mat.tres" id="4_tjkg0"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6gbg"]
-albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
-roughness = 0.49
+[ext_resource type="Material" uid="uid://by304ddkfo7w8" path="res://Materials/boarding_ramp_white_no_outline.tres" id="4_vf4kb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tjkg0"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_d6gbg")
-size = Vector3(0.1, 8.5, 0.1)
+material = ExtResource("3_tjkg0")
+size = Vector3(0.1, 8.3, 0.1)
 
 [sub_resource type="MultiMesh" id="MultiMesh_vf4kb"]
 resource_local_to_scene = true
@@ -20,14 +18,10 @@ instance_count = 5
 mesh = SubResource("BoxMesh_tjkg0")
 buffer = PackedFloat32Array(1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 4, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 8, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 12, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 16)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3b8ky"]
-albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
-roughness = 0.49
-
 [sub_resource type="BoxMesh" id="BoxMesh_1j28i"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_3b8ky")
-size = Vector3(0.1, 8.5, 0.1)
+material = ExtResource("3_tjkg0")
+size = Vector3(0.1, 8.3, 0.1)
 
 [sub_resource type="MultiMesh" id="MultiMesh_fgggt"]
 resource_local_to_scene = true
@@ -36,51 +30,33 @@ instance_count = 5
 mesh = SubResource("BoxMesh_1j28i")
 buffer = PackedFloat32Array(1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 4, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 8, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 12, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 16)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k17x7"]
-albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
-roughness = 0.49
-
 [sub_resource type="BoxMesh" id="BoxMesh_rbw5i"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(1054, 1007)
-material = SubResource("StandardMaterial3D_k17x7")
+material = ExtResource("4_vf4kb")
 size = Vector3(20, 0.1, 16)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bp64"]
-albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
-roughness = 0.49
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 5.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_lgt4c"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(184, 107)
-material = SubResource("StandardMaterial3D_6bp64")
+material = ExtResource("3_tjkg0")
 add_uv2 = true
-size = Vector3(20, 0.1, 16)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_offkc"]
-albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
-roughness = 0.49
+size = Vector3(20.1, 0.1, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_q5qwj"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(1006, 1026)
-material = SubResource("StandardMaterial3D_offkc")
+material = ExtResource("3_tjkg0")
 size = Vector3(0.5, 2, 16)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0qim7"]
 resource_local_to_scene = true
 size = Vector3(0.5, 2, 16)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slby5"]
-albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
-roughness = 0.49
-
 [sub_resource type="BoxMesh" id="BoxMesh_lsugm"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(1006, 1026)
-material = SubResource("StandardMaterial3D_slby5")
+material = ExtResource("3_tjkg0")
 size = Vector3(0.5, 2, 16)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rbw5i"]
@@ -89,17 +65,17 @@ size = Vector3(0.5, 2, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_offkc"]
 resource_local_to_scene = true
-lightmap_size_hint = Vector2i(84, 166)
+lightmap_size_hint = Vector2i(84, 157)
 material = ExtResource("4_tjkg0")
 add_uv2 = true
-size = Vector3(0.1, 8, 16)
+size = Vector3(0.1, 7.1, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_65hqn"]
 resource_local_to_scene = true
-lightmap_size_hint = Vector2i(84, 166)
+lightmap_size_hint = Vector2i(84, 157)
 material = ExtResource("4_tjkg0")
 add_uv2 = true
-size = Vector3(0.1, 8, 16)
+size = Vector3(0.1, 7.1, 16)
 
 [node name="BoardingRamp" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -113,7 +89,7 @@ multimesh = SubResource("MultiMesh_vf4kb")
 script = ExtResource("3_lgt4c")
 
 [node name="PillarsRight" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 0.051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.99609, 0.0526818)
 multimesh = SubResource("MultiMesh_fgggt")
 script = ExtResource("3_lgt4c")
 
@@ -124,7 +100,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 mesh = SubResource("BoxMesh_rbw5i")
 
 [node name="Roof" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.10206, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.102, 8)
 
 [node name="RoofMesh" type="MeshInstance3D" parent="Roof"]
 mesh = SubResource("BoxMesh_lgt4c")
@@ -148,9 +124,9 @@ mesh = SubResource("BoxMesh_lsugm")
 shape = SubResource("BoxShape3D_rbw5i")
 
 [node name="WindowLeft" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 6.01, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 5.50629, 8)
 mesh = SubResource("BoxMesh_offkc")
 
 [node name="WindowRight" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6.001, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 5.506, 8)
 mesh = SubResource("BoxMesh_65hqn")

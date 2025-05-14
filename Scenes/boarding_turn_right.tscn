@@ -1,66 +1,51 @@
-[gd_scene load_steps=14 format=3 uid="uid://dd128yi7b3crk"]
+[gd_scene load_steps=13 format=3 uid="uid://dd128yi7b3crk"]
 
 [ext_resource type="Script" uid="uid://bgb8u2ax3k34i" path="res://Scenes/boarding_turn.gd" id="1_benry"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k17x7"]
-albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
-roughness = 0.49
+[ext_resource type="Material" uid="uid://by304ddkfo7w8" path="res://Materials/boarding_ramp_white_no_outline.tres" id="2_sfvjd"]
+[ext_resource type="Material" uid="uid://ioqjey8l3e5m" path="res://Materials/boarding_ramp_white.tres" id="3_peppa"]
+[ext_resource type="Script" uid="uid://byv1okm0roh4x" path="res://Scenes/turn.gd" id="4_3lddg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rbw5i"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(1054, 1007)
-material = SubResource("StandardMaterial3D_k17x7")
+material = ExtResource("2_sfvjd")
 size = Vector3(20, 0.1, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bp64"]
-albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
-roughness = 0.49
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 5.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_lgt4c"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(204, 107)
-material = SubResource("StandardMaterial3D_6bp64")
+material = ExtResource("3_peppa")
 add_uv2 = true
 size = Vector3(20, 0.1, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_offkc"]
-albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
-roughness = 0.49
 
 [sub_resource type="BoxMesh" id="BoxMesh_q5qwj"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(1006, 1026)
-material = SubResource("StandardMaterial3D_offkc")
+material = ExtResource("3_peppa")
 size = Vector3(0.5, 9.5, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0qim7"]
 resource_local_to_scene = true
-size = Vector3(0.5, 2, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slby5"]
-albedo_color = Color(0.813258, 0.813258, 0.813258, 1)
-roughness = 0.49
+size = Vector3(0.5, 2, 22.165)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lsugm"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(1006, 1026)
-material = SubResource("StandardMaterial3D_slby5")
+material = ExtResource("3_peppa")
 size = Vector3(0.5, 9.5, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gmw5r"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(1006, 1026)
-material = SubResource("StandardMaterial3D_slby5")
+material = ExtResource("3_peppa")
 size = Vector3(0.5, 9.5, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rbw5i"]
 resource_local_to_scene = true
-size = Vector3(0.5, 2, 16)
+size = Vector3(0.5, 2, 20.7947)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x2d4l"]
-size = Vector3(20, 2, 18)
+size = Vector3(27.6161, 2, 3.48267)
 
 [node name="BoardingRamp" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -86,6 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, 0)
 mesh = SubResource("BoxMesh_q5qwj")
 
 [node name="SideLeftColl" type="CollisionShape3D" parent="SideLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.540436)
 shape = SubResource("BoxShape3D_0qim7")
 
 [node name="SideRight" type="StaticBody3D" parent="."]
@@ -96,16 +82,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, 0)
 mesh = SubResource("BoxMesh_lsugm")
 
 [node name="SideRightMesh2" type="MeshInstance3D" parent="SideRight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 3.8, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1, 3.8, -10.1)
 mesh = SubResource("BoxMesh_gmw5r")
 
 [node name="SideRightColl" type="CollisionShape3D" parent="SideRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0472412)
 shape = SubResource("BoxShape3D_rbw5i")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
+script = ExtResource("4_3lddg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -1, 0, 1.6)
 shape = SubResource("BoxShape3D_x2d4l")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

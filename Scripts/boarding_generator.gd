@@ -1,5 +1,11 @@
 @tool
 extends Node3D
+class_name BoardingGenerator
+
+signal player_left_turn
+signal player_right_turn
+
+signal finished_generation
 
 @export_category("Generation")
 @export var seed:int = 0
@@ -12,6 +18,8 @@ const BOARDING_TURN_LEFT = preload("res://Scenes/boarding_turn_left.tscn")
 const BOARDING_TURN_RIGHT = preload("res://Scenes/boarding_turn_right.tscn")
 var cur_loading = false
 
+var right_turns = []
+var left_turns = []
 
 func randomize_seed():
 	seed = (Time.get_ticks_msec() * 98765) % 12345678
@@ -20,12 +28,20 @@ func randomize_seed():
 func generate():
 	if cur_loading:
 		return
+		
+	right_turns = []
+	left_turns = []
+	
 	cur_loading = true
+	
 	await get_tree().process_frame
+	
 	var nodes = get_children(true)
+		
 	for node in nodes:
 		node.call_deferred("queue_free")
 		
+	await get_tree().process_frame
 	await get_tree().process_frame
 	
 	var rng = RandomNumberGenerator.new()
@@ -72,8 +88,11 @@ func generate():
 	for seg_len in segment_lens:
 		counter += 1
 		var new_ramp = BOARDING_RAMP.instantiate()
+		new_ramp.name = "BoardRamp " + str(counter)
+		
+		
 		add_child(new_ramp)
-		new_ramp.owner = get_tree().edited_scene_root
+		new_ramp.owner = self
 		new_ramp.position = current_pos
 		new_ramp.length = seg_len
 		new_ramp.set_size()
@@ -95,33 +114,60 @@ func generate():
 			forward_dir = turn_dir.pick_random()
 			if forward_dir == Vector3.LEFT:
 				var turn = BOARDING_TURN_RIGHT.instantiate()
-				turn.owner = get_tree().edited_scene_root
+				
+				
 				add_child(turn)
+				turn.owner = self
+				
+				turn.name = "Turn Right"
+				
 				turn.position = current_pos + Vector3(0,3,0)
+				
+				left_turns.append(turn)
 			elif forward_dir == Vector3.RIGHT:
 				var turn = BOARDING_TURN_LEFT.instantiate()
-				turn.owner = get_tree().edited_scene_root
+				
+				
 				add_child(turn)
+				turn.owner = self
+				
+				turn.name = "Turn Left"
+				
 				turn.position = current_pos + Vector3(0,3,0)
+				right_turns.append(turn)
 		else:
 			if forward_dir == Vector3.LEFT:
 				var turn = BOARDING_TURN_LEFT.instantiate()
-
+				
+				
 				add_child(turn)
-				turn.owner = get_tree().edited_scene_root
+				right_turns.append(turn)
+				turn.owner = self
+				
+				turn.name = "Turn Left"
+				
 				turn.position = current_pos + Vector3(0,3,0)
 				turn.rotation_degrees.y = -90
 			elif forward_dir == Vector3.RIGHT:
 				var turn = BOARDING_TURN_RIGHT.instantiate()
 				
+				
 				add_child(turn)
-				turn.owner = get_tree().edited_scene_root
+				left_turns.append(turn)
+				
+				turn.name = "Turn Right"
+				
+				turn.owner = self
 				turn.rotation_degrees.y = 90
 				turn.position = current_pos + Vector3(0,3,0)
 			forward_dir = Vector3.BACK
+			
 		current_pos += 10 * prev_dir
 		current_pos += 10 * forward_dir
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.01).timeout
+		
+	await get_tree().process_frame
+	await get_tree().process_frame
 	#for seg_len in segment_lens:
 	
 	#print (segment_lens)
@@ -134,8 +180,22 @@ func generate():
 			#end = true
 			#next_len += remaining_len
 			
-
+	for left_turn in left_turns:
+		print(left_turn.name)
+		left_turn.connect("player_entered", on_left_turn)
+		
+	for right_turn in right_turns:
+		print(right_turn.name)
+		right_turn.connect("player_entered", on_right_turn)
+	
+	finished_generation.emit()
+	
 	cur_loading  = false
 	return
 
+
+func on_left_turn():
+	player_left_turn.emit()
 	
+func on_right_turn():
+	player_right_turn.emit()

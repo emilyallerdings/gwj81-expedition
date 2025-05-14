@@ -111,7 +111,7 @@ func update_luggage_object():
 		if child is GPUParticles3D:
 			child.visible = false
 	#selection_stage.add_child(current_luggage_type)
-	GameManager.select_luggage.emit(luggages[i])
+	GameManager.chosen_luggage = luggages[i]
 
 #region button press logic
 func _on_play_pressed() -> void:
