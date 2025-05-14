@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://ckjr7lbj1cxxq"]
+[gd_scene load_steps=10 format=3 uid="uid://ckjr7lbj1cxxq"]
 
 [ext_resource type="Script" uid="uid://gavvic7ehdce" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://ddlqo71pgyb5i" path="res://Scenes/boarding_generator.tscn" id="2_kry3j"]
 [ext_resource type="Material" uid="uid://bwfcdgloump5l" path="res://Shaders/speed_lines_material.tres" id="4_kry3j"]
-[ext_resource type="Shader" path="res://Shaders/toon_sky.gdshader" id="5_kry3j"]
+[ext_resource type="Environment" uid="uid://b3s7xlhtiytky" path="res://Materials/game_level_worldenvironment.tres" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="7_6bp64"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7u77a"]
@@ -43,23 +43,6 @@ func _process(delta: float) -> void:
 [sub_resource type="LabelSettings" id="LabelSettings_jjvhh"]
 font_size = 30
 font_color = Color(0.541176, 1, 0, 1)
-
-[sub_resource type="Gradient" id="Gradient_kry3j"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_21xkr"]
-gradient = SubResource("Gradient_kry3j")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_21xkr"]
-shader = ExtResource("5_kry3j")
-shader_parameter/hdri_background = SubResource("GradientTexture2D_21xkr")
-shader_parameter/exposure = 1.0
-
-[sub_resource type="Sky" id="Sky_6bp64"]
-sky_material = SubResource("ShaderMaterial_21xkr")
-
-[sub_resource type="Environment" id="Environment_344ge"]
-background_mode = 2
-sky = SubResource("Sky_6bp64")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jjgbg")
@@ -105,7 +88,6 @@ directional_shadow_max_distance = 250.0
 unique_name_in_owner = true
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.35489, 0)
-luggage = ExtResource("6_21xkr")
 blink_interval = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
@@ -143,4 +125,4 @@ text = "Speed: "
 label_settings = SubResource("LabelSettings_jjvhh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_344ge")
+environment = ExtResource("5_kry3j")
