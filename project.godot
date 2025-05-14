@@ -42,14 +42,14 @@ folder_colors={
 "res://UI Assets/": "purple"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 player=""
 obstacle=""
-
-[filesystem]
-
-import/blender/enabled=false
 
 [input]
 

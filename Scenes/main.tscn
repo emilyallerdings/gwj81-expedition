@@ -1,60 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckjr7lbj1cxxq"]
+[gd_scene load_steps=15 format=3 uid="uid://ckjr7lbj1cxxq"]
 
 [ext_resource type="Script" uid="uid://gavvic7ehdce" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://ddlqo71pgyb5i" path="res://Scenes/boarding_generator.tscn" id="2_kry3j"]
 [ext_resource type="Material" uid="uid://bwfcdgloump5l" path="res://Shaders/speed_lines_material.tres" id="4_kry3j"]
-[gd_scene load_steps=22 format=3 uid="uid://ckjr7lbj1cxxq"]
-
-
-[ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="2_kry3j"]
-
+[ext_resource type="Shader" path="res://Shaders/toon_sky.gdshader" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="7_6bp64"]
-
-[sub_resource type="Gradient" id="Gradient_21xkr"]
-offsets = PackedFloat32Array(0.619205, 0.620861)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6bp64"]
-noise_type = 3
-seed = 45
-frequency = 0.0355
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6m47u"]
-seamless = true
-color_ramp = SubResource("Gradient_21xkr")
-noise = SubResource("FastNoiseLite_6bp64")
-
-[sub_resource type="Gradient" id="Gradient_344ge"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5n0dv"]
-gradient = SubResource("Gradient_344ge")
-
-[sub_resource type="Gradient" id="Gradient_ynf5e"]
-offsets = PackedFloat32Array(0.349338, 0.706954)
-colors = PackedColorArray(0.952941, 0.603922, 0.52549, 1, 0.00784314, 0.4, 0.788235, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tt8ml"]
-gradient = SubResource("Gradient_ynf5e")
-fill_from = Vector2(1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hptm8"]
-shader = ExtResource("2_kry3j")
-shader_parameter/hdri_background = SubResource("GradientTexture2D_5n0dv")
-shader_parameter/sky_background = SubResource("GradientTexture2D_tt8ml")
-shader_parameter/clouds = SubResource("NoiseTexture2D_6m47u")
-shader_parameter/exposure = 1.0
-
-[sub_resource type="Sky" id="Sky_hkdq0"]
-sky_material = SubResource("ShaderMaterial_hptm8")
-
-[sub_resource type="Environment" id="Environment_d1ilt"]
-background_mode = 2
-sky = SubResource("Sky_hkdq0")
-ambient_light_source = 2
-ambient_light_color = Color(0.45098, 0.333333, 0.309804, 1)
-ambient_light_energy = 0.5
-tonemap_mode = 2
-glow_enabled = true
-glow_bloom = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7u77a"]
 albedo_color = Color(0.28485, 0.28485, 0.28485, 1)
@@ -90,42 +40,35 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_kry3j"]
-noise_type = 3
-frequency = 0.055
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_21xkr"]
-noise = SubResource("FastNoiseLite_kry3j")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bp64"]
-shader = ExtResource("5_kry3j")
-shader_parameter/noise = SubResource("NoiseTexture2D_21xkr")
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_count = 2.0
-shader_parameter/line_density = 0.385
-shader_parameter/line_faloff = 1.0
-shader_parameter/mask_size = 0.312
-shader_parameter/mask_edge = 0.505
-shader_parameter/animation_speed = 20.0
-
 [sub_resource type="LabelSettings" id="LabelSettings_jjvhh"]
 font_size = 30
 font_color = Color(0.541176, 1, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_kry3j"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_21xkr"]
+gradient = SubResource("Gradient_kry3j")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_21xkr"]
+shader = ExtResource("5_kry3j")
+shader_parameter/hdri_background = SubResource("GradientTexture2D_21xkr")
+shader_parameter/exposure = 1.0
+
+[sub_resource type="Sky" id="Sky_6bp64"]
+sky_material = SubResource("ShaderMaterial_21xkr")
+
+[sub_resource type="Environment" id="Environment_344ge"]
+background_mode = 2
+sky = SubResource("Sky_6bp64")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jjgbg")
 
 [node name="BoardingGenerator" parent="." instance=ExtResource("2_kry3j")]
 seed = 6662006
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_d1ilt")
-
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_jjgbg")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("7_344ge")
 
 [node name="MainCameraAnchor" type="Node3D" parent="."]
 
@@ -197,3 +140,6 @@ offset_bottom = 42.0
 grow_horizontal = 0
 text = "Speed: "
 label_settings = SubResource("LabelSettings_jjvhh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_344ge")

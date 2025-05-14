@@ -3,7 +3,7 @@ extends Node3D
 @onready var boarding_generator: Node3D = $BoardingGenerator
 
 @onready var player: CharacterBody3D = %Player
-@onready var main_camera: Camera3D = $MainCamera
+@onready var main_camera: Camera3D = $MainCameraAnchor/MainCamera
 #@onready var speed_lines = $"MainCamera/Speed Lines"
 @onready var main_camera_anchor: Node3D = $MainCameraAnchor
 
@@ -42,7 +42,6 @@ func _ready() -> void:
 	boarding_generator.connect("player_left_turn", turn_player_left)
 	boarding_generator.connect("player_right_turn", turn_player_right)
 	start_game()
-	speed_lines.visible = false
 	main_camera.fov = 90.0
 
 func ready_stage():
