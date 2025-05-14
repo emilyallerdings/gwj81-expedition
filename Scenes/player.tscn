@@ -24,7 +24,7 @@ size = Vector3(1, 1, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvnsp"]
 size = Vector3(1.66766, 2.47614, 1.39808)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_cvnsp")
 shader_material = SubResource("ShaderMaterial_fkybt")
 

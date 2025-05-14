@@ -4,7 +4,7 @@ extends CharacterBody3D
 var forward_speed: float = 0.0
 
 
-@export var turn_speed: float = 2.0
+@export var turn_speed: float = 8.0
 @export var max_turn_angle: float = 30.0
 @export var smooth_factor: float = 0.1
 @export var turn_slowdown_factor: float = 0.005
@@ -33,6 +33,8 @@ var luggage_object = null
 func _ready() -> void:
 	
 	luggage = GameManager.chosen_luggage
+	if luggage == null:
+		luggage = load("res://Scenes/official_luggage_mainmenu.tscn")
 	luggage_object = luggage.instantiate()
 	luggage_object.scale = Vector3(1, 1, 1)
 	self.add_child(luggage_object)
@@ -74,36 +76,59 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	var is_max_speed = is_equal_approx(forward_speed, max_speed)
+	#print(forward_speed)
 	
-	if !is_max_speed && forward_speed < max_speed:
-		forward_speed = lerp(forward_speed, max_speed, 0.1)
+	var acceleration = 5.0
+	var recovery_acceleration = 2.0  # Slower when recovering from negative speed
+	var deceleration = 2.0
+	var boost_acceleration = 10.0
 
-		print(forward_speed)
-	if Input.is_action_pressed("boost") && forward_speed >= max_speed * 0.99:
-		forward_speed = lerp(forward_speed, max_speed + boost_bonus, boost_accel)
-	else:
-		forward_speed = lerp(forward_speed, max_speed, 0.5)
+	# Acceleration and recovery
+	if forward_speed < max_speed:
+		if forward_speed < 0:
+			forward_speed = lerp(forward_speed, 5.0, recovery_acceleration * delta)
+		else:
+			forward_speed = lerp(forward_speed, max_speed, acceleration * delta)
 
+	# Deceleration when exceeding max speed
+	elif forward_speed > max_speed:
+		forward_speed = lerp(forward_speed, max_speed, deceleration * delta)
+
+	# Boost handling
+	if Input.is_action_pressed("boost") and forward_speed >= max_speed * 0.95:
+		forward_speed = lerp(forward_speed, max_speed + boost_bonus, boost_acceleration * delta)
 	#if not is_on_floor():
 		#velocity.y += -9.81 * delta
-	# Always move forward
-	forward_direction = transform.basis.z
 
 	# Get input for turning
 	var input_direction: float = Input.get_axis("right", "left")
 
 	# Calculate target angle and lerp for smooth rotation
-	var target_rotation: float = deg_to_rad(max_turn_angle * input_direction)
-	var current_rotation: float = lerp_angle(rotation.y, target_rotation, smooth_factor)
-
+	#var target_rotation: float = deg_to_rad(max_turn_angle * input_direction)
 	
+	var forward_angle: float = atan2(forward_direction.x, forward_direction.z)
+	
+	print("forward angle: ", rad_to_deg(forward_angle))
+	
+	var target_rotation: float = forward_angle + deg_to_rad(max_turn_angle * input_direction)
+	
+	var current_rotation: float = lerp_angle(rotation.y, target_rotation, smooth_factor)
+	
+	print("target angle: ", rad_to_deg(target_rotation))
 
 	# Smoothly rotate the luggage
 	rotation.y = current_rotation
 	
 	# Calculate the turning intensity based on the actual current rotation
-	var turning_intensity: float = abs(target_rotation - rotation.y) / deg_to_rad(max_turn_angle)
+	var angle_diff: float = abs(current_rotation) - abs(forward_angle)
+	
+	print("angle dif: ", rad_to_deg(angle_diff))
+	
+	#print("target_rotation - angle_diff: ", (rad_to_deg(target_rotation) - rad_to_deg(angle_diff)) )
+	
+	var turning_intensity: float = abs(abs(angle_diff)) / deg_to_rad(max_turn_angle)
+
+	print(turning_intensity)
 
 	# Adjust speed based on the actual rotation intensity (more turn = slower)
 	var speed_modifier: float = 1.0 - (turning_intensity * turn_slowdown_factor)
@@ -112,9 +137,11 @@ func _physics_process(delta: float) -> void:
 	# Calculate forward movement
 	target_velocity = forward_direction * current_speed
 
-	# Calculate lateral movement based on rotation
-	var strafe: Vector3 = transform.basis.x * (input_direction * turn_speed * turning_intensity)
+	var side_dir = forward_direction.rotated(Vector3.UP, deg_to_rad(90))
 
+	# Calculate lateral movement based on rotation
+	var strafe: Vector3 = side_dir * (input_direction * turn_speed * turning_intensity)
+	print(strafe)
 
 	# Combine forward and strafe motion
 	target_velocity += strafe
@@ -126,6 +153,11 @@ func _physics_process(delta: float) -> void:
 	# Move the luggage
 	play_rolling()
 	move_and_slide()
+	
+	if get_slide_collision_count() > 0:
+		var collision = get_slide_collision(0)
+		if collision.get_collider() && collision.get_collider().is_in_group("obstacle"):
+			on_hit_obstacle()
 
 func play_rolling():
 	if velocity.length() > 0.1:
@@ -135,9 +167,11 @@ func play_rolling():
 		SoundBus.rolling_suitcase.stop()
 
 func on_hit_obstacle():
+	if forward_speed <= 0:
+		return
 	print("ON HIT")
-	velocity.z = -30
-	forward_speed = -30
+	velocity.z = -20
+	forward_speed = -20
 	start_blinking()
 
 func start_blinking():

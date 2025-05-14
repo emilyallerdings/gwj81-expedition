@@ -11,7 +11,7 @@ material = SubResource("StandardMaterial3D_344ge")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6bp64"]
 
-[node name="Obstacle" type="Area3D"]
+[node name="Obstacle" type="StaticBody3D" groups=["obstacle"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
 script = ExtResource("1_15o2q")
 

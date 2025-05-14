@@ -108,7 +108,7 @@ func update_luggage_object():
 	+ str(current_luggage_type.boost)
 	luggage_description.text = current_luggage_type.description
 	#selection_stage.add_child(current_luggage_type)
-	GameManager.select_luggage.emit(luggages[i])
+	GameManager.chosen_luggage = luggages[i]
 
 #region button press logic
 func _on_play_pressed() -> void:

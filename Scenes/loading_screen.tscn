@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgkd0agf0cnw7"]
+
+[ext_resource type="Script" uid="uid://cn3r67xi757eo" path="res://Scenes/loading_screen.gd" id="1_0t5xw"]
+[ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_oobaa"]
+[ext_resource type="Shader" uid="uid://ct1qyapldc6ks" path="res://Shaders/loading_screen.gdshader" id="3_nfm0g"]
+[ext_resource type="SpriteFrames" uid="uid://buqr2qloileiy" path="res://UI Assets/loading.gif" id="4_fayou"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fayou"]
+shader = ExtResource("3_nfm0g")
+shader_parameter/time = 9.065
+shader_parameter/color = Vector4(0.32, 0.29, 0.51, 1)
+
+[sub_resource type="Gradient" id="Gradient_nfm0g"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fayou"]
+gradient = SubResource("Gradient_nfm0g")
+width = 128
+height = 128
+
+[node name="LoadingScreen" type="Control"]
+z_index = 100
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0t5xw")
+to_preload = Array[String](["big_daddy_mainmenu", "hot_rod_mainmenu", "luggage", "sparklecorn_mainmenu", "monitor"])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.419608, 0.87451, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -23.5
+offset_right = 110.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_oobaa")
+text = "Loading"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_fayou")
+layout_mode = 0
+offset_left = 520.0
+offset_top = 386.0
+offset_right = 648.0
+offset_bottom = 514.0
+texture = SubResource("GradientTexture2D_fayou")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 415)
+sprite_frames = ExtResource("4_fayou")
+animation = &"gif"

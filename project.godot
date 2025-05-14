@@ -42,6 +42,11 @@ folder_colors={
 "res://UI Assets/": "purple"
 }
 
+[global_group]
+
+player=""
+obstacle=""
+
 [input]
 
 left={
@@ -79,6 +84,11 @@ common/enable_object_picking=false
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+lights_and_shadows/directional_shadow/size=9000
+lights_and_shadows/directional_shadow/size.mobile=9000
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=5
+lights_and_shadows/directional_shadow/16_bits=false
 anti_aliasing/quality/msaa_3d=1
 
 [shader_globals]
