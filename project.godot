@@ -97,7 +97,7 @@ fresnel_smoothness={
 }
 outline_width={
 "type": "float",
-"value": 5.0
+"value": 6.0
 }
 outline_color={
 "type": "color",

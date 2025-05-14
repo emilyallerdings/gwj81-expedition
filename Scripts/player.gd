@@ -17,6 +17,8 @@ var forward_speed: float = 0.0
 @export var blink_intensity: float = 0.7
 @export var shader_material: ShaderMaterial
 
+@onready var collision_shape = $CollisionShape3D
+
 var forward_direction: Vector3 = Vector3(0,0,1)
 var target_velocity: Vector3 = Vector3.ZERO
 
@@ -34,7 +36,16 @@ func _ready() -> void:
 	
 	luggage = GameManager.chosen_luggage
 	luggage_object = luggage.instantiate()
+	#print(luggage_object.luggage_collider)
+	#collision_shape = luggage_object.luggage_collider
 	luggage_object.scale = Vector3(1, 1, 1)
+	#TODO SET COLLISION SHAPE
+	#var luggage_script = luggage_object as Node3D
+	collision_shape.shape = luggage_object.luggage_collider.shape
+	collision_shape.position = luggage_object.luggage_collider.position
+	collision_shape.rotation = luggage_object.rotation
+	collision_shape.shape.size = luggage_object.luggage_collider.shape.size
+	
 	self.add_child(luggage_object)
 
 	# Apply the shared shader material to all mesh surfaces in the group
@@ -79,7 +90,7 @@ func _physics_process(delta: float) -> void:
 	if !is_max_speed && forward_speed < max_speed:
 		forward_speed = lerp(forward_speed, max_speed, 0.1)
 
-		print(forward_speed)
+		#print(forward_speed)
 	if Input.is_action_pressed("boost") && forward_speed >= max_speed * 0.99:
 		forward_speed = lerp(forward_speed, max_speed + boost_bonus, boost_accel)
 	else:

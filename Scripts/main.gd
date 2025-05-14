@@ -28,6 +28,7 @@ var obstacles = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#initialize_player()
 	ready_stage()
 	start_game()
 
@@ -81,7 +82,11 @@ func place_pattern(pattern:ObstaclePattern, z_pos:float):
 		n_ob.position = Vector3(ob.position.x, ob.position.y, ob.position.z + z_pos)
 		n_ob.connect("body_entered", _on_obstacle_body_entered)
 	return
-
+	
+#func initialize_player() -> void:
+	#var player = self.get_node("Player")
+	#player.collision_shape = player.get_child(3).get_child(5)
+	
 func start_game():
 	
 	SoundBus.song_1.play()
