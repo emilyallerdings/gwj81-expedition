@@ -1,56 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://ckjr7lbj1cxxq"]
+[gd_scene load_steps=13 format=3 uid="uid://ckjr7lbj1cxxq"]
 
 [ext_resource type="Script" uid="uid://gavvic7ehdce" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="Environment" uid="uid://b3s7xlhtiytky" path="res://Materials/game_level_worldenvironment.tres" id="2_21xkr"]
 [ext_resource type="PackedScene" uid="uid://xicolt62u2x5" path="res://Scenes/boarding_ramp.tscn" id="2_jjvhh"]
-[ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="2_kry3j"]
 [ext_resource type="Shader" uid="uid://bdihhwuhk1cn8" path="res://Shaders/speed_lines.gdshader" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://c6ck5g5hhoxiy" path="res://Scenes/hot_rod_mainmenu.tscn" id="6_21xkr"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="7_6bp64"]
-
-[sub_resource type="Gradient" id="Gradient_21xkr"]
-offsets = PackedFloat32Array(0.619205, 0.620861)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6bp64"]
-noise_type = 3
-seed = 45
-frequency = 0.0355
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6m47u"]
-seamless = true
-color_ramp = SubResource("Gradient_21xkr")
-noise = SubResource("FastNoiseLite_6bp64")
-
-[sub_resource type="Gradient" id="Gradient_344ge"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5n0dv"]
-gradient = SubResource("Gradient_344ge")
-
-[sub_resource type="Gradient" id="Gradient_ynf5e"]
-offsets = PackedFloat32Array(0.349338, 0.706954)
-colors = PackedColorArray(0.952941, 0.603922, 0.52549, 1, 0.00784314, 0.4, 0.788235, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tt8ml"]
-gradient = SubResource("Gradient_ynf5e")
-fill_from = Vector2(1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hptm8"]
-shader = ExtResource("2_kry3j")
-shader_parameter/hdri_background = SubResource("GradientTexture2D_5n0dv")
-shader_parameter/sky_background = SubResource("GradientTexture2D_tt8ml")
-shader_parameter/clouds = SubResource("NoiseTexture2D_6m47u")
-shader_parameter/exposure = 1.0
-
-[sub_resource type="Sky" id="Sky_hkdq0"]
-sky_material = SubResource("ShaderMaterial_hptm8")
-
-[sub_resource type="Environment" id="Environment_d1ilt"]
-background_mode = 2
-sky = SubResource("Sky_hkdq0")
-ambient_light_source = 2
-ambient_light_color = Color(0.45098, 0.333333, 0.309804, 1)
-ambient_light_energy = 0.5
-tonemap_mode = 2
-glow_enabled = true
-glow_bloom = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7u77a"]
 albedo_color = Color(0.140447, 0.140447, 0.140447, 1)
@@ -87,7 +42,7 @@ font_color = Color(0.541176, 1, 0, 1)
 script = ExtResource("1_jjgbg")
 
 [node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_d1ilt")
+environment = ExtResource("2_21xkr")
 
 [node name="BoardingRamp" parent="." instance=ExtResource("2_jjvhh")]
 length = 200.0
@@ -126,6 +81,7 @@ shadow_enabled = true
 unique_name_in_owner = true
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.35489, 0)
+luggage = ExtResource("6_21xkr")
 blink_interval = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="Player"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c6ck5g5hhoxiy"]
+[gd_scene load_steps=28 format=4 uid="uid://c6ck5g5hhoxiy"]
 
 [ext_resource type="PackedScene" uid="uid://dj8x5ubmuwq83" path="res://Assets/hot_rod.glb" id="1_badxc"]
 [ext_resource type="Script" uid="uid://c0dvlbuemp5wx" path="res://Scripts/luggage.gd" id="2_068ws"]
@@ -7,7 +7,8 @@
 [ext_resource type="FontFile" uid="uid://ct4vx6uf4cwou" path="res://Materials/Blazed.ttf" id="3_t2c5w"]
 [ext_resource type="Material" uid="uid://xyq8eo03rxwr" path="res://Materials/official_luggage_material/hot_rod_flame.tres" id="4_badxc"]
 [ext_resource type="Material" uid="uid://0vb6qwdm5xdy" path="res://Materials/official_luggage_material/orange_material.tres" id="5_068ws"]
-[ext_resource type="Texture2D" uid="uid://vm8mxd3tkfxg" path="res://Assets/particles/flame_01.png" id="8_gp2kb"]
+[ext_resource type="Shader" uid="uid://cm3okf6o8rav4" path="res://Shaders/fire_trail.gdshader" id="8_povj1"]
+[ext_resource type="Texture2D" uid="uid://vm8mxd3tkfxg" path="res://Assets/particles/flame_01.png" id="9_fbp52"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_yu523"]
 _surfaces = [{
@@ -245,22 +246,48 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vm238")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mod5j"]
+render_priority = 0
+shader = ExtResource("8_povj1")
+shader_parameter/texture_mask = ExtResource("9_fbp52")
+shader_parameter/emission_intensity = 2.0
+shader_parameter/time_scale = 3.0
+shader_parameter/texture_scale = Vector2(1, 1)
+shader_parameter/edge_softness = 0.1
+
+[sub_resource type="Gradient" id="Gradient_djebp"]
+colors = PackedColorArray(0.578963, 0.187576, 0, 1, 0.941331, 0, 0.114005, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_povj1"]
+gradient = SubResource("Gradient_djebp")
+
+[sub_resource type="Curve" id="Curve_povj1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.886986, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tyvfb"]
+curve = SubResource("Curve_povj1")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gp2kb"]
+lifetime_randomness = 0.81
+emission_shape = 3
+emission_box_extents = Vector3(0.2, 0.2, 0.2)
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 10.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
 gravity = Vector3(0, 0, 0)
+linear_accel_min = 4.0
+linear_accel_max = 4.0
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 0.499998
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_tyvfb")
+color_ramp = SubResource("GradientTexture1D_povj1")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbp52"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(1, 0.647059, 0, 1)
-albedo_texture = ExtResource("8_gp2kb")
-texture_filter = 0
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_fbp52"]
-material = SubResource("StandardMaterial3D_fbp52")
+[sub_resource type="QuadMesh" id="QuadMesh_qpfmm"]
 size = Vector2(2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gp2kb"]
@@ -295,16 +322,26 @@ mesh = SubResource("ArrayMesh_gp2kb")
 mesh = SubResource("ArrayMesh_lvc35")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73196e-08, 0, -0.625)
-amount = 12
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73195e-08, 0, -0.625)
+material_override = SubResource("ShaderMaterial_mod5j")
+cast_shadow = 0
+amount = 50
+lifetime = 2.0
+randomness = 0.74
+draw_order = 1
 process_material = SubResource("ParticleProcessMaterial_gp2kb")
-draw_pass_1 = SubResource("QuadMesh_fbp52")
+draw_pass_1 = SubResource("QuadMesh_qpfmm")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73196e-08, 0, 0.625)
-amount = 12
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.93338e-09, 0, 0.625)
+material_override = SubResource("ShaderMaterial_mod5j")
+cast_shadow = 0
+amount = 50
+lifetime = 2.0
+randomness = 0.74
+draw_order = 1
 process_material = SubResource("ParticleProcessMaterial_gp2kb")
-draw_pass_1 = SubResource("QuadMesh_fbp52")
+draw_pass_1 = SubResource("QuadMesh_qpfmm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0144425, 1.60309, 0.00223347)

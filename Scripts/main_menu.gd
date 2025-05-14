@@ -107,6 +107,9 @@ func update_luggage_object():
 	+ str(current_luggage_type.handling) + "\nBoost: " \
 	+ str(current_luggage_type.boost)
 	luggage_description.text = current_luggage_type.description
+	for child in current_luggage_type.get_children():
+		if child is GPUParticles3D:
+			child.visible = false
 	#selection_stage.add_child(current_luggage_type)
 	GameManager.select_luggage.emit(luggages[i])
 

@@ -65,8 +65,8 @@ background_mode = 2
 sky = SubResource("Sky_6m47u")
 ambient_light_source = 2
 ambient_light_color = Color(0.45098, 0.333333, 0.309804, 1)
-ambient_light_energy = 0.5
-tonemap_mode = 2
+ambient_light_energy = 0.75
+tonemap_mode = 3
 glow_enabled = true
 glow_bloom = 0.2
 
@@ -399,8 +399,10 @@ environment = SubResource("Environment_ne6ao")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.973853, -0.18732, 0.128535, -8.27961e-09, 0.565788, 0.824551, -0.227178, -0.802992, 0.550994, 0, 0, 0)
+light_energy = 0.5
 light_bake_mode = 1
 shadow_enabled = true
+directional_shadow_max_distance = 525.0
 
 [node name="main_menu_scene" parent="." instance=ExtResource("25_84iac")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -126, 0, 221)
@@ -549,13 +551,13 @@ transform = Transform3D(3.2, 0, 0, 0, 3.2, 0, 0, 0, 3.2, -16.453, 3, -5.768)
 mesh = SubResource("ArrayMesh_jr6u5")
 
 [node name="official_luggage4" parent="Options Menu" instance=ExtResource("9_4nkqq")]
-transform = Transform3D(3.2, 0, 0, 0, -1.39876e-07, 3.2, 0, -3.2, -1.39876e-07, -8.759, 6, -5.68)
+transform = Transform3D(3.2, 1.19209e-07, 0, 0, -1.39876e-07, 3.2, 1.19209e-07, -3.2, -1.39876e-07, -8.759, 6.37672, -5.67999)
 
 [node name="Default Luggage Body" parent="Options Menu/official_luggage4" index="1"]
 mesh = SubResource("ArrayMesh_84iac")
 
 [node name="official_luggage2" parent="Options Menu" instance=ExtResource("9_4nkqq")]
-transform = Transform3D(2.2469, -1.85285, 1.32604, 2.16016, 2.32461, -0.412146, -0.72465, 1.18453, 2.88301, -4.372, 4.315, -1.605)
+transform = Transform3D(2.17678, -1.9377, 1.32173, 2.13225, 2.38606, -0.0136105, -0.977295, 0.889958, 2.91425, -3.90731, 4.05799, -1.92171)
 
 [node name="Default Luggage Body" parent="Options Menu/official_luggage2" index="1"]
 mesh = SubResource("ArrayMesh_4nkqq")

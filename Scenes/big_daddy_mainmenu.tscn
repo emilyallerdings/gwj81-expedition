@@ -248,7 +248,9 @@ handling = 4.0
 boost = 6.0
 description = "Made out of the world's strongest metal, plotarmorium, this mean machine has at least 5 baby mamas and requires a tank to knock it over.
 
-Higher health and boost, but at the cost of a wider frame, top speed, and maneuverability."
+Higher health and boost, but at the cost of a wider frame, top speed, and maneuverability.
+
+"
 font = ExtResource("3_tdoey")
 luggage_collider = NodePath("CollisionShape3D")
 
