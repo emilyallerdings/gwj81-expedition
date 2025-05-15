@@ -14,6 +14,9 @@ func _ready() -> void:
 	
 	var found = false
 	
+	match found:
+		true: queue_free()
+	
 	for file in files:
 		file = file.trim_suffix(".remap")
 		var loaded_pattern = load(path + file)

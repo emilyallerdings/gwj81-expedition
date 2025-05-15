@@ -48,28 +48,29 @@ font_color = Color(0.541176, 1, 0, 1)
 script = ExtResource("1_jjgbg")
 
 [node name="BoardingGenerator" parent="." instance=ExtResource("2_kry3j")]
-seed = 6607924
-total_path = 800
+seed = 384412
+total_path = 460
 editor_difficulty = 10
 
-[node name="BoardRamp 1" parent="BoardingGenerator" index="0"]
-length = 140.0
-
 [node name="Turn Left" parent="BoardingGenerator" index="1"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -482, 3, 150)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -66, 3, 82)
 
 [node name="BoardRamp 2" parent="BoardingGenerator" index="2"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 3, 150)
-length = 472.0
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 3, 82)
+length = 56.0
 
 [node name="Turn Right" parent="BoardingGenerator" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 140)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 72)
 
 [node name="BoardRamp 3" parent="BoardingGenerator" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -492, 3, 160)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, 92)
+length = 88.0
+
+[node name="BoardRampEnd" parent="BoardingGenerator" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 3, 360)
 
 [node name="EndZone" parent="BoardingGenerator" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -482, 0, 258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 376)
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_jjgbg")
