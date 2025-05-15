@@ -172,8 +172,12 @@ func play_rolling():
 	if velocity.length() > 0.1:
 		if not SoundBus.rolling_suitcase.playing:
 			SoundBus.rolling_suitcase.play()
+			if luggage_object.unique_sound:
+				luggage_object.unique_sound.play()
 	else:
 		SoundBus.rolling_suitcase.stop()
+		if luggage_object.unique_sound:
+				luggage_object.unique_sound.stop()
 
 func on_hit_obstacle():
 	if forward_speed <= 0:

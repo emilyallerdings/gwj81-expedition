@@ -276,16 +276,16 @@ shader_parameter/edge_softness = 0.1
 
 [sub_resource type="Gradient" id="Gradient_rv1me"]
 offsets = PackedFloat32Array(0, 0.0902256, 0.210526, 0.278196, 0.447368, 0.597744, 0.755639)
-colors = PackedColorArray(0.722109, 0, 0.132801, 1, 0.651677, 0.266841, 1.92523e-07, 0.842105, 0.551601, 0.367085, 0, 0.680451, 0, 0.489687, 0.15376, 0.530075, 1.20327e-06, 0.341482, 0.468099, 0.357143, 0.422292, 0.000931811, 0.575207, 0.193149, 0.941331, 0, 0.114005, 0)
+colors = PackedColorArray(0.722109, 0, 0.132801, 1, 0.65098, 0.266667, 0, 1, 0.552941, 0.368627, 0, 1, 0, 0.490196, 0.152941, 1, 0, 0.341176, 0.466667, 1, 0.423529, 0, 0.576471, 1, 0.941176, 0, 0.113725, 0.694118)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_wjcea"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_knafu"]
 gradient = SubResource("Gradient_rv1me")
 
 [sub_resource type="Curve" id="Curve_sduho"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.886986, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_tyvfb"]
+[sub_resource type="CurveTexture" id="CurveTexture_nl6ec"]
 curve = SubResource("Curve_sduho")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pimsa"]
@@ -304,8 +304,10 @@ tangential_accel_min = -2.23517e-06
 tangential_accel_max = 0.499998
 scale_min = 2.0
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_tyvfb")
-color_ramp = SubResource("GradientTexture1D_wjcea")
+scale_curve = SubResource("CurveTexture_nl6ec")
+color_ramp = SubResource("GradientTexture1D_knafu")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_yj8o6"]
 size = Vector2(2, 2)
@@ -342,7 +344,7 @@ mesh = SubResource("ArrayMesh_e4wp4")
 mesh = SubResource("ArrayMesh_knafu")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, -0.625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, -0.375)
 material_override = SubResource("ShaderMaterial_k0xt3")
 cast_shadow = 0
 amount = 50

@@ -9,3 +9,5 @@ extends Node3D
 @export var font : FontFile = preload("res://Materials/NixieOne.ttf")
 
 @export var luggage_collider : CollisionShape3D = null
+
+@export var unique_sound : AudioStreamPlayer = null
