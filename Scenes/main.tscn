@@ -48,7 +48,9 @@ font_color = Color(0.541176, 1, 0, 1)
 script = ExtResource("1_jjgbg")
 
 [node name="BoardingGenerator" parent="." instance=ExtResource("2_kry3j")]
-seed = 6662006
+seed = 6607924
+total_path = 800
+editor_difficulty = 10
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_jjgbg")
