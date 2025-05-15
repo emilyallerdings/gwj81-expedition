@@ -40,7 +40,7 @@ func generate():
 	if Engine.is_editor_hint():
 		total_path =  200 + 10 * randi_range(10,5*editor_difficulty + 30)
 	else:
-		total_path =  200 + 10 * randi_range(10,5*GameManager.difficulty + 30)
+		total_path =  200 + 10 * randi_range(10,5*(GameManager.base_difficulty + GameManager.modifier_difficulty) + 30)
 		
 	right_turns = []
 	left_turns = []

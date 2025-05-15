@@ -5,6 +5,7 @@ var forward_speed: float = 0.0
 
 
 @export var turn_speed: float = 16.0
+@export var boost_bonus := 10.0
 @export var max_turn_angle: float = 30.0
 @export var smooth_factor: float = 0.1
 @export var turn_slowdown_factor: float = 0.05
@@ -22,7 +23,6 @@ var forward_direction: Vector3 = Vector3(0,0,1)
 var target_velocity: Vector3 = Vector3.ZERO
 
 var boost_accel := 0.1
-var boost_bonus := 10.0
 
 var blinking = false
 var elapsed_time = 0.0
@@ -40,6 +40,9 @@ func _ready() -> void:
 		luggage = load("res://Scenes/official_luggage_mainmenu.tscn")
 	luggage_object = luggage.instantiate()
 	luggage_object.scale = Vector3(1, 1, 1)
+	max_speed = luggage_object.top_speed
+	turn_speed = luggage_object.handling
+	boost_bonus = luggage_object.boost
 	collision_shape.shape = luggage_object.luggage_collider.shape
 	collision_shape.position = luggage_object.luggage_collider.position
 	collision_shape.rotation = luggage_object.rotation

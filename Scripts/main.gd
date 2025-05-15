@@ -111,5 +111,8 @@ func rotate_cam_smooth(degrees:float):
 
 func player_finished():
 	GameManager.base_difficulty += 1
-	print("player_finishedd")
+	print("player_finished")
+	for child in player.luggage_object.get_children():
+		if child is GPUParticles3D:
+			child.visible = false
 	player.finish()

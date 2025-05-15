@@ -33,7 +33,7 @@ extends Node3D
 var total_credits = 0
 var current_credits = 0
 
-const difficulty_max = 10.0
+const difficulty_max = 13.0
 const BASE_MIN_GAP = 30.0
 const BASE_MAX_GAP = 50.0
 
@@ -48,7 +48,9 @@ var obstacles = []
 
 func fill_obstacles():
 	total_credits = 0.5 * length
-	ready_stage(GameManager.difficulty)
+	ready_stage(GameManager.base_difficulty + GameManager.modifier_difficulty)
+	print(GameManager.base_difficulty)
+	print(GameManager.modifier_difficulty)
 
 func set_size():
 	self.position.y = 3.0
@@ -137,6 +139,6 @@ func place_pattern(pattern:ObstaclePattern, z_pos:float):
 		var n_ob = PatternManager.OBSTACLE.instantiate()
 		add_child(n_ob)
 		n_ob.type = ob.type
-		n_ob.position = Vector3(ob.position.x, ob.position.y, ob.position.z + z_pos)
+		n_ob.position = Vector3(ob.position.x, ob.position.y - 2.0, ob.position.z + z_pos)
 		#n_ob.connect("body_entered", _on_obstacle_body_entered)
 	return

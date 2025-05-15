@@ -1,16 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://dy8fe1r61jocd"]
+[gd_scene load_steps=10 format=4 uid="uid://dy8fe1r61jocd"]
 
 [ext_resource type="Script" uid="uid://bjtxwl4xukg3x" path="res://Scripts/obstacle.gd" id="1_15o2q"]
 [ext_resource type="PackedScene" uid="uid://dslth8rxf62cv" path="res://Assets/characters/character_rig.glb" id="2_2p81s"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="3_a6yce"]
 [ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="4_p763d"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_344ge"]
-albedo_color = Color(1, 0, 0, 1)
-roughness = 0.0
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ynf5e"]
-material = SubResource("StandardMaterial3D_344ge")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6bp64"]
 
@@ -65,18 +58,15 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ok3ys")
 
 [node name="Obstacle" type="StaticBody3D" groups=["obstacle"]]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_15o2q")
 
-[node name="ObstacleMesh" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("CapsuleMesh_ynf5e")
-
 [node name="ObstacleCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_6bp64")
 
 [node name="character_rig" parent="." instance=ExtResource("2_2p81s")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -1, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Character" parent="character_rig" index="0"]
 mesh = SubResource("ArrayMesh_km3lo")

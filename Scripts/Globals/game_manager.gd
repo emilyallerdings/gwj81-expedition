@@ -7,6 +7,7 @@ var current_level : int = 0
 var starting_money : float = 100.0
 var credits : int = 0
 
+var max_levels : int = 10
 var easy_cities : Array[CityInfo] = []
 var med_cities : Array[CityInfo] = []
 var hard_cities : Array[CityInfo] = []
@@ -30,4 +31,3 @@ func _ready():
 			Enums.LevelDifficulty.EXTREME:
 				extreme_cities.append(loaded_city)
 	
-	print(easy_cities)

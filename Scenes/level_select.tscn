@@ -70,9 +70,10 @@ offset_right = 135.0
 offset_bottom = 73.0
 grow_horizontal = 2
 theme = ExtResource("1_nkys2")
+theme_override_colors/default_color = Color(0.964706, 0.596078, 0, 1)
 theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
-text = "[color=orange]Level 1[/color]"
+text = "Level 1"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -109,6 +110,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_xn5i6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v7b5r")
 
 [node name="DEBUG" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 356.0
 offset_top = 134.0

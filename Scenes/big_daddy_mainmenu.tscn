@@ -248,7 +248,7 @@ shader_parameter/texture_scale = Vector2(1, 1)
 shader_parameter/edge_softness = 0.1
 
 [sub_resource type="Gradient" id="Gradient_u8wa4"]
-colors = PackedColorArray(1, 0.752941, 0, 1, 1, 1, 0.352941, 0.713726)
+colors = PackedColorArray(1, 0.372549, 0, 1, 0.498144, 0.495076, 7.70092e-07, 0.713726)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_p4ocl"]
 gradient = SubResource("Gradient_u8wa4")

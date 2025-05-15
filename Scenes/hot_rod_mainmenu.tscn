@@ -277,7 +277,7 @@ angle_max = 360.0
 spread = 10.0
 angular_velocity_min = -50.0
 angular_velocity_max = 50.0
-gravity = Vector3(0, 0, 0)
+gravity = Vector3(0, 9.8, 0)
 linear_accel_min = 4.0
 linear_accel_max = 4.0
 tangential_accel_min = -2.23517e-06
@@ -297,9 +297,9 @@ size = Vector3(1.5818, 2.8717, 2.09546)
 transform = Transform3D(-1.39876e-07, 0, -3.2, 0, 3.2, 0, 3.2, 0, -1.39876e-07, 0, 0, 0)
 script = ExtResource("2_068ws")
 title = "Hot Rod"
-top_speed = 2.0
-handling = 3.0
-boost = 10.0
+top_speed = 8.0
+handling = 10.0
+boost = 20.0
 description = "Kicks like you slapped your mama! Not for the faint of heart.
 
 Trades top speed and maneuverability for insane boost! Really nice fuel efficiency of a whopping 10 MPG."

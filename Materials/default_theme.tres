@@ -1,9 +1,24 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bncgplyvgv608"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://bncgplyvgv608"]
 
 [ext_resource type="FontFile" uid="uid://d4da0phun8v4d" path="res://Materials/Fair Prosper.ttf" id="1_c5ure"]
 [ext_resource type="FontFile" uid="uid://bafns24uaw6y5" path="res://Materials/NixieOne.ttf" id="2_c5ure"]
 [ext_resource type="Texture2D" uid="uid://4xsfax26bpg3" path="res://UI Assets/plane_export.png" id="2_c65rd"]
 [ext_resource type="Texture2D" uid="uid://cubnv2v3j4lyy" path="res://UI Assets/bar_round_gloss_large_square.png" id="4_b8mto"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dx8me"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.359069, 0.359069, 0.359069, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_88cmt"]
 
@@ -91,7 +106,7 @@ Button/colors/icon_normal_color = Color(1, 1, 1, 1)
 Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
 Button/font_sizes/font_size = 50
 Button/fonts/font = ExtResource("1_c5ure")
-Button/styles/disabled = null
+Button/styles/disabled = SubResource("StyleBoxFlat_dx8me")
 Button/styles/focus = SubResource("StyleBoxEmpty_88cmt")
 Button/styles/hover = SubResource("StyleBoxFlat_5dbda")
 Button/styles/normal = SubResource("StyleBoxFlat_ycoxo")

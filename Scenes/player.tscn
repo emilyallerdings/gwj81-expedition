@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://chp52opwuhulv"]
+[gd_scene load_steps=5 format=3 uid="uid://chp52opwuhulv"]
 
 [ext_resource type="Script" uid="uid://bk7goqj06c30l" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Shader" uid="uid://d14rdrytptm7w" path="res://Shaders/blinking.gdshader" id="2_vgqql"]
@@ -9,24 +9,12 @@ shader = ExtResource("2_vgqql")
 shader_parameter/alpha = 1.0
 shader_parameter/blink_intensity = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjgbg"]
-albedo_color = Color(0.176419, 0.176419, 0.176419, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_bo1nx"]
-material = SubResource("StandardMaterial3D_jjgbg")
-size = Vector3(1, 1, 2)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvnsp"]
 size = Vector3(1.66766, 2.47614, 1.39808)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_cvnsp")
 shader_material = SubResource("ShaderMaterial_fkybt")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 3.9, 0)
-visible = false
-mesh = SubResource("BoxMesh_bo1nx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 4.47035e-08, 0, -4.47035e-08, 1, 0.0014528, 1.25987, -0.105046)
