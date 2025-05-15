@@ -98,7 +98,6 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_b1vtq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xn5i6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v7b5r")
-text = "Tokyo, Japan"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -108,8 +107,15 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_b1vtq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xn5i6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v7b5r")
-text = "Paris, France
-"
+
+[node name="DEBUG" type="Button" parent="."]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 134.0
+offset_right = 550.0
+offset_bottom = 221.0
+text = "DEBUG"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="DEBUG" to="." method="_on_debug_pressed"]

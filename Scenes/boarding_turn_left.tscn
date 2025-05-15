@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ckdhsswkcu8fy"]
 
-[ext_resource type="Script" uid="uid://bgb8u2ax3k34i" path="res://Scenes/boarding_turn.gd" id="1_sqldj"]
+[ext_resource type="Script" uid="uid://bgb8u2ax3k34i" path="res://Scripts/boarding_turn.gd" id="1_sqldj"]
 [ext_resource type="Material" uid="uid://by304ddkfo7w8" path="res://Materials/boarding_ramp_white_no_outline.tres" id="2_h6ok6"]
 [ext_resource type="Material" uid="uid://ioqjey8l3e5m" path="res://Materials/boarding_ramp_white.tres" id="2_qqdfy"]
 [ext_resource type="Script" uid="uid://byv1okm0roh4x" path="res://Scripts/turn.gd" id="4_fi12f"]

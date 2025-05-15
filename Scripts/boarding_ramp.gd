@@ -34,8 +34,8 @@ var total_credits = 0
 var current_credits = 0
 
 const difficulty_max = 10.0
-const BASE_MIN_GAP = 15.0
-const BASE_MAX_GAP = 35.0
+const BASE_MIN_GAP = 30.0
+const BASE_MAX_GAP = 50.0
 
 const EASY_COST_M = 1.0
 const MED_COST_M = 2.0
