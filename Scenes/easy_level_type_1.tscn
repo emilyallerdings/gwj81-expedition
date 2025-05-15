@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7vjgcbb8so78"]
-
-[ext_resource type="Script" uid="uid://cgca6rtwtw3td" path="res://Scripts/level_data.gd" id="1_ps5je"]
-
-[node name="Easy Level Type 1" type="Node3D"]
-script = ExtResource("1_ps5je")
-city_name = "Tokyo, Japan"

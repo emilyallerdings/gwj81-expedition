@@ -13,16 +13,15 @@ var map_select : PackedScene = preload("res://Scenes/level_select.tscn")
 var level = null
 
 func _ready():
+	#print(GameManager.current_level)
+	prev_scene = get_parent()
 	fly.disabled = true
 	trip_start.text = "Trip Start: " + Time.get_date_string_from_system(false)
-	
 	
 	for i in GameManager.max_levels:
 		level = map_select.instantiate()
 		level.current_level_amount = i
 		h_box_container.add_child(level)
-		# rebase
-		# rebase 2
 	
 	for child in h_box_container.get_children():
 		if child.current_level != GameManager.current_level:
@@ -41,14 +40,16 @@ func _process(delta):
 	fly.disabled = !selected
 
 func _on_back_pressed():
+	SoundBus.button.play()
 	self.visible = false
 	prev_scene.selection_menu_ui.visible = true
 
 func _on_fly_pressed():
+	SoundBus.button.play()
 	SoundBus.start_game.play()
 	SoundBus.airport_ambience.stop()
 	SoundBus.song_2.stop()
-	TransitionEffect.transition_to_scene("res://Scenes/main.tscn")
+	TransitionEffect.transition_to_scene("res://Scenes/transition_screen.tscn")
 
 #func _on_back_mouse_entered():
 	#prev_scene.suitecase_sprite = Vector2(back.position.x - 50.0, back.position.y + 35.0)

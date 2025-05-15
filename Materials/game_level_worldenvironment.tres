@@ -2,41 +2,40 @@
 
 [ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="1_ss0w5"]
 
-[sub_resource type="Gradient" id="Gradient_21xkr"]
-offsets = PackedFloat32Array(0.619205, 0.620861)
+[sub_resource type="Gradient" id="Gradient_ss0w5"]
+offsets = PackedFloat32Array(0.547945, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6bp64"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ss0w5"]
 noise_type = 3
-seed = 45
-frequency = 0.0355
+offset = Vector3(-100, -44.4, 0)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6m47u"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yrogv"]
 seamless = true
-color_ramp = SubResource("Gradient_21xkr")
-noise = SubResource("FastNoiseLite_6bp64")
+color_ramp = SubResource("Gradient_ss0w5")
+noise = SubResource("FastNoiseLite_ss0w5")
 
-[sub_resource type="Gradient" id="Gradient_344ge"]
+[sub_resource type="Gradient" id="Gradient_fnbnn"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5n0dv"]
-gradient = SubResource("Gradient_344ge")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3u7ap"]
+gradient = SubResource("Gradient_fnbnn")
 
-[sub_resource type="Gradient" id="Gradient_ynf5e"]
-offsets = PackedFloat32Array(0.349338, 0.706954)
-colors = PackedColorArray(0.952941, 0.603922, 0.52549, 1, 0.00784314, 0.4, 0.788235, 1)
+[sub_resource type="Gradient" id="Gradient_qrk7s"]
+offsets = PackedFloat32Array(0.456621, 0.748858)
+colors = PackedColorArray(0.890196, 0.647059, 0.576471, 1, 0, 0.376471, 0.780392, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tt8ml"]
-gradient = SubResource("Gradient_ynf5e")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ojj71"]
+gradient = SubResource("Gradient_qrk7s")
 fill_from = Vector2(1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hptm8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a2egf"]
 shader = ExtResource("1_ss0w5")
-shader_parameter/hdri_background = SubResource("GradientTexture2D_5n0dv")
-shader_parameter/sky_background = SubResource("GradientTexture2D_tt8ml")
-shader_parameter/clouds = SubResource("NoiseTexture2D_6m47u")
+shader_parameter/hdri_background = SubResource("GradientTexture2D_3u7ap")
+shader_parameter/sky_background = SubResource("GradientTexture2D_ojj71")
+shader_parameter/clouds = SubResource("NoiseTexture2D_yrogv")
 shader_parameter/exposure = 1.0
 
 [sub_resource type="Sky" id="Sky_hkdq0"]
-sky_material = SubResource("ShaderMaterial_hptm8")
+sky_material = SubResource("ShaderMaterial_a2egf")
 
 [resource]
 background_mode = 2

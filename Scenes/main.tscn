@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ddlqo71pgyb5i" path="res://Scenes/boarding_generator.tscn" id="2_kry3j"]
 [ext_resource type="Material" uid="uid://bwfcdgloump5l" path="res://Shaders/speed_lines_material.tres" id="4_kry3j"]
 [ext_resource type="Environment" uid="uid://b3s7xlhtiytky" path="res://Materials/game_level_worldenvironment.tres" id="5_kry3j"]
-[ext_resource type="Script" uid="uid://cssi7rtq6i5dt" path="res://Scenes/count_down.gd" id="6_6bp64"]
+[ext_resource type="Script" uid="uid://cssi7rtq6i5dt" path="res://Scripts/count_down.gd" id="6_6bp64"]
 [ext_resource type="FontFile" uid="uid://djcwcwvpuh7qw" path="res://Materials/Parisienne-Regular.ttf" id="6_21xkr"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="7_6bp64"]
 [ext_resource type="AudioStream" uid="uid://tt3bogbl1lqf" path="res://Sounds/countdown.ogg" id="8_344ge"]
@@ -53,46 +53,6 @@ font_size = 96
 font_color = Color(0.353449, 0.622917, 0.999992, 1)
 outline_size = 24
 outline_color = Color(0.964706, 0.596078, 0, 1)
-
-[sub_resource type="Animation" id="Animation_6bp64"]
-resource_name = "number_down"
-length = 1.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CountdownText:anchor_top")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.666667),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [0.3, 0.5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CountdownText:anchor_bottom")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.666667),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [0.3, 0.5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CountdownText:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.666667, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1.68179),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_344ge"]
 length = 0.001
@@ -195,6 +155,46 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 0.203063, 0.517632),
 "update": 0,
 "values": [800, 80, 128]
+}
+
+[sub_resource type="Animation" id="Animation_6bp64"]
+resource_name = "number_down"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CountdownText:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.3, 0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CountdownText:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.666667),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.3, 0.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CountdownText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1.68179),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_344ge"]

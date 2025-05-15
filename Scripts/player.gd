@@ -31,6 +31,8 @@ var luggage_object = null
 
 var reached_end = false
 
+#var shop : PackedScene = preload("")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -168,15 +170,20 @@ func handle_player_movement(delta:float):
 	velocity = lerp(velocity, target_velocity, smooth_factor)
 
 func play_rolling():
+	if reached_end:
+		if SoundBus.rolling_suitcase.playing:
+			SoundBus.rolling_suitcase.stop()
+			
 	if velocity.length() > 0.1:
 		if not SoundBus.rolling_suitcase.playing:
 			SoundBus.rolling_suitcase.play()
 			if luggage_object.unique_sound:
 				luggage_object.unique_sound.play()
 	else:
-		SoundBus.rolling_suitcase.stop()
-		if luggage_object.unique_sound:
-				luggage_object.unique_sound.stop()
+		if SoundBus.rolling_suitcase.playing:
+			SoundBus.rolling_suitcase.stop()
+			if luggage_object.unique_sound:
+					luggage_object.unique_sound.stop()
 
 func on_hit_obstacle():
 	if forward_speed <= 0:
@@ -202,4 +209,6 @@ func start():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func finish():
+	SoundBus.rolling_suitcase.stop()
 	reached_end = true
+	

@@ -13,7 +13,7 @@ extends Node3D
 @export var starting_z:float = 10.0
 @export var difficulty:float = 8.0
 
-
+var next_scene : PackedScene = preload("res://Scenes/shop.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -120,3 +120,6 @@ func player_finished():
 		if child is GPUParticles3D:
 			child.visible = false
 	player.finish()
+	SoundBus.song_1.stop()
+	SoundBus.rolling_suitcase.stop()
+	TransitionEffect.transition_to_scene("res://Scenes/victory_screen.tscn")

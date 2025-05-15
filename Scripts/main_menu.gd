@@ -20,8 +20,6 @@ preload("res://Scenes/hot_rod_mainmenu.tscn")]
 
 @onready var credits_menu_camera = $"Credits Menu/Credits Menu Camera"
 @onready var credits_menu_ui = $"Credits Menu/Credits Menu UI"
-
-@onready var map_selection = $"Map Selection"
 #endregion
 
 #region main menu ui buttons
@@ -57,6 +55,8 @@ var to_camera : Camera3D = null
 
 var i : int = 0
 var current_luggage_type = luggages[i].instantiate()
+var next_scene : PackedScene = preload("res://Scenes/map_selection.tscn")
+var select_map = null
 
 func _ready() -> void:
 	TransitionEffect.current_scene = self
@@ -66,10 +66,11 @@ func _ready() -> void:
 	options_menu_ui.visible = false
 	selection_menu_ui.visible = false
 	credits_menu_ui.visible = false
-	map_selection.visible = false
 	
 	update_luggage_object()
-	
+	select_map = next_scene.instantiate()
+	add_child(select_map)
+	select_map.visible = false
 	suitecase_sprite.position = Vector2(play.position.x - 50.0, play.position.y + 35.0)
 	
 
@@ -173,8 +174,8 @@ func _on_credits_back_pressed():
 func _on_selection_play_pressed():
 	SoundBus.button.play()
 	SoundBus.whoosh.play()
-	map_selection.visible = true
 	selection_menu_ui.visible = false
+	select_map.visible = true
 
 func _on_right_button_pressed():
 	SoundBus.button.play()
@@ -187,7 +188,6 @@ func _on_left_button_pressed():
 	update_luggage_object()
 	
 #endregion
-
 
 #region mouse hover logic
 func _on_play_mouse_entered() -> void:
