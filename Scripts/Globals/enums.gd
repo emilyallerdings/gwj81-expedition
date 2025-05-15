@@ -10,3 +10,10 @@ enum PatternDifficulty{
 enum ObstacleType{
 	ANY
 }
+
+enum LevelDifficulty {
+	EASY = 0,
+	MEDIUM = 3,
+	HARD = 8,
+	EXTREME = 11
+}

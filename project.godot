@@ -33,6 +33,7 @@ window/layer_1=""
 
 folder_colors={
 "res://Assets/": "teal",
+"res://City Data/": "gray",
 "res://Materials/": "yellow",
 "res://Patterns/": "gray",
 "res://Scenes/": "red",

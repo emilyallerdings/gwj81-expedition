@@ -68,9 +68,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 140)
 [node name="BoardRamp 3" parent="BoardingGenerator" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -492, 3, 160)
 
-[node name="EndZone" parent="BoardingGenerator" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -482, 0, 258)
-
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_jjgbg")
 

@@ -110,5 +110,6 @@ func rotate_cam_smooth(degrees:float):
 	tween.set_ease(Tween.EASE_OUT)
 
 func player_finished():
+	GameManager.base_difficulty += 1
 	print("player_finishedd")
 	player.finish()

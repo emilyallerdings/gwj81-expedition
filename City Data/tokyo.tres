@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CityInfo" load_steps=2 format=3 uid="uid://b4ng3xxmlxaow"]
+
+[ext_resource type="Script" uid="uid://cjqxtsga52tl2" path="res://Scripts/city_data.gd" id="1_v2bvv"]
+
+[resource]
+script = ExtResource("1_v2bvv")
+name = "Tokyo, Japan"
+airport_code = "HND"
+difficulty_modifier = 3
+metadata/_custom_type_script = "uid://cjqxtsga52tl2"
