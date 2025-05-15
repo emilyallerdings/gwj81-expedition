@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ieq2hasgdd62" path="res://Scripts/main_menu.gd" id="1_yhxw7"]
 [ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="2_ehtkc"]
 [ext_resource type="PackedScene" uid="uid://cl844rkgxivpm" path="res://Assets/selectionroom.glb" id="2_trj04"]
-[ext_resource type="Shader" path="res://Shaders/pseudo_3d.gdshader" id="3_16hvj"]
+[ext_resource type="Shader" uid="uid://ud44g8ahsyxi" path="res://Shaders/pseudo_3d.gdshader" id="3_16hvj"]
 [ext_resource type="Texture2D" uid="uid://ge4oyevnnxel" path="res://UI Assets/suitecase_sprite.png" id="4_vr1f0"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="5_t1dhk"]
 [ext_resource type="FontFile" uid="uid://d4da0phun8v4d" path="res://Materials/Fair Prosper.ttf" id="6_5egv6"]
@@ -68,7 +68,8 @@ ambient_light_color = Color(0.45098, 0.333333, 0.309804, 1)
 ambient_light_energy = 0.75
 tonemap_mode = 3
 glow_enabled = true
-glow_bloom = 0.2
+glow_intensity = 0.5
+glow_bloom = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fbgsc"]
 shader = ExtResource("3_16hvj")

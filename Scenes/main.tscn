@@ -81,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.309589, -0.677338, 0.66736, -0.132737, 0.725754, 0.675028, -0.941561, 0.120398, -0.314593, 0, 0, 0)
+transform = Transform3D(-0.336559, -0.297803, 0.893332, 0.0138687, 0.947005, 0.32092, -0.94156, 0.120398, -0.314593, 0, 0, 0)
 light_bake_mode = 1
 shadow_enabled = true
 directional_shadow_max_distance = 250.0

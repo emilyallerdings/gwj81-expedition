@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck2so4yw1rhxw"]
+
+[ext_resource type="Script" uid="uid://bj62dhs6wc2xn" path="res://Scripts/Globals/game_manager.gd" id="1_oj352"]
+[ext_resource type="PackedScene" uid="uid://b7vjgcbb8so78" path="res://Scenes/map_level_loading_test.tscn" id="2_e5fcp"]
+
+[node name="Game Manager" type="Node"]
+script = ExtResource("1_oj352")
+easy_levels = Array[PackedScene]([ExtResource("2_e5fcp"), ExtResource("2_e5fcp"), ExtResource("2_e5fcp")])
