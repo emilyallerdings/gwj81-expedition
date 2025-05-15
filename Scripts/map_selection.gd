@@ -21,6 +21,8 @@ func _ready():
 		level = map_select.instantiate()
 		level.current_level_amount = i
 		h_box_container.add_child(level)
+		# rebase
+		# rebase 2
 	
 	for child in h_box_container.get_children():
 		if child.current_level != GameManager.current_level:
