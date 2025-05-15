@@ -43,9 +43,10 @@ func start_game():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var player_forward_vec = project_vector(player.velocity, player.forward_direction)
 	$"FPS Counter/FPSLabel".text = "FPS: " + str(Engine.get_frames_per_second())
 	var str = "%.2f"
-	var speed = $Player.velocity.length()
+	var speed = player_forward_vec.length()
 	#print($Player.velocity)
 	str = (str % speed)
 	$Speed/SpeedLabel.text = "Speed: " + str + "m/s"
@@ -53,7 +54,7 @@ func _process(delta: float) -> void:
 	main_camera_anchor.global_position.x = player.global_position.x
 
 	
-	if project_vector(player.velocity, player.forward_direction).length() > player.max_speed + (player.boost_bonus / 2):
+	if player.forward_speed > player.max_speed + (player.boost_bonus / 2):
 		var camera_increase := get_tree().create_tween()
 		camera_increase.tween_property(main_camera, "fov", 110.0, 0.25)
 		

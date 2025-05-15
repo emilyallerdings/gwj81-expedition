@@ -10,44 +10,40 @@
 
 [node name="BoardingGenerator" type="Node3D"]
 script = ExtResource("1_lirl7")
-seed = 10572940
-total_path = 340
+seed = 7552169
+total_path = 360
 
 [node name="BoardRamp 1" type="Node3D" parent="." instance=ExtResource("2_uvm5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("3_ahusl")
 width = 20.0
-length = 76.0
+length = 72.0
 
 [node name="Turn Left" type="Node3D" parent="." instance=ExtResource("4_b8yvn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 76)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 72)
 script = ExtResource("5_ioi6n")
 
 [node name="BoardRamp 2" type="Node3D" parent="." instance=ExtResource("2_uvm5e")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 3, 86)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 3, 82)
 script = ExtResource("3_ahusl")
 width = 20.0
-length = 76.0
+length = 160.0
 
 [node name="Turn Right" type="Node3D" parent="." instance=ExtResource("6_ioi6n")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 86, 3, 86)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 170, 3, 82)
 script = ExtResource("5_ioi6n")
 
 [node name="BoardRamp 3" type="Node3D" parent="." instance=ExtResource("2_uvm5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96, 3, 96)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 3, 92)
 script = ExtResource("3_ahusl")
 width = 20.0
-length = 88.0
+length = 132.0
 
-[node name="Turn Left2" type="Node3D" parent="." instance=ExtResource("4_b8yvn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96, 3, 184)
-script = ExtResource("5_ioi6n")
-
-[node name="BoardRamp 4" type="Node3D" parent="." instance=ExtResource("2_uvm5e")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 106, 3, 194)
+[node name="BoardRampEnd" type="Node3D" parent="." instance=ExtResource("2_uvm5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 3, 224)
 script = ExtResource("3_ahusl")
 width = 20.0
-length = 100.0
+length = 36.0
 
 [node name="EndZone" type="Area3D" parent="." instance=ExtResource("7_ajnt6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206, 0, 194)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 260)

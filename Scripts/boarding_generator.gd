@@ -112,20 +112,37 @@ func generate():
 			new_ramp.rotation.y = deg_to_rad(-90)
 		elif forward_dir == Vector3.RIGHT:
 			new_ramp.rotation.y = deg_to_rad(90)
-		#
-		#print("cur: ", current_pos, " += ", seg_len, " * ", forward_dir)
-		current_pos += seg_len * forward_dir
 		
 		if counter == segment_lens.size():
+			current_pos += seg_len * forward_dir
 			var end_zone = END_ZONE.instantiate()
-
+			var end_ramp = BOARDING_RAMP.instantiate()
+			end_ramp.name = "BoardRampEnd"
+			
+			
+			add_child(end_ramp)
+			end_ramp.owner = self
+			end_ramp.position = current_pos
+			end_ramp.length = 36
+			end_ramp.set_size()
+			if forward_dir == Vector3.LEFT:
+				end_ramp.rotation.y = deg_to_rad(-90)
+			elif forward_dir == Vector3.RIGHT:
+				end_ramp.rotation.y = deg_to_rad(90)
+			
+			
+			current_pos += 16 * forward_dir
 			add_child(end_zone)
 			end_zone.position = current_pos
 			end_zone.owner = self
 			end_zone.connect("body_entered", body_entered_end_zone)
 			print("end")
 			break
-		
+			
+
+		#
+		#print("cur: ", current_pos, " += ", seg_len, " * ", forward_dir)
+		current_pos += seg_len * forward_dir
 		var prev_dir = forward_dir
 		
 		if forward_dir == Vector3.BACK:

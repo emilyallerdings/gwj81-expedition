@@ -7,7 +7,7 @@ var forward_speed: float = 0.0
 @export var turn_speed: float = 16.0
 @export var max_turn_angle: float = 30.0
 @export var smooth_factor: float = 0.1
-@export var turn_slowdown_factor: float = 0.005
+@export var turn_slowdown_factor: float = 0.05
 
 @export var luggage : PackedScene = null
 
@@ -84,7 +84,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if reached_end:
-		velocity = velocity.lerp(Vector3.ZERO, 0.1)
+		velocity = velocity.move_toward(Vector3.ZERO, 0.05)
 	else:
 		handle_player_movement(delta)
 	#print(forward_speed)
@@ -92,8 +92,7 @@ func _physics_process(delta: float) -> void:
 	#print(velocity.length())
 
 	# Move the luggage
-	if velocity.length() > 1.0:
-		play_rolling()
+	play_rolling()
 	move_and_slide()
 	
 	if get_slide_collision_count() > 0:
@@ -103,7 +102,7 @@ func _physics_process(delta: float) -> void:
 
 func handle_player_movement(delta:float):
 	var acceleration = 5.0
-	var recovery_acceleration = 2.0  # Slower when recovering from negative speed
+	var recovery_acceleration = 3.0  # Slower when recovering from negative speed
 	var deceleration = 2.0
 	var boost_acceleration = 10.0
 
@@ -111,6 +110,8 @@ func handle_player_movement(delta:float):
 	if forward_speed < max_speed:
 		if forward_speed < 0:
 			forward_speed = lerp(forward_speed, 5.0, recovery_acceleration * delta)
+			rotation.y += PI/16.0
+			return
 		else:
 			forward_speed = lerp(forward_speed, max_speed, acceleration * delta)
 
@@ -139,7 +140,7 @@ func handle_player_movement(delta:float):
 	#print(turning_intensity)
 
 	# Adjust speed based on the actual rotation intensity (more turn = slower)
-	var speed_modifier: float = 1.0 - (turning_intensity * turn_slowdown_factor)
+	var speed_modifier: float = 1.0 - turning_intensity * turn_slowdown_factor
 	var current_speed: float = forward_speed * speed_modifier
 
 	# Calculate forward movement
@@ -154,8 +155,8 @@ func handle_player_movement(delta:float):
 	# Combine forward and strafe motion
 	target_velocity += strafe
 	
-	if target_velocity.length() > 0:
-		target_velocity = target_velocity.normalized() * current_speed
+	#if target_velocity.length() > 0:
+	#	target_velocity = target_velocity.normalized() * current_speed
 
 	# Smooth velocity adjustment
 	velocity = lerp(velocity, target_velocity, smooth_factor)
@@ -171,7 +172,7 @@ func on_hit_obstacle():
 	if forward_speed <= 0:
 		return
 	print("ON HIT")
-	velocity.z = -20
+	velocity = forward_direction * -20
 	forward_speed = -20
 	start_blinking()
 
