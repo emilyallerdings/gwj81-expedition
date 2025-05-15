@@ -319,8 +319,8 @@ size = Vector3(0.908936, 1.69067, 1.27136)
 transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 0, 0, 0)
 script = ExtResource("2_wmmgg")
 title = "⋆˙⟡Sparklecorn⟡˙⋆"
-top_speed = 8.0
-handling = 6.0
+top_speed = 12.0
+handling = 20.0
 boost = 2.0
 description = "Every little girls' dream suitcase! Use ONLY if you're feeling ⋆˙⟡bonita⟡˙⋆
 

@@ -285,9 +285,9 @@ size = Vector3(1.83698, 2.8717, 2.67381)
 transform = Transform3D(-1.39876e-07, 0, -3.2, 0, 3.2, 0, 3.2, 0, -1.39876e-07, 0, 0, 0)
 script = ExtResource("2_tdoey")
 title = "BIG DADDY"
-top_speed = 4.0
-handling = 4.0
-boost = 6.0
+top_speed = 8.0
+handling = 8.0
+boost = 15.0
 description = "Made out of the world's strongest metal, plotarmorium, this mean machine has at least 5 baby mamas and requires a tank to knock it over.
 
 Higher health and boost, but at the cost of a wider frame, top speed, and maneuverability.
