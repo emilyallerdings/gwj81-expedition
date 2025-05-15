@@ -3,7 +3,7 @@ extends Node
 var chosen_luggage : PackedScene = null
 var base_difficulty : int = 1
 var modifier_difficulty : int = 0
-var current_level : int = 0
+var current_level : int = 5
 var starting_money : float = 100.0
 var credits : int = 0
 

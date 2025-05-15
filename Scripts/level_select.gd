@@ -16,7 +16,8 @@ var randnum_2 : int = 0
 var is_selected : bool = false
 
 func _ready():
-	current_level = GameManager.current_level + current_level_amount
+	#current_level = GameManager.current_level + current_level_amount
+	current_level = current_level_amount
 	level_indicator.text = "Level " + str(current_level + 1)
 	if GameManager.base_difficulty < Enums.LevelDifficulty.MEDIUM:
 		generate_levels(GameManager.easy_cities)
