@@ -1,6 +1,7 @@
 extends Node
 
 var chosen_luggage : PackedScene = null
+var difficulty = 1.0
 var current_level : int = 0
 var starting_money : float = 100.0
 var credits : int = 0

@@ -4,10 +4,10 @@ extends CharacterBody3D
 var forward_speed: float = 0.0
 
 
-@export var turn_speed: float = 8.0
+@export var turn_speed: float = 16.0
 @export var max_turn_angle: float = 30.0
 @export var smooth_factor: float = 0.1
-@export var turn_slowdown_factor: float = 0.005
+@export var turn_slowdown_factor: float = 0.05
 
 @export var luggage : PackedScene = null
 
@@ -28,6 +28,8 @@ var blinking = false
 var elapsed_time = 0.0
 var all_materials = {}
 var luggage_object = null
+
+var reached_end = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -81,11 +83,26 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
+	if reached_end:
+		velocity = velocity.move_toward(Vector3.ZERO, 0.05)
+	else:
+		handle_player_movement(delta)
 	#print(forward_speed)
+
+	#print(velocity.length())
+
+	# Move the luggage
+	play_rolling()
+	move_and_slide()
 	
+	if get_slide_collision_count() > 0:
+		var collision = get_slide_collision(0)
+		if collision.get_collider() && collision.get_collider().is_in_group("obstacle"):
+			on_hit_obstacle()
+
+func handle_player_movement(delta:float):
 	var acceleration = 5.0
-	var recovery_acceleration = 2.0  # Slower when recovering from negative speed
+	var recovery_acceleration = 3.0  # Slower when recovering from negative speed
 	var deceleration = 2.0
 	var boost_acceleration = 10.0
 
@@ -93,6 +110,8 @@ func _physics_process(delta: float) -> void:
 	if forward_speed < max_speed:
 		if forward_speed < 0:
 			forward_speed = lerp(forward_speed, 5.0, recovery_acceleration * delta)
+			rotation.y += PI/16.0
+			return
 		else:
 			forward_speed = lerp(forward_speed, max_speed, acceleration * delta)
 
@@ -108,36 +127,20 @@ func _physics_process(delta: float) -> void:
 
 	# Get input for turning
 	var input_direction: float = Input.get_axis("right", "left")
-
-	# Calculate target angle and lerp for smooth rotation
-	#var target_rotation: float = deg_to_rad(max_turn_angle * input_direction)
-	
 	var forward_angle: float = atan2(forward_direction.x, forward_direction.z)
-	
-	print("forward angle: ", rad_to_deg(forward_angle))
-	
 	var target_rotation: float = forward_angle + deg_to_rad(max_turn_angle * input_direction)
-	
 	var current_rotation: float = lerp_angle(rotation.y, target_rotation, smooth_factor)
-	
-	print("target angle: ", rad_to_deg(target_rotation))
-
-	# Smoothly rotate the luggage
 	rotation.y = current_rotation
 	
-	# Calculate the turning intensity based on the actual current rotation
 	var angle_diff: float = abs(current_rotation) - abs(forward_angle)
 	
-	print("angle dif: ", rad_to_deg(angle_diff))
-	
-	#print("target_rotation - angle_diff: ", (rad_to_deg(target_rotation) - rad_to_deg(angle_diff)) )
-	
+
 	var turning_intensity: float = abs(abs(angle_diff)) / deg_to_rad(max_turn_angle)
 
-	print(turning_intensity)
+	#print(turning_intensity)
 
 	# Adjust speed based on the actual rotation intensity (more turn = slower)
-	var speed_modifier: float = 1.0 - (turning_intensity * turn_slowdown_factor)
+	var speed_modifier: float = 1.0 - turning_intensity * turn_slowdown_factor
 	var current_speed: float = forward_speed * speed_modifier
 
 	# Calculate forward movement
@@ -147,26 +150,16 @@ func _physics_process(delta: float) -> void:
 
 	# Calculate lateral movement based on rotation
 	var strafe: Vector3 = side_dir * (input_direction * turn_speed * turning_intensity)
-	print(strafe)
+	#print(strafe)
 
 	# Combine forward and strafe motion
 	target_velocity += strafe
 	
-	if target_velocity.length() > 0:
-		target_velocity = target_velocity.normalized() * current_speed
+	#if target_velocity.length() > 0:
+	#	target_velocity = target_velocity.normalized() * current_speed
 
 	# Smooth velocity adjustment
 	velocity = lerp(velocity, target_velocity, smooth_factor)
-	#print(velocity.length())
-
-	# Move the luggage
-	play_rolling()
-	move_and_slide()
-	
-	if get_slide_collision_count() > 0:
-		var collision = get_slide_collision(0)
-		if collision.get_collider() && collision.get_collider().is_in_group("obstacle"):
-			on_hit_obstacle()
 
 func play_rolling():
 	if velocity.length() > 0.1:
@@ -183,7 +176,7 @@ func on_hit_obstacle():
 	if forward_speed <= 0:
 		return
 	print("ON HIT")
-	velocity.z = -20
+	velocity = forward_direction * -20
 	forward_speed = -20
 	start_blinking()
 
@@ -201,3 +194,6 @@ func mix_colors(color1: Color, color2: Color, factor: float) -> Color:
 	
 func start():
 	process_mode = Node.PROCESS_MODE_ALWAYS
+
+func finish():
+	reached_end = true
