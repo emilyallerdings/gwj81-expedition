@@ -44,7 +44,7 @@ func _on_fly_pressed():
 	SoundBus.start_game.play()
 	SoundBus.airport_ambience.stop()
 	SoundBus.song_2.stop()
-	get_tree().change_scene_to_packed(transition_screen)
+	TransitionEffect.transition_to_scene("res://Scenes/main.tscn")
 
 #func _on_back_mouse_entered():
 	#prev_scene.suitecase_sprite = Vector2(back.position.x - 50.0, back.position.y + 35.0)

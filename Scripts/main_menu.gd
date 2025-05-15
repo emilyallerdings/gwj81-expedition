@@ -59,6 +59,7 @@ var i : int = 0
 var current_luggage_type = luggages[i].instantiate()
 
 func _ready() -> void:
+	TransitionEffect.current_scene = self
 	SoundBus.airport_ambience.play()
 	SoundBus.song_2.play()
 	main_menu_ui.visible = true

@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddlqo71pgyb5i"]
+[gd_scene load_steps=6 format=3 uid="uid://ddlqo71pgyb5i"]
 
 [ext_resource type="Script" uid="uid://c3qp1omq20leh" path="res://Scripts/boarding_generator.gd" id="1_lirl7"]
 [ext_resource type="PackedScene" uid="uid://xicolt62u2x5" path="res://Scenes/boarding_ramp.tscn" id="2_uvm5e"]
-[ext_resource type="Script" uid="uid://bem4xdckxwof0" path="res://Scripts/boarding_ramp.gd" id="3_ahusl"]
 [ext_resource type="PackedScene" uid="uid://ckdhsswkcu8fy" path="res://Scenes/boarding_turn_left.tscn" id="4_b8yvn"]
-[ext_resource type="Script" uid="uid://bgb8u2ax3k34i" path="res://Scripts/boarding_turn.gd" id="5_ioi6n"]
 [ext_resource type="PackedScene" uid="uid://dd128yi7b3crk" path="res://Scenes/boarding_turn_right.tscn" id="6_ioi6n"]
 [ext_resource type="PackedScene" uid="uid://bld6ci6y88qh7" path="res://Scenes/end_zone.tscn" id="7_ajnt6"]
 
@@ -13,37 +11,26 @@ script = ExtResource("1_lirl7")
 seed = 7552169
 total_path = 360
 
-[node name="BoardRamp 1" type="Node3D" parent="." instance=ExtResource("2_uvm5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-script = ExtResource("3_ahusl")
-width = 20.0
+[node name="BoardRamp 1" parent="." instance=ExtResource("2_uvm5e")]
 length = 72.0
 
-[node name="Turn Left" type="Node3D" parent="." instance=ExtResource("4_b8yvn")]
+[node name="Turn Left" parent="." instance=ExtResource("4_b8yvn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 72)
-script = ExtResource("5_ioi6n")
 
-[node name="BoardRamp 2" type="Node3D" parent="." instance=ExtResource("2_uvm5e")]
+[node name="BoardRamp 2" parent="." instance=ExtResource("2_uvm5e")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 3, 82)
-script = ExtResource("3_ahusl")
-width = 20.0
 length = 160.0
 
-[node name="Turn Right" type="Node3D" parent="." instance=ExtResource("6_ioi6n")]
+[node name="Turn Right" parent="." instance=ExtResource("6_ioi6n")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 170, 3, 82)
-script = ExtResource("5_ioi6n")
 
-[node name="BoardRamp 3" type="Node3D" parent="." instance=ExtResource("2_uvm5e")]
+[node name="BoardRamp 3" parent="." instance=ExtResource("2_uvm5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 3, 92)
-script = ExtResource("3_ahusl")
-width = 20.0
 length = 132.0
 
-[node name="BoardRampEnd" type="Node3D" parent="." instance=ExtResource("2_uvm5e")]
+[node name="BoardRampEnd" parent="." instance=ExtResource("2_uvm5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 3, 224)
-script = ExtResource("3_ahusl")
-width = 20.0
 length = 36.0
 
-[node name="EndZone" type="Area3D" parent="." instance=ExtResource("7_ajnt6")]
+[node name="EndZone" parent="." instance=ExtResource("7_ajnt6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 260)
