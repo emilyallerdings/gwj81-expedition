@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_5auu5"]
 script = ExtResource("1_5auu5")
-position = Vector3(0, 2, 5)
+position = Vector3(0, 0, 5)
 type = 0
 
 [resource]
