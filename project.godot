@@ -22,6 +22,7 @@ SoundBus="*res://Scenes/sound_bus.tscn"
 Enums="*res://Scripts/Globals/enums.gd"
 PatternManager="*res://Scripts/Globals/ObstaclePatternManager.gd"
 GameManager="*res://Scenes/game_manager.tscn"
+TransitionEffect="*res://canvas_layer.tscn"
 
 [display]
 

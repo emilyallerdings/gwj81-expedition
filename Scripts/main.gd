@@ -27,9 +27,13 @@ func _ready() -> void:
 	boarding_generator.connect("player_left_turn", turn_player_left)
 	boarding_generator.connect("player_right_turn", turn_player_right)
 	boarding_generator.connect("player_finished", player_finished)
-	start_game()
-	main_camera.fov = 90.0
 
+	main_camera.fov = 90.0
+	await  TransitionEffect.wiped_out
+	$CountDown.start_countdown()
+	$CountDown/AudioStreamPlayer.play(0)
+	await $CountDown.countdown_finished
+	start_game()
 	
 #func initialize_player() -> void:
 	#var player = self.get_node("Player")

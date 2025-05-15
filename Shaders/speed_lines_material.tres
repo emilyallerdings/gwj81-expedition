@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bwfcdgloump5l"]
 
-[ext_resource type="Shader" uid="uid://bdihhwuhk1cn8" path="res://Shaders/speed_lines.gdshader" id="1_8qnws"]
+[ext_resource type="Shader" path="res://Shaders/speed_lines.gdshader" id="1_8qnws"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8qnws"]
 frequency = 0.098

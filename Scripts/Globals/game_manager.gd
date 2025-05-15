@@ -1,5 +1,7 @@
 extends Node
 
+var difficulty = 5.0 # for testing my branch
+
 var chosen_luggage : PackedScene = null
 var base_difficulty : int = 1
 var modifier_difficulty : int = 0

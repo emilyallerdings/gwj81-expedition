@@ -5,37 +5,37 @@
 
 [sub_resource type="Resource" id="Resource_34k4d"]
 script = ExtResource("1_34k4d")
-position = Vector3(8, 2, 5)
+position = Vector3(8, 0, 5)
 type = 0
 
 [sub_resource type="Resource" id="Resource_e42mm"]
 script = ExtResource("1_34k4d")
-position = Vector3(-8, 2, 5)
+position = Vector3(-8, 0, 5)
 type = 0
 
 [sub_resource type="Resource" id="Resource_4cxqj"]
 script = ExtResource("1_34k4d")
-position = Vector3(-5, 2, 1)
+position = Vector3(-5, 0, 1)
 type = 0
 
 [sub_resource type="Resource" id="Resource_w6xgp"]
 script = ExtResource("1_34k4d")
-position = Vector3(5, 2, 1)
+position = Vector3(5, 0, 1)
 type = 0
 
 [sub_resource type="Resource" id="Resource_5r7il"]
 script = ExtResource("1_34k4d")
-position = Vector3(2, 2, 1)
+position = Vector3(2, 0, 1)
 type = 0
 
 [sub_resource type="Resource" id="Resource_rrk7f"]
 script = ExtResource("1_34k4d")
-position = Vector3(4, 2, 9)
+position = Vector3(4, 0, 9)
 type = 0
 
 [sub_resource type="Resource" id="Resource_a4prc"]
 script = ExtResource("1_34k4d")
-position = Vector3(-5, 2, 9)
+position = Vector3(-5, 0, 9)
 type = 0
 
 [resource]

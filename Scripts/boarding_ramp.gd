@@ -139,6 +139,6 @@ func place_pattern(pattern:ObstaclePattern, z_pos:float):
 		var n_ob = PatternManager.OBSTACLE.instantiate()
 		add_child(n_ob)
 		n_ob.type = ob.type
-		n_ob.position = Vector3(ob.position.x, ob.position.y - 2.0, ob.position.z + z_pos)
+		n_ob.position = Vector3(ob.position.x, ob.position.y, ob.position.z + z_pos)
 		#n_ob.connect("body_entered", _on_obstacle_body_entered)
 	return

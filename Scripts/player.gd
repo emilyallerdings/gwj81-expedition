@@ -87,7 +87,10 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if reached_end:
-		velocity = velocity.move_toward(Vector3.ZERO, 0.05)
+		forward_speed = move_toward(forward_speed, 0, 0.2)
+		velocity = velocity.move_toward(Vector3.ZERO, 0.2)
+		var forward_angle: float = atan2(forward_direction.x, forward_direction.z)
+		rotation.y = lerp_angle(rotation.y, forward_angle, 0.5)
 	else:
 		handle_player_movement(delta)
 	#print(forward_speed)
