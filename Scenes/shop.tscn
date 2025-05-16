@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=4 uid="uid://bo14x17dt5ne3"]
+[gd_scene load_steps=32 format=4 uid="uid://bo14x17dt5ne3"]
 
 [ext_resource type="PackedScene" uid="uid://ciuxit5o1pvp4" path="res://Assets/shop.glb" id="1_io27d"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_fdj0q"]
 [ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="3_k6jq0"]
 [ext_resource type="Script" uid="uid://ckn6c7vui2vhf" path="res://Scripts/shop.gd" id="4_fdj0q"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="5_k6jq0"]
+[ext_resource type="PackedScene" uid="uid://q7br3lygbwic" path="res://Scenes/wheel_lubricant.tscn" id="6_3ps1r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ps1r"]
 render_priority = 0
@@ -347,5 +348,8 @@ offset_right = 1105.0
 offset_bottom = 606.0
 theme = ExtResource("5_k6jq0")
 text = "Next"
+
+[node name="wheel_lubricant" parent="Selection Menu UI" index="1" instance=ExtResource("6_3ps1r")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -5.78316, 3, 0.326437)
 
 [connection signal="pressed" from="Selection Menu UI/Next" to="." method="_on_next_pressed"]
