@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdnobkkcqjpt8"]
+[gd_scene load_steps=6 format=3 uid="uid://bdnobkkcqjpt8"]
 
 [ext_resource type="PackedScene" uid="uid://xicolt62u2x5" path="res://Scenes/boarding_ramp.tscn" id="1_pf0re"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="2_pf0re"]
 [ext_resource type="PackedScene" uid="uid://dy8fe1r61jocd" path="res://Scenes/obstacle.tscn" id="3_fj5ct"]
+[ext_resource type="Script" uid="uid://bjtxwl4xukg3x" path="res://Scripts/obstacle.gd" id="4_fj5ct"]
 
 [sub_resource type="GDScript" id="GDScript_fj5ct"]
 script/source = "@tool
@@ -144,20 +145,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6)
 [node name="ObstaclePattern" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
-[node name="Obstacle" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+[node name="Obstacle" type="StaticBody3D" parent="ObstaclePattern" groups=["obstacle"] instance=ExtResource("3_fj5ct")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 0, 0)
+script = ExtResource("4_fj5ct")
 
-[node name="Obstacle2" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+[node name="Obstacle2" type="StaticBody3D" parent="ObstaclePattern" groups=["obstacle"] instance=ExtResource("3_fj5ct")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 0, 0)
+script = ExtResource("4_fj5ct")
 
-[node name="Obstacle3" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 0, 0)
-
-[node name="Obstacle4" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+[node name="Obstacle3" type="StaticBody3D" parent="ObstaclePattern" groups=["obstacle"] instance=ExtResource("3_fj5ct")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 0, 7)
+script = ExtResource("4_fj5ct")
 
-[node name="Obstacle5" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+[node name="Obstacle4" type="StaticBody3D" parent="ObstaclePattern" groups=["obstacle"] instance=ExtResource("3_fj5ct")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5, 0, 7)
+script = ExtResource("4_fj5ct")
 
-[node name="Obstacle6" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+[node name="Obstacle5" type="StaticBody3D" parent="ObstaclePattern" groups=["obstacle"] instance=ExtResource("3_fj5ct")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0, 7)
+script = ExtResource("4_fj5ct")
