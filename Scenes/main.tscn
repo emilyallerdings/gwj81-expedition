@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ckjr7lbj1cxxq"]
+[gd_scene load_steps=22 format=3 uid="uid://ckjr7lbj1cxxq"]
 
 [ext_resource type="Script" uid="uid://gavvic7ehdce" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://ddlqo71pgyb5i" path="res://Scenes/boarding_generator.tscn" id="2_kry3j"]
@@ -460,10 +460,9 @@ libraries = {
 }
 speed_scale = 2.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CountDown"]
-stream = ExtResource("8_344ge")
-volume_db = -10.0
-
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="BoardingGenerator"]
