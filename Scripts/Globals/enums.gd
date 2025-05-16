@@ -14,6 +14,6 @@ enum ObstacleType{
 enum LevelDifficulty {
 	EASY = 0,
 	MEDIUM = 3,
-	HARD = 8,
-	EXTREME = 11
+	HARD = 5,
+	EXTREME = 8
 }

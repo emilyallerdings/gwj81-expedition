@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CityInfo" load_steps=2 format=3 uid="uid://dkrl5ae5hdjid"]
+
+[ext_resource type="Script" uid="uid://cjqxtsga52tl2" path="res://Scripts/city_data.gd" id="1_htqea"]
+
+[resource]
+script = ExtResource("1_htqea")
+name = "Chicago, USA"
+airport_code = "ORD"
+level_difficulty = 3
+metadata/_custom_type_script = "uid://cjqxtsga52tl2"

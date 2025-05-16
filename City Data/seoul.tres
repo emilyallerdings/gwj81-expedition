@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CityInfo" load_steps=2 format=3 uid="uid://4sn61ac0t3ln"]
+
+[ext_resource type="Script" uid="uid://cjqxtsga52tl2" path="res://Scripts/city_data.gd" id="1_rci18"]
+
+[resource]
+script = ExtResource("1_rci18")
+name = "Seoul, South Korea"
+airport_code = "ICN"
+level_difficulty = 8
+metadata/_custom_type_script = "uid://cjqxtsga52tl2"
