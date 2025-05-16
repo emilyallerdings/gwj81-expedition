@@ -378,7 +378,6 @@ blink_interval = 0.2
 transform = Transform3D(-1, 0, -8.74228e-08, -2.26267e-08, 0.965926, 0.258819, 8.44439e-08, 0.258819, -0.965926, 0, 4.81599, -4.59698)
 
 [node name="FPS Counter" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -392,7 +391,6 @@ text = "FPS: "
 label_settings = SubResource("LabelSettings_jjvhh")
 
 [node name="Speed" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0

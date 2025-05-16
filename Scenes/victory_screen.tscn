@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://conmtu5obhy4r"]
+[gd_scene load_steps=15 format=3 uid="uid://conmtu5obhy4r"]
 
 [ext_resource type="Script" uid="uid://deic86kab5ksr" path="res://Scripts/victory_screen.gd" id="1_fmvqe"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_oq8vb"]
-[ext_resource type="FontFile" uid="uid://bafns24uaw6y5" path="res://Materials/NixieOne.ttf" id="2_mubwb"]
+[ext_resource type="FontFile" uid="uid://cwp8ay1qwwtb0" path="res://Materials/Terminal F4.ttf" id="4_vrh3u"]
+[ext_resource type="AudioStream" uid="uid://bo6r8y2xrlub2" path="res://Sounds/blip.ogg" id="5_dbb0g"]
+[ext_resource type="AudioStream" uid="uid://d1jbhbxf3x8r3" path="res://Sounds/coins.ogg" id="6_m5bpc"]
 
 [sub_resource type="Gradient" id="Gradient_mubwb"]
 offsets = PackedFloat32Array(0.101124, 0.280899, 0.573034, 0.756554)
@@ -23,6 +25,120 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_dbb0g"]
+font = ExtResource("4_vrh3u")
+font_size = 30
+font_color = Color(0.443137, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m5bpc"]
+font = ExtResource("4_vrh3u")
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_m5bpc"]
+resource_name = "MoneyDrop"
+length = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/New Money:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.265066, 0.366374, 0.466667, 0.535683),
+"transitions": PackedFloat32Array(2.37841, 1.23114, 1.62451, 3.86375, 2.63902),
+"update": 0,
+"values": [Vector2(293, 83), Vector2(293, 155.575), Vector2(293, 148), Vector2(293, 150), Vector2(293, 149)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/New Money:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.265066),
+"transitions": PackedFloat32Array(1, 0.133972),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("coins:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ha7rp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/New Money:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(277, 83)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/New Money:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("coins:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hca03"]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/New Money:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hca03"]
+_data = {
+&"Fade": SubResource("Animation_hca03"),
+&"MoneyDrop": SubResource("Animation_m5bpc"),
+&"RESET": SubResource("Animation_ha7rp")
+}
 
 [node name="Victory Screen" type="Control"]
 layout_mode = 3
@@ -57,6 +173,27 @@ offset_bottom = 202.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mubwb")
+
+[node name="Total Time" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 92.0
+offset_right = 250.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_oq8vb")
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("4_vrh3u")
+theme_override_font_sizes/normal_font_size = 30
+text = "Total Time: "
+fit_content = true
+vertical_alignment = 1
 
 [node name="Success" type="RichTextLabel" parent="Panel"]
 layout_mode = 1
@@ -93,9 +230,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_oq8vb")
 theme_override_constants/outline_size = 5
-theme_override_fonts/normal_font = ExtResource("2_mubwb")
+theme_override_fonts/normal_font = ExtResource("4_vrh3u")
 theme_override_font_sizes/normal_font_size = 30
-text = "Money Earned: "
+text = "Total Money: "
 fit_content = true
 vertical_alignment = 1
 
@@ -114,31 +251,47 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_oq8vb")
 theme_override_constants/outline_size = 5
-theme_override_fonts/normal_font = ExtResource("2_mubwb")
+theme_override_fonts/normal_font = ExtResource("4_vrh3u")
 theme_override_font_sizes/normal_font_size = 30
 text = "FlightCoins Accumulated: "
 fit_content = true
 vertical_alignment = 1
 
-[node name="Total Time" type="RichTextLabel" parent="Panel"]
+[node name="New Money" type="Label" parent="Panel"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = 92.0
-offset_right = 250.0
-offset_bottom = 174.0
+anchors_preset = -1
+anchor_left = 0.445714
+anchor_top = 0.257743
+anchor_right = 0.542857
+anchor_bottom = 0.286504
+offset_left = -19.0
+offset_top = -33.5
+offset_right = 51.0
+offset_bottom = -10.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_oq8vb")
-theme_override_constants/outline_size = 5
-theme_override_fonts/normal_font = ExtResource("2_mubwb")
-theme_override_font_sizes/normal_font_size = 30
-text = "Total Time: "
-fit_content = true
+text = "+$135.99"
+label_settings = SubResource("LabelSettings_dbb0g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalMoney" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.445714
+anchor_top = 0.257743
+anchor_right = 0.542857
+anchor_bottom = 0.286504
+offset_left = -11.0
+offset_top = 60.0467
+offset_right = 59.0
+offset_bottom = 83.0467
+grow_horizontal = 2
+grow_vertical = 2
+text = "$135.99"
+label_settings = SubResource("LabelSettings_m5bpc")
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Next" type="Button" parent="."]
@@ -149,5 +302,19 @@ offset_right = 1096.0
 offset_bottom = 606.0
 theme = ExtResource("1_oq8vb")
 text = "Next"
+
+[node name="VictoryAnims" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hca03")
+}
+
+[node name="blip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_dbb0g")
+volume_db = -10.0
+parameters/looping = true
+
+[node name="coins" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_m5bpc")
+volume_db = -15.0
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
