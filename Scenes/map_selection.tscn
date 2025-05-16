@@ -34,12 +34,13 @@ script/source = "extends Panel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	self.custom_minimum_size.x = 10 * (382.185 + 50)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.custom_minimum_size.x = $HBoxContainer.size.x
+	#self.custom_minimum_size.x = $HBoxContainer.size.x
 	pass
 "
 
@@ -156,13 +157,13 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Panel" type="Panel" parent="ScrollContainer"]
-custom_minimum_size = Vector2(495.795, 527.29)
+custom_minimum_size = Vector2(3821.85, 527.29)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nk6go")
 script = SubResource("GDScript_gysin")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/Panel"]
-custom_minimum_size = Vector2(500, 455.03)
+custom_minimum_size = Vector2(3821.85, 455.03)
 layout_mode = 2
 offset_top = 5.0
 offset_right = 500.0

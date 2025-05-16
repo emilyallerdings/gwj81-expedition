@@ -24,7 +24,8 @@ shadow_color = Color(0.326422, 0.532406, 1, 0.6)
 font = ExtResource("2_je532")
 font_size = 24
 
-[sub_resource type="LabelSettings" id="LabelSettings_jegf3"]
+[sub_resource type="LabelSettings" id="LabelSettings_l40pm"]
+resource_local_to_scene = true
 font = ExtResource("2_je532")
 font_size = 32
 font_color = Color(1, 0.917647, 0, 1)
@@ -76,7 +77,7 @@ label_settings = SubResource("LabelSettings_54nnq")
 [node name="CityName" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 text = "Calgary"
-label_settings = SubResource("LabelSettings_jegf3")
+label_settings = SubResource("LabelSettings_l40pm")
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2

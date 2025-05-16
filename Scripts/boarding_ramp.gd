@@ -49,8 +49,8 @@ var obstacles = []
 func fill_obstacles():
 	total_credits = 0.5 * length
 	ready_stage(GameManager.base_difficulty + GameManager.modifier_difficulty)
-	print(GameManager.base_difficulty)
-	print(GameManager.modifier_difficulty)
+	#print(GameManager.base_difficulty)
+	#print(GameManager.modifier_difficulty)
 
 func set_size():
 	self.position.y = 3.0
@@ -108,8 +108,8 @@ func ready_stage(difficulty):
 	var min_gap:float = max(5, BASE_MIN_GAP * gap_bias)
 	var max_gap:float = max(5, BASE_MAX_GAP * gap_bias)
 	
-	print("min gap: ", min_gap)
-	print("max gap: ", max_gap)
+	#print("min gap: ", min_gap)
+	#print("max gap: ", max_gap)
 	
 	while cur_position < total_dist:
 		var remaining_distance = total_dist - cur_position
