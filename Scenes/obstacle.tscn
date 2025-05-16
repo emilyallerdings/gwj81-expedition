@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy8fe1r61jocd"]
+[gd_scene load_steps=7 format=3 uid="uid://dy8fe1r61jocd"]
 
 [ext_resource type="Script" uid="uid://bjtxwl4xukg3x" path="res://Scripts/obstacle.gd" id="1_15o2q"]
 [ext_resource type="PackedScene" uid="uid://bf0l67lxu7vjd" path="res://Assets/characters/character_rig.glb" id="2_2p81s"]
+[ext_resource type="AnimationLibrary" uid="uid://d3bxqthqphxmc" path="res://Assets/characters/animations/character_anim_idle_01.glb" id="3_p763d"]
+[ext_resource type="AnimationLibrary" uid="uid://dpnkcf0diqn1s" path="res://Assets/characters/animations/character_anim_idle_02.glb" id="4_af0pv"]
+[ext_resource type="AnimationLibrary" uid="uid://dh6ohrbkldjwu" path="res://Assets/characters/animations/character_anim_oof.glb" id="5_my8i3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6bp64"]
 radius = 0.75
@@ -18,6 +21,11 @@ shape = SubResource("CapsuleShape3D_6bp64")
 [node name="Character Mesh" parent="." instance=ExtResource("2_2p81s")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Character Mesh"]
+libraries = {
+&"character_anim_idle_01": ExtResource("3_p763d"),
+&"character_anim_idle_02": ExtResource("4_af0pv"),
+&"character_anim_oof": ExtResource("5_my8i3")
+}
 
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 aabb = AABB(-1, -0.085, -1, 2, 3.04, 2)
