@@ -121,7 +121,8 @@ bbcode_enabled = true
 text = "Models:
 KITSUNEMAESTRO
 Xury Greer
-drmadness3d"
+drmadness3d
+Esgee"
 fit_content = true
 
 [node name="ColorRect2" type="ColorRect" parent="."]

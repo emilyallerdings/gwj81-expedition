@@ -1,9 +1,7 @@
 extends Panel
 
-@onready var level_indicator = $"Level Indicator"
-@onready var button = $VBoxContainer/Button
-@onready var button_2 = $VBoxContainer/Button2
-@onready var v_box_container = $VBoxContainer
+#@onready var level_indicator = $"Level Indicator"
+#@onready var v_box_container = $VBoxContainer
 
 var current_level : int = 0
 var current_level_amount : int = 0

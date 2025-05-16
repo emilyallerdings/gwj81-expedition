@@ -130,8 +130,9 @@ func _get_property_list():
 [node name="ObstacleTest" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0183983, -0.0457115, 0.05653)
 script = SubResource("GDScript_fj5ct")
-pattern_name = "SingleMiddle"
-load_name = "SingleMiddle"
+pattern_name = "CloseZigZag"
+pattern_difficulty = 2
+load_name = "CloseZigZag"
 
 [node name="BoardingRamp" parent="." instance=ExtResource("1_pf0re")]
 transform = Transform3D(1, 0, 0, 0, 0.999848, -0.0174524, 0, 0.0174524, 0.999848, 0, 3, 0)
@@ -144,4 +145,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Obstacle" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 5)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 0, 0)
+
+[node name="Obstacle2" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 0, 0)
+
+[node name="Obstacle3" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 0, 0)
+
+[node name="Obstacle4" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 0, 7)
+
+[node name="Obstacle5" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5, 0, 7)
+
+[node name="Obstacle6" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0, 7)
