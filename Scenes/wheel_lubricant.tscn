@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://q7br3lygbwic"]
+[gd_scene load_steps=18 format=4 uid="uid://q7br3lygbwic"]
 
 [ext_resource type="PackedScene" uid="uid://4v8a2kku3mx" path="res://Assets/shop_items/wheel_lubricant.glb" id="1_q41k3"]
+[ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="2_6wsm5"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="3_6wsm5"]
 [ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="4_bsxet"]
 
@@ -193,6 +194,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8lokl")
 
 [node name="wheel_lubricant" instance=ExtResource("1_q41k3")]
+script = ExtResource("2_6wsm5")
 
 [node name="Cylinder" parent="." index="0"]
 mesh = SubResource("ArrayMesh_q41k3")
