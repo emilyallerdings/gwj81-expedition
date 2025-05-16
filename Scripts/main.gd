@@ -1,6 +1,7 @@
 extends Node3D
 
-@export var money_increase_factor : float = 100.0
+@export var start_money : int = 100
+@export var money_decrease_factor : int = 1
 
 @onready var boarding_generator: Node3D = $BoardingGenerator
 
@@ -17,10 +18,13 @@ extends Node3D
 @export var starting_z:float = 10.0
 @export var difficulty:float = 8.0
 
+#var current_money : int = 0
 var next_scene : PackedScene = preload("res://Scenes/shop.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.total_money += start_money
+	money.text = "$ " + str(GameManager.total_money)
 	await get_tree().create_timer(0.01).timeout
 	#ready_stage()
 	await get_tree().create_timer(0.01).timeout
@@ -33,9 +37,11 @@ func _ready() -> void:
 	boarding_generator.connect("player_finished", player_finished)
 
 	main_camera.fov = 90.0
-	await  TransitionEffect.wiped_out
+	await TransitionEffect.wiped_out
+	
+	#TODO Refactor this for use in SoundBus
 	$CountDown.start_countdown()
-	$CountDown/AudioStreamPlayer.play(0)
+	SoundBus.countdown_horn.play()
 	await $CountDown.countdown_finished
 	start_game()
 	
@@ -46,10 +52,10 @@ func _ready() -> void:
 func start_game():
 	print("Base Dif: " + str(GameManager.base_difficulty))
 	print("Modified Dif: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty))
-	GameManager.starting_money += money_increase_factor
-	money.text = "$ " + str(GameManager.starting_money)
+
 	SoundBus.song_1.play()
 	player.start()
+	timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -63,7 +69,9 @@ func _process(delta: float) -> void:
 	$Speed/Diff.text = "Diff: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty)
 	main_camera_anchor.global_position.z = player.global_position.z
 	main_camera_anchor.global_position.x = player.global_position.x
-
+	
+	if GameManager.total_money > 0:
+		money.text = "$ " + str(GameManager.total_money)
 	
 	if player.forward_speed > player.max_speed + (player.boost_bonus / 2):
 		var camera_increase := get_tree().create_tween()
@@ -124,3 +132,9 @@ func player_finished():
 	SoundBus.song_1.stop()
 	SoundBus.rolling_suitcase.stop()
 	TransitionEffect.transition_to_scene("res://Scenes/victory_screen.tscn")
+
+
+func _on_timer_timeout():
+	if GameManager.total_money > 0:
+		GameManager.total_money -= money_decrease_factor
+		
