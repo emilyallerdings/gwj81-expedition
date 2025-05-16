@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dslth8rxf62cv"
+uid="uid://bf0l67lxu7vjd"
 path="res://.godot/imported/character_rig.glb-c17c66f2687eecb3be331c38682b5bd7.scn"
 
 [deps]
@@ -34,11 +34,11 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"Character": {
+"Character_Material": {
 "use_external/enabled": true,
 "use_external/path": "uid://ioqjey8l3e5m"
 }
 }
 }
-gltf/naming_version=1
+gltf/naming_version=0
 gltf/embedded_image_handling=1
