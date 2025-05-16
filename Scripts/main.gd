@@ -10,7 +10,6 @@ extends Node3D
 #@onready var speed_lines = $"MainCamera/Speed Lines"
 @onready var main_camera_anchor: Node3D = $MainCameraAnchor
 @onready var money : RichTextLabel = $"MainCameraAnchor/MainCamera/Speed Lines/Panel2/Money"
-@onready var timer : Timer = $Timer
 
 #@onready var speed_tweener := get_tree().create_tween().set_loops()
 #var shader_material : ShaderMaterial = preload("res://Assets/speed_lines_material.tres")
@@ -68,7 +67,6 @@ func start_game():
 	#print("Modified Dif: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty))
 	SoundBus.song_1.play()
 	player.start()
-	timer.start()
 	started  = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

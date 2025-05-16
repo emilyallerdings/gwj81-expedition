@@ -8,6 +8,9 @@ var load_status = ResourceLoader.THREAD_LOAD_IN_PROGRESS
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite2D.play("gif")
+	
+	SoundBus.preload_sounds()
+	await SoundBus.sounds_loaded
 	var to_delete = []
 	for obj in to_preload:
 		
