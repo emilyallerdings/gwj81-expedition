@@ -46,6 +46,9 @@ func lock():
 	
 	
 	if $Button.button_pressed:
+		var stylebox := get_theme_stylebox("panel")
+		if stylebox is StyleBoxFlat:
+			stylebox.shadow_size = 3
 		self.modulate = Color.hex(0x505050FF)
 	else:
 		self.modulate = Color.hex(0x303030AA)

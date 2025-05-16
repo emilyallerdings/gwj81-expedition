@@ -1,7 +1,7 @@
 extends Node3D
 
-@export var start_money : int = 100
-@export var money_decrease_factor : int = 1
+@export var start_money : float = 100
+@export var money_decrease_factor : float = 2.0
 
 @onready var boarding_generator: Node3D = $BoardingGenerator
 
@@ -20,11 +20,12 @@ extends Node3D
 
 #var current_money : int = 0
 var next_scene : PackedScene = preload("res://Scenes/shop.tscn")
+var started = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameManager.total_money += start_money
-	money.text = "$ " + str(GameManager.total_money)
+	#GameManager.total_money += start_money
+
 	await get_tree().create_timer(0.01).timeout
 	#ready_stage()
 	await get_tree().create_timer(0.01).timeout
@@ -37,6 +38,8 @@ func _ready() -> void:
 	boarding_generator.connect("player_finished", player_finished)
 
 	main_camera.fov = 90.0
+	start_money = ceil(boarding_generator.total_path/ 3.0)
+	money.text = "$ " + str(start_money)
 	await TransitionEffect.wiped_out
 	
 	#TODO Refactor this for use in SoundBus
@@ -44,6 +47,7 @@ func _ready() -> void:
 	SoundBus.countdown_horn.play()
 	await $CountDown.countdown_finished
 	start_game()
+
 	
 #func initialize_player() -> void:
 	#var player = self.get_node("Player")
@@ -55,6 +59,7 @@ func start_game():
 	SoundBus.song_1.play()
 	player.start()
 	timer.start()
+	started  = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -69,8 +74,11 @@ func _process(delta: float) -> void:
 	main_camera_anchor.global_position.z = player.global_position.z
 	main_camera_anchor.global_position.x = player.global_position.x
 	
-	if GameManager.total_money > 0:
-		money.text = "$ " + str(GameManager.total_money)
+	if started:
+		start_money = max(0, start_money-(delta*money_decrease_factor))
+
+
+	money.text = "$ " + ("%.2f" % start_money)
 	
 	if player.forward_speed > player.max_speed + (player.boost_bonus / 2):
 		var camera_increase := get_tree().create_tween()
@@ -123,6 +131,7 @@ func rotate_cam_smooth(degrees:float):
 func player_finished():
 	GameManager.base_difficulty += 1
 	GameManager.current_level += 1
+	GameManager.total_money = start_money
 	#print("player_finished")
 	for child in player.luggage_object.get_children():
 		if child is GPUParticles3D:
@@ -133,7 +142,4 @@ func player_finished():
 	TransitionEffect.transition_to_scene("res://Scenes/victory_screen.tscn")
 
 
-func _on_timer_timeout():
-	if GameManager.total_money > 0:
-		GameManager.total_money -= money_decrease_factor
 		
