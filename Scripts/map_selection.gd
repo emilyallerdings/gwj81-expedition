@@ -9,7 +9,7 @@ extends Control
 @onready var scroll_container = $ScrollContainer
 
 var transition_screen : PackedScene = preload("res://Scenes/transition_screen.tscn")
-var map_select : PackedScene = preload("res://Scenes/new_level_select2.tscn")
+var level_select : PackedScene = preload("res://Scenes/new_level_select2.tscn")
 var level = null
 
 func _ready():
@@ -19,23 +19,23 @@ func _ready():
 	trip_start.text = "Trip Start: " + Time.get_date_string_from_system(false)
 	
 	for i in GameManager.max_levels:
-		level = map_select.instantiate()
+		level = level_select.instantiate()
+		level.level_selected.connect(level_selected)
 		level.current_level = i
 		h_box_container.add_child(level)
 	
 	for level_select in h_box_container.get_children():
-		if level_select.current_level != GameManager.current_level:
-			level_select.set_disable()
+		if !level_select is VSeparator:
+			if level_select.current_level != GameManager.current_level:
+				level_select.set_disable()
 	
 	scroll_container.set_deferred("scroll_horizontal", 340 * GameManager.current_level)
 
 func _process(delta):
-	var selected = false
-	for child in h_box_container.get_children():
-		if child.is_selected:
-			selected = true
-			break
-	fly.disabled = !selected
+	pass
+
+func level_selected():
+	$Fly.disabled = false
 
 func _on_back_pressed():
 	SoundBus.button.play()

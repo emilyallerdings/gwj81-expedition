@@ -1,5 +1,7 @@
 extends Panel
 
+signal level_selected
+
 @onready var level_indicator = $"Level Indicator"
 @onready var button = $VBoxContainer/Button
 @onready var button_2 = $VBoxContainer/Button2
@@ -90,6 +92,7 @@ func generate_unique_pair(min_num: int, max_num: int):
 
 func stage_selected(sel_stage_box):
 	is_selected = true
+	level_selected.emit()
 	for stage_box in stage_boxes:
 		if stage_box != sel_stage_box:
 			stage_box.deselect()

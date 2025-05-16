@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://o8j1yog4j76a"]
+[gd_scene load_steps=9 format=3 uid="uid://o8j1yog4j76a"]
 
 [ext_resource type="Script" uid="uid://cltxwf8dswcs1" path="res://Scripts/map_selection.gd" id="1_nk6go"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="2_nk6go"]
@@ -26,6 +26,8 @@ border_color = Color(0.084423, 0.188224, 0.304363, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nk6go"]
+
 [sub_resource type="GDScript" id="GDScript_gysin"]
 script/source = "extends Panel
 
@@ -40,6 +42,8 @@ func _process(delta: float) -> void:
 	self.custom_minimum_size.x = $HBoxContainer.size.x
 	pass
 "
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68n23"]
 
 [node name="Map Selection" type="Control"]
 layout_mode = 3
@@ -136,6 +140,7 @@ offset_bottom = 631.0
 [node name="Panel" type="Panel" parent="ScrollContainer"]
 custom_minimum_size = Vector2(495.795, 527.29)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nk6go")
 script = SubResource("GDScript_gysin")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/Panel"]
@@ -145,6 +150,11 @@ offset_right = 500.0
 offset_bottom = 515.0
 theme_override_constants/separation = 50
 alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ScrollContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxEmpty_68n23")
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
