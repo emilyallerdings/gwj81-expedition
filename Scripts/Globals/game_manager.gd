@@ -6,7 +6,8 @@ var chosen_luggage : PackedScene = null
 var base_difficulty : int = 5
 var modifier_difficulty : int = 0
 var current_level : int = 5
-var starting_money : float = 100.0
+var starting_money : int = 0.0
+var max_money : int = 999999999
 var credits : int = 0
 
 var selected_city:CityInfo = null
@@ -48,23 +49,6 @@ func _ready():
 		map_select_loaded = map_select.instantiate()
 		map_select_loaded.visible = false
 		$UI.add_child(map_select_loaded)
-		
-		#if diff == Enums.LevelDifficulty.EASY:
-			#easy_cities.append(loaded_city)
-		#elif diff == Enums.LevelDifficulty.MEDIUM:
-			#med_cities.append(loaded_city)
-		#elif diff == Enums.LevelDifficulty.HARD:
-			#hard_cities.append(loaded_city)
-		#else:
-			#extreme_cities.append(loaded_city)
-	
-	#print(Enums.LevelDifficulty.EASY)
-	#print(Enums.LevelDifficulty.MEDIUM)
-	#print(Enums.LevelDifficulty.HARD)
-	#print(Enums.LevelDifficulty.EXTREME)
-#func _process(delta):
-	#print("Current difficulty: " + str(GameManager.base_difficulty))
-	#print("Current level: " + str(GameManager.current_level))
 
 func select_city(city:CityInfo):
 	print("Selected: ", city.name, " With Mod Dif: ", city.modifier_difficulty)

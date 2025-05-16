@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ddlqo71pgyb5i" path="res://Scenes/boarding_generator.tscn" id="2_kry3j"]
 [ext_resource type="Material" uid="uid://bwfcdgloump5l" path="res://Shaders/speed_lines_material.tres" id="4_kry3j"]
 [ext_resource type="Texture2D" uid="uid://g8sv0i12dgmc" path="res://UI Assets/hearts.png" id="4_ynf5e"]
-[ext_resource type="FontFile" uid="uid://bafns24uaw6y5" path="res://Materials/NixieOne.ttf" id="5_d1ilt"]
+[ext_resource type="FontFile" uid="uid://dtshncsgw6tes" path="res://Materials/Frutiger_bold.ttf" id="5_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://dq22rulx5iv7g" path="res://UI Assets/cash.png" id="5_hptm8"]
 [ext_resource type="Environment" uid="uid://b3s7xlhtiytky" path="res://Materials/game_level_worldenvironment.tres" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://cssi7rtq6i5dt" path="res://Scripts/count_down.gd" id="6_6bp64"]
@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynf5e"]
-bg_color = Color(0.500741, 3.73013e-07, 1.92523e-07, 0.666667)
+bg_color = Color(0.625597, 0.625597, 0.625597, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -59,7 +59,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1ilt"]
-bg_color = Color(0.215686, 0.580392, 0.431373, 0.666667)
+bg_color = Color(0.627451, 0.627451, 0.627451, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -279,7 +279,6 @@ grow_vertical = 2
 script = SubResource("GDScript_kry3j")
 
 [node name="ColorRect" type="ColorRect" parent="MainCameraAnchor/MainCamera/Speed Lines"]
-visible = false
 material = ExtResource("4_kry3j")
 layout_mode = 1
 anchors_preset = 15
@@ -346,10 +345,11 @@ offset_right = -10.0
 offset_bottom = 45.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/default_color = Color(0.215686, 0.580392, 0.431373, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("5_d1ilt")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 40
 text = "$1000000"
 fit_content = true
 horizontal_alignment = 2
@@ -464,5 +464,7 @@ speed_scale = 2.0
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CountDown"]
 stream = ExtResource("8_344ge")
 volume_db = -10.0
+
+[node name="Timer" type="Timer" parent="."]
 
 [editable path="BoardingGenerator"]
