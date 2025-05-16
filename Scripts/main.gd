@@ -53,8 +53,6 @@ func start_game():
 
 	#print("Base Dif: " + str(GameManager.base_difficulty))
 	#print("Modified Dif: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty))
-	GameManager.starting_money += money_increase_factor
-	money.text = "$ " + str(GameManager.starting_money)
 
 	SoundBus.song_1.play()
 	player.start()
