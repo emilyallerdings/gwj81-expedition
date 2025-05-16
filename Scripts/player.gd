@@ -189,6 +189,7 @@ func on_hit_obstacle():
 	if forward_speed <= 0:
 		return
 	#print("ON HIT")
+	GameManager.total_money -= 5
 	velocity = forward_direction * -20
 	forward_speed = -20
 	start_blinking()
