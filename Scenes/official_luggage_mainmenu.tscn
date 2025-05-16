@@ -227,7 +227,7 @@ size = Vector3(1.5818, 2.8717, 2.09546)
 transform = Transform3D(-1.39876e-07, 0, -3.2, 0, 3.2, 0, 3.2, 0, -1.39876e-07, 0, 0, 0)
 script = ExtResource("2_qu1v0")
 title = "basic luggage"
-description = "Your basic luggage. Nothing fancy, gets the job done, no frills. Some would say, the quintessential carry-on due to its compact size and surprisingly large storage capacity."
+description = "Your basic luggage. Nothing fancy, gets the job done, no frills. Some would call it the quintessential carry-on due to its compact size and surprisingly large storage capacity."
 luggage_collider = NodePath("CollisionShape3D")
 
 [node name="Default Luggage Bars" parent="." index="0"]
