@@ -22,8 +22,13 @@ extends Node3D
 var next_scene : PackedScene = preload("res://Scenes/shop.tscn")
 var started = false
 
+var all_obs = []
+
+var check_thread:Thread
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	check_thread = Thread.new()
 	#GameManager.total_money += start_money
 
 	await get_tree().create_timer(0.01).timeout
@@ -33,6 +38,11 @@ func _ready() -> void:
 	boarding_generator.generate()
 	
 	await boarding_generator.finished_generation
+	
+	for ramp in boarding_generator.ramps:
+		for ob in ramp.obstacles:
+			all_obs.append(ob)
+	
 	boarding_generator.connect("player_left_turn", turn_player_left)
 	boarding_generator.connect("player_right_turn", turn_player_right)
 	boarding_generator.connect("player_finished", player_finished)
@@ -87,6 +97,8 @@ func _process(delta: float) -> void:
 	else:
 		var camera_increase := get_tree().create_tween()
 		camera_increase.tween_property(main_camera, "fov", 90.0, 0.25)
+		
+
 
 func project_vector(a: Vector3, b: Vector3) -> Vector3:
 	var dot_product = a.dot(b)
@@ -144,3 +156,20 @@ func player_finished():
 
 
 		
+
+
+func _on_update_vis_timer_timeout() -> void:
+	if $MainCameraAnchor/MainCamera.global_position == null:
+		push_warning("camera is null")
+		return
+		
+	var counter:int = 0
+	for obj in all_obs:
+		counter += 1
+		var dist:float = obj.global_position.distance_to($MainCameraAnchor/MainCamera.global_position)
+		var vis:bool = dist < 400
+		obj.call_deferred("set_visible", vis)
+		if counter > 100:
+			counter = 0 
+			await get_tree().process_frame
+	pass # Replace with function body.

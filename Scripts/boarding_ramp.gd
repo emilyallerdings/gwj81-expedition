@@ -135,7 +135,9 @@ func ready_stage(difficulty):
 
 func place_pattern(pattern:ObstaclePattern, z_pos:float):
 	for ob in pattern.obstacles:
+		
 		var n_ob = PatternManager.OBSTACLE.instantiate()
+		obstacles.append(n_ob)
 		add_child(n_ob)
 		n_ob.type = ob.type
 		n_ob.position = Vector3(ob.position.x, ob.position.y, ob.position.z + z_pos)

@@ -17,4 +17,7 @@ shape = SubResource("CapsuleShape3D_6bp64")
 
 [node name="Character Mesh" parent="." instance=ExtResource("2_2p81s")]
 
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-1, -0.085, -1, 2, 3.04, 2)
+
 [editable path="Character Mesh"]

@@ -17,7 +17,7 @@ metallic_specular = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jjgbg"]
 material = SubResource("StandardMaterial3D_7u77a")
-size = Vector2(1000, 1000)
+size = Vector2(10000, 10000)
 
 [sub_resource type="GDScript" id="GDScript_kry3j"]
 script/source = "extends Control
@@ -461,6 +461,11 @@ speed_scale = 2.0
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="UpdateVisTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="UpdateVisTimer" to="." method="_on_update_vis_timer_timeout"]
 
 [editable path="BoardingGenerator"]
