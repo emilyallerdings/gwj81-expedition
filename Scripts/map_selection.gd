@@ -23,6 +23,10 @@ func _ready():
 		level.current_level = i
 		h_box_container.add_child(level)
 	
+	var new_sep = $ScrollContainer/Panel/HBoxContainer/VSeparator.duplicate()
+	$ScrollContainer/Panel/HBoxContainer.add_child(new_sep)
+	
+	
 	for level_select in h_box_container.get_children():
 		if !level_select is VSeparator:
 			level_select.set_disable()
@@ -31,6 +35,11 @@ func _ready():
 
 func _process(delta):
 	pass
+
+func reset():
+	for level_select in h_box_container.get_children():
+		if !level_select is VSeparator:
+			level_select.set_disable()
 
 func level_selected():
 	$Fly.disabled = false

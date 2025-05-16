@@ -70,13 +70,13 @@ func generate_unique_pair(min_num: int, max_num: int):
 func _on_button_pressed():
 	button_2.disabled = true
 	is_selected = true
-	GameManager.modifier_difficulty = city_1.modifier_difficulty
+	#GameManager.modifier_difficulty = city_1.modifier_difficulty
 
 
 func _on_button_2_pressed():
 	button.disabled = true
 	is_selected = true
-	GameManager.modifier_difficulty = city_2.modifier_difficulty
+	#GameManager.modifier_difficulty = city_2.modifier_difficulty
 
 
 func _on_debug_pressed():

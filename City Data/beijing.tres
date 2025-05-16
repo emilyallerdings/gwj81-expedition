@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CityInfo" load_steps=2 format=3 uid="uid://qie4x2td8h47"]
+
+[ext_resource type="Script" uid="uid://cjqxtsga52tl2" path="res://Scripts/city_data.gd" id="1_4dus6"]
+
+[resource]
+script = ExtResource("1_4dus6")
+name = "Beijing"
+airport_code = "PEK"
+level_difficulty = 3
+metadata/_custom_type_script = "uid://cjqxtsga52tl2"

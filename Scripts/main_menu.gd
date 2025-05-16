@@ -69,6 +69,7 @@ func _ready() -> void:
 	
 	update_luggage_object()
 	select_map = GameManager.map_select_loaded
+	select_map.reset()
 	select_map.prev_scene = selection_menu_ui
 	#add_child(select_map)
 	select_map.visible = false

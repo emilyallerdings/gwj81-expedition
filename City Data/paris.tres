@@ -6,5 +6,5 @@
 script = ExtResource("1_84bh1")
 name = "Paris"
 airport_code = "CDG"
-level_difficulty = 0
+level_difficulty = 8
 metadata/_custom_type_script = "uid://cjqxtsga52tl2"

@@ -24,7 +24,7 @@ func _ready():
 	#current_level = current_level_amount
 	#level_indicator.text = "Level " + str(current_level + 1)
 	##level_indicator.text = "Level " + str(GameManager.current_level)
-	var num_to_pick_from = randi_range(3,6)
+	var num_to_pick_from = randi_range(3,3)
 	
 	if current_level + 1 <= Enums.LevelDifficulty.MEDIUM:
 		generate_levels(GameManager.easy_cities,num_to_pick_from)
@@ -48,8 +48,11 @@ func generate_levels(city_array : Array, num:int):
 	
 	num = min(num, cities_dup.size())
 	for i in range(0,num):
-		var choose = cities_dup.pop_front()
-		selected_cities.append(choose)
+		var new_city = CityInfo.new()
+		var choose:CityInfo = cities_dup.pop_front()
+		new_city.name = choose.name
+		new_city.airport_code = choose.airport_code
+		selected_cities.append(new_city)
 	
 	for city:CityInfo in selected_cities:
 		city.roll_modifier()

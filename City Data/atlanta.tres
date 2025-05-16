@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CityInfo" load_steps=2 format=3 uid="uid://lmoes7trg14i"]
+
+[ext_resource type="Script" uid="uid://cjqxtsga52tl2" path="res://Scripts/city_data.gd" id="1_o2ipa"]
+
+[resource]
+script = ExtResource("1_o2ipa")
+name = "Atlanta"
+airport_code = "ATL"
+level_difficulty = 5
+metadata/_custom_type_script = "uid://cjqxtsga52tl2"

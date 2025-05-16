@@ -67,6 +67,6 @@ func _ready():
 	#print("Current level: " + str(GameManager.current_level))
 
 func select_city(city:CityInfo):
-	print("Selected: ", city.name)
+	print("Selected: ", city.name, " With Mod Dif: ", city.modifier_difficulty)
 	self.selected_city = city
 	modifier_difficulty = city.modifier_difficulty

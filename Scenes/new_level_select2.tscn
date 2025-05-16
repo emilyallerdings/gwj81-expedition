@@ -26,7 +26,7 @@ shadow_size = 12
 
 [sub_resource type="LabelSettings" id="LabelSettings_y0ujh"]
 font = ExtResource("3_byk0p")
-font_size = 46
+font_size = 40
 font_color = Color(0, 0, 0, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
@@ -35,6 +35,10 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="NewLevelSelect" type="Panel"]
 custom_minimum_size = Vector2(377.185, 515)
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 382.185
+offset_bottom = 520.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_54nnq")
 script = ExtResource("1_adc00")
 

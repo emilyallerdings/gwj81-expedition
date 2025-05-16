@@ -4,6 +4,7 @@ class_name MultiPillar
 
 
 func remesh(num):
+	await get_tree().process_frame
 	multimesh.instance_count = num
 
 	for i in range(num):
