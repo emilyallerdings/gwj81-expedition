@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_r5sii")
-name = "Honolulu, Hawaii"
+name = "Honolulu"
 airport_code = "HNL"
 level_difficulty = 0
 metadata/_custom_type_script = "uid://cjqxtsga52tl2"

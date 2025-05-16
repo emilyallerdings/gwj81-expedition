@@ -1,0 +1,116 @@
+[gd_scene load_steps=14 format=3 uid="uid://do4jhuhbjg034"]
+
+[ext_resource type="Script" uid="uid://dypesyrhdrkne" path="res://Scripts/stage_box.gd" id="1_d2dsn"]
+[ext_resource type="FontFile" uid="uid://ccjoqt6plp56l" path="res://Materials/Frutiger.ttf" id="1_ytba8"]
+[ext_resource type="Texture2D" uid="uid://dwn5q8n3ls3e4" path="res://UI Assets/busy_icon/none.png" id="2_d2dsn"]
+[ext_resource type="Texture2D" uid="uid://ddxkh6tp71j12" path="res://UI Assets/busy_icon/low.png" id="3_hqjjk"]
+[ext_resource type="Texture2D" uid="uid://bcla311n56qc4" path="res://UI Assets/busy_icon/med.png" id="4_pjala"]
+[ext_resource type="Texture2D" uid="uid://cx1j44l6xa8gc" path="res://UI Assets/busy_icon/high.png" id="5_wbkjx"]
+[ext_resource type="StyleBox" uid="uid://cmlgnbjlkol68" path="res://Materials/stage_box.tres" id="7_hqjjk"]
+[ext_resource type="StyleBox" uid="uid://b4gfkx3pnnn83" path="res://Materials/stage_box_hover.tres" id="8_pjala"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2dsn"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+shadow_color = Color(0.326422, 0.532406, 1, 0.6)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyygc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_54nnq"]
+font = ExtResource("1_ytba8")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_jegf3"]
+font = ExtResource("1_ytba8")
+font_size = 32
+font_color = Color(1, 0.917647, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_djfo4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d2dsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hqjjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pjala")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wbkjx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(0, 44.165)
+theme_override_styles/panel = SubResource("StyleBoxFlat_d2dsn")
+script = ExtResource("1_d2dsn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -45
+theme_override_styles/separator = SubResource("StyleBoxEmpty_xyygc")
+
+[node name="Airport Code" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "YYC"
+label_settings = SubResource("LabelSettings_54nnq")
+
+[node name="CityName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Calgary"
+label_settings = SubResource("LabelSettings_jegf3")
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 85
+theme_override_styles/separator = SubResource("StyleBoxEmpty_xyygc")
+
+[node name="DiffMod" type="AnimatedSprite2D" parent="."]
+position = Vector2(257, 13)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_djfo4")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 306.415
+offset_right = 371.415
+offset_bottom = 44.0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_ytba8")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/focus = ExtResource("7_hqjjk")
+theme_override_styles/disabled_mirrored = ExtResource("7_hqjjk")
+theme_override_styles/disabled = ExtResource("7_hqjjk")
+theme_override_styles/hover_pressed_mirrored = ExtResource("8_pjala")
+theme_override_styles/hover_pressed = ExtResource("8_pjala")
+theme_override_styles/hover_mirrored = ExtResource("8_pjala")
+theme_override_styles/hover = ExtResource("8_pjala")
+theme_override_styles/pressed_mirrored = ExtResource("7_hqjjk")
+theme_override_styles/pressed = ExtResource("7_hqjjk")
+theme_override_styles/normal_mirrored = ExtResource("7_hqjjk")
+theme_override_styles/normal = ExtResource("7_hqjjk")
+toggle_mode = true
+text = "SELECT"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

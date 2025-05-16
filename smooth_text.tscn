@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6ht0hu32t32u"]
+
+[ext_resource type="FontFile" uid="uid://ccjoqt6plp56l" path="res://Materials/Frutiger.ttf" id="1_vvh43"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_apbe0"]
+font = ExtResource("1_vvh43")
+font_size = 128
+
+[node name="Label" type="Label"]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+text = "YYC"
+label_settings = SubResource("LabelSettings_apbe0")

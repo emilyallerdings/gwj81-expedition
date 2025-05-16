@@ -5,7 +5,7 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_8pyaq")
-name = "London, England"
+name = "London"
 airport_code = "LHR"
 level_difficulty = 5
 metadata/_custom_type_script = "uid://cjqxtsga52tl2"

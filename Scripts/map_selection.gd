@@ -5,11 +5,11 @@ extends Control
 @onready var trip_start = $"Trip Start"
 @onready var back = $Back
 @onready var fly = $Fly
-@onready var h_box_container = $ScrollContainer/HBoxContainer
+@onready var h_box_container = $ScrollContainer/Panel/HBoxContainer
 @onready var scroll_container = $ScrollContainer
 
 var transition_screen : PackedScene = preload("res://Scenes/transition_screen.tscn")
-var map_select : PackedScene = preload("res://Scenes/level_select.tscn")
+var map_select : PackedScene = preload("res://Scenes/new_level_select2.tscn")
 var level = null
 
 func _ready():
@@ -20,14 +20,12 @@ func _ready():
 	
 	for i in GameManager.max_levels:
 		level = map_select.instantiate()
-		level.current_level_amount = i
+		level.current_level = i
 		h_box_container.add_child(level)
 	
-	for child in h_box_container.get_children():
-		if child.current_level != GameManager.current_level:
-			for button in child.v_box_container.get_children():
-				if button is Button:
-					button.disabled = true
+	for level_select in h_box_container.get_children():
+		if level_select.current_level != GameManager.current_level:
+			level_select.set_disable()
 	
 	scroll_container.set_deferred("scroll_horizontal", 340 * GameManager.current_level)
 

@@ -1,0 +1,223 @@
+[gd_scene load_steps=21 format=3 uid="uid://bvcjhp7sns40b"]
+
+[ext_resource type="FontFile" uid="uid://ccjoqt6plp56l" path="res://Materials/Frutiger.ttf" id="1_66d4e"]
+[ext_resource type="Script" uid="uid://tni6866ile04" path="res://Scripts/new_level_select.gd" id="1_g6fc4"]
+[ext_resource type="Texture2D" uid="uid://cful2tdn1ahrt" path="res://UI Assets/logo.png" id="2_54nnq"]
+[ext_resource type="Texture2D" uid="uid://dwn5q8n3ls3e4" path="res://UI Assets/busy_icon/none.png" id="3_nrkp2"]
+[ext_resource type="Texture2D" uid="uid://ddxkh6tp71j12" path="res://UI Assets/busy_icon/low.png" id="4_g6fc4"]
+[ext_resource type="Texture2D" uid="uid://bcla311n56qc4" path="res://UI Assets/busy_icon/med.png" id="5_nf11h"]
+[ext_resource type="Script" uid="uid://dypesyrhdrkne" path="res://Scripts/stage_box.gd" id="5_nrkp2"]
+[ext_resource type="Texture2D" uid="uid://cx1j44l6xa8gc" path="res://UI Assets/busy_icon/high.png" id="6_1uo7n"]
+[ext_resource type="StyleBox" uid="uid://cmlgnbjlkol68" path="res://Materials/stage_box.tres" id="9_k86fb"]
+[ext_resource type="StyleBox" uid="uid://b4gfkx3pnnn83" path="res://Materials/stage_box_hover.tres" id="10_xyygc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54nnq"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.0562916, 0.0562916, 0.0562915, 1)
+border_width_left = 10
+border_width_top = 80
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.165656, 0.165656, 0.165656, 1)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jegf3"]
+bg_color = Color(1, 0.917647, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3dsw"]
+bg_color = Color(1, 0.917647, 0, 1)
+shadow_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_y0ujh"]
+font = ExtResource("1_66d4e")
+font_size = 46
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jegf3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wl483"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+shadow_color = Color(0.326422, 0.532406, 1, 0.6)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyygc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_54nnq"]
+font = ExtResource("1_66d4e")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_jegf3"]
+font = ExtResource("1_66d4e")
+font_size = 32
+font_color = Color(1, 0.917647, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_djfo4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nrkp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g6fc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nf11h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1uo7n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NewLevelSelect" type="Panel"]
+custom_minimum_size = Vector2(377.185, 515)
+theme_override_styles/panel = SubResource("StyleBoxFlat_54nnq")
+script = ExtResource("1_g6fc4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.012
+anchor_right = 0.988
+anchor_bottom = 0.13
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jegf3")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.122
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3dsw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Logo" type="TextureRect" parent="Panel2/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_54nnq")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Panel2/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Departures"
+label_settings = SubResource("LabelSettings_y0ujh")
+vertical_alignment = 2
+
+[node name="VSeparator" type="VSeparator" parent="Panel2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jegf3")
+
+[node name="StageNum" type="Label" parent="Panel2/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "#1"
+label_settings = SubResource("LabelSettings_y0ujh")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 95
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 44.165)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wl483")
+script = ExtResource("5_nrkp2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -45
+theme_override_styles/separator = SubResource("StyleBoxEmpty_xyygc")
+
+[node name="Airport Code" type="Label" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+text = "YYC"
+label_settings = SubResource("LabelSettings_54nnq")
+
+[node name="CityName" type="Label" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Calgary"
+label_settings = SubResource("LabelSettings_jegf3")
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_xyygc")
+
+[node name="DiffMod" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/Panel"]
+position = Vector2(239, 13)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_djfo4")
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Panel"]
+layout_mode = 2
+offset_left = 279.415
+offset_right = 344.415
+offset_bottom = 44.0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_66d4e")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/focus = ExtResource("9_k86fb")
+theme_override_styles/disabled_mirrored = ExtResource("9_k86fb")
+theme_override_styles/disabled = ExtResource("9_k86fb")
+theme_override_styles/hover_pressed_mirrored = ExtResource("10_xyygc")
+theme_override_styles/hover_pressed = ExtResource("10_xyygc")
+theme_override_styles/hover_mirrored = ExtResource("10_xyygc")
+theme_override_styles/hover = ExtResource("10_xyygc")
+theme_override_styles/pressed_mirrored = ExtResource("9_k86fb")
+theme_override_styles/pressed = ExtResource("9_k86fb")
+theme_override_styles/normal_mirrored = ExtResource("9_k86fb")
+theme_override_styles/normal = ExtResource("9_k86fb")
+toggle_mode = true
+text = "SELECT"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/Button" to="MarginContainer/VBoxContainer/Panel" method="_on_button_pressed"]
