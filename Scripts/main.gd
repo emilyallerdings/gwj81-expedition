@@ -95,7 +95,6 @@ func _process(delta: float) -> void:
 	if started:
 		start_money = max(0, start_money-(delta*money_decrease_factor))
 
-
 	money.text = "$ " + ("%.2f" % start_money)
 	
 	if player.forward_speed > player.max_speed + (player.boost_bonus / 2):

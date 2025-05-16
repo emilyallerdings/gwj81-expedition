@@ -50,6 +50,7 @@ func level_selected():
 
 func _on_back_pressed():
 	SoundBus.button.play()
+	SoundBus.whoosh.play()
 	self.visible = false
 	if prev_scene:
 		prev_scene.visible = true
@@ -59,7 +60,6 @@ func _on_back_pressed():
 
 func _on_fly_pressed():
 	self.visible = false
-	SoundBus.button.play()
 	SoundBus.start_game.play()
 	SoundBus.airport_ambience.stop()
 	SoundBus.song_2.stop()
