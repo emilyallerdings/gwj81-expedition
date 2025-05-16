@@ -11,6 +11,8 @@ extends Node3D
 @onready var main_camera_anchor: Node3D = $MainCameraAnchor
 @onready var money : RichTextLabel = $"MainCameraAnchor/MainCamera/Speed Lines/Panel2/Money"
 
+@onready var heart_container = $"MainCameraAnchor/MainCamera/Speed Lines/Panel/BoxContainer/HeartContainer"
+
 #@onready var speed_tweener := get_tree().create_tween().set_loops()
 #var shader_material : ShaderMaterial = preload("res://Assets/speed_lines_material.tres")
 
@@ -19,7 +21,9 @@ extends Node3D
 
 #var current_money : int = 0
 var next_scene : PackedScene = preload("res://Scenes/shop.tscn")
+var hearts : PackedScene = preload("res://Scenes/heart.tscn")
 var started = false
+var current_health : int = 5
 
 var all_obs = []
 
@@ -49,9 +53,15 @@ func _ready() -> void:
 	main_camera.fov = 90.0
 	start_money = ceil(boarding_generator.total_path/ 3.0)
 	money.text = "$ " + str(start_money)
+	
+	current_health = GameManager.total_health
+	
+	for lives in GameManager.total_health:
+		var one_life = hearts.instantiate()
+		heart_container.add_child(one_life)
+	
 	await TransitionEffect.wiped_out
 	
-	#TODO Refactor this for use in SoundBus
 	$CountDown.start_countdown()
 	SoundBus.countdown_horn.play()
 	await $CountDown.countdown_finished
@@ -95,7 +105,15 @@ func _process(delta: float) -> void:
 	else:
 		var camera_increase := get_tree().create_tween()
 		camera_increase.tween_property(main_camera, "fov", 90.0, 0.25)
-		
+	
+	if GameManager.total_health != current_health and heart_container.get_child_count() > 0:
+		heart_container.get_child(-1).queue_free()
+		current_health = GameManager.total_health
+		#print(GameManager.total_health)
+		#print(current_health)
+	
+	if GameManager.total_health <= 0:
+		player_died()
 
 
 func project_vector(a: Vector3, b: Vector3) -> Vector3:
@@ -152,9 +170,17 @@ func player_finished():
 	SoundBus.rolling_suitcase.stop()
 	TransitionEffect.transition_to_scene("res://Scenes/victory_screen.tscn")
 
-
-		
-
+func player_died():
+	GameManager.base_difficulty = 0
+	GameManager.current_level = 0
+	GameManager.earned_money = 0
+	for child in player.luggage_object.get_children():
+		if child is GPUParticles3D:
+			child.visible = false
+	player.finish()
+	SoundBus.song_1.stop()
+	SoundBus.rolling_suitcase.stop()
+	TransitionEffect.transition_to_scene("res://Scenes/game_over_screen.tscn")
 
 func _on_update_vis_timer_timeout() -> void:
 	if $MainCameraAnchor/MainCamera.global_position == null:

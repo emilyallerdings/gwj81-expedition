@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://ckjr7lbj1cxxq"]
+[gd_scene load_steps=21 format=3 uid="uid://ckjr7lbj1cxxq"]
 
 [ext_resource type="Script" uid="uid://gavvic7ehdce" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://ddlqo71pgyb5i" path="res://Scenes/boarding_generator.tscn" id="2_kry3j"]
 [ext_resource type="Material" uid="uid://bwfcdgloump5l" path="res://Shaders/speed_lines_material.tres" id="4_kry3j"]
-[ext_resource type="Texture2D" uid="uid://g8sv0i12dgmc" path="res://UI Assets/hearts.png" id="4_ynf5e"]
 [ext_resource type="FontFile" uid="uid://dtshncsgw6tes" path="res://Materials/Frutiger_bold.ttf" id="5_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://dq22rulx5iv7g" path="res://UI Assets/cash.png" id="5_hptm8"]
 [ext_resource type="Environment" uid="uid://b3s7xlhtiytky" path="res://Materials/game_level_worldenvironment.tres" id="5_kry3j"]
@@ -45,7 +44,7 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynf5e"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hptm8"]
 bg_color = Color(0.625597, 0.625597, 0.625597, 1)
 border_width_left = 5
 border_width_top = 5
@@ -289,34 +288,20 @@ grow_vertical = 2
 [node name="Panel" type="Panel" parent="MainCameraAnchor/MainCamera/Speed Lines"]
 custom_minimum_size = Vector2(333, 100)
 layout_mode = 1
-offset_left = 22.0
+offset_left = 27.0
 offset_top = 25.0
-offset_right = 355.0
-offset_bottom = 128.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ynf5e")
+offset_right = 360.0
+offset_bottom = 125.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainCameraAnchor/MainCamera/Speed Lines/Panel"]
+[node name="BoxContainer" type="BoxContainer" parent="MainCameraAnchor/MainCamera/Speed Lines/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 337.0
+offset_bottom = 100.0
 
-[node name="TextureRect" type="TextureRect" parent="MainCameraAnchor/MainCamera/Speed Lines/Panel/HBoxContainer"]
+[node name="HeartContainer" type="HBoxContainer" parent="MainCameraAnchor/MainCamera/Speed Lines/Panel/BoxContainer"]
 layout_mode = 2
-texture = ExtResource("4_ynf5e")
-expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="MainCameraAnchor/MainCamera/Speed Lines/Panel/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("4_ynf5e")
-expand_mode = 2
-
-[node name="TextureRect3" type="TextureRect" parent="MainCameraAnchor/MainCamera/Speed Lines/Panel/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("4_ynf5e")
-expand_mode = 2
+size_flags_horizontal = 3
 
 [node name="Panel2" type="Panel" parent="MainCameraAnchor/MainCamera/Speed Lines"]
 custom_minimum_size = Vector2(100, 100)
