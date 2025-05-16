@@ -1,6 +1,6 @@
 extends Control
 
-@export var prev_scene : Node3D = null
+var prev_scene = null
 
 @onready var trip_start = $"Trip Start"
 @onready var back = $Back
@@ -14,7 +14,6 @@ var level = null
 
 func _ready():
 	#print(GameManager.current_level)
-	prev_scene = get_parent()
 	fly.disabled = true
 	trip_start.text = "Trip Start: " + Time.get_date_string_from_system(false)
 	
@@ -26,8 +25,7 @@ func _ready():
 	
 	for level_select in h_box_container.get_children():
 		if !level_select is VSeparator:
-			if level_select.current_level != GameManager.current_level:
-				level_select.set_disable()
+			level_select.set_disable()
 	
 	scroll_container.set_deferred("scroll_horizontal", 340 * GameManager.current_level)
 
@@ -40,11 +38,14 @@ func level_selected():
 func _on_back_pressed():
 	SoundBus.button.play()
 	self.visible = false
-	prev_scene.selection_menu_ui.visible = true
+	if prev_scene:
+		prev_scene.visible = true
+	#prev_scene.selection_menu_ui.visible = true
 	#if prev_scene.selection_menu_ui:
 		#prev_scene.selection_menu_ui.visible = true
 
 func _on_fly_pressed():
+	self.visible = false
 	SoundBus.button.play()
 	SoundBus.start_game.play()
 	SoundBus.airport_ambience.stop()

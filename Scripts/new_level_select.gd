@@ -2,10 +2,6 @@ extends Panel
 
 signal level_selected
 
-@onready var level_indicator = $"Level Indicator"
-@onready var button = $VBoxContainer/Button
-@onready var button_2 = $VBoxContainer/Button2
-@onready var v_box_container = $VBoxContainer
 
 var current_level : int = 0
 var current_level_amount : int = 0
@@ -28,7 +24,7 @@ func _ready():
 	#current_level = current_level_amount
 	#level_indicator.text = "Level " + str(current_level + 1)
 	##level_indicator.text = "Level " + str(GameManager.current_level)
-	var num_to_pick_from = randi_range(2,5)
+	var num_to_pick_from = randi_range(3,6)
 	
 	if current_level + 1 <= Enums.LevelDifficulty.MEDIUM:
 		generate_levels(GameManager.easy_cities,num_to_pick_from)
@@ -44,7 +40,7 @@ func _ready():
 
 
 func generate_levels(city_array : Array, num:int):
-	var pair = generate_unique_pair(0, city_array.size() - 1)
+	#var pair = generate_unique_pair(0, city_array.size() - 1)
 	
 	var cities_dup = city_array.duplicate(true)
 	cities_dup.shuffle()
@@ -92,12 +88,18 @@ func generate_unique_pair(min_num: int, max_num: int):
 
 func stage_selected(sel_stage_box):
 	is_selected = true
+	GameManager.select_city(sel_stage_box.city)
 	level_selected.emit()
 	for stage_box in stage_boxes:
 		if stage_box != sel_stage_box:
 			stage_box.deselect()
 
 func set_disable():
-	for stage_box in stage_boxes:
-		stage_box.lock()
-		stage_box.deselect()
+	if current_level != GameManager.current_level:
+		for stage_box in stage_boxes:
+			
+			stage_box.lock()
+			stage_box.deselect()
+	else:
+		for stage_box in stage_boxes:
+			stage_box.unlock()

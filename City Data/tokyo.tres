@@ -6,5 +6,5 @@
 script = ExtResource("1_v2bvv")
 name = "Tokyo"
 airport_code = "HND"
-level_difficulty = 0
+level_difficulty = 5
 metadata/_custom_type_script = "uid://cjqxtsga52tl2"
