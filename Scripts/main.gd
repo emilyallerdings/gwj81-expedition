@@ -21,6 +21,7 @@ var next_scene : PackedScene = preload("res://Scenes/shop.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.starting_money += money_increase_factor
 	await get_tree().create_timer(0.01).timeout
 	#ready_stage()
 	await get_tree().create_timer(0.01).timeout
@@ -46,7 +47,7 @@ func _ready() -> void:
 func start_game():
 	print("Base Dif: " + str(GameManager.base_difficulty))
 	print("Modified Dif: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty))
-	GameManager.starting_money += money_increase_factor
+	
 	money.text = "$ " + str(GameManager.starting_money)
 	SoundBus.song_1.play()
 	player.start()
