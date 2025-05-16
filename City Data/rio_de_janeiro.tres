@@ -6,5 +6,5 @@
 script = ExtResource("1_k2esq")
 name = "Rio de Janeiro"
 airport_code = "GIG"
-level_difficulty = 5
+level_difficulty = 0
 metadata/_custom_type_script = "uid://cjqxtsga52tl2"

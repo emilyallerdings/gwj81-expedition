@@ -83,6 +83,7 @@ func set_size():
 	pillars_left.position.x = width/2.0
 	pillars_right.position.x = -width/2.0
 	
+	await get_tree().process_frame
 	pillars_left.remesh(int(ceil(length/4)) + 1)
 	pillars_right.remesh(int(ceil(length/4)) + 1)
 	

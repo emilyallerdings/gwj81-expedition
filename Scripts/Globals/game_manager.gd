@@ -19,6 +19,8 @@ var extreme_cities : Array[CityInfo] = []
 
 var map_select : PackedScene = preload("res://Scenes/map_selection.tscn")
 
+var map_select_loaded = null
+
 var level_select_insts = []
 
 func _ready():
@@ -42,7 +44,10 @@ func _ready():
 		else:
 			extreme_cities.append(loaded_city)
 		
-		
+		$UI.visible = true
+		map_select_loaded = map_select.instantiate()
+		map_select_loaded.visible = false
+		$UI.add_child(map_select_loaded)
 		
 		#if diff == Enums.LevelDifficulty.EASY:
 			#easy_cities.append(loaded_city)
@@ -62,5 +67,6 @@ func _ready():
 	#print("Current level: " + str(GameManager.current_level))
 
 func select_city(city:CityInfo):
+	print("Selected: ", city.name, " With Mod Dif: ", city.modifier_difficulty)
 	self.selected_city = city
 	modifier_difficulty = city.modifier_difficulty

@@ -42,7 +42,7 @@ func _ready() -> void:
 		luggage = load("res://Scenes/official_luggage_mainmenu.tscn")
 	luggage_object = luggage.instantiate()
 	luggage_object.scale = Vector3(1, 1, 1)
-	max_speed = luggage_object.top_speed
+	max_speed = luggage_object.top_speed * (1.0 + 0.05 * GameManager.base_difficulty)
 	turn_speed = luggage_object.handling
 	boost_bonus = luggage_object.boost
 	collision_shape.shape = luggage_object.luggage_collider.shape

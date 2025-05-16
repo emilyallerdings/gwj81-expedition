@@ -68,8 +68,10 @@ func _ready() -> void:
 	credits_menu_ui.visible = false
 	
 	update_luggage_object()
-	select_map = GameManager.map_select.instantiate()
-	add_child(select_map)
+	select_map = GameManager.map_select_loaded
+	select_map.reset()
+	select_map.prev_scene = selection_menu_ui
+	#add_child(select_map)
 	select_map.visible = false
 	suitecase_sprite.position = Vector2(play.position.x - 50.0, play.position.y + 35.0)
 	

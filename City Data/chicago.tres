@@ -6,5 +6,5 @@
 script = ExtResource("1_htqea")
 name = "Chicago"
 airport_code = "ORD"
-level_difficulty = 3
+level_difficulty = 5
 metadata/_custom_type_script = "uid://cjqxtsga52tl2"

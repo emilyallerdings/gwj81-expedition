@@ -8,8 +8,11 @@ var select_map = null
 func _ready():
 	SoundBus.rolling_suitcase.stop()
 	SoundBus.song_3.play()
-	select_map = GameManager.map_select.instantiate()
-	add_child(select_map)
+	
+	select_map = GameManager.map_select_loaded
+	select_map.reset()
+	#add_child(select_map)
+	select_map.prev_scene = selection_menu_ui
 	select_map.visible = false
 
 func _on_next_pressed():

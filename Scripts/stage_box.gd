@@ -39,9 +39,13 @@ func lock():
 	else:
 		self.modulate = Color.hex(0x303030AA)
 
+func unlock():
+	$Button.disabled = false
+	self.modulate = Color(1.0,1.0,1.0,1.0)
 
 func _on_button_pressed() -> void:
 	select()
 	GameManager.selected_city = self.city
+	print("button")
 	stage_select.emit(self)
 	pass # Replace with function body.
