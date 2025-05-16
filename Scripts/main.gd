@@ -37,9 +37,11 @@ func _ready() -> void:
 	boarding_generator.connect("player_finished", player_finished)
 
 	main_camera.fov = 90.0
-	await  TransitionEffect.wiped_out
+	await TransitionEffect.wiped_out
+	
+	#TODO Refactor this for use in SoundBus
 	$CountDown.start_countdown()
-	$CountDown/AudioStreamPlayer.play(0)
+	SoundBus.countdown_horn.play()
 	await $CountDown.countdown_finished
 	start_game()
 	

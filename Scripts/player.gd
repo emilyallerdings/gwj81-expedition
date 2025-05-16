@@ -1,9 +1,6 @@
 extends CharacterBody3D
 
 @export var max_speed:float = 10.0
-var forward_speed: float = 0.0
-
-
 @export var turn_speed: float = 16.0
 @export var boost_bonus := 10.0
 @export var max_turn_angle: float = 30.0
@@ -27,6 +24,7 @@ var boost_accel := 0.1
 var blinking = false
 var elapsed_time = 0.0
 var all_materials = {}
+var forward_speed: float = 0.0
 var luggage_object = null
 
 var reached_end = false
