@@ -25,6 +25,8 @@ var cur_loading = false
 var right_turns = []
 var left_turns = []
 
+var ramps = []
+
 func randomize_seed():
 	seed = (Time.get_ticks_msec() * 98765) % 12345678
 	property_list_changed.emit()
@@ -40,7 +42,7 @@ func generate():
 	if Engine.is_editor_hint():
 		total_path =  200 + 10 * randi_range(10,5*editor_difficulty + 30)
 	else:
-		total_path =  200 + 10 * randi_range(10,25) * (GameManager.base_difficulty + GameManager.modifier_difficulty)
+		total_path =  200 + 10 * randi_range(8,15) * (GameManager.base_difficulty + GameManager.modifier_difficulty) + 2000
 		
 	right_turns = []
 	left_turns = []
@@ -112,6 +114,8 @@ func generate():
 			new_ramp.rotation.y = deg_to_rad(-90)
 		elif forward_dir == Vector3.RIGHT:
 			new_ramp.rotation.y = deg_to_rad(90)
+			
+		ramps.append(new_ramp)
 		
 		if counter == segment_lens.size():
 			current_pos += seg_len * forward_dir

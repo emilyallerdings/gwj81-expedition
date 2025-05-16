@@ -90,11 +90,11 @@ func set_size():
 	
 	
 func ready_stage(difficulty):
-	var starting_pos = 0
-	var total_dist = length - 10.0
+	var starting_pos = 5.0
+	var total_dist = length - 5.0
 	var cur_position = starting_pos
 	# Raw weights: harder stages → more weight on HARD, less on EASY
-	var weight_easy:float = max(0.0, (11.0 - difficulty))      # e.g. at diff=1 → 10; diff=10 → 1
+	var weight_easy:float = max(0.0, (13.0 - difficulty))      # e.g. at diff=1 → 10; diff=10 → 1
 	var weight_hard:float = difficulty                     # e.g. at diff=1 → 1; diff=10 → 10
 	var weight_med:float  = (weight_easy + weight_hard) / 2.0
 
@@ -105,11 +105,9 @@ func ready_stage(difficulty):
 	var p_hard:float = weight_hard / sum_w
 
 	var gap_bias:float = 1.0 - (difficulty - 1) * 0.075   # goes from 1.0 → 0.55
-	var min_gap:float = max(5, BASE_MIN_GAP * gap_bias)
-	var max_gap:float = max(5, BASE_MAX_GAP * gap_bias)
+	var min_gap:float = max(4, BASE_MIN_GAP * gap_bias)
+	var max_gap:float = max(4, BASE_MAX_GAP * gap_bias)
 	
-	#print("min gap: ", min_gap)
-	#print("max gap: ", max_gap)
 	
 	while cur_position < total_dist:
 		var remaining_distance = total_dist - cur_position
@@ -137,7 +135,9 @@ func ready_stage(difficulty):
 
 func place_pattern(pattern:ObstaclePattern, z_pos:float):
 	for ob in pattern.obstacles:
+		
 		var n_ob = PatternManager.OBSTACLE.instantiate()
+		obstacles.append(n_ob)
 		add_child(n_ob)
 		n_ob.type = ob.type
 		n_ob.position = Vector3(ob.position.x, ob.position.y, ob.position.z + z_pos)

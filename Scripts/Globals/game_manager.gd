@@ -3,12 +3,14 @@ extends Node
 var difficulty = 5.0 # for testing my branch
 
 var chosen_luggage : PackedScene = null
-var base_difficulty : int = 5
+var base_difficulty : int = 0
 var modifier_difficulty : int = 0
-var current_level : int = 5
-var total_money : int = 0.0
-var max_money : int = 999999999
+var current_level : int = 0
+var total_money : float = 0.0
+var max_money : float = 999999999
 var credits : int = 0
+
+var earned_money:float = 0
 
 var selected_city:CityInfo = null
 
