@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CityInfo" load_steps=2 format=3 uid="uid://ckwp63ms4gumj"]
+
+[ext_resource type="Script" uid="uid://cjqxtsga52tl2" path="res://Scripts/city_data.gd" id="1_8pyaq"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_8pyaq")
+name = "London, England"
+airport_code = "LHR"
+level_difficulty = 5
+metadata/_custom_type_script = "uid://cjqxtsga52tl2"

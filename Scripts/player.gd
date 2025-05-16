@@ -188,7 +188,7 @@ func play_rolling():
 func on_hit_obstacle():
 	if forward_speed <= 0:
 		return
-	print("ON HIT")
+	#print("ON HIT")
 	velocity = forward_direction * -20
 	forward_speed = -20
 	start_blinking()

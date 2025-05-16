@@ -19,13 +19,14 @@ func _ready():
 	#current_level = GameManager.current_level + current_level_amount
 	current_level = current_level_amount
 	level_indicator.text = "Level " + str(current_level + 1)
-	if GameManager.base_difficulty < Enums.LevelDifficulty.MEDIUM:
+	#level_indicator.text = "Level " + str(GameManager.current_level)
+	if current_level + 1 <= Enums.LevelDifficulty.MEDIUM:
 		generate_levels(GameManager.easy_cities)
 	
-	elif GameManager.base_difficulty < Enums.LevelDifficulty.HARD:
+	elif current_level + 1 <= Enums.LevelDifficulty.HARD:
 		generate_levels(GameManager.med_cities)
 		
-	elif GameManager.base_difficulty < Enums.LevelDifficulty.EXTREME:
+	elif current_level + 1 <= Enums.LevelDifficulty.EXTREME:
 		generate_levels(GameManager.hard_cities)
 	else:
 		generate_levels(GameManager.extreme_cities)
@@ -43,15 +44,28 @@ func generate_levels(city_array : Array):
 	button_2.text = city_2.name + " +" + str(city_2.modifier_difficulty)
 
 func generate_unique_pair(min_num: int, max_num: int):
+	if max_num - min_num < 1:
+		push_error("generate_unique_pair() called with insufficient options")
+		return Vector2(0, 0) # fallback
+	
 	randomize()
 	randnum_1 = randi_range(min_num, max_num)
 	var options := []
-	for i in range(min_num, max_num):
+	for i in range(min_num, max_num + 1):
 		options.append(i)
 	options.erase(randnum_1)
 	randnum_2 = options[randi() % options.size()]
 	
 	return Vector2(randnum_1, randnum_2)
+	#randomize()
+	#randnum_1 = randi_range(min_num, max_num)
+	#var options := []
+	#for i in range(min_num, max_num):
+		#options.append(i)
+	#options.erase(randnum_1)
+	#randnum_2 = options[randi() % options.size()]
+	#
+	#return Vector2(randnum_1, randnum_2)
 
 func _on_button_pressed():
 	button_2.disabled = true

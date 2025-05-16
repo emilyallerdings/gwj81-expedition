@@ -331,7 +331,7 @@ spot_range = 33.6811
 spot_angle = 59.75
 spot_angle_attenuation = 0.535887
 
-[node name="Control" type="Control" parent="." index="15"]
+[node name="Selection Menu UI" type="Control" parent="." index="15"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -339,7 +339,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Next" type="Button" parent="Control" index="0"]
+[node name="Next" type="Button" parent="Selection Menu UI" index="0"]
 layout_mode = 0
 offset_left = 1002.0
 offset_top = 520.0
@@ -348,4 +348,4 @@ offset_bottom = 606.0
 theme = ExtResource("5_k6jq0")
 text = "Next"
 
-[connection signal="pressed" from="Control/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Selection Menu UI/Next" to="." method="_on_next_pressed"]

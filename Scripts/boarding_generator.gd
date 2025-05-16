@@ -59,7 +59,7 @@ func generate():
 	
 	
 	var num_segs = rng.randi_range(2, total_path/75)
-	print("segs: ", num_segs)
+	#print("segs: ", num_segs)
 	
 	
 	var segment_lens = []
@@ -68,14 +68,14 @@ func generate():
 	
 	var len_remaining = total_path - 50*num_segs
 	
-	print("len_rem:",len_remaining, " = ", total_path, " - 50*", num_segs)
+	#print("len_rem:",len_remaining, " = ", total_path, " - 50*", num_segs)
 	
 	var breakpoints = []
 	for i in range(0, num_segs-1):
 		breakpoints.append(randi_range(0,len_remaining))
 	
 	breakpoints.sort()
-	print("breakpoints:", breakpoints)
+	#print("breakpoints:", breakpoints)
 	var diff = []
 	var current_pos = Vector3.ZERO
 	var forward_dir = Vector3.BACK
@@ -85,7 +85,7 @@ func generate():
 		for i in range(1, num_segs-1):
 			diff.append(breakpoints[i] - breakpoints[i-1])
 		diff.append(len_remaining - breakpoints[breakpoints.size()-1])
-		print("diffs: ", diff)
+		#print("diffs: ", diff)
 		diff.shuffle()
 		for i in range(0, num_segs):
 			segment_lens[i] += diff[i]
@@ -136,7 +136,7 @@ func generate():
 			end_zone.position = current_pos
 			end_zone.owner = self
 			end_zone.connect("body_entered", body_entered_end_zone)
-			print("end")
+			#print("end")
 			break
 			
 
@@ -216,11 +216,11 @@ func generate():
 			#next_len += remaining_len
 			
 	for left_turn in left_turns:
-		print(left_turn.name)
+		#print(left_turn.name)
 		left_turn.connect("player_entered", on_left_turn)
 		
 	for right_turn in right_turns:
-		print(right_turn.name)
+		#print(right_turn.name)
 		right_turn.connect("player_entered", on_right_turn)
 	
 	finished_generation.emit()
@@ -237,5 +237,5 @@ func on_right_turn():
 
 func body_entered_end_zone(body):
 	if body.is_in_group("player"):
-		print("player_entered_end_zone")
+		#print("player_entered_end_zone")
 		player_finished.emit()

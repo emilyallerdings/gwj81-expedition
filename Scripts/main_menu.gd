@@ -55,7 +55,7 @@ var to_camera : Camera3D = null
 
 var i : int = 0
 var current_luggage_type = luggages[i].instantiate()
-var next_scene : PackedScene = preload("res://Scenes/map_selection.tscn")
+#var next_scene : PackedScene = preload("res://Scenes/map_selection.tscn")
 var select_map = null
 
 func _ready() -> void:
@@ -68,7 +68,7 @@ func _ready() -> void:
 	credits_menu_ui.visible = false
 	
 	update_luggage_object()
-	select_map = next_scene.instantiate()
+	select_map = GameManager.map_select.instantiate()
 	add_child(select_map)
 	select_map.visible = false
 	suitecase_sprite.position = Vector2(play.position.x - 50.0, play.position.y + 35.0)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CityInfo" load_steps=2 format=3 uid="uid://x5aue1dlyxga"]
+
+[ext_resource type="Script" uid="uid://cjqxtsga52tl2" path="res://Scripts/city_data.gd" id="1_wjd5q"]
+
+[resource]
+script = ExtResource("1_wjd5q")
+name = "Dubai, UAE"
+airport_code = "DXB"
+level_difficulty = 8
+metadata/_custom_type_script = "uid://cjqxtsga52tl2"

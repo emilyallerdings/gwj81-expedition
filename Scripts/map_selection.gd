@@ -43,12 +43,15 @@ func _on_back_pressed():
 	SoundBus.button.play()
 	self.visible = false
 	prev_scene.selection_menu_ui.visible = true
+	#if prev_scene.selection_menu_ui:
+		#prev_scene.selection_menu_ui.visible = true
 
 func _on_fly_pressed():
 	SoundBus.button.play()
 	SoundBus.start_game.play()
 	SoundBus.airport_ambience.stop()
 	SoundBus.song_2.stop()
+	SoundBus.song_3.stop()
 	TransitionEffect.transition_to_scene("res://Scenes/transition_screen.tscn")
 
 #func _on_back_mouse_entered():

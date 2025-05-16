@@ -4,8 +4,7 @@
 
 [resource]
 script = ExtResource("1_84bh1")
-name = "Honolulu, Hawaii"
-airport_code = "HNL"
+name = "Paris, France"
+airport_code = "CDG"
 level_difficulty = 0
-difficulty_modifier = 1
 metadata/_custom_type_script = "uid://cjqxtsga52tl2"
