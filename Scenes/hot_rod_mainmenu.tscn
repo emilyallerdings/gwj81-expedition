@@ -300,9 +300,9 @@ title = "Hot Rod"
 top_speed = 6.0
 handling = 10.0
 boost = 20.0
-description = "Kicks like you slapped your mama! Not for the faint of heart.
+description = "Kicks like you slapped your mama! Not for the faint of heart. Really nice fuel efficiency of a whopping 10 MPG.
 
-Trades top speed and maneuverability for insane boost! Really nice fuel efficiency of a whopping 10 MPG."
+Trades top speed and maneuverability for insane boost! "
 font = ExtResource("3_t2c5w")
 luggage_collider = NodePath("CollisionShape3D")
 

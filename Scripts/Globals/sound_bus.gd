@@ -8,6 +8,7 @@ extends Node
 @onready var whoosh = $Whoosh
 @onready var start_game = $"Start Game"
 @onready var flyby = $Flyby
+@onready var countdown_horn = $"Countdown Horn"
 
 #endregion
 
