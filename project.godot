@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GWJ81-Expedition"
-run/main_scene="uid://bb1tofq712yq0"
+run/main_scene="uid://bgkd0agf0cnw7"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://dvpdrtsv0ogbq"
 config/icon="res://icon.svg"

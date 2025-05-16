@@ -1,5 +1,7 @@
 extends Node
 
+signal sounds_loaded
+
 #region sfx
 @onready var airport_ambience = $"Airport Ambience"
 @onready var button = $Button
@@ -18,3 +20,17 @@ extends Node
 @onready var song_3 = $Song3
 
 #endregion
+
+
+func preload_sounds():
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	for child:AudioStreamPlayer in get_children():
+		child.play(0)
+	await get_tree().process_frame
+	await get_tree().create_timer(0.1).timeout
+	for child:AudioStreamPlayer in get_children():
+		child.stop()
+		child.seek(0)
+	await get_tree().process_frame
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+	sounds_loaded.emit()
