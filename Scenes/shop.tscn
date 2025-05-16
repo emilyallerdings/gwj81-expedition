@@ -1,11 +1,13 @@
-[gd_scene load_steps=32 format=4 uid="uid://bo14x17dt5ne3"]
+[gd_scene load_steps=39 format=4 uid="uid://bo14x17dt5ne3"]
 
 [ext_resource type="PackedScene" uid="uid://ciuxit5o1pvp4" path="res://Assets/shop.glb" id="1_io27d"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_fdj0q"]
 [ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="3_k6jq0"]
 [ext_resource type="Script" uid="uid://ckn6c7vui2vhf" path="res://Scripts/shop.gd" id="4_fdj0q"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="5_k6jq0"]
+[ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="5_s8dlv"]
 [ext_resource type="PackedScene" uid="uid://q7br3lygbwic" path="res://Scenes/wheel_lubricant.tscn" id="6_3ps1r"]
+[ext_resource type="PackedScene" uid="uid://djellqlexi8d0" path="res://Scenes/sticky_wheel.tscn" id="8_tyrku"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ps1r"]
 render_priority = 0
@@ -252,7 +254,26 @@ albedo_color = Color(0.20871, 0.20871, 0.20871, 1)
 [sub_resource type="QuadMesh" id="QuadMesh_fdj0q"]
 size = Vector2(400, 300)
 
+[sub_resource type="Gradient" id="Gradient_5xp22"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ow1eo"]
+gradient = SubResource("Gradient_5xp22")
+
+[sub_resource type="Gradient" id="Gradient_k6pkm"]
+colors = PackedColorArray(0.713726, 0.407843, 0, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1sjcd"]
+gradient = SubResource("Gradient_k6pkm")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1cyt5"]
+shader = ExtResource("5_s8dlv")
+shader_parameter/hdri_background = SubResource("GradientTexture2D_ow1eo")
+shader_parameter/sky_background = SubResource("GradientTexture2D_1sjcd")
+shader_parameter/exposure = 1.0
+
 [sub_resource type="Sky" id="Sky_fdj0q"]
+sky_material = SubResource("ShaderMaterial_1cyt5")
 
 [sub_resource type="Environment" id="Environment_io27d"]
 background_mode = 2
@@ -270,7 +291,6 @@ script = ExtResource("4_fdj0q")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="0"]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-visible = false
 shadow_enabled = true
 
 [node name="Cube_002" parent="." index="1"]
@@ -351,5 +371,8 @@ text = "Next"
 
 [node name="wheel_lubricant" parent="Selection Menu UI" index="1" instance=ExtResource("6_3ps1r")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -5.78316, 3, 0.326437)
+
+[node name="sticky_wheel" parent="." index="16" instance=ExtResource("8_tyrku")]
+transform = Transform3D(-1.03528, 0, 3.8637, 0, 4, 0, -3.8637, 0, -1.03528, -24.0455, 16, 28.5673)
 
 [connection signal="pressed" from="Selection Menu UI/Next" to="." method="_on_next_pressed"]

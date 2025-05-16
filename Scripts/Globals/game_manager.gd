@@ -9,6 +9,7 @@ var current_level : int = 0
 var total_money : float = 0.0
 var max_money : float = 999999999
 var credits : int = 0
+var total_health : int = 0
 
 var earned_money:float = 0
 

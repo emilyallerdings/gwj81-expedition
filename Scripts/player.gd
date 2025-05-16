@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+#@export var health : int = 5
 @export var max_speed:float = 10.0
 @export var turn_speed: float = 16.0
 @export var boost_bonus := 10.0
@@ -40,6 +41,8 @@ func _ready() -> void:
 		luggage = load("res://Scenes/official_luggage_mainmenu.tscn")
 	luggage_object = luggage.instantiate()
 	luggage_object.scale = Vector3(1, 1, 1)
+	
+	GameManager.total_health = luggage_object.health
 	max_speed = luggage_object.top_speed * (1.0 + 0.05 * GameManager.base_difficulty)
 	turn_speed = luggage_object.handling
 	boost_bonus = luggage_object.boost
@@ -190,6 +193,7 @@ func on_hit_obstacle():
 	GameManager.total_money -= 5
 	velocity = forward_direction * -20
 	forward_speed = -20
+	GameManager.total_health -= 1
 	start_blinking()
 
 func start_blinking():

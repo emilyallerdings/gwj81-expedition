@@ -11,7 +11,6 @@ func _ready():
 	
 	select_map = GameManager.map_select_loaded
 	select_map.reset()
-	#add_child(select_map)
 	select_map.prev_scene = selection_menu_ui
 	select_map.visible = false
 
