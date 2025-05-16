@@ -52,7 +52,6 @@ func _ready() -> void:
 func start_game():
 	print("Base Dif: " + str(GameManager.base_difficulty))
 	print("Modified Dif: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty))
-
 	SoundBus.song_1.play()
 	player.start()
 	timer.start()

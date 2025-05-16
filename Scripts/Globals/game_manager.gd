@@ -6,7 +6,7 @@ var chosen_luggage : PackedScene = null
 var base_difficulty : int = 5
 var modifier_difficulty : int = 0
 var current_level : int = 5
-var starting_money : int = 0.0
+var total_money : int = 0.0
 var max_money : int = 999999999
 var credits : int = 0
 
