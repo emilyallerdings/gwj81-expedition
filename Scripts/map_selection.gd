@@ -13,6 +13,7 @@ var level_select : PackedScene = preload("res://Scenes/new_level_select2.tscn")
 var level = null
 
 func _ready():
+	print("LEVEL: ", GameManager.current_level)
 	#print(GameManager.current_level)
 	fly.disabled = true
 	trip_start.text = "Trip Start: " + Time.get_date_string_from_system(false)
@@ -31,12 +32,15 @@ func _ready():
 		if !level_select is VSeparator:
 			level_select.set_disable()
 	
-	scroll_container.set_deferred("scroll_horizontal", 340 * GameManager.current_level)
+	#scroll_container.set_deferred("scroll_horizontal", 340 * GameManager.current_level)
 
 func _process(delta):
 	pass
 
 func reset():
+
+	scroll_container.scroll_horizontal = ((382.185 + 50) * GameManager.current_level) - 382.185/2.0
+	print(scroll_container.scroll_horizontal)
 	for level_select in h_box_container.get_children():
 		if !level_select is VSeparator:
 			level_select.set_disable()

@@ -92,7 +92,7 @@ func generate():
 			segment_lens[i] = snappedi(segment_lens[i], 4)
 	else:
 		segment_lens[0] = len_remaining
-	print(segment_lens)
+	#print(segment_lens)
 	#print (turn_dir)
 
 	var counter = 0
