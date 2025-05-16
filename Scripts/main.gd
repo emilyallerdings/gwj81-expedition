@@ -1,11 +1,15 @@
 extends Node3D
 
+@export var money_increase_factor : float = 100.0
+
 @onready var boarding_generator: Node3D = $BoardingGenerator
 
 @onready var player: CharacterBody3D = %Player
 @onready var main_camera: Camera3D = $MainCameraAnchor/MainCamera
 #@onready var speed_lines = $"MainCamera/Speed Lines"
 @onready var main_camera_anchor: Node3D = $MainCameraAnchor
+@onready var money : RichTextLabel = $"MainCameraAnchor/MainCamera/Speed Lines/Panel2/Money"
+@onready var timer : Timer = $Timer
 
 #@onready var speed_tweener := get_tree().create_tween().set_loops()
 #var shader_material : ShaderMaterial = preload("res://Assets/speed_lines_material.tres")
@@ -42,9 +46,10 @@ func _ready() -> void:
 func start_game():
 	print("Base Dif: " + str(GameManager.base_difficulty))
 	print("Modified Dif: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty))
+	GameManager.starting_money += money_increase_factor
+	money.text = "$ " + str(GameManager.starting_money)
 	SoundBus.song_1.play()
 	player.start()
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
