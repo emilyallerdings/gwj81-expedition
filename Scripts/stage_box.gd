@@ -13,12 +13,20 @@ func _ready() -> void:
 func set_info(city:CityInfo):
 	$DiffMod.frame = city.modifier_difficulty
 	$"HBoxContainer/Airport Code".text = city.airport_code
-	var font: Font = $HBoxContainer/CityName.get_theme_font("font")
-	var font_size: int = $HBoxContainer/CityName.get_theme_font_size("font")
-	var text_size: Vector2 = font.get_string_size(city.name, HORIZONTAL_ALIGNMENT_LEFT, font_size)
-	var text_width: float = text_size.x
-	print(text_width)
+	
+	var label = $HBoxContainer/CityName
+	var label_settings = label.label_settings
+	var font_size = label_settings.font_size
+	var font = label_settings.font
+	
 	$HBoxContainer/CityName.text = city.name
+	await $HBoxContainer/CityName.resized
+	
+	while $HBoxContainer/CityName.size.x > 130:
+		font_size = font_size - 1
+		label_settings.font_size = font_size
+		await $HBoxContainer/CityName.resized
+		
 	self.city = city
 
 func select():
@@ -33,19 +41,29 @@ func deselect():
 	$Button.button_pressed = false
 		
 func lock():
-	$Button.disabled = true
+	if $Button.disabled:
+		return
+	
+	
 	if $Button.button_pressed:
 		self.modulate = Color.hex(0x505050FF)
 	else:
 		self.modulate = Color.hex(0x303030AA)
+	$Button.disabled = true
+	$Button.button_pressed = false
+	$Button.toggle_mode = false
+	$Button.visible = false
+	
 
 func unlock():
+	$Button.visible = true
 	$Button.disabled = false
+	$Button.toggle_mode = true
 	self.modulate = Color(1.0,1.0,1.0,1.0)
 
 func _on_button_pressed() -> void:
 	select()
 	GameManager.selected_city = self.city
-	print("button")
+	#print("button")
 	stage_select.emit(self)
 	pass # Replace with function body.

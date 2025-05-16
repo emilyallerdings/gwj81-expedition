@@ -49,8 +49,8 @@ var obstacles = []
 func fill_obstacles():
 	total_credits = 0.5 * length
 	ready_stage(GameManager.base_difficulty + GameManager.modifier_difficulty)
-	print(GameManager.base_difficulty)
-	print(GameManager.modifier_difficulty)
+	#print(GameManager.base_difficulty)
+	#print(GameManager.modifier_difficulty)
 
 func set_size():
 	self.position.y = 3.0
@@ -104,12 +104,12 @@ func ready_stage(difficulty):
 	var p_med:float  = weight_med  / sum_w
 	var p_hard:float = weight_hard / sum_w
 
-	var gap_bias:float = 1.0 - (difficulty - 1) * 0.1   # goes from 1.0 → 0.55
-	var min_gap:float = BASE_MIN_GAP * gap_bias
-	var max_gap:float = BASE_MAX_GAP * gap_bias
+	var gap_bias:float = 1.0 - (difficulty - 1) * 0.075   # goes from 1.0 → 0.55
+	var min_gap:float = max(5, BASE_MIN_GAP * gap_bias)
+	var max_gap:float = max(5, BASE_MAX_GAP * gap_bias)
 	
-	print("min gap: ", min_gap)
-	print("max gap: ", max_gap)
+	#print("min gap: ", min_gap)
+	#print("max gap: ", max_gap)
 	
 	while cur_position < total_dist:
 		var remaining_distance = total_dist - cur_position
@@ -132,7 +132,7 @@ func ready_stage(difficulty):
 		if pattern == null:
 			break
 		place_pattern(pattern, cur_position)
-		cur_position += pattern.length
+		cur_position += pattern.length * 1.5
 	return
 
 func place_pattern(pattern:ObstaclePattern, z_pos:float):

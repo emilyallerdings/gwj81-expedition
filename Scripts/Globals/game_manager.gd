@@ -31,8 +31,8 @@ func _ready():
 	for file in files:
 		file = file.trim_suffix(".remap")
 		var loaded_city = load("res://City Data/" + file)
-		print(loaded_city.name)
-		print(loaded_city.level_difficulty)
+		#print(loaded_city.name)
+		#print(loaded_city.level_difficulty)
 		
 		var diff = loaded_city.level_difficulty
 		
@@ -45,10 +45,10 @@ func _ready():
 		else:
 			extreme_cities.append(loaded_city)
 		
-		$UI.visible = true
-		map_select_loaded = map_select.instantiate()
-		map_select_loaded.visible = false
-		$UI.add_child(map_select_loaded)
+	$UI.visible = true
+	map_select_loaded = map_select.instantiate()
+	map_select_loaded.visible = false
+	$UI.add_child(map_select_loaded)
 
 func select_city(city:CityInfo):
 	print("Selected: ", city.name, " With Mod Dif: ", city.modifier_difficulty)
