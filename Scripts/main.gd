@@ -54,6 +54,7 @@ func _process(delta: float) -> void:
 	#print($Player.velocity)
 	str = (str % speed)
 	$Speed/SpeedLabel.text = "Speed: " + str + "m/s"
+	$Speed/Diff.text = "Diff: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty)
 	main_camera_anchor.global_position.z = player.global_position.z
 	main_camera_anchor.global_position.x = player.global_position.x
 
