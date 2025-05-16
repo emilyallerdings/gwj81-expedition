@@ -72,13 +72,6 @@ func _process(delta: float) -> void:
 	else:
 		var camera_increase := get_tree().create_tween()
 		camera_increase.tween_property(main_camera, "fov", 90.0, 0.25)
-		
-	pass
-
-#func start_speed_lines() -> void:
-	#speed_tweener.tween_property(shader_material, "shader_parameter/sample_radius", 1.0, 0.5).as_relative()
-	#speed_tweener.tween_property(shader_material, "shader_parameter/sample_radius", 0.0, 0.5).as_relative()
-# YAY
 
 func project_vector(a: Vector3, b: Vector3) -> Vector3:
 	var dot_product = a.dot(b)
