@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://tt3bogbl1lqf" path="res://Sounds/countdown.ogg" id="8_1jqlw"]
 [ext_resource type="AudioStream" uid="uid://d2ice3h2xcvoa" path="res://Sounds/flyby_transition.ogg" id="8_6mehe"]
 [ext_resource type="AudioStream" uid="uid://005x2vdmdre2" path="res://Sounds/elevator_music.ogg" id="8_bna0c"]
+[ext_resource type="AudioStream" uid="uid://tt3bogbl1lqf" path="res://Sounds/countdown.ogg" id="9_1jqlw"]
 [ext_resource type="AudioStream" uid="uid://cfoxnnjmngav8" path="res://Sounds/shop_music.ogg" id="11_f01v8"]
 
 [node name="SoundBus" type="Node"]
@@ -56,6 +57,12 @@ bus = &"SFX"
 [node name="Flyby" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_6mehe")
 volume_db = -5.0
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="Countdown Horn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_1jqlw")
+volume_db = -10.0
 max_polyphony = 10
 bus = &"SFX"
 
