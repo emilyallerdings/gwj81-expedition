@@ -181,9 +181,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -250.0
-offset_top = 92.0
+offset_top = 39.0
 offset_right = 250.0
-offset_bottom = 174.0
+offset_bottom = 121.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_oq8vb")
@@ -236,6 +236,7 @@ fit_content = true
 vertical_alignment = 1
 
 [node name="FlightCoins Accumulated" type="RichTextLabel" parent="Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
