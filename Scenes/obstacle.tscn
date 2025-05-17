@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://dy8fe1r61jocd"]
 
-[ext_resource type="Script" path="res://Scripts/person.gd" id="1_af0pv"]
+[ext_resource type="Script" uid="uid://bfe6dlt8m6ru8" path="res://Scripts/person.gd" id="1_af0pv"]
 [ext_resource type="PackedScene" uid="uid://bf0l67lxu7vjd" path="res://Assets/characters/character_rig.glb" id="2_2p81s"]
 [ext_resource type="Material" uid="uid://chnr4ydfxbg47" path="res://Materials/Character_Material.tres" id="3_my8i3"]
 [ext_resource type="AnimationLibrary" uid="uid://d3bxqthqphxmc" path="res://Assets/characters/animations/character_anim_idle_01.glb" id="3_p763d"]

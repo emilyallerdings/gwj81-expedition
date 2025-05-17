@@ -194,7 +194,8 @@ func _on_update_vis_timer_timeout() -> void:
 		counter += 1
 		var dist:float = obj.global_position.distance_to($MainCameraAnchor/MainCamera.global_position)
 		var vis:bool = dist < GameManager.render_dist
-		obj.call_deferred("set_visible", vis)
+		#obj.call_deferred("set_visible", vis)
+		obj.set_vis(vis)
 		if counter > 50:
 			counter = 0 
 			await get_tree().process_frame
