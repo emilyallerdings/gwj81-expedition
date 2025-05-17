@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c3st1sbq1ewwj" path="res://Scenes/luggage.tscn" id="8_8dnnj"]
 [ext_resource type="PackedScene" uid="uid://cmh6g5wgx6af3" path="res://Assets/luggage_select_scene.glb" id="8_ne6ao"]
 [ext_resource type="Material" uid="uid://b0qavxyiqg3pl" path="res://Materials/clear_window.tres" id="8_tt8ml"]
-[ext_resource type="PackedScene" uid="uid://cbex0prspcmjo" path="res://Scenes/official_luggage_mainmenu.tscn" id="9_4nkqq"]
+[ext_resource type="PackedScene" uid="uid://1h8q8eo6embr" path="res://Scenes/official_luggage_mainmenu.tscn" id="9_4nkqq"]
 [ext_resource type="FontFile" uid="uid://bafns24uaw6y5" path="res://Materials/NixieOne.ttf" id="9_5egv6"]
 [ext_resource type="Texture2D" uid="uid://drup8k7ldow28" path="res://UI Assets/PNG/Grey/Double/arrow_basic_e.png" id="9_16hvj"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="9_mkpwh"]

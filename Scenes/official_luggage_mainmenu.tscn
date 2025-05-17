@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cbex0prspcmjo"]
+[gd_scene load_steps=17 format=4 uid="uid://1h8q8eo6embr"]
 
 [ext_resource type="PackedScene" uid="uid://d032cbpjc4bax" path="res://Assets/official_luggage.glb" id="1_fakku"]
 [ext_resource type="Material" uid="uid://chktpch7mxrfq" path="res://Materials/official_luggage_material/metal_material.tres" id="2_l7glm"]
