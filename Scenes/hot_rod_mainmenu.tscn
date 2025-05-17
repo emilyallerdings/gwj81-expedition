@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://ct4vx6uf4cwou" path="res://Materials/Blazed.ttf" id="3_t2c5w"]
 [ext_resource type="Material" uid="uid://xyq8eo03rxwr" path="res://Materials/official_luggage_material/hot_rod_flame.tres" id="4_badxc"]
 [ext_resource type="Material" uid="uid://0vb6qwdm5xdy" path="res://Materials/official_luggage_material/orange_material.tres" id="5_068ws"]
-[ext_resource type="Shader" path="res://Shaders/fire_trail.gdshader" id="8_povj1"]
+[ext_resource type="Shader" uid="uid://cm3okf6o8rav4" path="res://Shaders/fire_trail.gdshader" id="8_povj1"]
 [ext_resource type="Texture2D" uid="uid://vm8mxd3tkfxg" path="res://Assets/particles/flame_01.png" id="9_fbp52"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_yu523"]

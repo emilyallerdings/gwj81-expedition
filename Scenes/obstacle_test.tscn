@@ -171,10 +171,9 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, 0)
 [node name="Obstacle2" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, 3)
 
-[node name="Obstacle3" type="StaticBody3D" parent="ObstaclePattern" groups=["pickup"] instance=ExtResource("5_uv7gd")]
+[node name="Obstacle3" parent="ObstaclePattern" instance=ExtResource("5_uv7gd")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.49012e-08, 2, 4)
 script = ExtResource("4_fj5ct")
-type = 1
 
 [node name="Obstacle4" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, 6)

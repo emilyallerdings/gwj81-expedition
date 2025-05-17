@@ -7,9 +7,9 @@ uniform float pulse_speed = 5.0;
 void fragment() {
 	 float pulse = sin(TIME * pulse_speed) * 0.5 + 0.5;
 	 float smooth_pulse = smoothstep(0.0, 1.0, pulse);
-	
+
 	vec4 text_color = mix(beginning_color, ending_color, smooth_pulse);
 	COLOR = vec4(text_color.rgb, COLOR.a);
-	
+
 }
 

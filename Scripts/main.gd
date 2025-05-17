@@ -9,9 +9,9 @@ extends Node3D
 @onready var main_camera: Camera3D = $MainCameraAnchor/MainCamera
 #@onready var speed_lines = $"MainCamera/Speed Lines"
 @onready var main_camera_anchor: Node3D = $MainCameraAnchor
-@onready var money : RichTextLabel = $"MainCameraAnchor/MainCamera/Speed Lines/Panel2/Money"
+@onready var money : RichTextLabel = $"MainCameraAnchor/MainCamera/Speed Lines/Money"
 
-@onready var heart_container = $"MainCameraAnchor/MainCamera/Speed Lines/Panel/BoxContainer/HeartContainer"
+@onready var heart_container = $"MainCameraAnchor/MainCamera/Speed Lines/BoxContainer/HeartContainer"
 
 #@onready var speed_tweener := get_tree().create_tween().set_loops()
 #var shader_material : ShaderMaterial = preload("res://Assets/speed_lines_material.tres")
