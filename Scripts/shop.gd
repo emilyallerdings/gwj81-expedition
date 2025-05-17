@@ -1,16 +1,17 @@
 extends Node3D
 
 signal highlight_item
+signal interact_item
 
 @onready var selection_menu_ui = $"Selection Menu UI"
 @onready var pointer = $Pointer
 @onready var camera = $Camera3D
-
 @onready var item_descriptor = $"Selection Menu UI/Panel/Item Descriptor"
 @onready var item_title = $"Selection Menu UI/Item Title"
 
 var select_map = null
 var collider = null
+var current_interacted_item: StaticBody3D = null
 
 func _ready():
 	SoundBus.rolling_suitcase.stop()
@@ -36,12 +37,17 @@ func _process(delta):
 		collider = pointer.get_collider()
 		if collider is ShopItem:
 			highlight_item.emit(collider)
+
+			if Input.is_action_just_pressed("interact"):
+				current_interacted_item = collider
+				interact_item.emit(collider)
+				
 			item_descriptor.text = collider.description
 			item_title.text = collider.item_title
-	
-	pointer.enabled = !select_map.map_select_on
-	#print(select_map.map_select_on)
-	#print(pointer.enabled)
+	else:
+		if Input.is_action_just_pressed("interact"): # AND NOT BUTTON 
+			interact_item.emit(null)
+			highlight_item.emit(null)
 
 func _on_next_pressed():
 	SoundBus.button.play()
