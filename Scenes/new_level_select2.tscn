@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://l32vslnrvd76"]
 
-[ext_resource type="Script" uid="uid://tni6866ile04" path="res://Scripts/new_level_select.gd" id="1_adc00"]
+[ext_resource type="Script" path="res://Scripts/new_level_select.gd" id="1_adc00"]
 [ext_resource type="Texture2D" uid="uid://cful2tdn1ahrt" path="res://UI Assets/logo.png" id="2_71wlq"]
 [ext_resource type="FontFile" uid="uid://ccjoqt6plp56l" path="res://Materials/Frutiger.ttf" id="3_byk0p"]
 

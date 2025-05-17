@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bgkd0agf0cnw7"]
 
-[ext_resource type="Script" uid="uid://cn3r67xi757eo" path="res://Scripts/loading_screen.gd" id="1_0t5xw"]
+[ext_resource type="Script" path="res://Scripts/loading_screen.gd" id="1_0t5xw"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_oobaa"]
-[ext_resource type="Shader" uid="uid://ct1qyapldc6ks" path="res://Shaders/loading_screen.gdshader" id="3_nfm0g"]
+[ext_resource type="Shader" path="res://Shaders/loading_screen.gdshader" id="3_nfm0g"]
 [ext_resource type="SpriteFrames" uid="uid://buqr2qloileiy" path="res://UI Assets/loading.gif" id="4_fayou"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fayou"]

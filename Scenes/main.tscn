@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dtshncsgw6tes" path="res://Materials/Frutiger_bold.ttf" id="5_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://dq22rulx5iv7g" path="res://UI Assets/cash.png" id="5_hptm8"]
 [ext_resource type="Environment" uid="uid://b3s7xlhtiytky" path="res://Materials/game_level_worldenvironment.tres" id="5_kry3j"]
-[ext_resource type="Script" uid="uid://cssi7rtq6i5dt" path="res://Scripts/count_down.gd" id="6_6bp64"]
+[ext_resource type="Script" path="res://Scripts/count_down.gd" id="6_6bp64"]
 [ext_resource type="FontFile" uid="uid://djcwcwvpuh7qw" path="res://Materials/Parisienne-Regular.ttf" id="6_21xkr"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="7_6bp64"]
 

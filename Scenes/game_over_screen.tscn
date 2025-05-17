@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://dxugpyocenu1"]
 
 [ext_resource type="PackedScene" uid="uid://b36ws4a2t6bnn" path="res://Assets/spilled_luggage.glb" id="1_0gua7"]
-[ext_resource type="Script" uid="uid://db08ld050838r" path="res://Scripts/game_over_screen.gd" id="1_y8man"]
+[ext_resource type="Script" path="res://Scripts/game_over_screen.gd" id="1_y8man"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="2_jb6in"]
 
 [sub_resource type="Environment" id="Environment_jb6in"]

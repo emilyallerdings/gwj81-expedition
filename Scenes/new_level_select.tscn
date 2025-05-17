@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://bvcjhp7sns40b"]
 
 [ext_resource type="FontFile" uid="uid://ccjoqt6plp56l" path="res://Materials/Frutiger.ttf" id="1_66d4e"]
-[ext_resource type="Script" uid="uid://tni6866ile04" path="res://Scripts/new_level_select.gd" id="1_g6fc4"]
+[ext_resource type="Script" path="res://Scripts/new_level_select.gd" id="1_g6fc4"]
 [ext_resource type="Texture2D" uid="uid://cful2tdn1ahrt" path="res://UI Assets/logo.png" id="2_54nnq"]
 [ext_resource type="Texture2D" uid="uid://dwn5q8n3ls3e4" path="res://UI Assets/busy_icon/none.png" id="3_nrkp2"]
 [ext_resource type="Texture2D" uid="uid://ddxkh6tp71j12" path="res://UI Assets/busy_icon/low.png" id="4_g6fc4"]
