@@ -17,8 +17,6 @@ var outliner : ShaderMaterial = preload("res://Materials/selection_outline.tres"
 
 func _ready():
 	get_tree().get_first_node_in_group("shop").highlight_item.connect(set_outline_overlay)
-	#var shop = get_tree().get_current_scene().get_node("shop")
-	#shop.highlight_item.connect(set_outline_overlay)
 	base_y = self.position.y
 
 func _process(delta):

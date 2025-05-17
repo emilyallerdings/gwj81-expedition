@@ -20,8 +20,6 @@ func _ready():
 	select_map.reset()
 	select_map.prev_scene = selection_menu_ui
 	select_map.visible = false
-	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
 
 func _process(delta):
 	var viewport = get_viewport()

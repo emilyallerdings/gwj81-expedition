@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://conmtu5obhy4r"]
+[gd_scene load_steps=15 format=3 uid="uid://c1yvh3bknw4nr"]
 
 [ext_resource type="Script" uid="uid://deic86kab5ksr" path="res://Scripts/victory_screen.gd" id="1_fmvqe"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_oq8vb"]
@@ -264,10 +264,10 @@ anchor_left = 0.445714
 anchor_top = 0.257743
 anchor_right = 0.542857
 anchor_bottom = 0.286504
-offset_left = -19.0
-offset_top = -33.5
-offset_right = 51.0
-offset_bottom = -10.5
+offset_left = -34.9998
+offset_top = -33.4998
+offset_right = 35.0002
+offset_bottom = -10.4998
 grow_horizontal = 2
 grow_vertical = 2
 text = "+$135.99"
