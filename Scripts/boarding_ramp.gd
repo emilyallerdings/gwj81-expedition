@@ -141,10 +141,12 @@ func place_pattern(pattern:ObstaclePattern, z_pos:float):
 		if ob.type == Enums.ObstacleType.PEOPLE:
 			n_ob = PatternManager.OBSTACLE.instantiate()
 		elif ob.type == Enums.ObstacleType.PICKUP:
-			n_ob = PatternManager.PICKUP.instantiate()
-		obstacles.append(n_ob)
-		add_child(n_ob)
-		n_ob.type = ob.type
-		n_ob.position = Vector3(ob.position.x, ob.position.y, ob.position.z + z_pos)
+			#n_ob = PatternManager.PICKUP.instantiate()
+			pass
+		if n_ob:
+			obstacles.append(n_ob)
+			add_child(n_ob)
+			n_ob.type = ob.type
+			n_ob.position = Vector3(ob.position.x, ob.position.y, ob.position.z + z_pos)
 		#n_ob.connect("body_entered", _on_obstacle_body_entered)
 	return

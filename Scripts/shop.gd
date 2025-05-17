@@ -13,10 +13,12 @@ var select_map = null
 var collider = null
 var current_interacted_item: StaticBody3D = null
 
-const BOARDING_PASS = preload("res://Scenes/boarding_pass.tscn")
+const BOARDING_PASS = preload("res://Scenes/items/boarding_pass.tscn")
 
-const WHEEL_LUBRICANT = preload("res://Scenes/wheel_lubricant.tscn")
-const STICKY_WHEEL = preload("res://Scenes/sticky_wheel.tscn")
+const WHEEL_LUBRICANT = preload("res://Scenes/items/wheel_lubricant.tscn")
+const STICKY_WHEEL = preload("res://Scenes/items/sticky_wheel.tscn")
+
+const PRICE_TAG = preload("res://Scenes/price_tag.tscn")
 
 var top_shelf_scenes = [BOARDING_PASS]
 
@@ -30,7 +32,7 @@ var selected_item = null
 func _ready():
 	SoundBus.rolling_suitcase.stop()
 	SoundBus.song_3.play()
-	
+	$"Selection Menu UI/Buy".disabled = true
 	
 	
 	select_map = GameManager.map_select_loaded
@@ -47,6 +49,9 @@ func _ready():
 			bottom_shelf_cur.append(inst)
 			inst.position += Vector3(-18, 12, (i-1) * 40)
 			$"Shop Items".add_child(inst)
+			var new_price_tag = PRICE_TAG.instantiate()
+			new_price_tag.position = Vector3(-10, 10, (i-1) * 40)
+			$"Shop Items".add_child(new_price_tag)
 			
 	var dup_top_scenes = top_shelf_scenes.duplicate()
 	dup_top_scenes.shuffle()
@@ -57,6 +62,9 @@ func _ready():
 			top_shelf_cur.append(inst)
 			inst.position += Vector3(-18, 40, (i-1) * 40)
 			$"Shop Items".add_child(inst)
+			var new_price_tag = PRICE_TAG.instantiate()
+			new_price_tag.position = Vector3(-10, 38, (i-1) * 40)
+			$"Shop Items".add_child(new_price_tag)
 
 func _process(delta):
 	var viewport = get_viewport()
@@ -78,17 +86,17 @@ func _process(delta):
 				current_interacted_item = collider
 				selected_item = collider
 				interact_item.emit(collider)
+				$"Selection Menu UI/Buy".disabled = false
 				
 			item_descriptor.text = collider.description
 			item_title.text = collider.item_title
 	else:
 		highlight_item.emit(null)
+		
 		if selected_item != null:
 			item_descriptor.text = selected_item.description
 			item_title.text = selected_item.item_title
-		if Input.is_action_just_pressed("interact"): # AND NOT BUTTON 
-			interact_item.emit(null)
-			highlight_item.emit(null)
+
 
 func _on_next_pressed():
 	SoundBus.button.play()
@@ -97,3 +105,13 @@ func _on_next_pressed():
 	select_map.map_select_on = !select_map.map_select_on
 	
 	selection_menu_ui.visible = false
+
+
+func _on_buy_pressed() -> void:
+	if selected_item:
+		print("TEST")
+		selected_item.buy()
+		selected_item.queue_free()
+		selected_item = null
+		$"Selection Menu UI/Buy".disabled = true
+	pass # Replace with function body.

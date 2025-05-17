@@ -15,7 +15,7 @@ var speed_mod:float = 10.0
 
 func _ready():
 	SoundBus.rolling_suitcase.stop()
-
+	#SoundBus.airplane_landing.play()
 	update_labels()
 	await get_tree().create_timer(1.0).timeout
 	$VictoryAnims.play("MoneyDrop")

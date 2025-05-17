@@ -46,11 +46,12 @@ func _ready() -> void:
 	luggage_object = luggage.instantiate()
 	luggage_object.scale = Vector3(1, 1, 1)
 	
-	GameManager.total_health = luggage_object.health
-	max_speed = luggage_object.top_speed * (1.0 + 0.05 * GameManager.base_difficulty)
-	smooth_factor = luggage_object.handling / 150.0
-	boost_bonus = luggage_object.boost
+	
+	max_speed = (luggage_object.top_speed + GameManager.speed_mod) * (1.0 + 0.05 * GameManager.base_difficulty)
+	smooth_factor = (luggage_object.handling + GameManager.handling_mod) / 150.0
+	boost_bonus = luggage_object.boost + GameManager.boost_mod
 	turn_speed = luggage_object.strafe_speed
+	
 	collision_shape.shape = luggage_object.luggage_collider.shape
 	collision_shape.position = luggage_object.luggage_collider.position
 	collision_shape.rotation = luggage_object.rotation

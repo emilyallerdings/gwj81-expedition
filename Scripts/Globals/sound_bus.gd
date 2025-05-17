@@ -4,6 +4,7 @@ signal sounds_loaded
 
 #region sfx
 @onready var airport_ambience:AudioStreamPlayer = $"Airport Ambience"
+@onready var airplane_landing: AudioStreamPlayer = $"Airplane Landing"
 @onready var button:AudioStreamPlayer = $Button
 @onready var rolling_suitcase:AudioStreamPlayer = $"Rolling Suitcase"
 @onready var button_hover_click:AudioStreamPlayer = $"Button Hover Click"
@@ -23,8 +24,8 @@ signal sounds_loaded
 
 
 func preload_sounds():
-	var prev = AudioServer.is_bus_mute(AudioServer.get_bus_index("Master"))
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	#var prev = AudioServer.is_bus_mute(AudioServer.get_bus_index("Master"))
+	#AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	for child:AudioStreamPlayer in get_children():
 		child.play(0)
 	await get_tree().process_frame
@@ -33,5 +34,5 @@ func preload_sounds():
 		child.stop()
 		child.seek(0)
 	await get_tree().process_frame
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), prev)
+	#AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), prev)
 	sounds_loaded.emit()

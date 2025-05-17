@@ -10,6 +10,15 @@ signal locked_in
 @export var positive_modifier_description : String = ""
 @export var negative_modifier_description : String = ""
 
+@export var top_speed_change:float = 0.0
+@export var handling_change:float = 0.0
+@export var boost_change:float = 0.0
+@export var max_hp_change:int = 0
+@export var hp_change:int = 0
+@export var base_dif_change:int = 0
+
+@export var on_buy:String = ""
+
 var rotation_speed : Vector3 = Vector3(0, 20, 0)
 var bob_amplitude : float = 1.0
 var bob_speed : float = 2.0 
@@ -53,3 +62,15 @@ func _update_outline():
 func _set_material(material: ShaderMaterial):
 	for mesh in mesh_array:
 		mesh.material_overlay = material
+
+func buy():
+	GameManager.boost_mod += boost_change
+	GameManager.speed_mod += top_speed_change
+	GameManager.handling_mod += handling_change
+	GameManager.total_health += max_hp_change
+	GameManager.health += hp_change
+	GameManager.base_diff_mod += base_dif_change
+	if on_buy != null && on_buy != "":
+		if has_method(on_buy):
+			call("on_buy")
+		

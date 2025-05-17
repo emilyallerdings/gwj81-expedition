@@ -17,7 +17,7 @@ var max_money : int = 99999999999
 var credits : int = 0
 
 var total_health : int = 0
-
+var health := 0
 var earned_money:int = 0
 
 var selected_city:CityInfo = null
@@ -35,6 +35,13 @@ var map_select_loaded = null
 var level_select_insts = []
 
 var save_file:SaveFile = null
+
+
+var speed_mod:float = 0
+var handling_mod:float = 0
+var boost_mod:float = 0
+var base_diff_mod:int = 0
+var payout_mod:float = 1.0
 
 func _ready():
 	var dir = DirAccess.open("res://City Data/")
@@ -88,3 +95,21 @@ func reset():
 	total_health = 0
 	chosen_luggage = null
 	selected_city = null
+	speed_mod = 0
+	handling_mod = 0
+	boost_mod = 0
+	base_diff_mod = 0
+	payout_mod = 1.0
+
+
+func set_luggage(luggage, luggage_scene):
+	if !luggage:
+		return
+		
+	chosen_luggage = luggage_scene
+	total_health = luggage.health
+	health = total_health
+	
+	
+	pass
+	

@@ -1229,6 +1229,8 @@ shadow_mesh = SubResource("ArrayMesh_nmqww")
 
 [node name="Main Menu" type="Node3D"]
 script = ExtResource("1_yhxw7")
+luggages = null
+rotation_speed = null
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ne6ao")

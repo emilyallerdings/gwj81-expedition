@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqxl7brt3g1wi"]
+[gd_scene load_steps=14 format=3 uid="uid://dqxl7brt3g1wi"]
 
 [ext_resource type="Script" uid="uid://bijmlxakyblxw" path="res://Scripts/Globals/sound_bus.gd" id="1_oofcd"]
 [ext_resource type="AudioStream" uid="uid://c3ynucxb1maka" path="res://Sounds/airport_ambience_with_planes.ogg" id="2_otb3e"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://d2ice3h2xcvoa" path="res://Sounds/flyby_transition.ogg" id="8_6mehe"]
 [ext_resource type="AudioStream" uid="uid://005x2vdmdre2" path="res://Sounds/elevator_music.ogg" id="8_bna0c"]
 [ext_resource type="AudioStream" uid="uid://tt3bogbl1lqf" path="res://Sounds/countdown.ogg" id="9_1jqlw"]
+[ext_resource type="AudioStream" uid="uid://d15rxkgvpqkvy" path="res://Sounds/airplane_landing.ogg" id="10_gacuc"]
 [ext_resource type="AudioStream" uid="uid://cfoxnnjmngav8" path="res://Sounds/shop_music.ogg" id="11_f01v8"]
 
 [node name="SoundBus" type="Node"]
@@ -55,6 +56,12 @@ bus = &"SFX"
 
 [node name="Flyby" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_6mehe")
+volume_db = -5.0
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="Airplane Landing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_gacuc")
 volume_db = -5.0
 max_polyphony = 10
 bus = &"SFX"

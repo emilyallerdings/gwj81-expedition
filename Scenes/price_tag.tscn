@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3ct2kdp8tm44"]
+
+[ext_resource type="FontFile" uid="uid://ccjoqt6plp56l" path="res://Materials/Frutiger.ttf" id="1_w1l50"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tf6hf"]
+albedo_color = Color(1.1, 1.1, 1.1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_5wmyn"]
+material = SubResource("StandardMaterial3D_tf6hf")
+size = Vector2(20, 8)
+
+[sub_resource type="GDScript" id="GDScript_w1l50"]
+script/source = "extends MeshInstance3D
+
+
+
+func set_price(amount:int):
+	$'Label3D'.text = GameManager.cents_to_str(amount)
+"
+
+[node name="PriceTag" type="MeshInstance3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_5wmyn")
+script = SubResource("GDScript_w1l50")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -1.7955e-09, -0.290503, 0.0410762)
+text = "HELLO"
+font = ExtResource("1_w1l50")

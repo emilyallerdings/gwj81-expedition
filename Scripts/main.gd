@@ -23,7 +23,6 @@ extends Node3D
 var next_scene : PackedScene = preload("res://Scenes/shop.tscn")
 var hearts : PackedScene = preload("res://Scenes/heart.tscn")
 var started = false
-var current_health : int = 5
 
 var dist_culling_objs = []
 
@@ -61,7 +60,6 @@ func _ready() -> void:
 	start_money = ceil(boarding_generator.total_path/ 3.0) * 100
 	money.text = "$ " + str(start_money)
 	
-	current_health = GameManager.total_health
 	
 	for lives in GameManager.total_health:
 		var one_life = hearts.instantiate()
@@ -202,9 +200,9 @@ func _on_update_vis_timer_timeout() -> void:
 	pass # Replace with function body.
 
 func player_on_hit():
-	if GameManager.total_health != current_health and heart_container.get_child_count() > 0:
+	if heart_container.get_child_count() > 0:
 		heart_container.get_child(-1).queue_free()
-		current_health = GameManager.total_health
+		GameManager.total_health -= 1
 		#print(GameManager.total_health)
 		#print(current_health)
 	

@@ -205,7 +205,8 @@ description = "Are your wheels clunky, worn down, and look like they've seen bet
 
 Well you're in luck! The brand new WL-40 formulation's got you covered for smooth wheels all day! Better go get that honey packet!"
 mesh_array = [NodePath("Cylinder"), NodePath("Sphere"), NodePath("Cylinder_001"), NodePath("Cylinder_002")]
-positive_modifier_description = "+ 4.0 Top Speed"
+positive_modifier_description = "+ 3.0 Top Speed"
+top_speed_change = 3.0
 
 [node name="Cylinder" parent="." index="0"]
 mesh = SubResource("ArrayMesh_q41k3")

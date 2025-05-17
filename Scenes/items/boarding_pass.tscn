@@ -65,6 +65,7 @@ description = "You're you. Of course you need this. You catch flights, not feeli
 ... until your next 'passport bro' situationship MAKES you catch feelings."
 mesh_array = [NodePath("Pass"), NodePath("Text")]
 positive_modifier_description = "- 1 Base Difficulty"
+base_dif_change = -1
 
 [node name="Pass" parent="." index="0"]
 mesh = SubResource("ArrayMesh_i0bg6")
