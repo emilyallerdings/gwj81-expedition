@@ -164,7 +164,7 @@ tracks/2/path = NodePath("CountdownText:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.166667, 0.933333, 2),
+"times": PackedFloat32Array(0, 0.933333, 2),
 "transitions": PackedFloat32Array(1, 1, 0.466516),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -355,7 +355,6 @@ directional_shadow_max_distance = 250.0
 
 [node name="Player" parent="." instance=ExtResource("7_6bp64")]
 unique_name_in_owner = true
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.35489, 0)
 blink_interval = 0.2
 
