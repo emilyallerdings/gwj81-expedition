@@ -57,6 +57,7 @@ shadow_mesh = SubResource("ArrayMesh_0pje5")
 size = Vector3(0.205383, 2.09515, 4.09888)
 
 [node name="boarding pass" node_paths=PackedStringArray("mesh_array") instance=ExtResource("1_rmxxy")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("2_i0bg6")
 item_title = "Priority Boarding Pass"
 description = "You're you. Of course you need this. You catch flights, not feelings, after all. 

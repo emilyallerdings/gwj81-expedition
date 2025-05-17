@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bo14x17dt5ne3"]
+[gd_scene load_steps=39 format=4 uid="uid://bo14x17dt5ne3"]
 
 [ext_resource type="PackedScene" uid="uid://ciuxit5o1pvp4" path="res://Assets/shop.glb" id="1_io27d"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_fdj0q"]
@@ -6,10 +6,7 @@
 [ext_resource type="Script" uid="uid://ckn6c7vui2vhf" path="res://Scripts/shop.gd" id="4_fdj0q"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="5_k6jq0"]
 [ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="5_s8dlv"]
-[ext_resource type="PackedScene" uid="uid://q7br3lygbwic" path="res://Scenes/wheel_lubricant.tscn" id="6_3ps1r"]
 [ext_resource type="FontFile" uid="uid://dtshncsgw6tes" path="res://Materials/Frutiger_bold.ttf" id="6_5xp22"]
-[ext_resource type="PackedScene" uid="uid://djellqlexi8d0" path="res://Scenes/sticky_wheel.tscn" id="8_tyrku"]
-[ext_resource type="PackedScene" uid="uid://djff3v2ldp7y6" path="res://Scenes/boarding_pass.tscn" id="9_tyrku"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ps1r"]
 render_priority = 0
@@ -450,15 +447,6 @@ text = "Buy"
 
 [node name="Shop Items" type="Node3D" parent="." index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98627, 0)
-
-[node name="wheel_lubricant" parent="Shop Items" index="0" instance=ExtResource("6_3ps1r")]
-transform = Transform3D(-1.03528, 0, 3.8637, 0, 4, 0, -3.8637, 0, -1.03528, -19.1326, 12, 1.30575)
-
-[node name="sticky_wheel" parent="Shop Items" index="1" instance=ExtResource("8_tyrku")]
-transform = Transform3D(-1.03528, 0, 3.8637, 0, 4, 0, -3.8637, 0, -1.03528, -20.0455, 16, 28.5673)
-
-[node name="boarding pass" parent="Shop Items" index="2" instance=ExtResource("9_tyrku")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -19.338, 40, -28.9236)
 
 [node name="Camera3D2" type="Camera3D" parent="." index="18"]
 transform = Transform3D(10.571, -4.43074, 11.1635, 0, 14.8715, 5.90243, -12.0106, -3.89965, 9.82537, 115.45, 51.1085, 18.3345)

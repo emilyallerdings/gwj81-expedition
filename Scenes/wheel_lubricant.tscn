@@ -198,6 +198,7 @@ height = 4.4668
 radius = 0.826172
 
 [node name="wheel_lubricant" node_paths=PackedStringArray("mesh_array") instance=ExtResource("1_q41k3")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("2_6wsm5")
 item_title = "Wheel Lubricant"
 description = "Are your wheels clunky, worn down, and look like they've seen better days? 
