@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6sfkp1w6skjj"]
+[gd_scene load_steps=4 format=3 uid="uid://cg50w46nuqsg3"]
 
-[ext_resource type="Script" uid="uid://dny1tf3gfre7j" path="res://canvas_layer.gd" id="1_tg4cr"]
-[ext_resource type="Shader" uid="uid://ct5n1m5rvyb1i" path="res://Shaders/transition_screen.gdshader" id="1_v2lfg"]
+[ext_resource type="Script" path="res://canvas_layer.gd" id="1_tg4cr"]
+[ext_resource type="Shader" path="res://Shaders/transition_screen.gdshader" id="1_v2lfg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tg4cr"]
 resource_local_to_scene = true
