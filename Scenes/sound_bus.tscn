@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://x0j456glqskj" path="res://Sounds/giant_steps.ogg" id="5_s22cy"]
 [ext_resource type="AudioStream" uid="uid://b132spue567og" path="res://Sounds/whoosh.ogg" id="6_4mo3c"]
 [ext_resource type="AudioStream" uid="uid://dvq5x4molvf7r" path="res://Sounds/start_game.ogg" id="7_g0a8n"]
-[ext_resource type="AudioStream" uid="uid://tt3bogbl1lqf" path="res://Sounds/countdown.ogg" id="8_1jqlw"]
 [ext_resource type="AudioStream" uid="uid://d2ice3h2xcvoa" path="res://Sounds/flyby_transition.ogg" id="8_6mehe"]
 [ext_resource type="AudioStream" uid="uid://005x2vdmdre2" path="res://Sounds/elevator_music.ogg" id="8_bna0c"]
 [ext_resource type="AudioStream" uid="uid://tt3bogbl1lqf" path="res://Sounds/countdown.ogg" id="9_1jqlw"]
@@ -50,7 +49,7 @@ max_polyphony = 10
 bus = &"SFX"
 
 [node name="Countdown Horn" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_1jqlw")
+stream = ExtResource("9_1jqlw")
 volume_db = -10.0
 bus = &"SFX"
 
