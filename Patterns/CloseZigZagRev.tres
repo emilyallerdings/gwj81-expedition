@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ObstaclePattern" load_steps=8 format=3 uid="uid://ddv1f6y1mhklf"]
 
-[ext_resource type="Script" path="res://Scripts/obstacle_info.gd" id="1_a78ku"]
-[ext_resource type="Script" path="res://Scripts/obstacle_pattern.gd" id="2_m2l8k"]
+[ext_resource type="Script" uid="uid://cnhl0u3fbdlnh" path="res://Scripts/obstacle_info.gd" id="1_a78ku"]
+[ext_resource type="Script" uid="uid://dwp21mkadf4ja" path="res://Scripts/obstacle_pattern.gd" id="2_m2l8k"]
 
 [sub_resource type="Resource" id="Resource_a78ku"]
 script = ExtResource("1_a78ku")
