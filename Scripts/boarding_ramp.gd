@@ -126,7 +126,7 @@ func ready_stage(difficulty):
 		elif r < p_easy + p_med: zone_type = Enums.PatternDifficulty.MED
 		else: zone_type = Enums.PatternDifficulty.HARD
 		
-		var pattern = PatternManager.get_pattern_by_diff(zone_type, remaining_distance)
+		var pattern = PatternManager.get_pattern_by_diff(zone_type, remaining_distance + 2)
 		if pattern == null:
 			break
 		place_pattern(pattern, cur_position)
@@ -136,7 +136,11 @@ func ready_stage(difficulty):
 func place_pattern(pattern:ObstaclePattern, z_pos:float):
 	for ob in pattern.obstacles:
 		
-		var n_ob = PatternManager.OBSTACLE.instantiate()
+		var n_ob
+		if ob.type == Enums.ObstacleType.PEOPLE:
+			n_ob = PatternManager.OBSTACLE.instantiate()
+		elif ob.type == Enums.ObstacleType.PICKUP:
+			n_ob = PatternManager.PICKUP.instantiate()
 		obstacles.append(n_ob)
 		add_child(n_ob)
 		n_ob.type = ob.type
