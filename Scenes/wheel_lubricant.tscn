@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://q7br3lygbwic"]
+[gd_scene load_steps=19 format=4 uid="uid://q7br3lygbwic"]
 
 [ext_resource type="PackedScene" uid="uid://4v8a2kku3mx" path="res://Assets/shop_items/wheel_lubricant.glb" id="1_q41k3"]
 [ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="2_6wsm5"]
@@ -193,8 +193,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8lokl")
 
-[node name="wheel_lubricant" instance=ExtResource("1_q41k3")]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6wsm5"]
+height = 4.4668
+radius = 0.826172
+
+[node name="wheel_lubricant" node_paths=PackedStringArray("mesh_array") instance=ExtResource("1_q41k3")]
 script = ExtResource("2_6wsm5")
+item_title = "Wheel Lubricant"
+description = "INSERT WHEEL DESC HERE
+"
+mesh_array = [NodePath("Cylinder"), NodePath("Sphere"), NodePath("Cylinder_001"), NodePath("Cylinder_002")]
 
 [node name="Cylinder" parent="." index="0"]
 mesh = SubResource("ArrayMesh_q41k3")
@@ -207,3 +215,8 @@ mesh = SubResource("ArrayMesh_632xl")
 
 [node name="Cylinder_002" parent="." index="3"]
 mesh = SubResource("ArrayMesh_6wsm5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55331, 0)
+shape = SubResource("CylinderShape3D_6wsm5")
+debug_color = Color(0, 0.641798, 0.328449, 0.42)
