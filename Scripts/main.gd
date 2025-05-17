@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var start_money : float = 100
+@export var start_money : int = 100
 @export var money_decrease_factor : float = 2.0
 
 @onready var boarding_generator: Node3D = $BoardingGenerator
@@ -53,7 +53,7 @@ func _ready() -> void:
 	player.connect("player_hit", player_on_hit)
 
 	main_camera.fov = 90.0
-	start_money = ceil(boarding_generator.total_path/ 3.0)
+	start_money = ceil(boarding_generator.total_path/ 3.0) * 100
 	money.text = "$ " + str(start_money)
 	
 	current_health = GameManager.total_health
@@ -96,9 +96,9 @@ func _process(delta: float) -> void:
 	main_camera_anchor.global_position.x = player.global_position.x
 	
 	if started:
-		start_money = max(0, start_money-(delta*money_decrease_factor))
+		start_money = max(0, start_money-int(delta*100*money_decrease_factor))
 
-	money.text = "$ " + ("%.2f" % start_money)
+	money.text = GameManager.cents_to_str(start_money)
 	
 	if player.forward_speed > player.max_speed + (player.boost_bonus / 2):
 		var camera_increase := get_tree().create_tween()
