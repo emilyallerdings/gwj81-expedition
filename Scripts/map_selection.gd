@@ -38,7 +38,7 @@ func _ready():
 	#print(map_select_on)
 
 func reset():
-
+	$Fly.disabled = true
 	scroll_container.scroll_horizontal = ((382.185 + 50) * GameManager.current_level) - 382.185/2.0
 	print(scroll_container.scroll_horizontal)
 	for level_select in h_box_container.get_children():

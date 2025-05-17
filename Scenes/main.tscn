@@ -443,7 +443,7 @@ libraries = {
 speed_scale = 2.0
 
 [node name="UpdateVisTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="UpdateVisTimer" to="." method="_on_update_vis_timer_timeout"]

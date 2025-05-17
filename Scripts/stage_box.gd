@@ -4,6 +4,8 @@ signal stage_select(stage_box)
 
 var city:CityInfo
 
+var level_select = null
+
 func _ready() -> void:
 	self.modulate = Color(1.0,1.0,1.0,1.0)
 	var stylebox := get_theme_stylebox("panel")
@@ -40,7 +42,7 @@ func deselect():
 		stylebox.shadow_size = 0
 	$Button.button_pressed = false
 		
-func lock():
+func lock(less_than:bool):
 	if $Button.disabled:
 		return
 	
@@ -49,9 +51,12 @@ func lock():
 		var stylebox := get_theme_stylebox("panel")
 		if stylebox is StyleBoxFlat:
 			stylebox.shadow_size = 3
-		self.modulate = Color.hex(0x505050FF)
+		self.modulate = Color.hex(0x606060FF)
 	else:
-		self.modulate = Color.hex(0x303030AA)
+		if less_than:
+			self.modulate = Color.hex(0x10101077)
+		else:
+			self.modulate = Color.hex(0x707070FF)
 	$Button.disabled = true
 	$Button.button_pressed = false
 	$Button.toggle_mode = false

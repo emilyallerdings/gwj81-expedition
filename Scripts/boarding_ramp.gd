@@ -53,6 +53,7 @@ func fill_obstacles():
 	#print(GameManager.modifier_difficulty)
 
 func set_size():
+	
 	self.position.y = 3.0
 	floor_mesh.mesh.size.z = length
 	floor_mesh.mesh.size.x = width
@@ -83,11 +84,11 @@ func set_size():
 	pillars_left.position.x = width/2.0
 	pillars_right.position.x = -width/2.0
 	
-	await get_tree().process_frame
+	await get_tree().create_timer(0.1)
 	pillars_left.remesh(int(ceil(length/4)) + 1)
+	await get_tree().create_timer(0.1)
 	pillars_right.remesh(int(ceil(length/4)) + 1)
-	
-	
+	await get_tree().create_timer(0.1)
 	
 func ready_stage(difficulty):
 	var starting_pos = 5.0

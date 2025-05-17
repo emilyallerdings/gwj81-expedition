@@ -14,7 +14,7 @@ func _ready() -> void:
 	$ColorRect.material.set_shader_parameter("progress", 0.0)
 	pass # Replace with function body.
 
-func transition_to_scene(path:String):
+func transition_to_scene(path:String, signal_before_wipe_out = null):
 	wipe_in()
 	await wiped_in
 	if current_scene:
@@ -36,6 +36,8 @@ func transition_to_scene(path:String):
 	get_tree().root.add_child(instance)
 	await get_tree().create_timer(0.1).timeout
 	current_scene = instance
+	if signal_before_wipe_out:
+		await signal_before_wipe_out
 	wipe_out()
 	await wiped_out
 

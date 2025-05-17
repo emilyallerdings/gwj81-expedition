@@ -29,7 +29,7 @@ func _on_next_pressed():
 func _process(delta: float) -> void:
 
 	if tweening:
-		print(speed_mod)
+		#print(speed_mod)
 		speed_mod = speed_mod * (1.0+(delta/10.0))
 		GameManager.earned_money = max(0, GameManager.earned_money - delta * 100 * speed_mod * speed_mod * speed_mod * .1)
 		GameManager.total_money = min(end_total, GameManager.total_money + delta * 100 * speed_mod * speed_mod * speed_mod * .1)
@@ -48,16 +48,13 @@ func transfer_money():
 	start_total = GameManager.total_money
 	end_total = GameManager.total_money + start_earned
 	
-	var tween:Tween = create_tween()
+
 	$blip.play(0)
 	tweening = true
 	# Use a dummy value to tween progress (0.0 to 1.0)
 	progress = 0
 
-	
-func _on_tween_finished():
-	progress = 1.0
-	update_labels()
+
 	
 func update_labels():
 

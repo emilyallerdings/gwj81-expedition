@@ -99,6 +99,7 @@ func generate():
 
 	var counter = 0
 	for seg_len in segment_lens:
+		await get_tree().create_timer(0.11).timeout
 		counter += 1
 		var new_ramp = BOARDING_RAMP.instantiate()
 		new_ramp.name = "BoardRamp " + str(counter)
@@ -204,7 +205,7 @@ func generate():
 			
 		current_pos += 10 * prev_dir
 		current_pos += 10 * forward_dir
-		await get_tree().create_timer(0.01).timeout
+		await get_tree().create_timer(0.11).timeout
 		
 	await get_tree().process_frame
 	await get_tree().process_frame

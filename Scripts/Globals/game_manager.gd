@@ -1,5 +1,9 @@
 extends Node
 
+signal generation_finished
+
+var render_dist:float = 300
+
 var difficulty = 5.0 # for testing my branch
 
 var chosen_luggage : PackedScene = null
@@ -29,6 +33,8 @@ var map_select : PackedScene = preload("res://Scenes/map_selection.tscn")
 var map_select_loaded = null
 
 var level_select_insts = []
+
+var save_file:SaveFile = null
 
 func _ready():
 	var dir = DirAccess.open("res://City Data/")

@@ -25,7 +25,7 @@ var hearts : PackedScene = preload("res://Scenes/heart.tscn")
 var started = false
 var current_health : int = 5
 
-var all_obs = []
+var dist_culling_objs = []
 
 var check_thread:Thread
 
@@ -43,10 +43,15 @@ func _ready() -> void:
 	
 	await boarding_generator.finished_generation
 	
-	for ramp in boarding_generator.ramps:
-		for ob in ramp.obstacles:
-			all_obs.append(ob)
 	
+	for ramp in boarding_generator.ramps:
+		#dist_culling_objs.append(ramp)
+		for ob in ramp.obstacles:
+			dist_culling_objs.append(ob)
+	#for turn in boarding_generator.left_turns:
+		#dist_culling_objs.append(turn)
+	#for turn in boarding_generator.right_turns:
+		#dist_culling_objs.append(turn)
 	boarding_generator.connect("player_left_turn", turn_player_left)
 	boarding_generator.connect("player_right_turn", turn_player_right)
 	boarding_generator.connect("player_finished", player_finished)
@@ -61,6 +66,8 @@ func _ready() -> void:
 	for lives in GameManager.total_health:
 		var one_life = hearts.instantiate()
 		heart_container.add_child(one_life)
+	
+	GameManager.generation_finished.emit()
 	
 	await TransitionEffect.wiped_out
 	
@@ -183,12 +190,12 @@ func _on_update_vis_timer_timeout() -> void:
 		return
 		
 	var counter:int = 0
-	for obj in all_obs:
+	for obj in dist_culling_objs:
 		counter += 1
 		var dist:float = obj.global_position.distance_to($MainCameraAnchor/MainCamera.global_position)
-		var vis:bool = dist < 400
+		var vis:bool = dist < GameManager.render_dist
 		obj.call_deferred("set_visible", vis)
-		if counter > 100:
+		if counter > 50:
 			counter = 0 
 			await get_tree().process_frame
 	pass # Replace with function body.

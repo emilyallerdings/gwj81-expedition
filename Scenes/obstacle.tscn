@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dy8fe1r61jocd"]
 
-[ext_resource type="Script" uid="uid://bjtxwl4xukg3x" path="res://Scripts/obstacle.gd" id="1_15o2q"]
+[ext_resource type="Script" uid="uid://bfe6dlt8m6ru8" path="res://Scripts/person.gd" id="1_af0pv"]
 [ext_resource type="PackedScene" uid="uid://bf0l67lxu7vjd" path="res://Assets/characters/character_rig.glb" id="2_2p81s"]
 [ext_resource type="AnimationLibrary" uid="uid://d3bxqthqphxmc" path="res://Assets/characters/animations/character_anim_idle_01.glb" id="3_p763d"]
 [ext_resource type="AnimationLibrary" uid="uid://dpnkcf0diqn1s" path="res://Assets/characters/animations/character_anim_idle_02.glb" id="4_af0pv"]
@@ -11,9 +11,9 @@
 radius = 0.75
 height = 3.0
 
-[node name="Obstacle" type="StaticBody3D" groups=["obstacle"]]
+[node name="Person" type="StaticBody3D" groups=["obstacle"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-script = ExtResource("1_15o2q")
+script = ExtResource("1_af0pv")
 
 [node name="ObstacleCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

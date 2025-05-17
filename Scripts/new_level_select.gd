@@ -101,7 +101,7 @@ func set_disable():
 	if current_level != GameManager.current_level:
 		for stage_box in stage_boxes:
 			
-			stage_box.lock()
+			stage_box.lock(current_level < GameManager.current_level)
 			stage_box.deselect()
 	else:
 		for stage_box in stage_boxes:
