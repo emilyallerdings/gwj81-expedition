@@ -49,6 +49,7 @@ func _ready() -> void:
 	boarding_generator.connect("player_left_turn", turn_player_left)
 	boarding_generator.connect("player_right_turn", turn_player_right)
 	boarding_generator.connect("player_finished", player_finished)
+	player.connect("player_hit", player_on_hit)
 
 	main_camera.fov = 90.0
 	start_money = ceil(boarding_generator.total_path/ 3.0)
@@ -105,14 +106,6 @@ func _process(delta: float) -> void:
 		var camera_increase := get_tree().create_tween()
 		camera_increase.tween_property(main_camera, "fov", 90.0, 0.25)
 	
-	if GameManager.total_health != current_health and heart_container.get_child_count() > 0:
-		heart_container.get_child(-1).queue_free()
-		current_health = GameManager.total_health
-		#print(GameManager.total_health)
-		#print(current_health)
-	
-	if GameManager.total_health <= 0:
-		player_died()
 
 
 func project_vector(a: Vector3, b: Vector3) -> Vector3:
@@ -170,6 +163,7 @@ func player_finished():
 	TransitionEffect.transition_to_scene("res://Scenes/victory_screen.tscn")
 
 func player_died():
+	print("player died")
 	GameManager.base_difficulty = 0
 	GameManager.current_level = 0
 	GameManager.earned_money = 0
@@ -196,3 +190,13 @@ func _on_update_vis_timer_timeout() -> void:
 			counter = 0 
 			await get_tree().process_frame
 	pass # Replace with function body.
+
+func player_on_hit():
+	if GameManager.total_health != current_health and heart_container.get_child_count() > 0:
+		heart_container.get_child(-1).queue_free()
+		current_health = GameManager.total_health
+		#print(GameManager.total_health)
+		#print(current_health)
+	
+	if GameManager.total_health <= 0:
+		player_died()

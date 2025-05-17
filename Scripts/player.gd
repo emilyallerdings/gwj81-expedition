@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal player_hit
+
 #@export var health : int = 5
 @export var max_speed:float = 10.0
 @export var turn_speed: float = 16.0
@@ -194,6 +196,7 @@ func on_hit_obstacle():
 	velocity = forward_direction * -20
 	forward_speed = -20
 	GameManager.total_health -= 1
+	player_hit.emit()
 	start_blinking()
 
 func start_blinking():
