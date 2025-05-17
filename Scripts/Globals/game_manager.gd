@@ -6,12 +6,15 @@ var chosen_luggage : PackedScene = null
 var base_difficulty : int = 0
 var modifier_difficulty : int = 0
 var current_level : int = 0
-var total_money : float = 0.0
-var max_money : float = 999999999
+
+#In CENTS
+var total_money : int = 0
+var max_money : int = 99999999999
 var credits : int = 0
+
 var total_health : int = 0
 
-var earned_money:float = 0
+var earned_money:int = 0
 
 var selected_city:CityInfo = null
 
@@ -57,3 +60,8 @@ func select_city(city:CityInfo):
 	print("Selected: ", city.name, " With Mod Dif: ", city.modifier_difficulty)
 	self.selected_city = city
 	modifier_difficulty = city.modifier_difficulty
+
+func cents_to_str(amount_cents:int) -> String:
+	var dollars = amount_cents / 100
+	var cents = amount_cents % 100
+	return "$%d.%02d" % [dollars, cents]
