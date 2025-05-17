@@ -34,7 +34,7 @@ func transition_to_scene(path:String):
 	
 	#
 	get_tree().root.add_child(instance)
-	await get_tree().process_frame
+	await get_tree().create_timer(0.1).timeout
 	current_scene = instance
 	wipe_out()
 	await wiped_out

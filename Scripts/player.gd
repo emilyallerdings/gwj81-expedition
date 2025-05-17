@@ -32,6 +32,8 @@ var luggage_object = null
 
 var reached_end = false
 
+
+var started = false
 #var shop : PackedScene = preload("")
 
 
@@ -73,24 +75,27 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if blinking:
-		elapsed_time += delta
-		if elapsed_time >= blink_duration:
-			blinking = false
-			for mat in all_materials.keys():
-				mat.albedo_color = all_materials[mat]
-			return
-
-		var blink_state = elapsed_time * (PI / blink_interval)
-		var max_value = 0.8
-		var min_value = 0.0
-		var value = min_value + (max_value - min_value) * (1 + sin(blink_state)) / 2
-
-		for mat in all_materials:
-			mat.albedo_color = mix_colors(all_materials[mat], Color.RED, value)
+	pass
+	#if blinking:
+		#elapsed_time += delta
+		#if elapsed_time >= blink_duration:
+			#blinking = false
+			#for mat in all_materials.keys():
+				#mat.albedo_color = all_materials[mat]
+			#return
+#
+		#var blink_state = elapsed_time * (PI / blink_interval)
+		#var max_value = 0.8
+		#var min_value = 0.0
+		#var value = min_value + (max_value - min_value) * (1 + sin(blink_state)) / 2
+#
+		#for mat in all_materials:
+			#mat.albedo_color = mix_colors(all_materials[mat], Color.RED, value)
 
 
 func _physics_process(delta: float) -> void:
+	if !started:
+		return
 	if reached_end:
 		forward_speed = move_toward(forward_speed, 0, 0.2)
 		velocity = velocity.move_toward(Vector3.ZERO, 0.2)
@@ -212,7 +217,8 @@ func mix_colors(color1: Color, color2: Color, factor: float) -> Color:
 	return color1.lerp(color2, factor)
 	
 func start():
-	process_mode = Node.PROCESS_MODE_ALWAYS
+	started = true
+	pass
 
 func finish():
 	SoundBus.rolling_suitcase.stop()

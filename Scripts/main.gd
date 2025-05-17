@@ -32,6 +32,7 @@ var check_thread:Thread
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	check_thread = Thread.new()
+	
 	#GameManager.total_money += start_money
 
 	await get_tree().create_timer(0.01).timeout
@@ -74,9 +75,10 @@ func _ready() -> void:
 	#player.collision_shape = player.get_child(3).get_child(5)
 	
 func start_game():
+	SoundBus.song_1.play(0)
 	#print("Base Dif: " + str(GameManager.base_difficulty))
 	#print("Modified Dif: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty))
-	SoundBus.song_1.play()
+	#SoundBus.song_1.play()
 	player.start()
 	started  = true
 

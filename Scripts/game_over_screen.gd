@@ -2,6 +2,7 @@ extends Node3D
 
 func _ready() -> void:
 	SoundBus.rolling_suitcase.stop()
+	GameManager.reset()
 
 func _on_quit_pressed():
 	get_tree().quit()
