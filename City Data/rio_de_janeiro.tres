@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CityInfo" load_steps=2 format=3 uid="uid://buxoixvwx81v8"]
+[gd_resource type="Resource" script_class="CityInfo" load_steps=2 format=3 uid="uid://bpf2r0p088h5w"]
 
 [ext_resource type="Script" uid="uid://cjqxtsga52tl2" path="res://Scripts/city_data.gd" id="1_k2esq"]
 
