@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bbj14frmq7i62" path="res://Assets/sparklecorn_materials/Glitter.png" id="5_phb58"]
 [ext_resource type="Material" uid="uid://chktpch7mxrfq" path="res://Materials/official_luggage_material/metal_material.tres" id="6_wvnd7"]
 [ext_resource type="Material" uid="uid://dxscaj1oqselm" path="res://Materials/official_luggage_material/pink_material.tres" id="7_phb58"]
-[ext_resource type="Shader" path="res://Shaders/fire_trail.gdshader" id="10_nl6ec"]
+[ext_resource type="Shader" uid="uid://cm3okf6o8rav4" path="res://Shaders/fire_trail.gdshader" id="10_nl6ec"]
 [ext_resource type="Texture2D" uid="uid://cjmpc17ujijkw" path="res://Assets/particles/star_06.png" id="11_knafu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wvnd7"]
