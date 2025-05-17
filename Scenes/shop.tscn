@@ -403,16 +403,7 @@ grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("6_5xp22")
 theme_override_font_sizes/normal_font_size = 20
 
-[node name="Next2" type="Button" parent="Selection Menu UI" index="2"]
-layout_mode = 0
-offset_left = 1002.0
-offset_top = 520.0
-offset_right = 1105.0
-offset_bottom = 606.0
-theme = ExtResource("5_k6jq0")
-text = "Next"
-
-[node name="Panel" type="Panel" parent="Selection Menu UI" index="3"]
+[node name="Panel" type="Panel" parent="Selection Menu UI" index="2"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -440,6 +431,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("6_5xp22")
 theme_override_font_sizes/normal_font_size = 20
+
+[node name="Buy" type="Button" parent="Selection Menu UI" index="3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -128.0
+offset_right = 52.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_k6jq0")
+text = "Buy"
 
 [node name="Shop Items" type="Node3D" parent="." index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98627, 0)
