@@ -1,25 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://djellqlexi8d0"]
+[gd_scene load_steps=13 format=4 uid="uid://djellqlexi8d0"]
 
 [ext_resource type="PackedScene" uid="uid://bto31q0wlkcdu" path="res://Assets/shop_items/sticky_wheel.glb" id="1_ghs2w"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_0ybdv"]
 [ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="2_gljs5"]
+[ext_resource type="Material" uid="uid://bbsusvce70bau" path="res://Materials/outline_color.tres" id="3_7by4g"]
 [ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="3_gljs5"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sojl7"]
-render_priority = 0
-shader = ExtResource("2_0ybdv")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7by4g"]
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_sojl7")
-shader = ExtResource("3_gljs5")
-shader_parameter/color = Color(0.28485, 0.28485, 0.28485, 1)
-shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
-shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 0.5
-shader_parameter/uv_scale = Vector2(1, 1)
-shader_parameter/uv_offset = Vector2(0, 0)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fpd8o"]
 _surfaces = [{
@@ -45,7 +30,7 @@ _surfaces = [{
 "index_count": 372,
 "index_data": PackedByteArray("AAAmAAIAAABGACYARgBHACYARgAWAEcAFgAnAEcAFgBIACcASAApACcASAAoACkAKAAXACkAKABJABcASQBKABcASQAYAEoAGAAGAEoAGABLAAYASwBMAAYASwAqAEwAKgArAEwAKgBNACsATQBOACsATQAHAE4ABwABAE4ABwBPAAEATwBQAAEATwAsAFAALAAtAFAALABRAC0AUQBSAC0AUQAZAFIAGQAPAFIAGQBTAA8AUwBUAA8AUwAuAFQALgAvAFQALgBVAC8AVQBWAC8AVQAQAFYAEAAIAFYAEABXAAgAVwBYAAgAVwAwAFgAMAAxAFgAMABZADEAWQBaADEAWQAaAFoAGgARAFoAGgBbABEAWwBcABEAWwAyAFwAMgAzAFwAMgBdADMAXQBeADMAXQAEAF4ABAAbAF4ABABfABsAXwBgABsAXwA0AGAANAAcAGAANAA1ABwANQBhABwANQAdAGEAHQBiAGEAHQBjAGIAYwADAGIAYwAFAAMAZAAKADcACgBlAGYAZABlAAoAZQBnACAAZQBoAGcAZwBoAB8AZABoAGUAaABpADwAaABqAGkAaQBqABIAaABrAGoAZABrAGgAagBsAD0AagBrAGwAbABrAAkAawBtADsAawBuAG0AbQBuABQAawBkAG8AawBvAG4AbgBwADoAbgBvAHAAcABvABMANgBkADgAcQBkADYAbwBkAHEAcQA2AB4AbwBxAHIAcgBxAAsAbwByADkAcwB0AA0AdAB1ACIAcwB1AHQAdQB2AD4AdQB3AHYAdgB3ACMAcwB3AHUAdwB4AD8AdwB5AHgAeAB5AAwAdwB6AHkAcwB6AHcAeQB7AEAAeQB6AHsAewB6ACQAegB8AEEAegB9AHwAfAB9ABUAegBzAH4AegB+AH0AfQB/AEUAfQB+AH8AfwB+ACUAQwBzACEAgABzAEMAfgBzAIAAgABDAEIAfgCAAIEAgQCAAA4AfgCBAEQA"),
 "lods": [0.0278769, PackedByteArray("AAAmAAIAAAAWACYAFgAnACYAFgAoACcAKAApACcAKAAXACkAKAAYABcAGAAGABcAGAAqAAYAKgArAAYAKgAHACsABwABACsABwAsAAEALAAtAAEALAAZAC0AGQAPAC0AGQAuAA8ALgAvAA8ALgAQAC8AEAAIAC8AEAAwAAgAMAAxAAgAMAAaADEAGgARADEAGgAyABEAMgAzABEAMgAEADMABAAbADMABAA0ABsANAAcABsANAA1ABwANQAdABwAHQADABwAHQAFAAMANgA3ADgAHgA3ADYAOQAeAAsAOQA3AB4AOgA5ABMAOwA5ADoAOwA3ADkAOwA6ABQANwAgAAoANwA8ACAANwA7ADwAIAA8AB8APAA7AD0APQA7AAkAPAA9ABIAIQAiAA0AIQA+ACIAPgA/ACMAIQA/AD4APwBAAAwAPwBBAEAAIQBBAD8AQABBACQAQgAhAEMARAAhAEIAQQAhAEQARABCAA4AQQBEAEUARQBEACUAQQBFABUA"), 0.0610832, PackedByteArray("AAAWAAIAFgAXAAIAFgAYABcAGAAGABcAGAABAAYAGAAHAAEABwAPAAEABwAZAA8AGQAIAA8AGQAQAAgAEAARAAgAEAAaABEAGgAbABEAGgAEABsABAAcABsABAAdABwAHQADABwAHQAFAAMAEwAeAAsAEwAKAB4ACQAKABMACQATABQACgAJAB8AHwAJABIACgAfACAAIQAiAA0AIQAjACIAIQAkACMAIwAkAAwAJAAhACUAJQAhAA4AJAAlABUA"), 0.457961, PackedByteArray("AAAGAAIAAAAHAAYABwABAAYABwAPAAEABwAQAA8AEAAIAA8AEAARAAgAEAAEABEABAADABEABAAFAAMACgAJABIACQAKABMAEwAKAAsACQATABQADQAVAAwAFQANAA4A"), 0.730971, PackedByteArray("AAAGAAIAAAAHAAYABwAIAAYABwAEAAgABAADAAgABAAFAAMACQAKAAsADAANAA4A"), 1.35269, PackedByteArray("AAABAAIAAAADAAEAAAAEAAMABAAFAAMA")],
-"material": SubResource("ShaderMaterial_7by4g"),
+"material": ExtResource("3_7by4g"),
 "name": "Material.005",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -54,6 +39,10 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fpd8o")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sojl7"]
+render_priority = 0
+shader = ExtResource("2_0ybdv")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3yl75"]
 render_priority = 0
@@ -100,11 +89,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_y2f5s")
 
-[node name="sticky_wheel" instance=ExtResource("1_ghs2w")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_gljs5"]
+radius = 1.74548
+
+[node name="sticky_wheel" node_paths=PackedStringArray("mesh_array") instance=ExtResource("1_ghs2w")]
 script = ExtResource("2_gljs5")
+mesh_array = [NodePath("Cylinder_003"), NodePath("Mball_009")]
 
 [node name="Cylinder_003" parent="." index="0"]
 mesh = SubResource("ArrayMesh_sycsa")
 
 [node name="Mball_009" parent="." index="1"]
 mesh = SubResource("ArrayMesh_ab1fl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_gljs5")

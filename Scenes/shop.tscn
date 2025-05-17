@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bo14x17dt5ne3"]
+[gd_scene load_steps=40 format=4 uid="uid://bo14x17dt5ne3"]
 
 [ext_resource type="PackedScene" uid="uid://ciuxit5o1pvp4" path="res://Assets/shop.glb" id="1_io27d"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_fdj0q"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="5_s8dlv"]
 [ext_resource type="PackedScene" uid="uid://q7br3lygbwic" path="res://Scenes/wheel_lubricant.tscn" id="6_3ps1r"]
 [ext_resource type="PackedScene" uid="uid://djellqlexi8d0" path="res://Scenes/sticky_wheel.tscn" id="8_tyrku"]
+[ext_resource type="PackedScene" uid="uid://djff3v2ldp7y6" path="res://Scenes/boarding_pass.tscn" id="9_tyrku"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ps1r"]
 render_priority = 0
@@ -285,7 +286,7 @@ tonemap_mode = 3
 glow_intensity = 0.5
 glow_bloom = 0.1
 
-[node name="shop" instance=ExtResource("1_io27d")]
+[node name="shop" groups=["shop"] instance=ExtResource("1_io27d")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 script = ExtResource("4_fdj0q")
 
@@ -309,50 +310,54 @@ mesh = SubResource("ArrayMesh_mjtuy")
 transform = Transform3D(-1.39679e-06, 11.7171, 1.39679e-06, 0, 1.39679e-06, -11.7171, -11.7171, -1.39679e-06, -1.6651e-13, 44.9057, 72.3644, 0)
 mesh = SubResource("ArrayMesh_k6jq0")
 
-[node name="Camera3D" type="Camera3D" parent="." index="7"]
+[node name="Pointer" type="RayCast3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 40, 0)
+target_position = Vector3(0, -100, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." index="8"]
 transform = Transform3D(-0.0415122, 1.17304, 15.9569, 0, 15.9569, -1.17304, -15.9999, -0.00304347, -0.0414005, 95, 40, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="8"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="9"]
 mesh = SubResource("PlaneMesh_fdj0q")
 surface_material_override/0 = SubResource("StandardMaterial3D_3ps1r")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="9"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="10"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40, 80, 0)
 material_override = SubResource("StandardMaterial3D_io27d")
 mesh = SubResource("QuadMesh_fdj0q")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="10"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="11"]
 environment = SubResource("Environment_io27d")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." index="11"]
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="12"]
 transform = Transform3D(0.866025, -5.85622e-09, 0.5, -0.5, -2.18557e-08, 0.866025, 5.85622e-09, -1, -2.18557e-08, 16, 71.7001, 0)
 light_energy = 4.335
 spot_range = 33.6811
 spot_angle = 59.75
 spot_angle_attenuation = 0.535887
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="." index="12"]
+[node name="SpotLight3D4" type="SpotLight3D" parent="." index="13"]
 transform = Transform3D(0.707107, -1.28028e-08, 0.707107, -0.707107, -3.09086e-08, 0.707107, 1.28028e-08, -1, -3.09086e-08, 91.8651, 83.1687, 0)
 light_energy = 4.335
 spot_range = 33.6811
 spot_angle = 59.75
 spot_angle_attenuation = 0.535887
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="." index="13"]
+[node name="SpotLight3D3" type="SpotLight3D" parent="." index="14"]
 transform = Transform3D(0.866025, -5.85622e-09, 0.5, -0.5, -2.18557e-08, 0.866025, 5.85622e-09, -1, -2.18557e-08, 16, 71.7, -64)
 light_energy = 4.335
 spot_range = 33.6811
 spot_angle = 59.75
 spot_angle_attenuation = 0.535887
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="." index="14"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="." index="15"]
 transform = Transform3D(0.866025, -5.85622e-09, 0.5, -0.5, -2.18557e-08, 0.866025, 5.85622e-09, -1, -2.18557e-08, 16, 71.7001, 64)
 light_energy = 4.335
 spot_range = 33.6811
 spot_angle = 59.75
 spot_angle_attenuation = 0.535887
 
-[node name="Selection Menu UI" type="Control" parent="." index="15"]
+[node name="Selection Menu UI" type="Control" parent="." index="16"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -369,10 +374,19 @@ offset_bottom = 606.0
 theme = ExtResource("5_k6jq0")
 text = "Next"
 
-[node name="wheel_lubricant" parent="Selection Menu UI" index="1" instance=ExtResource("6_3ps1r")]
-transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -5.78316, 3, 0.326437)
+[node name="Shop Items" type="Node3D" parent="." index="17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98627, 0)
 
-[node name="sticky_wheel" parent="." index="16" instance=ExtResource("8_tyrku")]
-transform = Transform3D(-1.03528, 0, 3.8637, 0, 4, 0, -3.8637, 0, -1.03528, -24.0455, 16, 28.5673)
+[node name="wheel_lubricant" parent="Shop Items" index="0" instance=ExtResource("6_3ps1r")]
+transform = Transform3D(-1.03528, 0, 3.8637, 0, 4, 0, -3.8637, 0, -1.03528, -19.1326, 12, 1.30575)
+
+[node name="sticky_wheel" parent="Shop Items" index="1" instance=ExtResource("8_tyrku")]
+transform = Transform3D(-1.03528, 0, 3.8637, 0, 4, 0, -3.8637, 0, -1.03528, -20.0455, 16, 28.5673)
+
+[node name="boarding pass" parent="Shop Items" index="2" instance=ExtResource("9_tyrku")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -19.338, 40, -28.9236)
+
+[node name="Camera3D2" type="Camera3D" parent="." index="18"]
+transform = Transform3D(10.571, -4.43074, 11.1635, 0, 14.8715, 5.90243, -12.0106, -3.89965, 9.82537, 115.45, 51.1085, 18.3345)
 
 [connection signal="pressed" from="Selection Menu UI/Next" to="." method="_on_next_pressed"]

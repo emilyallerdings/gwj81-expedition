@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://vu2u6lgqij3"]
+
+[ext_resource type="Shader" uid="uid://cbmsut17okcdh" path="res://Shaders/selection_outline.gdshader" id="1_h868b"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h868b")
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/size = 1.4
