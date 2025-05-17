@@ -8,6 +8,7 @@ signal interact_item
 @onready var camera = $Camera3D
 @onready var item_descriptor = $"Selection Menu UI/Panel/Item Descriptor"
 @onready var item_title = $"Selection Menu UI/Item Title"
+@onready var buy = $"Selection Menu UI/Buy"
 
 var select_map = null
 var collider = null
@@ -37,7 +38,6 @@ func _process(delta):
 		collider = pointer.get_collider()
 		if collider is ShopItem:
 			highlight_item.emit(collider)
-
 			if Input.is_action_just_pressed("interact"):
 				current_interacted_item = collider
 				interact_item.emit(collider)
@@ -45,7 +45,10 @@ func _process(delta):
 			item_descriptor.text = collider.description
 			item_title.text = collider.item_title
 	else:
-		if Input.is_action_just_pressed("interact"): # AND NOT BUTTON 
+		highlight_item.emit(null)
+		item_descriptor.text = collider.description
+		item_title.text = collider.item_title
+		if Input.is_action_just_pressed("interact"):
 			interact_item.emit(null)
 			highlight_item.emit(null)
 
