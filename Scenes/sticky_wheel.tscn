@@ -95,9 +95,12 @@ radius = 1.74548
 [node name="sticky_wheel" node_paths=PackedStringArray("mesh_array") instance=ExtResource("1_ghs2w")]
 script = ExtResource("2_gljs5")
 item_title = "Sticky Wheels"
-description = "INSERT STICKY WHEEL DESC HERE
-"
+description = "The crying, screaming baby behind your seat apparently had a booger (or 4) he just absolutely needed to apply to your wheels. 
+
+For some reason though, your luggage feels easier to turn? Maybe you'll tolerate the next screaming baby..."
 mesh_array = [NodePath("Cylinder_003"), NodePath("Mball_009")]
+positive_modifier_description = "+ 5.0 Handling"
+negative_modifier_description = "- 3.0 Top Speed"
 
 [node name="Cylinder_003" parent="." index="0"]
 mesh = SubResource("ArrayMesh_sycsa")

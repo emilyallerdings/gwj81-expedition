@@ -200,9 +200,11 @@ radius = 0.826172
 [node name="wheel_lubricant" node_paths=PackedStringArray("mesh_array") instance=ExtResource("1_q41k3")]
 script = ExtResource("2_6wsm5")
 item_title = "Wheel Lubricant"
-description = "INSERT WHEEL DESC HERE
-"
+description = "Are your wheels clunky, worn down, and look like they've seen better days? 
+
+Well you're in luck! The brand new WL-40 formulation's got you covered for smooth wheels all day! Better go get that honey packet!"
 mesh_array = [NodePath("Cylinder"), NodePath("Sphere"), NodePath("Cylinder_001"), NodePath("Cylinder_002")]
+positive_modifier_description = "+ 4.0 Top Speed"
 
 [node name="Cylinder" parent="." index="0"]
 mesh = SubResource("ArrayMesh_q41k3")

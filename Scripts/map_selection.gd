@@ -1,6 +1,7 @@
 extends Control
 
 var prev_scene = null
+var map_select_on : bool = false
 
 @onready var trip_start = $"Trip Start"
 @onready var back = $Back
@@ -17,6 +18,7 @@ func _ready():
 	#print(GameManager.current_level)
 	fly.disabled = true
 	trip_start.text = "Trip Start: " + Time.get_date_string_from_system(false)
+	#map_select_on = true
 	
 	for i in GameManager.max_levels:
 		level = level_select.instantiate()
@@ -32,10 +34,8 @@ func _ready():
 		if !level_select is VSeparator:
 			level_select.set_disable()
 	
-	#scroll_container.set_deferred("scroll_horizontal", 340 * GameManager.current_level)
-
-func _process(delta):
-	pass
+#func _process(delta):
+	#print(map_select_on)
 
 func reset():
 
@@ -54,6 +54,7 @@ func _on_back_pressed():
 	self.visible = false
 	if prev_scene:
 		prev_scene.visible = true
+	map_select_on = !map_select_on
 	#prev_scene.selection_menu_ui.visible = true
 	#if prev_scene.selection_menu_ui:
 		#prev_scene.selection_menu_ui.visible = true

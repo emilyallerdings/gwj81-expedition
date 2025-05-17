@@ -2,12 +2,12 @@ extends Node3D
 
 signal highlight_item
 
-#@export var next_scene : PackedScene = null
 @onready var selection_menu_ui = $"Selection Menu UI"
 @onready var pointer = $Pointer
 @onready var camera = $Camera3D
-@onready var item_descriptor = $"Item Description/Panel/Item Descriptor"
-@onready var item_title = $"Item Description/Item Title"
+
+@onready var item_descriptor = $"Selection Menu UI/Panel/Item Descriptor"
+@onready var item_title = $"Selection Menu UI/Item Title"
 
 var select_map = null
 var collider = null
@@ -38,8 +38,15 @@ func _process(delta):
 			highlight_item.emit(collider)
 			item_descriptor.text = collider.description
 			item_title.text = collider.item_title
+	
+	pointer.enabled = !select_map.map_select_on
+	#print(select_map.map_select_on)
+	#print(pointer.enabled)
 
 func _on_next_pressed():
 	SoundBus.button.play()
 	selection_menu_ui.visible = false
 	select_map.visible = true
+	select_map.map_select_on = !select_map.map_select_on
+	
+	selection_menu_ui.visible = false
