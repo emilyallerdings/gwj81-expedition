@@ -59,9 +59,11 @@ size = Vector3(0.205383, 2.09515, 4.09888)
 [node name="boarding pass" node_paths=PackedStringArray("mesh_array") instance=ExtResource("1_rmxxy")]
 script = ExtResource("2_i0bg6")
 item_title = "Priority Boarding Pass"
-description = "INSERT BP DESC HERE
-"
+description = "You're you. Of course you need this. You catch flights, not feelings, after all. 
+
+... until your next 'passport bro' situationship MAKES you catch feelings."
 mesh_array = [NodePath("Pass"), NodePath("Text")]
+positive_modifier_description = "- 1 Base Difficulty"
 
 [node name="Pass" parent="." index="0"]
 mesh = SubResource("ArrayMesh_i0bg6")

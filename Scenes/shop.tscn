@@ -372,7 +372,7 @@ spot_range = 33.6811
 spot_angle = 59.75
 spot_angle_attenuation = 0.535887
 
-[node name="Item Description" type="Control" parent="." index="16"]
+[node name="Selection Menu UI" type="Control" parent="." index="16"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -380,7 +380,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Item Title" type="RichTextLabel" parent="Item Description" index="0"]
+[node name="Item Title" type="RichTextLabel" parent="Selection Menu UI" index="0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -394,7 +394,7 @@ grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("6_5xp22")
 theme_override_font_sizes/normal_font_size = 20
 
-[node name="Panel" type="Panel" parent="Item Description" index="1"]
+[node name="Panel" type="Panel" parent="Selection Menu UI" index="1"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -409,7 +409,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tyrku")
 
-[node name="Item Descriptor" type="RichTextLabel" parent="Item Description/Panel" index="0"]
+[node name="Item Descriptor" type="RichTextLabel" parent="Selection Menu UI/Panel" index="0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -423,15 +423,7 @@ grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("6_5xp22")
 theme_override_font_sizes/normal_font_size = 20
 
-[node name="Selection Menu UI" type="Control" parent="." index="17"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Next" type="Button" parent="Selection Menu UI" index="0"]
+[node name="Next" type="Button" parent="Selection Menu UI" index="2"]
 layout_mode = 0
 offset_left = 1002.0
 offset_top = 520.0
@@ -440,7 +432,7 @@ offset_bottom = 606.0
 theme = ExtResource("5_k6jq0")
 text = "Next"
 
-[node name="Shop Items" type="Node3D" parent="." index="18"]
+[node name="Shop Items" type="Node3D" parent="." index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98627, 0)
 
 [node name="wheel_lubricant" parent="Shop Items" index="0" instance=ExtResource("6_3ps1r")]
@@ -452,7 +444,7 @@ transform = Transform3D(-1.03528, 0, 3.8637, 0, 4, 0, -3.8637, 0, -1.03528, -20.
 [node name="boarding pass" parent="Shop Items" index="2" instance=ExtResource("9_tyrku")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -19.338, 40, -28.9236)
 
-[node name="Camera3D2" type="Camera3D" parent="." index="19"]
+[node name="Camera3D2" type="Camera3D" parent="." index="18"]
 transform = Transform3D(10.571, -4.43074, 11.1635, 0, 14.8715, 5.90243, -12.0106, -3.89965, 9.82537, 115.45, 51.1085, 18.3345)
 
 [connection signal="pressed" from="Selection Menu UI/Next" to="." method="_on_next_pressed"]

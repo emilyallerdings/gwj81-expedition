@@ -5,6 +5,8 @@ class_name ShopItem
 @export var item_title : String = ""
 @export_multiline var description : String = ""
 @export var mesh_array : Array[MeshInstance3D] = []
+@export var positive_modifier_description : String = ""
+@export var negative_modifier_description : String = ""
 
 var rotation_speed : Vector3 = Vector3(0, 20, 0)
 var bob_amplitude : float = 1.0
