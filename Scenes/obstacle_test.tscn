@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdnobkkcqjpt8"]
+[gd_scene load_steps=7 format=3 uid="uid://bdnobkkcqjpt8"]
 
 [ext_resource type="PackedScene" uid="uid://xicolt62u2x5" path="res://Scenes/boarding_ramp.tscn" id="1_pf0re"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="2_pf0re"]
 [ext_resource type="PackedScene" uid="uid://dy8fe1r61jocd" path="res://Scenes/obstacle.tscn" id="3_fj5ct"]
+[ext_resource type="Script" uid="uid://bjtxwl4xukg3x" path="res://Scripts/obstacle.gd" id="4_fj5ct"]
+[ext_resource type="PackedScene" uid="uid://oqay4xe1b4me" path="res://Scenes/pickup.tscn" id="5_uv7gd"]
 
 [sub_resource type="GDScript" id="GDScript_fj5ct"]
 script/source = "@tool
@@ -48,13 +50,22 @@ func make_obstacle():
 		furthest_z = max(furthest_z, ob_z + 0.5)
 	var length = furthest_z - closest_z
 	new_pattern.length = length
-	print(length)
+	
 	for obstacle:Obstacle in obstacles:
 		var new_obstacle_info = ObstacleInfo.new()
 		new_obstacle_info.position = obstacle.position
 		new_obstacle_info.type = obstacle.type
 		new_pattern.obstacles.append(new_obstacle_info)
-	ResourceSaver.save(new_pattern, PatternManager.test_path + pattern_name + \".tres\")
+		print(\"Pos: \", obstacle.position, \" Type: \", obstacle.type)
+	#new_pattern.set_edited()
+	print(error_string(ResourceSaver.save(new_pattern, PatternManager.test_path + pattern_name + \".tres\")))
+	print(\"Saved Pattern\")
+	var fs := EditorInterface.get_resource_filesystem()
+	#fs.update_file(PatternManager.test_path + pattern_name + \".tres\")
+	fs.reimport_files([PatternManager.test_path + pattern_name + \".tres\"])
+	#fs.scan()
+	#EditorInterface.get_resource_filesystem().scan_sources()
+
 	return
 
 func load_pattern_from_file(load_name:String):
@@ -88,6 +99,7 @@ func load_pattern():
 	await get_tree().create_timer(0.1).timeout
 	place_pattern(loaded_pattern)
 	cur_loading = false
+	print(\"Loaded Pattern\")
 
 func clear_pattern():
 	for child in obstacle_pattern.get_children():
@@ -95,10 +107,19 @@ func clear_pattern():
 	
 func place_pattern(pattern:ObstaclePattern):
 	for obstacle in pattern.obstacles:
-		var n_obstacle = PatternManager.OBSTACLE.instantiate()
+		var n_obstacle
+		
+		if obstacle.type == Enums.ObstacleType.PEOPLE:
+			n_obstacle = PatternManager.OBSTACLE.instantiate()
+		elif obstacle.type == Enums.ObstacleType.PICKUP:
+			n_obstacle = PatternManager.PICKUP.instantiate()
+		else:
+			n_obstacle = PatternManager.OBSTACLE.instantiate()
+			
 		n_obstacle.position = obstacle.position
 		n_obstacle.type = obstacle.type
 		obstacle_pattern.add_child(n_obstacle)
+			
 		n_obstacle.owner = get_tree().edited_scene_root
 		n_obstacle.name = \"Obstacle\"
 	
@@ -130,13 +151,13 @@ func _get_property_list():
 [node name="ObstacleTest" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0183983, -0.0457115, 0.05653)
 script = SubResource("GDScript_fj5ct")
-pattern_name = "CloseZigZag"
-pattern_difficulty = 2
-load_name = "CloseZigZag"
+pattern_name = "DoubleLine"
+pattern_difficulty = 1
+load_name = "LineMiddle"
 
 [node name="BoardingRamp" parent="." instance=ExtResource("1_pf0re")]
-transform = Transform3D(1, 0, 0, 0, 0.999848, -0.0174524, 0, 0.0174524, 0.999848, 0, 3, 0)
-length = 50.0
+transform = Transform3D(1, 0, 0, 0, 0.999848, -0.0174524, 0, 0.0174524, 0.999848, 0, 3, -10)
+length = 100.0
 
 [node name="Player" parent="." instance=ExtResource("2_pf0re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6)
@@ -144,17 +165,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6)
 [node name="ObstaclePattern" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
-[node name="Obstacle" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 0, 0)
+[node name="Obstacle" type="StaticBody3D" parent="ObstaclePattern" groups=["obstacle"] instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, 0)
+script = ExtResource("4_fj5ct")
 
-[node name="Obstacle2" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 0, 0)
+[node name="Obstacle2" type="StaticBody3D" parent="ObstaclePattern" groups=["obstacle"] instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, 3)
+script = ExtResource("4_fj5ct")
 
-[node name="Obstacle3" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 0, 7)
+[node name="Obstacle3" type="StaticBody3D" parent="ObstaclePattern" groups=["pickup"] instance=ExtResource("5_uv7gd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.49012e-08, 2, 4)
+script = ExtResource("4_fj5ct")
+type = 1
 
-[node name="Obstacle4" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5, 0, 7)
+[node name="Obstacle4" type="StaticBody3D" parent="ObstaclePattern" groups=["obstacle"] instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, 6)
+script = ExtResource("4_fj5ct")
 
-[node name="Obstacle5" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0, 7)
+[node name="Obstacle5" type="StaticBody3D" parent="ObstaclePattern" groups=["obstacle"] instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, 9)
+script = ExtResource("4_fj5ct")
+
+[node name="Obstacle6" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 0, 0)
+
+[node name="Obstacle7" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 0, 3)
+
+[node name="Obstacle8" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 0, 6)
+
+[node name="Obstacle9" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 0, 9)

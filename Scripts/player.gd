@@ -113,8 +113,12 @@ func _physics_process(delta: float) -> void:
 	
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
-		if collision.get_collider() && collision.get_collider().is_in_group("obstacle"):
-			on_hit_obstacle()
+		var collider = collision.get_collider()
+		if collider:
+			if collider.is_in_group("obstacle"):
+				on_hit_obstacle(collider)
+			elif collider.is_in_group("pickup"):
+				on_hit_pickup(collider)
 
 func handle_player_movement(delta:float):
 	var acceleration = 5.0
@@ -193,7 +197,7 @@ func play_rolling():
 			if luggage_object.unique_sound:
 					luggage_object.unique_sound.stop()
 
-func on_hit_obstacle():
+func on_hit_obstacle(collider):
 	if forward_speed <= 0:
 		return
 	#print("ON HIT")
@@ -203,6 +207,9 @@ func on_hit_obstacle():
 	GameManager.total_health -= 1
 	player_hit.emit()
 	start_blinking()
+
+func on_hit_pickup(collider):
+	print("TEST")
 
 func start_blinking():
 	blinking = true

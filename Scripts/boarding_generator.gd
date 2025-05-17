@@ -103,8 +103,9 @@ func generate():
 		var new_ramp = BOARDING_RAMP.instantiate()
 		new_ramp.name = "BoardRamp " + str(counter)
 		
-		
+		await get_tree().process_frame
 		add_child(new_ramp)
+		await get_tree().process_frame
 		new_ramp.owner = self
 		new_ramp.position = current_pos
 		new_ramp.length = seg_len

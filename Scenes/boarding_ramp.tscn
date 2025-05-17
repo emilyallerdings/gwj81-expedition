@@ -1,33 +1,67 @@
-[gd_scene load_steps=18 format=3 uid="uid://xicolt62u2x5"]
+[gd_scene load_steps=24 format=3 uid="uid://xicolt62u2x5"]
 
 [ext_resource type="Script" uid="uid://bem4xdckxwof0" path="res://Scripts/boarding_ramp.gd" id="1_vf4kb"]
+[ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_lgt4c"]
+[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="3_1j28i"]
 [ext_resource type="Script" uid="uid://clhf3pglcbiyf" path="res://Scripts/pillars.gd" id="3_lgt4c"]
 [ext_resource type="Material" uid="uid://ioqjey8l3e5m" path="res://Materials/boarding_ramp_white.tres" id="3_tjkg0"]
 [ext_resource type="Material" uid="uid://b1rk01s3g06te" path="res://Materials/window_mat.tres" id="4_tjkg0"]
 [ext_resource type="Material" uid="uid://by304ddkfo7w8" path="res://Materials/boarding_ramp_white_no_outline.tres" id="4_vf4kb"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_tjkg0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fgggt"]
+render_priority = 0
+shader = ExtResource("2_lgt4c")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k17x7"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_fgggt")
+shader = ExtResource("3_1j28i")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.5
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0qim7"]
 resource_local_to_scene = true
-material = ExtResource("3_tjkg0")
+material = SubResource("ShaderMaterial_k17x7")
 size = Vector3(0.1, 8.3, 0.1)
 
-[sub_resource type="MultiMesh" id="MultiMesh_vf4kb"]
+[sub_resource type="MultiMesh" id="MultiMesh_slby5"]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 5
-mesh = SubResource("BoxMesh_tjkg0")
+mesh = SubResource("BoxMesh_0qim7")
 buffer = PackedFloat32Array(1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 4, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 8, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 12, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 16)
 
-[sub_resource type="BoxMesh" id="BoxMesh_1j28i"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lsugm"]
+render_priority = 0
+shader = ExtResource("2_lgt4c")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wwhed"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_lsugm")
+shader = ExtResource("3_1j28i")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.5
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_62jte"]
 resource_local_to_scene = true
-material = ExtResource("3_tjkg0")
+material = SubResource("ShaderMaterial_wwhed")
 size = Vector3(0.1, 8.3, 0.1)
 
-[sub_resource type="MultiMesh" id="MultiMesh_fgggt"]
+[sub_resource type="MultiMesh" id="MultiMesh_v6cx0"]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 5
-mesh = SubResource("BoxMesh_1j28i")
+mesh = SubResource("BoxMesh_62jte")
 buffer = PackedFloat32Array(1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 4, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 8, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 12, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rbw5i"]
@@ -85,12 +119,12 @@ length = 16.0
 
 [node name="PillarsLeft" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, 0.051)
-multimesh = SubResource("MultiMesh_vf4kb")
+multimesh = SubResource("MultiMesh_slby5")
 script = ExtResource("3_lgt4c")
 
 [node name="PillarsRight" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.99609, 0.0526818)
-multimesh = SubResource("MultiMesh_fgggt")
+multimesh = SubResource("MultiMesh_v6cx0")
 script = ExtResource("3_lgt4c")
 
 [node name="Floor" type="StaticBody3D" parent="."]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://oqay4xe1b4me"]
+
+[ext_resource type="Script" uid="uid://bjtxwl4xukg3x" path="res://Scripts/obstacle.gd" id="1_v7u4w"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v7u4w"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_uv7gd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj5ct"]
+transparency = 1
+albedo_color = Color(0, 1.5, 0, 0.514)
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 7.56
+
+[node name="Pickup" type="StaticBody3D" groups=["pickup"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_v7u4w")
+type = 1
+
+[node name="ObstacleCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_v7u4w")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_uv7gd")
+surface_material_override/0 = SubResource("StandardMaterial3D_fj5ct")

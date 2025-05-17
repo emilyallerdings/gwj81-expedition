@@ -82,4 +82,3 @@ func reset():
 	total_health = 0
 	chosen_luggage = null
 	selected_city = null
-

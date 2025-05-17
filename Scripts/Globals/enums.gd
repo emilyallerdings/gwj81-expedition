@@ -8,7 +8,8 @@ enum PatternDifficulty{
 }
 
 enum ObstacleType{
-	ANY
+	PEOPLE=0,
+	PICKUP=1
 }
 
 enum LevelDifficulty {

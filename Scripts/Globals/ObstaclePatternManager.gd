@@ -3,6 +3,7 @@ extends Node
 var path:String = "res://Patterns/"
 const test_path:String = "res://Patterns/"
 const OBSTACLE = preload("res://Scenes/obstacle.tscn")
+const PICKUP = preload("res://Scenes/pickup.tscn")
 
 var easy_patterns = []
 var med_patterns = []
