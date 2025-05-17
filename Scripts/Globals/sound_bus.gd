@@ -23,6 +23,7 @@ signal sounds_loaded
 
 
 func preload_sounds():
+	var prev = AudioServer.is_bus_mute(AudioServer.get_bus_index("Master"))
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	for child:AudioStreamPlayer in get_children():
 		child.play(0)
@@ -32,5 +33,5 @@ func preload_sounds():
 		child.stop()
 		child.seek(0)
 	await get_tree().process_frame
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), prev)
 	sounds_loaded.emit()

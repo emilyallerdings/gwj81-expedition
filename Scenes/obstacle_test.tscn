@@ -153,7 +153,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0183983, -0.0457115, 0.0565
 script = SubResource("GDScript_fj5ct")
 pattern_name = "DoubleLine"
 pattern_difficulty = 1
-load_name = "LineMiddle"
+load_name = ""
 
 [node name="BoardingRamp" parent="." instance=ExtResource("1_pf0re")]
 transform = Transform3D(1, 0, 0, 0, 0.999848, -0.0174524, 0, 0.0174524, 0.999848, 0, 3, -10)

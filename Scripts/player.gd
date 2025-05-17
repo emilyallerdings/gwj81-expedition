@@ -202,7 +202,7 @@ func on_hit_obstacle(collider):
 	if forward_speed <= 0:
 		return
 	#print("ON HIT")
-	GameManager.total_money -= 5
+	GameManager.total_money = max(GameManager.total_money - 5 * 100, 0)
 	velocity = forward_direction * -20
 	forward_speed = -20
 	GameManager.total_health -= 1

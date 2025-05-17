@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c7e6u8kc1g0yp"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://chnr4ydfxbg47"]
 
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="1_7pcw4"]
 [ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="2_xofjy"]
