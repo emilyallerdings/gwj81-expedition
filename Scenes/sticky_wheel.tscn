@@ -94,7 +94,9 @@ radius = 1.74548
 
 [node name="sticky_wheel" node_paths=PackedStringArray("mesh_array") instance=ExtResource("1_ghs2w")]
 script = ExtResource("2_gljs5")
-description = "STICKY WHEEL"
+item_title = "Sticky Wheels"
+description = "INSERT STICKY WHEEL DESC HERE
+"
 mesh_array = [NodePath("Cylinder_003"), NodePath("Mball_009")]
 
 [node name="Cylinder_003" parent="." index="0"]

@@ -199,7 +199,9 @@ radius = 0.826172
 
 [node name="wheel_lubricant" node_paths=PackedStringArray("mesh_array") instance=ExtResource("1_q41k3")]
 script = ExtResource("2_6wsm5")
-description = "WHEEL LUBE"
+item_title = "Wheel Lubricant"
+description = "INSERT WHEEL DESC HERE
+"
 mesh_array = [NodePath("Cylinder"), NodePath("Sphere"), NodePath("Cylinder_001"), NodePath("Cylinder_002")]
 
 [node name="Cylinder" parent="." index="0"]

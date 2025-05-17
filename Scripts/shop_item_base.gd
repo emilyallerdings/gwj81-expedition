@@ -2,6 +2,7 @@ extends Node3D
 
 class_name ShopItem
 
+@export var item_title : String = ""
 @export_multiline var description : String = ""
 @export var mesh_array : Array[MeshInstance3D] = []
 

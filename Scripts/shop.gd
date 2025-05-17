@@ -6,6 +6,8 @@ signal highlight_item
 @onready var selection_menu_ui = $"Selection Menu UI"
 @onready var pointer = $Pointer
 @onready var camera = $Camera3D
+@onready var item_descriptor = $"Item Description/Panel/Item Descriptor"
+@onready var item_title = $"Item Description/Item Title"
 
 var select_map = null
 var collider = null
@@ -36,6 +38,8 @@ func _process(delta):
 		collider = pointer.get_collider()
 		if collider is ShopItem:
 			highlight_item.emit(collider)
+			item_descriptor.text = collider.description
+			item_title.text = collider.item_title
 
 func _on_next_pressed():
 	SoundBus.button.play()

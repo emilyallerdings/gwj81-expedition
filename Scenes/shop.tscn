@@ -7,7 +7,7 @@
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="5_k6jq0"]
 [ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="5_s8dlv"]
 [ext_resource type="PackedScene" uid="uid://q7br3lygbwic" path="res://Scenes/wheel_lubricant.tscn" id="6_3ps1r"]
-[ext_resource type="FontFile" uid="uid://bafns24uaw6y5" path="res://Materials/NixieOne.ttf" id="6_5xp22"]
+[ext_resource type="FontFile" uid="uid://dtshncsgw6tes" path="res://Materials/Frutiger_bold.ttf" id="6_5xp22"]
 [ext_resource type="PackedScene" uid="uid://djellqlexi8d0" path="res://Scenes/sticky_wheel.tscn" id="8_tyrku"]
 [ext_resource type="PackedScene" uid="uid://djff3v2ldp7y6" path="res://Scenes/boarding_pass.tscn" id="9_tyrku"]
 
@@ -380,7 +380,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Item Description" index="0"]
+[node name="Item Title" type="RichTextLabel" parent="Item Description" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 868.0
+offset_top = 113.0
+offset_right = -49.0
+offset_bottom = -494.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("6_5xp22")
+theme_override_font_sizes/normal_font_size = 20
+
+[node name="Panel" type="Panel" parent="Item Description" index="1"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -408,7 +422,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("6_5xp22")
 theme_override_font_sizes/normal_font_size = 20
-text = "ITEM DESCRIPTION"
 
 [node name="Selection Menu UI" type="Control" parent="." index="17"]
 layout_mode = 3
