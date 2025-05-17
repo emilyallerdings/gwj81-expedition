@@ -58,6 +58,7 @@ size = Vector3(0.205383, 2.09515, 4.09888)
 
 [node name="boarding pass" node_paths=PackedStringArray("mesh_array") instance=ExtResource("1_rmxxy")]
 script = ExtResource("2_i0bg6")
+description = "BOARDING PASS"
 mesh_array = [NodePath("Pass"), NodePath("Text")]
 
 [node name="Pass" parent="." index="0"]

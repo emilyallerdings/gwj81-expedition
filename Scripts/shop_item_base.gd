@@ -2,6 +2,7 @@ extends Node3D
 
 class_name ShopItem
 
+@export_multiline var description : String = ""
 @export var mesh_array : Array[MeshInstance3D] = []
 
 var rotation_speed : Vector3 = Vector3(0, 20, 0)

@@ -9,5 +9,6 @@ func _on_quit_pressed():
 func _on_try_again_pressed():
 	#TODO RESET ALL VARIABLES IN GAME MANAGER
 	#how do i go back to the loading screen
+	TransitionEffect.current_scene = get_tree().current_scene
 	await TransitionEffect.transition_to_scene("res://Scenes/main_menu.tscn")
-	queue_free()
+	#queue_free()
