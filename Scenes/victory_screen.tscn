@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://conmtu5obhy4r"]
+[gd_scene load_steps=15 format=3 uid="uid://c1yvh3bknw4nr"]
 
 [ext_resource type="Script" uid="uid://deic86kab5ksr" path="res://Scripts/victory_screen.gd" id="1_fmvqe"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_oq8vb"]

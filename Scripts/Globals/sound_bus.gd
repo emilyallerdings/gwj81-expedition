@@ -3,21 +3,21 @@ extends Node
 signal sounds_loaded
 
 #region sfx
-@onready var airport_ambience = $"Airport Ambience"
-@onready var button = $Button
-@onready var rolling_suitcase = $"Rolling Suitcase"
-@onready var button_hover_click = $"Button Hover Click"
-@onready var whoosh = $Whoosh
-@onready var start_game = $"Start Game"
-@onready var flyby = $Flyby
-@onready var countdown_horn = $"Countdown Horn"
+@onready var airport_ambience:AudioStreamPlayer = $"Airport Ambience"
+@onready var button:AudioStreamPlayer = $Button
+@onready var rolling_suitcase:AudioStreamPlayer = $"Rolling Suitcase"
+@onready var button_hover_click:AudioStreamPlayer = $"Button Hover Click"
+@onready var whoosh:AudioStreamPlayer = $Whoosh
+@onready var start_game:AudioStreamPlayer = $"Start Game"
+@onready var flyby:AudioStreamPlayer = $Flyby
+@onready var countdown_horn:AudioStreamPlayer = $"Countdown Horn"
 
 #endregion
 
 #region music
-@onready var song_1 = $Song1
-@onready var song_2 = $Song2
-@onready var song_3 = $Song3
+@onready var song_1:AudioStreamPlayer = $Song1
+@onready var song_2:AudioStreamPlayer = $Song2
+@onready var song_3:AudioStreamPlayer = $Song3
 
 #endregion
 

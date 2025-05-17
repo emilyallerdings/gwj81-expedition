@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bto31q0wlkcdu"
-path="res://.godot/imported/sticky_wheel.glb-aa19459799e43c5ee88908270b88d30d.scn"
+uid="uid://dpeo5fsshsg4c"
+path="res://.godot/imported/boarding pass.glb-c79213458d6f0c1d9319d3274390b52f.scn"
 
 [deps]
 
-source_file="res://Assets/shop_items/sticky_wheel.glb"
-dest_files=["res://.godot/imported/sticky_wheel.glb-aa19459799e43c5ee88908270b88d30d.scn"]
+source_file="res://Assets/shop_items/boarding pass.glb"
+dest_files=["res://.godot/imported/boarding pass.glb-c79213458d6f0c1d9319d3274390b52f.scn"]
 
 [params]
 

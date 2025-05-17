@@ -32,6 +32,7 @@ var check_thread:Thread
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	check_thread = Thread.new()
+	
 	#GameManager.total_money += start_money
 
 	await get_tree().create_timer(0.01).timeout
@@ -49,6 +50,7 @@ func _ready() -> void:
 	boarding_generator.connect("player_left_turn", turn_player_left)
 	boarding_generator.connect("player_right_turn", turn_player_right)
 	boarding_generator.connect("player_finished", player_finished)
+	player.connect("player_hit", player_on_hit)
 
 	main_camera.fov = 90.0
 	start_money = ceil(boarding_generator.total_path/ 3.0) * 100
@@ -73,9 +75,10 @@ func _ready() -> void:
 	#player.collision_shape = player.get_child(3).get_child(5)
 	
 func start_game():
+	SoundBus.song_1.play(0)
 	#print("Base Dif: " + str(GameManager.base_difficulty))
 	#print("Modified Dif: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty))
-	SoundBus.song_1.play()
+	#SoundBus.song_1.play()
 	player.start()
 	started  = true
 
@@ -105,14 +108,6 @@ func _process(delta: float) -> void:
 		var camera_increase := get_tree().create_tween()
 		camera_increase.tween_property(main_camera, "fov", 90.0, 0.25)
 	
-	if GameManager.total_health != current_health and heart_container.get_child_count() > 0:
-		heart_container.get_child(-1).queue_free()
-		current_health = GameManager.total_health
-		#print(GameManager.total_health)
-		#print(current_health)
-	
-	if GameManager.total_health <= 0:
-		player_died()
 
 
 func project_vector(a: Vector3, b: Vector3) -> Vector3:
@@ -170,6 +165,7 @@ func player_finished():
 	TransitionEffect.transition_to_scene("res://Scenes/victory_screen.tscn")
 
 func player_died():
+	print("player died")
 	GameManager.base_difficulty = 0
 	GameManager.current_level = 0
 	GameManager.earned_money = 0
@@ -196,3 +192,13 @@ func _on_update_vis_timer_timeout() -> void:
 			counter = 0 
 			await get_tree().process_frame
 	pass # Replace with function body.
+
+func player_on_hit():
+	if GameManager.total_health != current_health and heart_container.get_child_count() > 0:
+		heart_container.get_child(-1).queue_free()
+		current_health = GameManager.total_health
+		#print(GameManager.total_health)
+		#print(current_health)
+	
+	if GameManager.total_health <= 0:
+		player_died()

@@ -61,7 +61,25 @@ func select_city(city:CityInfo):
 	self.selected_city = city
 	modifier_difficulty = city.modifier_difficulty
 
+
 func cents_to_str(amount_cents:int) -> String:
 	var dollars = amount_cents / 100
 	var cents = amount_cents % 100
 	return "$%d.%02d" % [dollars, cents]
+
+
+func reset():
+	map_select_loaded.queue_free()
+	map_select_loaded = map_select.instantiate()
+	map_select_loaded.visible = false
+	$UI.add_child(map_select_loaded)
+	
+	earned_money = 0
+	current_level = 0
+	base_difficulty = 0
+	total_money = 0
+	credits = 0
+	total_health = 0
+	chosen_luggage = null
+	selected_city = null
+
