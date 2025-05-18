@@ -9,7 +9,6 @@
 [ext_resource type="Material" uid="uid://cm7qnbed4m653" path="res://Materials/stone_wall.tres" id="6_5n0dv"]
 [ext_resource type="FontFile" uid="uid://dm3tgbcnyqtrp" path="res://Materials/Mayonice.ttf" id="7_6dk6o"]
 [ext_resource type="Material" uid="uid://douvr2xy6bys" path="res://Materials/stone_wall_toon.tres" id="7_ne6ao"]
-[ext_resource type="Texture2D" uid="uid://crjk38l5pjmae" path="res://UI Assets/title_splash.png" id="7_vtepg"]
 [ext_resource type="PackedScene" uid="uid://c3st1sbq1ewwj" path="res://Scenes/luggage.tscn" id="8_8dnnj"]
 [ext_resource type="PackedScene" uid="uid://cmh6g5wgx6af3" path="res://Assets/luggage_select_scene.glb" id="8_ne6ao"]
 [ext_resource type="Material" uid="uid://b0qavxyiqg3pl" path="res://Materials/clear_window.tres" id="8_tt8ml"]
@@ -23,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bcstmcu7cxqvx" path="res://UI Assets/PNG/arrow_basic_w (2).png" id="10_vr1f0"]
 [ext_resource type="PackedScene" uid="uid://dyp0ruihjrtu3" path="res://Scenes/monitor.tscn" id="13_4nkqq"]
 [ext_resource type="PackedScene" uid="uid://cqsv33bhm2yi1" path="res://Scenes/credits_mesh.tscn" id="15_8dnnj"]
+[ext_resource type="Texture2D" uid="uid://bql8sri5iqnvw" path="res://UI Assets/Terminal_Velocity_Logo_Large.png" id="15_dp8uv"]
 [ext_resource type="Script" uid="uid://bgu6pfg5mqnh8" path="res://Scripts/options_menu.gd" id="18_tt8ml"]
 [ext_resource type="PackedScene" uid="uid://b0por5lq4d3dn" path="res://Assets/luggage_stage.glb" id="22_6m47u"]
 [ext_resource type="Material" uid="uid://xexnvc4jdw7q" path="res://Materials/official_luggage_material/big_daddy.tres" id="23_84iac"]
@@ -1545,6 +1545,7 @@ transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -78.9037, 
 
 [node name="Main Menu Camera" type="Camera3D" parent="Main Menu"]
 transform = Transform3D(-0.815614, -0.17541, 0.551366, 0, 0.952938, 0.303165, -0.578596, 0.247266, -0.77723, 25.7932, 17.8789, 20.6814)
+fov = 80.0
 
 [node name="Main Menu UI" type="Control" parent="Main Menu"]
 visible = false
@@ -1555,14 +1556,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="Main Menu/Main Menu UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = -610.0
+offset_right = 788.0
+offset_bottom = 414.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_dp8uv")
+
 [node name="Title" type="RichTextLabel" parent="Main Menu/Main Menu UI"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 23.0
-offset_top = 60.0
+offset_top = 86.0
 offset_right = -26.0
-offset_bottom = 208.0
+offset_bottom = 234.0
 grow_horizontal = 2
 theme = ExtResource("5_t1dhk")
 theme_override_colors/font_outline_color = Color(0.964367, 0.596282, 0, 1)
@@ -1633,19 +1650,6 @@ theme = ExtResource("5_t1dhk")
 theme_override_fonts/font = ExtResource("6_5egv6")
 theme_override_font_sizes/font_size = 50
 text = "Credits"
-
-[node name="TextureRect" type="TextureRect" parent="Main Menu/Main Menu UI"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -198.0
-offset_top = -95.0
-offset_right = 199.0
-offset_bottom = 302.0
-grow_horizontal = 2
-texture = ExtResource("7_vtepg")
 
 [node name="luggage" parent="Main Menu" instance=ExtResource("8_8dnnj")]
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 18.3622, 3, 33.2047)

@@ -54,9 +54,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -87.0
-offset_top = -224.0
+offset_top = -216.0
 offset_right = 87.0
-offset_bottom = -138.0
+offset_bottom = -130.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_emv3i")
@@ -79,5 +79,75 @@ grow_vertical = 0
 theme = ExtResource("1_emv3i")
 text = "Main Menu"
 
+[node name="SFX Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -146.0
+offset_right = 139.0
+offset_bottom = -100.25
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_emv3i")
+text = "Sound Effects"
+
+[node name="SFX Volume" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -100.0
+offset_right = 138.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_emv3i")
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="Music Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -30.0
+offset_right = -18.0
+offset_bottom = 15.75
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_emv3i")
+text = "Music"
+
+[node name="Music Volume" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = 16.0
+offset_right = 139.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_emv3i")
+max_value = 1.0
+step = 0.1
+value = 0.5
+
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="value_changed" from="SFX Volume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="value_changed" from="Music Volume" to="." method="_on_music_volume_value_changed"]

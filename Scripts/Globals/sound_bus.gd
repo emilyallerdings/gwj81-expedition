@@ -17,7 +17,6 @@ signal sounds_loaded
 @onready var ocean_waves:AudioStreamPlayer = $"Ocean Waves"
 @onready var wrong: AudioStreamPlayer = $Wrong
 @onready var whistle: AudioStreamPlayer = $Whistle
-
 #endregion
 
 #region music
@@ -50,3 +49,7 @@ func preload_sounds():
 	await get_tree().process_frame
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 	sounds_loaded.emit()
+
+func reset_sounds():
+	for child in get_children():
+		child.stop()

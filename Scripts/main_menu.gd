@@ -85,7 +85,7 @@ func _ready() -> void:
 	#add_child(select_map)
 	select_map.visible = false
 	suitecase_sprite.position = Vector2(play.position.x - 50.0, play.position.y + 35.0)
-	
+	SoundBus.rolling_suitcase.stop() # WHY
 
 func _process(delta: float) -> void:
 	selection_stage.rotation_degrees += rotation_speed * delta
