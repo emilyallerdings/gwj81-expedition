@@ -20,6 +20,6 @@ func start_countdown():
 	
 
 func finish():
-	$CountdownText.text = "fin"
+	$CountdownText.text = "Boarded!"
 	$CountAnim.play("fin")
 	#SoundBus.whistle.play()
