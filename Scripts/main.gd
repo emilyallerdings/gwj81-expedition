@@ -33,7 +33,7 @@ var stopwatch_time : float = 0.0
 
 var heart_arr = []
 
-
+var double_check = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	check_thread = Thread.new()
@@ -199,6 +199,9 @@ func transition_to_victory():
 
 
 func player_died():
+	if double_check:
+		return
+	double_check = true
 	GameManager.base_difficulty = 0
 	GameManager.current_level = 0
 	GameManager.earned_money = 0
