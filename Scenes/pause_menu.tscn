@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://db45deki26s38"]
+
+[ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_emv3i"]
+[ext_resource type="Script" uid="uid://dae2knce8q45k" path="res://Scripts/pause_menu.gd" id="1_k0w1u"]
+
+[sub_resource type="Gradient" id="Gradient_emv3i"]
+colors = PackedColorArray(0.574301, 0.299431, 0, 1, 0, 0.47451, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k0w1u"]
+gradient = SubResource("Gradient_emv3i")
+fill_from = Vector2(1, 1)
+
+[node name="Pause Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k0w1u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_k0w1u")
+
+[node name="Paused Text" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.0
+offset_top = 58.0
+offset_right = 139.0
+offset_bottom = 205.0
+grow_horizontal = 2
+theme = ExtResource("1_emv3i")
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 90
+text = "Paused"
+fit_content = true
+
+[node name="Resume" type="Button" parent="."]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -138.0
+offset_right = 87.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_emv3i")
+text = "Resume"
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]

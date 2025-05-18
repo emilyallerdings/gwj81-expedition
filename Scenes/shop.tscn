@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ckn6c7vui2vhf" path="res://Scripts/shop.gd" id="4_fdj0q"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="5_k6jq0"]
 [ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="5_s8dlv"]
-[ext_resource type="FontFile" uid="uid://dtshncsgw6tes" path="res://Materials/Frutiger_bold.ttf" id="6_5xp22"]
+[ext_resource type="FontFile" uid="uid://b268wijfkjakj" path="res://Materials/BarberChop.otf" id="7_s8dlv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ps1r"]
 render_priority = 0
@@ -391,14 +391,19 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 868.0
-offset_top = 113.0
-offset_right = -49.0
-offset_bottom = -494.0
+offset_left = 862.0
+offset_top = 14.0
+offset_right = -46.0
+offset_bottom = -491.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("6_5xp22")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_colors/default_color = Color(0.964706, 0.596078, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("7_s8dlv")
+theme_override_font_sizes/normal_font_size = 40
+text = "priority boarding pass"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="Selection Menu UI" index="2"]
 layout_mode = 1
@@ -426,8 +431,10 @@ offset_right = -7.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("6_5xp22")
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("7_s8dlv")
 theme_override_font_sizes/normal_font_size = 20
+text = "test"
 
 [node name="Buy" type="Button" parent="Selection Menu UI" index="3"]
 layout_mode = 1

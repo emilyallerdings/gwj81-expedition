@@ -155,6 +155,7 @@ offset_right = 406.0
 offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_nk6go")
 
 [node name="Panel" type="Panel" parent="ScrollContainer"]
 custom_minimum_size = Vector2(3821.85, 527.29)

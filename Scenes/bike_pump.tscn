@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=4 uid="uid://da5rusi5ttnoj"]
+[gd_scene load_steps=25 format=4 uid="uid://da5rusi5ttnoj"]
 
 [ext_resource type="PackedScene" uid="uid://ddog8jryn4sly" path="res://Assets/shop_items/bike_pump.glb" id="1_81t1d"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_4v3ct"]
+[ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="2_a3tt8"]
 [ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="3_a3tt8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bwj7g"]
@@ -268,7 +269,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kghng")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_81t1d"]
+size = Vector3(3.08795, 4.9126, 1.63745)
+
 [node name="bike_pump" instance=ExtResource("1_81t1d")]
+script = ExtResource("2_a3tt8")
 
 [node name="Cube" parent="." index="0"]
 mesh = SubResource("ArrayMesh_pgoqo")
@@ -287,3 +292,7 @@ mesh = SubResource("ArrayMesh_hfwtm")
 
 [node name="Cylinder_007" parent="." index="5"]
 mesh = SubResource("ArrayMesh_d2nrs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0213928, 2.90112, 0.0098877)
+shape = SubResource("BoxShape3D_81t1d")

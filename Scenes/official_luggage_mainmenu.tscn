@@ -1,10 +1,13 @@
-[gd_scene load_steps=17 format=4 uid="uid://cbex0prspcmjo"]
+[gd_scene load_steps=27 format=4 uid="uid://cbex0prspcmjo"]
 
 [ext_resource type="PackedScene" uid="uid://d032cbpjc4bax" path="res://Assets/official_luggage.glb" id="1_fakku"]
 [ext_resource type="Material" uid="uid://chktpch7mxrfq" path="res://Materials/official_luggage_material/metal_material.tres" id="2_l7glm"]
 [ext_resource type="Script" uid="uid://c0dvlbuemp5wx" path="res://Scripts/luggage.gd" id="2_qu1v0"]
 [ext_resource type="Material" uid="uid://e363r7m2s217" path="res://Materials/official_luggage_material/black_material.tres" id="4_l7glm"]
 [ext_resource type="Material" uid="uid://cnqd6y423d617" path="res://Materials/official_luggage_material/official_luggage_body.tres" id="4_qu1v0"]
+[ext_resource type="AudioStream" uid="uid://cu3eddt7uujl8" path="res://Sounds/plastic_collision.ogg" id="6_c0myj"]
+[ext_resource type="Shader" uid="uid://cm3okf6o8rav4" path="res://Shaders/fire_trail.gdshader" id="6_ke1yc"]
+[ext_resource type="Texture2D" uid="uid://cwt6xociwo7ty" path="res://Assets/particles/slash_02.png" id="7_ke1yc"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_npmhn"]
 _surfaces = [{
@@ -223,13 +226,56 @@ shadow_mesh = SubResource("ArrayMesh_ilybr")
 [sub_resource type="BoxShape3D" id="BoxShape3D_qu1v0"]
 size = Vector3(1.5818, 2.8717, 2.09546)
 
-[node name="official_luggage" node_paths=PackedStringArray("luggage_collider") instance=ExtResource("1_fakku")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pikxs"]
+render_priority = 0
+shader = ExtResource("6_ke1yc")
+shader_parameter/texture_mask = ExtResource("7_ke1yc")
+shader_parameter/emission_intensity = 2.0
+shader_parameter/time_scale = 3.0
+shader_parameter/texture_scale = Vector2(1, 1)
+shader_parameter/edge_softness = 0.1
+
+[sub_resource type="Gradient" id="Gradient_wapq2"]
+offsets = PackedFloat32Array(0, 0.57047, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.444698, 0.444698, 0.444698, 0.02349, 0.43134, 0.43134, 0.43134, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pikxs"]
+gradient = SubResource("Gradient_wapq2")
+
+[sub_resource type="Curve" id="Curve_xaqpt"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.886986, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tyvfb"]
+curve = SubResource("Curve_xaqpt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qcqej"]
+lifetime_randomness = 0.81
+emission_shape = 3
+emission_box_extents = Vector3(0.2, 0.2, 0.2)
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 4.0
+linear_accel_max = 4.0
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 0.499998
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_tyvfb")
+color_ramp = SubResource("GradientTexture1D_pikxs")
+
+[sub_resource type="QuadMesh" id="QuadMesh_cm1a5"]
+size = Vector2(2, 2)
+
+[node name="official_luggage" node_paths=PackedStringArray("luggage_collider", "collision_sound") instance=ExtResource("1_fakku")]
 transform = Transform3D(-1.39876e-07, 0, -3.2, 0, 3.2, 0, 3.2, 0, -1.39876e-07, 0, 0, 0)
 script = ExtResource("2_qu1v0")
 title = "basic luggage"
 strafe_speed = 15
 description = "Your basic luggage. Nothing fancy, gets the job done, no frills. Some would call it the quintessential carry-on due to its compact size and surprisingly large storage capacity."
 luggage_collider = NodePath("CollisionShape3D")
+collision_sound = NodePath("Collision Sound")
 
 [node name="Default Luggage Bars" parent="." index="0"]
 mesh = SubResource("ArrayMesh_ke1yc")
@@ -249,3 +295,30 @@ mesh = SubResource("ArrayMesh_l7glm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0144425, 1.60309, 0.00223347)
 shape = SubResource("BoxShape3D_qu1v0")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73195e-08, 0, -0.625)
+material_override = SubResource("ShaderMaterial_pikxs")
+cast_shadow = 0
+amount = 50
+lifetime = 2.0
+randomness = 0.74
+draw_order = 1
+process_material = SubResource("ParticleProcessMaterial_qcqej")
+draw_pass_1 = SubResource("QuadMesh_cm1a5")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.93338e-09, 0, 0.625)
+material_override = SubResource("ShaderMaterial_pikxs")
+cast_shadow = 0
+amount = 50
+lifetime = 2.0
+randomness = 0.74
+draw_order = 1
+process_material = SubResource("ParticleProcessMaterial_qcqej")
+draw_pass_1 = SubResource("QuadMesh_cm1a5")
+
+[node name="Collision Sound" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource("6_c0myj")
+volume_db = -5.0
+bus = &"SFX"

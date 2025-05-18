@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://d244p6nhd00ic"]
+[gd_scene load_steps=31 format=4 uid="uid://d244p6nhd00ic"]
 
 [ext_resource type="PackedScene" uid="uid://6wc1ufbdp8jr" path="res://Assets/big_daddy.glb" id="1_ovv6o"]
 [ext_resource type="Script" uid="uid://c0dvlbuemp5wx" path="res://Scripts/luggage.gd" id="2_tdoey"]
@@ -7,8 +7,9 @@
 [ext_resource type="FontFile" uid="uid://c2cwoacpy0sr5" path="res://Materials/Capture it.ttf" id="3_tdoey"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="5_edyp5"]
 [ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="6_71hyn"]
-[ext_resource type="Shader" path="res://Shaders/fire_trail.gdshader" id="8_yeu0c"]
+[ext_resource type="Shader" uid="uid://cm3okf6o8rav4" path="res://Shaders/fire_trail.gdshader" id="8_yeu0c"]
 [ext_resource type="Texture2D" uid="uid://be884dqn5kp7r" path="res://Assets/particles/scorch_02.png" id="9_es1tj"]
+[ext_resource type="AudioStream" uid="uid://pjcff2556ajn" path="res://Sounds/metal_collision.ogg" id="10_es1tj"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6vqf4"]
 _surfaces = [{
@@ -247,11 +248,12 @@ shader_parameter/time_scale = 3.0
 shader_parameter/texture_scale = Vector2(1, 1)
 shader_parameter/edge_softness = 0.1
 
-[sub_resource type="Gradient" id="Gradient_u8wa4"]
-colors = PackedColorArray(1, 0.372549, 0, 1, 0.498144, 0.495076, 7.70092e-07, 0.713726)
+[sub_resource type="Gradient" id="Gradient_es1tj"]
+offsets = PackedFloat32Array(0.865772, 1)
+colors = PackedColorArray(1, 0.596078, 0, 1, 1, 0.596078, 0, 0.215686)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_p4ocl"]
-gradient = SubResource("Gradient_u8wa4")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_khohq"]
+gradient = SubResource("Gradient_es1tj")
 
 [sub_resource type="Curve" id="Curve_44ktw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.886986, 1), 0.0, 0.0, 0, 0]
@@ -273,7 +275,7 @@ tangential_accel_max = 0.499998
 scale_min = 2.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_tyvfb")
-color_ramp = SubResource("GradientTexture1D_p4ocl")
+color_ramp = SubResource("GradientTexture1D_khohq")
 
 [sub_resource type="QuadMesh" id="QuadMesh_8shy2"]
 size = Vector2(2, 2)
@@ -281,7 +283,7 @@ size = Vector2(2, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_edyp5"]
 size = Vector3(1.83698, 2.8717, 2.67381)
 
-[node name="big_daddy" node_paths=PackedStringArray("luggage_collider") instance=ExtResource("1_ovv6o")]
+[node name="big_daddy" node_paths=PackedStringArray("luggage_collider", "collision_sound") instance=ExtResource("1_ovv6o")]
 transform = Transform3D(-1.39876e-07, 0, -3.2, 0, 3.2, 0, 3.2, 0, -1.39876e-07, 0, 0, 0)
 script = ExtResource("2_tdoey")
 title = "BIG DADDY"
@@ -297,6 +299,7 @@ Higher health, boost and top speed, but at the cost of a wider frame and maneuve
 "
 font = ExtResource("3_tdoey")
 luggage_collider = NodePath("CollisionShape3D")
+collision_sound = NodePath("Collision Sound")
 
 [node name="Big Luggage Bars" parent="." index="0"]
 mesh = SubResource("ArrayMesh_tdoey")
@@ -338,3 +341,8 @@ draw_pass_1 = SubResource("QuadMesh_8shy2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00283815, 1.60309, -0.00691988)
 shape = SubResource("BoxShape3D_edyp5")
+
+[node name="Collision Sound" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource("10_es1tj")
+volume_db = -5.0
+bus = &"SFX"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://c0fcllhaw72sa"]
+[gd_scene load_steps=33 format=4 uid="uid://c0fcllhaw72sa"]
 
 [ext_resource type="PackedScene" uid="uid://c4a6bg0ddyvmj" path="res://Assets/sparklecorn.glb" id="1_xlbl3"]
 [ext_resource type="Script" uid="uid://c0dvlbuemp5wx" path="res://Scripts/luggage.gd" id="2_wmmgg"]
@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bbj14frmq7i62" path="res://Assets/sparklecorn_materials/Glitter.png" id="5_phb58"]
 [ext_resource type="Material" uid="uid://chktpch7mxrfq" path="res://Materials/official_luggage_material/metal_material.tres" id="6_wvnd7"]
 [ext_resource type="Material" uid="uid://dxscaj1oqselm" path="res://Materials/official_luggage_material/pink_material.tres" id="7_phb58"]
-[ext_resource type="Shader" path="res://Shaders/fire_trail.gdshader" id="10_nl6ec"]
+[ext_resource type="Shader" uid="uid://cm3okf6o8rav4" path="res://Shaders/fire_trail.gdshader" id="10_nl6ec"]
 [ext_resource type="Texture2D" uid="uid://cjmpc17ujijkw" path="res://Assets/particles/star_06.png" id="11_knafu"]
+[ext_resource type="AudioStream" uid="uid://cu3eddt7uujl8" path="res://Sounds/plastic_collision.ogg" id="12_nl6ec"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wvnd7"]
 render_priority = 0
@@ -315,7 +316,7 @@ size = Vector2(2, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u3d1e"]
 size = Vector3(0.908936, 1.69067, 1.27136)
 
-[node name="sparklecorn" node_paths=PackedStringArray("luggage_collider") instance=ExtResource("1_xlbl3")]
+[node name="sparklecorn" node_paths=PackedStringArray("luggage_collider", "collision_sound") instance=ExtResource("1_xlbl3")]
 transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 0, 0, 0)
 script = ExtResource("2_wmmgg")
 title = "⋆˙⟡Sparklecorn⟡˙⋆"
@@ -328,6 +329,7 @@ description = "Every little girls' dream suitcase! Use ONLY if you're feeling �
 Trades health and boost for insane maneuverability and a smaller frame."
 font = ExtResource("3_u3d1e")
 luggage_collider = NodePath("CollisionShape3D")
+collision_sound = NodePath("Collision Sound")
 
 [node name="Unicorn Body" parent="." index="0"]
 mesh = SubResource("ArrayMesh_phb58")
@@ -369,3 +371,9 @@ draw_pass_1 = SubResource("QuadMesh_yj8o6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.013, 0)
 shape = SubResource("BoxShape3D_u3d1e")
+
+[node name="Collision Sound" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource("12_nl6ec")
+volume_db = -5.0
+pitch_scale = 1.5
+bus = &"SFX"

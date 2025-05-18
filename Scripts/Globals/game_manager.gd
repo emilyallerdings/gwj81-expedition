@@ -29,12 +29,15 @@ var hard_cities : Array[CityInfo] = []
 var extreme_cities : Array[CityInfo] = []
 
 var map_select : PackedScene = preload("res://Scenes/map_selection.tscn")
+var pause_menu_scene : PackedScene = preload("res://Scenes/pause_menu.tscn")
 
 var map_select_loaded = null
 
 var level_select_insts = []
 
 var save_file:SaveFile = null
+
+var paused : bool = false
 
 
 var speed_mod:float = 0
@@ -101,7 +104,6 @@ func reset():
 	base_diff_mod = 0
 	payout_mod = 1.0
 
-
 func set_luggage(luggage, luggage_scene):
 	if !luggage:
 		return
@@ -109,7 +111,12 @@ func set_luggage(luggage, luggage_scene):
 	chosen_luggage = luggage_scene
 	total_health = luggage.health
 	health = total_health
-	
-	
-	pass
-	
+
+func _input(event):
+	if Input.is_action_just_pressed("pause") \
+	and not get_tree().root.has_node("Main Menu") \
+	and not get_tree().root.has_node("Game Over Screen") \
+	and not get_tree().root.has_node("Transition Screen"):
+		var pause_menu := pause_menu_scene.instantiate()
+		get_tree().root.add_child(pause_menu)
+		get_tree().paused = true

@@ -20,12 +20,17 @@ preload("res://Scenes/hot_rod_mainmenu.tscn")]
 
 @onready var credits_menu_camera = $"Credits Menu/Credits Menu Camera"
 @onready var credits_menu_ui = $"Credits Menu/Credits Menu UI"
+
+@onready var how_to_play_camera = $"How to Play Menu/How To Play Camera"
+@onready var how_to_play_menu_ui = $"How to Play Menu/How To Play Menu UI"
 #endregion
 
 #region main menu ui buttons
 @onready var play = $"Main Menu/Main Menu UI/Play"
 @onready var options = $"Main Menu/Main Menu UI/Options"
 @onready var credits = $"Main Menu/Main Menu UI/Credits"
+@onready var how_to_play = $"Main Menu/Main Menu UI/How To Play"
+
 #endregion
 
 #region options menu ui buttons
@@ -44,6 +49,10 @@ preload("res://Scenes/hot_rod_mainmenu.tscn")]
 @onready var luggage_type = $"Selection Menu/Selection Menu UI/Panel2/Luggage Type"
 @onready var luggage_stats = $"Selection Menu/Selection Menu UI/Luggage Stats"
 @onready var luggage_description = $"Selection Menu/Selection Menu UI/Panel/Luggage Description"
+#endregion
+
+#region how to play menu ui buttons
+@onready var how_to_play_back = $"How to Play Menu/How To Play Menu UI/How To Play Back"
 #endregion
 
 @onready var selection_stage = $SelectionStage
@@ -67,6 +76,7 @@ func _ready() -> void:
 	options_menu_ui.visible = false
 	selection_menu_ui.visible = false
 	credits_menu_ui.visible = false
+	how_to_play_menu_ui.visible = false
 	
 	update_luggage_object()
 	select_map = GameManager.map_select_loaded
@@ -163,6 +173,7 @@ func _on_selection_back_pressed():
 func _on_credits_pressed() -> void:
 	SoundBus.button.play()
 	SoundBus.whoosh.play()
+	suitecase_sprite.position = Vector2(credits_back.position.x - 50.0, credits_back.position.y + 35.0)
 	transition_cameras(main_menu_camera, credits_menu_camera)
 	main_menu_ui.visible = false
 	credits_menu_ui.visible = true
@@ -189,7 +200,22 @@ func _on_left_button_pressed():
 	SoundBus.button.play()
 	i = (i - 1) % len(luggages)
 	update_luggage_object()
-	
+
+func _on_how_to_play_pressed():
+	SoundBus.button.play()
+	SoundBus.whoosh.play()
+	transition_cameras(main_menu_camera, how_to_play_camera)
+	suitecase_sprite.position = Vector2(how_to_play_back.position.x - 50.0, how_to_play_back.position.y + 35.0)
+	main_menu_ui.visible = false
+	how_to_play_menu_ui.visible = true
+
+func _on_how_to_play_back_pressed():
+	SoundBus.button.play()
+	SoundBus.whoosh.play()
+	transition_cameras(how_to_play_camera, main_menu_camera)
+	main_menu_ui.visible = true
+	how_to_play_menu_ui.visible = false
+
 #endregion
 
 #region mouse hover logic
@@ -219,5 +245,13 @@ func _on_selection_play_mouse_entered():
 
 func _on_credits_back_mouse_entered():
 	suitecase_sprite.position = Vector2(credits_back.position.x - 50.0, credits_back.position.y + 35.0)
+	SoundBus.button_hover_click.play()
+
+func _on_how_to_play_mouse_entered():
+	suitecase_sprite.position = Vector2(how_to_play.position.x - 50.0, how_to_play.position.y + 35.0)
+	SoundBus.button_hover_click.play()
+
+func _on_how_to_play_back_mouse_entered():
+	suitecase_sprite.position = Vector2(how_to_play_back.position.x - 50.0, how_to_play_back.position.y + 35.0)
 	SoundBus.button_hover_click.play()
 #endregion

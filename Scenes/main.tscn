@@ -206,6 +206,7 @@ _data = {
 }
 
 [node name="Main" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_jjgbg")
 
 [node name="BoardingGenerator" parent="." instance=ExtResource("2_kry3j")]
