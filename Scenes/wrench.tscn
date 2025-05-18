@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=4 uid="uid://b4cf1csev0orf"]
+[gd_scene load_steps=13 format=4 uid="uid://b4cf1csev0orf"]
 
 [ext_resource type="PackedScene" uid="uid://bddr7o3jt28fj" path="res://Assets/shop_items/wrench.glb" id="1_36t74"]
+[ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="2_donwl"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_twu7b"]
 [ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="3_donwl"]
 
@@ -117,6 +118,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sgeg0")
 
 [node name="wrench" instance=ExtResource("1_36t74")]
+script = ExtResource("2_donwl")
 
 [node name="Cylinder" parent="." index="0"]
 mesh = SubResource("ArrayMesh_7013k")

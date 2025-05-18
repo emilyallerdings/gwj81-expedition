@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=4 uid="uid://cr35ydhbbe4ta"]
+[gd_scene load_steps=22 format=4 uid="uid://cr35ydhbbe4ta"]
 
 [ext_resource type="PackedScene" uid="uid://wd12hb3xp4gr" path="res://Assets/shop_items/nos.glb" id="1_b04ka"]
+[ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="2_b04ka"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_j5lfy"]
 [ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="3_f684n"]
 
@@ -241,6 +242,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wuj7a")
 
 [node name="nos" instance=ExtResource("1_b04ka")]
+script = ExtResource("2_b04ka")
 
 [node name="Cylinder_003" parent="." index="0"]
 mesh = SubResource("ArrayMesh_ry6so")

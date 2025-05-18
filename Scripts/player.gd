@@ -144,6 +144,7 @@ func handle_player_movement(delta:float):
 	# Boost handling
 	if Input.is_action_pressed("boost") and forward_speed >= max_speed * 0.95:
 		forward_speed = lerp(forward_speed, max_speed + boost_bonus, boost_acceleration * delta)
+	
 	#if not is_on_floor():
 		#velocity.y += -9.81 * delta
 
