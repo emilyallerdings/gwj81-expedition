@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfe6dlt8m6ru8" path="res://Scripts/person.gd" id="1_af0pv"]
 [ext_resource type="PackedScene" uid="uid://bf0l67lxu7vjd" path="res://Assets/characters/character_rig.glb" id="2_2p81s"]
-[ext_resource type="Material" uid="uid://chnr4ydfxbg47" path="res://Materials/Character_Material.tres" id="3_my8i3"]
+[ext_resource type="Material" uid="uid://c7e6u8kc1g0yp" path="res://Materials/Character_Material.tres" id="3_my8i3"]
 [ext_resource type="AnimationLibrary" uid="uid://d3bxqthqphxmc" path="res://Assets/characters/animations/character_anim_idle_01.glb" id="3_p763d"]
 [ext_resource type="AnimationLibrary" uid="uid://dpnkcf0diqn1s" path="res://Assets/characters/animations/character_anim_idle_02.glb" id="4_af0pv"]
 [ext_resource type="AnimationLibrary" uid="uid://dh6ohrbkldjwu" path="res://Assets/characters/animations/character_anim_oof.glb" id="5_my8i3"]
@@ -41,6 +41,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("CapsuleShape3D_6bp64")
 
 [node name="Character Mesh" parent="." instance=ExtResource("2_2p81s")]
+
+[node name="Skeleton3D" parent="Character Mesh" index="0"]
+bones/0/position = Vector3(0.0273146, 0.639237, 0.0666364)
+bones/0/rotation = Quaternion(-0.0554715, 0.0501785, 0.00269601, 0.997195)
+bones/1/rotation = Quaternion(0.00164752, 0.050081, -0.00247865, 0.998741)
+bones/2/rotation = Quaternion(-0.127894, 0.0486609, 0.00143758, 0.990592)
+bones/3/rotation = Quaternion(0.247065, 0.0234759, 0.00255382, 0.968711)
+bones/4/rotation = Quaternion(-0.119361, -0.00991955, 0.0157781, 0.992676)
+bones/5/rotation = Quaternion(0.589923, 0.747502, -0.00530967, -0.305291)
+bones/6/rotation = Quaternion(-0.0286618, 0.198047, 0.638049, 0.743539)
+bones/7/rotation = Quaternion(-0.309373, 0.00376977, 0.0408821, 0.950054)
+bones/8/rotation = Quaternion(0.00158517, -0.0594133, 0.0404776, 0.997411)
+bones/9/rotation = Quaternion(0.0286769, 0.00377572, 0.130471, 0.99103)
+bones/11/rotation = Quaternion(-0.581295, 0.751143, 0.00605913, 0.3128)
+bones/12/rotation = Quaternion(-0.0760303, -0.158644, -0.648289, 0.740792)
+bones/13/rotation = Quaternion(-0.390436, -0.000786936, -0.0424934, 0.919649)
+bones/14/rotation = Quaternion(-0.0877291, 0.0628387, -0.0360757, 0.993506)
+bones/15/rotation = Quaternion(0.454083, 0.656957, -0.351952, -0.488208)
+bones/16/rotation = Quaternion(-0.0599498, 0.00789221, -0.130287, 0.989631)
+bones/17/rotation = Quaternion(0.469675, 0.782301, -0.111332, -0.393721)
+bones/18/rotation = Quaternion(0.988742, 0.0477513, 0.0464554, 0.13398)
+bones/19/rotation = Quaternion(0.394838, 0.00692458, 0.0369688, 0.91798)
+bones/20/rotation = Quaternion(0.012744, 0.768633, -0.625834, 0.13181)
+bones/23/rotation = Quaternion(0.993065, -0.0848968, 0.0431517, -0.0689425)
+bones/24/rotation = Quaternion(0.27356, -0.00725411, -0.025614, 0.961487)
+bones/25/rotation = Quaternion(0.0550914, 0.727458, -0.68382, -0.0126515)
 
 [node name="Character_Mesh" parent="Character Mesh/Skeleton3D" index="0"]
 mesh = SubResource("ArrayMesh_km3lo")
