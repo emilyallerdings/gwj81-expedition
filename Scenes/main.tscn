@@ -282,10 +282,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 72)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, 92)
 length = 88.0
 
-[node name="BoardRampEnd" parent="BoardingGenerator" index="5"]
+[node name="BoardRampEnd" parent="BoardingGenerator" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 3, 360)
 
-[node name="EndZone" parent="BoardingGenerator" index="6"]
+[node name="EndZone" parent="BoardingGenerator" index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 376)
 
 [node name="Ground" type="MeshInstance3D" parent="."]

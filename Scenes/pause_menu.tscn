@@ -11,6 +11,7 @@ gradient = SubResource("Gradient_emv3i")
 fill_from = Vector2(1, 1)
 
 [node name="Pause Menu" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,8 +25,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 24.0
-offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_k0w1u")
@@ -55,12 +54,30 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -87.0
-offset_top = -138.0
+offset_top = -224.0
 offset_right = 87.0
-offset_bottom = -52.0
+offset_bottom = -138.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_emv3i")
 text = "Resume"
 
+[node name="Main Menu" type="Button" parent="."]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -138.0
+offset_top = -108.0
+offset_right = 138.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_emv3i")
+text = "Main Menu"
+
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]

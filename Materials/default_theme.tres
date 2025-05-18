@@ -1,9 +1,8 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://bncgplyvgv608"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://bncgplyvgv608"]
 
 [ext_resource type="FontFile" uid="uid://d4da0phun8v4d" path="res://Materials/Fair Prosper.ttf" id="1_c5ure"]
 [ext_resource type="FontFile" uid="uid://bafns24uaw6y5" path="res://Materials/NixieOne.ttf" id="2_c5ure"]
 [ext_resource type="Texture2D" uid="uid://4xsfax26bpg3" path="res://UI Assets/plane_export.png" id="2_c65rd"]
-[ext_resource type="Texture2D" uid="uid://cubnv2v3j4lyy" path="res://UI Assets/bar_round_gloss_large_square.png" id="4_b8mto"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dx8me"]
 border_width_left = 2
@@ -127,6 +126,4 @@ RichTextLabel/font_sizes/normal_font_size = 50
 RichTextLabel/fonts/normal_font = ExtResource("1_c5ure")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_b8mto")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_57ha5")
-VSlider/icons/grabber = ExtResource("4_b8mto")
-VSlider/icons/grabber_highlight = ExtResource("4_b8mto")
 VSlider/styles/slider = SubResource("StyleBoxLine_b8mto")

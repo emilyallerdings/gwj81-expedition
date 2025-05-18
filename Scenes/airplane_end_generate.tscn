@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dffj308wouf2l"]
+
+[ext_resource type="PackedScene" uid="uid://b5bckmopbgsj7" path="res://Assets/airplane_end_door.glb" id="1_jjqkn"]
+[ext_resource type="Material" uid="uid://dabvn2guvn83j" path="res://Materials/airplane_white_toonshader.tres" id="2_g1ho5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjqkn"]
+size = Vector3(1, 2.99951, 2.95105)
+
+[node name="Airplane End" type="Node3D"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+
+[node name="airplane_end_door" parent="." instance=ExtResource("1_jjqkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="Door" parent="airplane_end_door" index="0"]
+material_override = ExtResource("2_g1ho5")
+
+[node name="Plane Body" parent="airplane_end_door" index="1"]
+material_override = ExtResource("2_g1ho5")
+
+[node name="Main Wing Left" parent="airplane_end_door" index="2"]
+material_override = ExtResource("2_g1ho5")
+
+[node name="Main Wing Right" parent="airplane_end_door" index="3"]
+material_override = ExtResource("2_g1ho5")
+
+[node name="Rear Wing Center" parent="airplane_end_door" index="4"]
+material_override = ExtResource("2_g1ho5")
+
+[node name="Rear Wing Left" parent="airplane_end_door" index="5"]
+material_override = ExtResource("2_g1ho5")
+
+[node name="Rear Wing Right" parent="airplane_end_door" index="6"]
+material_override = ExtResource("2_g1ho5")
+
+[node name="Landing Gear Center" parent="airplane_end_door" index="10"]
+material_override = ExtResource("2_g1ho5")
+
+[node name="Landing Gear Left" parent="airplane_end_door" index="11"]
+material_override = ExtResource("2_g1ho5")
+
+[node name="Landing Gear Right" parent="airplane_end_door" index="12"]
+material_override = ExtResource("2_g1ho5")
+
+[node name="Turbine Left" parent="airplane_end_door" index="15"]
+material_override = ExtResource("2_g1ho5")
+
+[node name="Turbine Right" parent="airplane_end_door" index="16"]
+material_override = ExtResource("2_g1ho5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58062, 0.999756, -0.0103149)
+shape = SubResource("BoxShape3D_jjqkn")
+
+[editable path="airplane_end_door"]
