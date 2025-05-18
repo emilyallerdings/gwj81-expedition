@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dap32foqet7n"]
+[gd_scene load_steps=10 format=3 uid="uid://dap32foqet7n"]
 
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_r18jl"]
 [ext_resource type="FontFile" uid="uid://cwp8ay1qwwtb0" path="res://Materials/Terminal F4.ttf" id="2_gryuy"]
 [ext_resource type="Shader" uid="uid://b6iunul8h752c" path="res://Shaders/crt_shader.gdshader" id="3_ccovl"]
+[ext_resource type="Shader" uid="uid://ud44g8ahsyxi" path="res://Shaders/pseudo_3d.gdshader" id="3_uah1q"]
+[ext_resource type="Texture2D" uid="uid://bp108t835ivdh" path="res://UI Assets/pills-here.png" id="3_xelri"]
+[ext_resource type="Texture2D" uid="uid://d003t6dae65rt" path="res://UI Assets/Im-the-bad-guy.png" id="4_uah1q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccovl"]
 bg_color = Color(0, 0.709804, 0.815686, 1)
@@ -11,6 +14,20 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7emq5"]
+shader = ExtResource("3_uah1q")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+shader_parameter/hovering = 0.0
+shader_parameter/rand_trans_power = 1.0
+shader_parameter/rand_seed = 0.0
+shader_parameter/vortex_amt = 0.0
+shader_parameter/rotation = 0.0
+shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bamb"]
 shader = ExtResource("3_ccovl")
@@ -118,12 +135,23 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("2_gryuy")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "Models:
+text = "Modeling:
 KITSUNEMAESTRO
 Xury Greer
-drmadness3d
-Esgee"
+drmadness3d"
 fit_content = true
+
+[node name="Pills-here" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7emq5")
+position = Vector2(396.5, 390.3)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_xelri")
+
+[node name="Pills-here2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7emq5")
+position = Vector2(537.5, 390.3)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_uah1q")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_1bamb")

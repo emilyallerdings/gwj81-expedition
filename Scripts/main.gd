@@ -202,7 +202,7 @@ func _on_update_vis_timer_timeout() -> void:
 func player_on_hit():
 	if heart_container.get_child_count() > 0:
 		heart_container.get_child(-1).queue_free()
-		GameManager.total_health -= 1
+		#GameManager.total_health -= 1
 		#print(GameManager.total_health)
 		#print(current_health)
 	
