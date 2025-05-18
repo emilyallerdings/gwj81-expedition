@@ -4,7 +4,7 @@ var path:String = "res://Patterns/"
 const test_path:String = "res://Patterns/"
 const OBSTACLE = preload("res://Scenes/obstacle.tscn")
 const PICKUP = preload("res://Scenes/pickup.tscn")
-
+const CRATE = preload("res://Scenes/obstacle_crate.tscn")
 var easy_patterns = []
 var med_patterns = []
 var hard_patterns = []

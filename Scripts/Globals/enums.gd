@@ -9,7 +9,8 @@ enum PatternDifficulty{
 
 enum ObstacleType{
 	PEOPLE=0,
-	PICKUP=1
+	PICKUP=1,
+	CRATE=2
 }
 
 enum LevelDifficulty {

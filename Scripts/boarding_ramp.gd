@@ -152,6 +152,10 @@ func place_pattern(pattern:ObstaclePattern, z_pos:float):
 		elif ob.type == Enums.ObstacleType.PICKUP:
 			#n_ob = PatternManager.PICKUP.instantiate()
 			pass
+		elif ob.type == Enums.ObstacleType.CRATE:
+			print("test")
+			n_ob = PatternManager.CRATE.instantiate()
+			pass
 		if n_ob:
 			obstacles.append(n_ob)
 			add_child(n_ob)

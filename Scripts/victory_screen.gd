@@ -12,7 +12,10 @@ var end_earned = 0.0
 var start_total = GameManager.total_money
 var end_total = GameManager.total_money + start_earned
 var tweening = false
+var tweening2 = false
 var speed_mod:float = 10.0
+
+var time_counter:float = 0
 
 #region TODO update GameManager Time to reset to 0
 # GameManager.level_time
@@ -20,6 +23,11 @@ var speed_mod:float = 10.0
 #endregion
 
 func _ready():
+	GameManager.total_total_money += GameManager.earned_money
+	GameManager.total_total_time += GameManager.level_time
+	$"Panel/Total Time".text = "Total Time: " + ("%.2f" % time_counter)
+	
+	print(GameManager.level_time)
 	SoundBus.rolling_suitcase.stop()
 	update_labels()
 	next.disabled = true
@@ -49,9 +57,26 @@ func _process(delta: float) -> void:
 			victory_anims.play("Fade")
 			tweening = false
 			$blip.stop()
+			$blip.pitch_scale = 1.0
+			
+			do_wait()
+			
+			
+	if tweening2:
+		
+		#print("time count: ", time_counter, " delta: ", delta, " delta*100", delta*100.0)
+		time_counter = min(GameManager.level_time, time_counter + delta * 20.0)
+		$"Panel/Total Time".text = "Total Time: " + ("%.2f" % time_counter) + "s"
+		if time_counter >= GameManager.level_time:
+			tweening2 = false
 			next.disabled = false
-	
+			$blip.stop()
 
+func do_wait():
+	await get_tree().create_timer(1.0).timeout
+	$blip.play(0)
+	tweening2 = true
+				
 func transfer_money():
 	start_earned = GameManager.earned_money
 	end_earned = 0.0

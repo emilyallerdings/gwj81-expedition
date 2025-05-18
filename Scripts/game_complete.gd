@@ -5,6 +5,10 @@ extends Node3D
 @onready var main_menu = $"Control/Main Menu"
 
 func _ready():
+	
+	$"Control/Total Money".text += GameManager.cents_to_str(GameManager.total_total_money)
+	$"Control/Total Time".text += ("%.2f" % GameManager.total_total_time) + "s"
+	
 	SoundBus.ocean_waves.play()
 	SoundBus.song_4.play()
 	

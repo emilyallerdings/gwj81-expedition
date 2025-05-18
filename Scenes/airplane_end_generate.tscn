@@ -105,7 +105,7 @@ size = Vector2(2, 2)
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="Airplane End" type="Node3D"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.81588, -0.0579567, 0.550226)
 
 [node name="airplane_end_door" parent="." instance=ExtResource("1_jjqkn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)

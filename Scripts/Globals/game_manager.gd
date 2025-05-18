@@ -10,6 +10,7 @@ var chosen_luggage : PackedScene = null
 var base_difficulty : int = 0
 var modifier_difficulty : int = 0
 var current_level : int = 0
+
 #In CENTS
 var total_money : int = 0
 var max_money : int = 99999999999
@@ -18,6 +19,9 @@ var credits : int = 0
 var total_health : int = 0
 var health := 0
 var earned_money:int = 0
+
+var total_total_money:int = 0
+var total_total_time:float = 0
 
 var selected_city:CityInfo = null
 var current_city:CityInfo = null
@@ -77,7 +81,7 @@ func _ready():
 	$UI.add_child(map_select_loaded)
 
 func select_city(city:CityInfo):
-	print("Selected: ", city.name, " With Mod Dif: ", city.modifier_difficulty)
+	#print("Selected: ", city.name, " With Mod Dif: ", city.modifier_difficulty)
 	self.selected_city = city
 	modifier_difficulty = city.modifier_difficulty
 
@@ -107,6 +111,8 @@ func reset():
 	boost_mod = 0
 	base_diff_mod = 0
 	payout_mod = 1.0
+	total_total_money = 0
+	total_total_time = 0.0
 
 func set_luggage(luggage, luggage_scene):
 	if !luggage:
