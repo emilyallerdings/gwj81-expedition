@@ -103,7 +103,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("1_thuqw")
 item_title = "Lightweight Hull"
 description = "Traded armor for aerodynamics. Zips like a dream, dents like a can."
-mesh_array = [null, null]
+mesh_array = [NodePath("mesh/Strandtype_002")]
 positive_modifier_description = "+ 2 Handling
 + 2 Top Speed"
 negative_modifier_description = "-1 Max HP"

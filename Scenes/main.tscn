@@ -289,7 +289,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 3, 360)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 376)
 
 [node name="Ground" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.1087, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.60037, 0)
 mesh = SubResource("PlaneMesh_jjgbg")
 
 [node name="MainCameraAnchor" type="Node3D" parent="."]

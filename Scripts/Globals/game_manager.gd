@@ -9,7 +9,7 @@ var difficulty = 5.0 # for testing my branch
 var chosen_luggage : PackedScene = null
 var base_difficulty : int = 0
 var modifier_difficulty : int = 0
-var current_level : int = 9
+var current_level : int = 0
 
 #In CENTS
 var total_money : int = 0
@@ -106,6 +106,7 @@ func reset():
 	total_health = 0
 	chosen_luggage = null
 	selected_city = null
+	current_city = null
 	speed_mod = 0
 	handling_mod = 0
 	boost_mod = 0
