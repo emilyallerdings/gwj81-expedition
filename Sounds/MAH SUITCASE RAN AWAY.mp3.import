@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1tnbvs48kj8n"
+path="res://.godot/imported/MAH SUITCASE RAN AWAY.mp3-6bd558c0df8a79d75f3b60a6366c04e3.mp3str"
+
+[deps]
+
+source_file="res://Sounds/MAH SUITCASE RAN AWAY.mp3"
+dest_files=["res://.godot/imported/MAH SUITCASE RAN AWAY.mp3-6bd558c0df8a79d75f3b60a6366c04e3.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -135,10 +135,11 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("2_gryuy")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "Modeling:
+text = "Art:
 KITSUNEMAESTRO
 Xury Greer
-drmadness3d"
+drmadness3d
+Esgee"
 fit_content = true
 
 [node name="Pills-here" type="Sprite2D" parent="."]

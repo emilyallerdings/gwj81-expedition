@@ -14,6 +14,7 @@ signal sounds_loaded
 @onready var countdown_horn:AudioStreamPlayer = $"Countdown Horn"
 @onready var click:AudioStreamPlayer = $Click
 @onready var buy:AudioStreamPlayer = $Buy
+@onready var ocean_waves:AudioStreamPlayer = $"Ocean Waves"
 @onready var wrong: AudioStreamPlayer = $Wrong
 @onready var whistle: AudioStreamPlayer = $Whistle
 
@@ -23,6 +24,7 @@ signal sounds_loaded
 @onready var song_1:AudioStreamPlayer = $Song1
 @onready var song_2:AudioStreamPlayer = $Song2
 @onready var song_3:AudioStreamPlayer = $Song3
+@onready var song_4:AudioStreamPlayer = $Song4
 
 #endregion
 
