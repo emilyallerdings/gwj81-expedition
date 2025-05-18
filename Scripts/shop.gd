@@ -25,11 +25,13 @@ const BIKEPUMP = preload("res://Scenes/items/bikepump.tscn")
 const TEDDY = preload("res://Scenes/items/teddy.tscn")
 const REINFORCED = preload("res://Scenes/items/reinforced.tscn")
 
+const GRIPPY = preload("res://Scenes/items/grippy.tscn")
+
 const PRICE_TAG = preload("res://Scenes/price_tag.tscn")
 
 const REPAIR = preload("res://Scenes/items/repair.tscn")
 
-var top_shelf_scenes = [BOARDING_PASS, NITRO, TEDDY]
+var top_shelf_scenes = [BOARDING_PASS, NITRO, TEDDY, GRIPPY]
 
 var bottom_shelf_scenes = [REINFORCED, WHEEL_LUBRICANT, STICKY_WHEEL, BIKEPUMP, LIGHTWEIGHT]
 
