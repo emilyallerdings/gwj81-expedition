@@ -14,6 +14,8 @@ signal sounds_loaded
 @onready var countdown_horn:AudioStreamPlayer = $"Countdown Horn"
 @onready var click:AudioStreamPlayer = $Click
 @onready var buy:AudioStreamPlayer = $Buy
+@onready var wrong: AudioStreamPlayer = $Wrong
+
 #endregion
 
 #region music

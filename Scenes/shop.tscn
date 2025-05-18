@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bo14x17dt5ne3"]
+[gd_scene load_steps=41 format=4 uid="uid://bo14x17dt5ne3"]
 
 [ext_resource type="PackedScene" uid="uid://ciuxit5o1pvp4" path="res://Assets/shop.glb" id="1_io27d"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_fdj0q"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="5_k6jq0"]
 [ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="5_s8dlv"]
 [ext_resource type="FontFile" uid="uid://b268wijfkjakj" path="res://Materials/BarberChop.otf" id="7_s8dlv"]
+[ext_resource type="FontFile" uid="uid://cwp8ay1qwwtb0" path="res://Materials/Terminal F4.ttf" id="8_s8dlv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ps1r"]
 render_priority = 0
@@ -298,6 +299,13 @@ expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_tyrku"]
+font = ExtResource("8_s8dlv")
+font_size = 36
+font_color = Color(0.325916, 1, 0.298231, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
 [node name="shop" groups=["shop"] instance=ExtResource("1_io27d")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 script = ExtResource("4_fdj0q")
@@ -313,13 +321,15 @@ mesh = SubResource("ArrayMesh_s8dlv")
 mesh = SubResource("ArrayMesh_ow1eo")
 
 [node name="Cube_005" parent="." index="3"]
+transform = Transform3D(39.6236, 0, 0, 0, 55.9285, 0, 0, 0, 39.6236, 3.63282, 0, 0)
 mesh = SubResource("ArrayMesh_1cyt5")
 
 [node name="Cube_006" parent="." index="4"]
+transform = Transform3D(39.6236, 0, 0, 0, 49.702, 0, 0, 0, 39.6236, 3.63282, -1.15085, 0)
 mesh = SubResource("ArrayMesh_mjtuy")
 
 [node name="Text" parent="." index="6"]
-transform = Transform3D(-1.39679e-06, 11.7171, 1.39679e-06, 0, 1.39679e-06, -11.7171, -11.7171, -1.39679e-06, -1.6651e-13, 44.9057, 72.3644, 0)
+transform = Transform3D(-1.90896e-06, 11.7171, -5.12171e-07, 0, -5.12171e-07, -11.7171, -11.7171, -1.90896e-06, 8.34432e-14, 44.9057, 72.3644, 0)
 mesh = SubResource("ArrayMesh_k6jq0")
 
 [node name="Pointer" type="RayCast3D" parent="." index="7"]
@@ -327,7 +337,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 40, 0)
 target_position = Vector3(0, -100, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." index="8"]
-transform = Transform3D(-0.0415122, 1.17304, 15.9569, 0, 15.9569, -1.17304, -15.9999, -0.00304347, -0.0414005, 95, 40, 0)
+transform = Transform3D(-0.0415122, 1.17304, 15.9569, 0, 15.9569, -1.17304, -15.9999, -0.00304347, -0.0414005, 95, 34.92, 0)
+fov = 75.8
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="9"]
 mesh = SubResource("PlaneMesh_fdj0q")
@@ -428,13 +439,31 @@ anchor_bottom = 1.0
 offset_left = 6.0
 offset_top = 9.0
 offset_right = -7.0
-offset_bottom = -17.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("7_s8dlv")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "test"
+
+[node name="Item Descriptor2" type="RichTextLabel" parent="Selection Menu UI/Panel" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 262.0
+offset_right = -7.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("7_s8dlv")
 theme_override_font_sizes/normal_font_size = 20
-text = "test"
+bbcode_enabled = true
+scroll_active = false
 
 [node name="Panel2" type="Panel" parent="Selection Menu UI" index="3"]
 layout_mode = 1
@@ -515,6 +544,15 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("5_k6jq0")
 text = "Buy"
+
+[node name="Label" type="Label" parent="Selection Menu UI" index="4"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 202.0
+offset_bottom = 47.5
+text = "YOUR CASH:"
+label_settings = SubResource("LabelSettings_tyrku")
 
 [node name="Shop Items" type="Node3D" parent="." index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98627, 0)

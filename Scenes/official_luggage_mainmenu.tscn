@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://e363r7m2s217" path="res://Materials/official_luggage_material/black_material.tres" id="4_l7glm"]
 [ext_resource type="Material" uid="uid://cnqd6y423d617" path="res://Materials/official_luggage_material/official_luggage_body.tres" id="4_qu1v0"]
 [ext_resource type="AudioStream" uid="uid://cu3eddt7uujl8" path="res://Sounds/plastic_collision.ogg" id="6_c0myj"]
-[ext_resource type="Shader" uid="uid://cm3okf6o8rav4" path="res://Shaders/fire_trail.gdshader" id="6_ke1yc"]
+[ext_resource type="Shader" path="res://Shaders/fire_trail.gdshader" id="6_ke1yc"]
 [ext_resource type="Texture2D" uid="uid://cwt6xociwo7ty" path="res://Assets/particles/slash_02.png" id="7_ke1yc"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_npmhn"]

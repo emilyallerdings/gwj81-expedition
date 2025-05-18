@@ -1,25 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://djff3v2ldp7y6"]
+[gd_scene load_steps=7 format=4 uid="uid://8ookfrj0yp07"]
 
-[ext_resource type="PackedScene" uid="uid://dpeo5fsshsg4c" path="res://Assets/shop_items/boarding pass.glb" id="1_rmxxy"]
-[ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="2_i0bg6"]
-[ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="3_bouwq"]
-[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="4_u7wlw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sojl7"]
-render_priority = 0
-shader = ExtResource("3_bouwq")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfjs"]
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_sojl7")
-shader = ExtResource("4_u7wlw")
-shader_parameter/color = Color(0.686053, 0.469484, 0, 1)
-shader_parameter/specular = Color(0.686275, 0.470588, 0, 0)
-shader_parameter/fresnel = Color(0.686275, 0.470588, 0, 1)
-shader_parameter/metallic = 1.0
-shader_parameter/roughness = 0.0
-shader_parameter/uv_scale = Vector2(1, 1)
-shader_parameter/uv_offset = Vector2(0, 0)
+[ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="1_y6e4q"]
+[ext_resource type="PackedScene" uid="uid://dpeo5fsshsg4c" path="res://Assets/shop_items/boarding pass.glb" id="2_fwojl"]
+[ext_resource type="Material" uid="uid://cgpyuvptc8xsu" path="res://Materials/boarding_pass/boarding_pass_base.tres" id="3_3oxw0"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0pje5"]
 _surfaces = [{
@@ -35,7 +18,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_i0bg6"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_dua82"]
 resource_name = "boarding pass_Cube_001"
 _surfaces = [{
 "aabb": AABB(-0.05, -1, -2, 0.1, 2.05783, 4),
@@ -44,7 +27,7 @@ _surfaces = [{
 "index_count": 516,
 "index_data": PackedByteArray("AAAeAH4APgB+AB4APgAeAH8AQAA+AH8AQAB/AD8AQQBAAD8AQQA/AIAAgQBBAIAAgQCAACIABQCBACIABQAiAAEAAAAfAB4AZAAFAAkAZAAJAIIAgwBkAIIAgwCCAGMAYgCDAGMAYgBjACMAJABiACMAJAAjAGEABwAkAGEABwBhACUACgAHACUACgAlAGAACgAnAAcAYABfAAoAYAAmAF8AJgAoAF8AJgCEACgAhABdACgAhABeAF0AXgCFAF0AXgCGAIUAhgAMAIUAhgALAAwAGgAqAAwAGgBbACoAWwCHACoAWwCIAIcAiABZAIcAiABaAFkAWgCJAFkAWgBXAIkAVwAXAIkAVwCKABcAFgAXAIoAFgAOABcAUAAOABYAUAAWAFEAiwBQAFEAiwBRACwATgCLACwATgAsAE8AjABOAE8AjABPAI0AEwCMAI0AEwCNABUAjgATABEAjgARAE0AOACOAE0AOABNAEwAjwA4AEwAjwBMAJAAOQCPAJAAOQCQAEsAEgA5AEsAEgBLADcANwAPABIADwA6ABIANwBKAA8ASgBJAA8ASgA7AEkAOwCRAEkAOwCSAJEAkgBIAJEAkgA8AEgAPABHAEgAPACTAEcAkwAEAEcAkwAQAAQAAwCUAAQAAwBGAJQARgBFAJQARgBEAEUARAAgAEUARABDACAAQwCVACAAQwBCAJUAQgAAAJUAQgAfAAAAaQAAAAIAAAAhAJYAaQAhAAAAIQCXAGwAIQBTAJcAaQBTACEAlwBTAAYAagBpAGsACABpAGoACABqAJgAJwBpAAgAJwBTAGkAmQAIAGcAJwAIAJkAJwCZAGgAUwCaAFUAUwAPAJoAmgAPAFQAUgBTACcAUwBSAA8AUgAnACsADwBSAD0ADwA9ADoAOgA9AJsAPQBSABQAPQAUAJwAFABSAJ0AUgBWAJ4AUgCfAFYAVgCfAA4AUgArAJ8AnwBcAKAAnwArAFwAXAArAKEAKwCiAA0AKwApAKIAogApAGYAKwAnACkAKQAnAAoAKQAKAGUALgAxAG0AMQAwAKMALgAwADEAMAAcAKQAMABuABwALgBuADAAHABuAG8ApQAuAHEAcAAuAKUAcAClAHIAcABuAC4AbgBzAHQAbgA0AHMAcwA0ADIAbgAzADQANAB1AKYANAAzAHUAdQAzAKcAbgAvADMAbgBwAC8AMwCoAB0AMwA1AKgAqAA1AHYAMwAvADUANQA2AHcANQAvADYANgAvAHgALwB5AKkALwAbAHkAeQAbAKoALwBYABsALwBwAFgAGwCrAHsAGwBYAKsAqwBYAHoArABwABkALQBwAKwAWABwAC0ALQCsAHwAWAAtABYAFgAtAH0AWAAWABgA"),
 "lods": [0.0025546, PackedByteArray("AAAeAAIAPgACAB4APgAeAD8AQAA+AD8AQQBAAD8AQQA/ACIABQBBACIABQAiAAEAAAAfAB4AQgAfAAAAQgAAACAAQwBCACAARABDACAARAAgAEUARgBEAEUARgBFAAQAAwBGAAQAEAAEAEcAPAAQAEcAPABHAEgAPABIAEkAOwA8AEkASgA7AEkASgBJAA8ANwBKAA8ANwAPABIAEgBLADcAEgA5AEsAOQA4AEsAOABMAEsAOABNAEwAOAATAE0AEwARAE0ADwA6ABIADwA9ADoAEwBOABUATgBPABUATgAsAE8ATgBQACwAUABRACwAUAAWAFEADwBSAD0APQBSABQAUAAOABYAUwBSAA8AUwAPAFQAUwBUAFUAUgBTACcAFgAOABcAVgAXAA4AUgAXAFYAFgAXABgAVwAYABcAWAAWABgAVwAXAFkAWgBXAFkAWgBZACoAWwBaACoAGgBbACoAGgAqAAwAUgArABcAFwArAFwAUgAnACsACwAMAF0AXgALAF0AXgBdACgAJgBeACgAJgAoAF8AYAAmAF8AYABfAAoACgAlAGAACgAHACUABwBhACUACgAnAAcABwAkAGEAJAAjAGEAJABiACMAYgBjACMAYgBkAGMAZAAJAGMAZAAFAAkAKQAKAGUAKQAnAAoAKwAnACkAKwApAGYAKwBmAA0AJwBnAGgAJwAIAGcAJwBpAAgACABpAGoAagBpAGsAJwBTAGkAaQBTACEAIQBTAAYAIQAGAGwAaQAhAAAAaQAAAAIALgAxAG0ALgAwADEALgBuADAAMABuABwAHABuAG8AcABuAC4AcAAuAHEAcABxAHIAbgBzAHQAbgA0AHMAcwA0ADIAbgAzADQANAAzAHUAbgBwAC8AbgAvADMAMwB2AB0AMwA1AHYAMwAvADUANQA2AHcANQAvADYANgAvAHgALwAbAHkAGwB6AHsAGwBYAHoALwBYABsALwBwAFgAWABwAC0ALQBwABkALQAZAHwAWAAtABYAFgAtAH0A"), 0.0154434, PackedByteArray("AAAeAAIAAAAfAB4AHwAAACAAHwAgAAQAAwAfAAQAAgAhAAAABQACAB4ABQAeACIABQAiAAEABQAJACMAJAAFACMABwAkACMABwAjACUACgAHACUACgAlACYACgAnAAcAJgAoAAoAJgALACgACwAMACgAKQAnAAoAGgAqAAwAGgAXACoAGgAYABcAKwApAA0AKwAnACkADgArABcADgAnACsAFgAXABgAFgAOABcADgAWACwAGAAtABYADgAsABUAEwAOABUAGAAuAC0ALQAuABkALwAuABgALwAYABsALgAwADEALgAyADAAMgAuAC8AMAAyABwAMgAvADMAMgAzADQAMwAvADUANQAvADYAMwA1AB0AEwARADcAOAATADcAOQA4ADcAEgA5ADcANwAPABIADwA6ABIANwA7AA8AOwA8AA8APAAQAA8AEAAEAA8ADwA9ADoAPQAOABQADwAOAD0ADgAPACcAJwAPAAIAJwACAAgAAgAPACEAIQAPAAYA"), 0.0490146, PackedByteArray("AAABAAIAAwABAAAAAwAAAAQABQACAAEAAgAGAAAABwAGAAIABwACAAgABwAFAAkACgAHAAkACgAJAAsACwAMAAoADQAHAAoADgAGAAcADgAHAA0ABgAOAA8AEAAEAA8AEQAQAA8AEQAPABIAEgATABEADwAUABIADwAOABQAEwAOABUADgAWABUADgANABcAFgAOABcAFgAXABgAGAAZABYAGgAYABcAGgAXAAwAGwAZABgAHAAZABsAHAAbAB0A")],
-"material": SubResource("ShaderMaterial_kgfjs"),
+"material": ExtResource("3_3oxw0"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 173,
@@ -53,23 +36,29 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0pje5")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pj3l8"]
-size = Vector3(0.205383, 2.09515, 4.09888)
+[sub_resource type="BoxShape3D" id="BoxShape3D_fwojl"]
+size = Vector3(1, 2.66782, 4.22656)
 
-[node name="boarding pass" node_paths=PackedStringArray("mesh_array") instance=ExtResource("1_rmxxy")]
+[node name="BoardingPassNew" type="StaticBody3D" node_paths=PackedStringArray("mesh_array")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
-script = ExtResource("2_i0bg6")
+script = ExtResource("1_y6e4q")
 item_title = "Priority Boarding Pass"
 description = "You're you. Of course you need this. You catch flights, not feelings, after all. 
 
 ... until your next 'passport bro' situationship MAKES you catch feelings."
-mesh_array = [NodePath("Pass"), NodePath("Text")]
+mesh_array = [NodePath("mesh/Pass")]
 positive_modifier_description = "- 1 Base Difficulty"
+price = 19999
 base_dif_change = -1
 
-[node name="Pass" parent="." index="0"]
-mesh = SubResource("ArrayMesh_i0bg6")
+[node name="mesh" parent="." instance=ExtResource("2_fwojl")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000274658, 1.03336, 0.00793457)
-shape = SubResource("BoxShape3D_pj3l8")
+[node name="Pass" parent="mesh" index="0"]
+mesh = SubResource("ArrayMesh_dua82")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07091, 0.0175781)
+shape = SubResource("BoxShape3D_fwojl")
+
+[editable path="mesh"]

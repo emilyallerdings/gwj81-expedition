@@ -3,11 +3,11 @@
 [ext_resource type="FontFile" uid="uid://ccjoqt6plp56l" path="res://Materials/Frutiger.ttf" id="1_w1l50"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tf6hf"]
-albedo_color = Color(1.1, 1.1, 1.1, 1)
+albedo_color = Color(1.5, 1.5, 1.1, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_5wmyn"]
 material = SubResource("StandardMaterial3D_tf6hf")
-size = Vector2(20, 8)
+size = Vector2(5, 2)
 
 [sub_resource type="GDScript" id="GDScript_w1l50"]
 script/source = "extends MeshInstance3D
@@ -16,6 +16,12 @@ script/source = "extends MeshInstance3D
 
 func set_price(amount:int):
 	$'Label3D'.text = GameManager.cents_to_str(amount)
+
+func buy(custom_text:String = \"SOLD\"):
+	$'Label3D'.text = custom_text
+
+func set_color(col):
+	$Label3D.modulate = col
 "
 
 [node name="PriceTag" type="MeshInstance3D"]
@@ -24,6 +30,6 @@ mesh = SubResource("QuadMesh_5wmyn")
 script = SubResource("GDScript_w1l50")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -1.7955e-09, -0.290503, 0.0410762)
+transform = Transform3D(7.5, 0, 0, 0, 7.5, 0, 0, 0, 7.5, -1.7955e-09, -0.290503, 0.0410762)
 text = "HELLO"
 font = ExtResource("1_w1l50")

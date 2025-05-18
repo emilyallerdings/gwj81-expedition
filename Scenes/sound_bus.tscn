@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dqxl7brt3g1wi"]
+[gd_scene load_steps=17 format=3 uid="uid://dqxl7brt3g1wi"]
 
 [ext_resource type="Script" uid="uid://bijmlxakyblxw" path="res://Scripts/Globals/sound_bus.gd" id="1_oofcd"]
 [ext_resource type="AudioStream" uid="uid://c3ynucxb1maka" path="res://Sounds/airport_ambience_with_planes.ogg" id="2_otb3e"]
 [ext_resource type="AudioStream" uid="uid://cx1e1cs24em1k" path="res://Sounds/airport_button.ogg" id="3_otb3e"]
+[ext_resource type="AudioStream" uid="uid://cboxl1nu74hw" path="res://Sounds/wrong.ogg" id="4_q5i7u"]
 [ext_resource type="AudioStream" uid="uid://bbiieojf6d6te" path="res://Sounds/luggage_rolling.ogg" id="4_yghvr"]
 [ext_resource type="AudioStream" uid="uid://caypbwsrlveqw" path="res://Sounds/click.ogg" id="5_qdc24"]
 [ext_resource type="AudioStream" uid="uid://x0j456glqskj" path="res://Sounds/giant_steps.ogg" id="5_s22cy"]
@@ -26,6 +27,11 @@ bus = &"SFX"
 
 [node name="Button" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_otb3e")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Wrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q5i7u")
 volume_db = -5.0
 bus = &"SFX"
 
