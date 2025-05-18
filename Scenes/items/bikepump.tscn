@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dxj4w4tcupwg6"]
+[gd_scene load_steps=22 format=4 uid="uid://8urevbo8i7ai"]
 
 [ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="1_a4nrx"]
 [ext_resource type="PackedScene" uid="uid://ddog8jryn4sly" path="res://Assets/shop_items/bike_pump.glb" id="2_6pmtv"]

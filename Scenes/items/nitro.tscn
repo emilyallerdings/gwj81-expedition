@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw0sbg5t6xnh5"]
+[gd_scene load_steps=4 format=3 uid="uid://2mh7gmakfney"]
 
 [ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="1_gj6y8"]
-[ext_resource type="PackedScene" uid="uid://cgq2qjbn253he" path="res://Scenes/nos.tscn" id="2_528fj"]
+[ext_resource type="PackedScene" uid="uid://cr35ydhbbe4ta" path="res://Scenes/nos.tscn" id="2_528fj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwojl"]
 size = Vector3(1.96179, 3.19974, 2.43888)
@@ -10,6 +10,7 @@ size = Vector3(1.96179, 3.19974, 2.43888)
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("1_gj6y8")
 item_title = "Nitro Injection"
+description = "Every adrenaline junkie's favorite combination of nobel gasses. For you though, it's a normal Tuesday."
 mesh_array = [null, null, null, null, null, null]
 positive_modifier_description = "+ 4 Boost"
 price = 15999

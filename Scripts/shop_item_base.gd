@@ -94,6 +94,8 @@ func buy():
 	GameManager.handling_mod += handling_change
 	GameManager.total_health += max_hp_change
 	GameManager.health += hp_change
+	if GameManager.health > GameManager.total_health:
+		GameManager.health = GameManager.total_health
 	GameManager.base_diff_mod += base_dif_change
 	if on_buy != null && on_buy != "":
 		if has_method(on_buy):
