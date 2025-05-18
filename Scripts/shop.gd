@@ -15,18 +15,20 @@ var select_map = null
 var collider = null
 var current_interacted_item: StaticBody3D = null
 
+const NITRO = preload("res://Scenes/items/nitro.tscn")
 const BOARDING_PASS = preload("res://Scenes/items/boarding_pass_new.tscn")
 
 const WHEEL_LUBRICANT = preload("res://Scenes/items/wheel_lube_new.tscn")
 const STICKY_WHEEL = preload("res://Scenes/items/sticky_wheel_new.tscn")
+const BIKEPUMP = preload("res://Scenes/items/bikepump.tscn")
 
 const PRICE_TAG = preload("res://Scenes/price_tag.tscn")
 
 const REPAIR = preload("res://Scenes/items/repair.tscn")
 
-var top_shelf_scenes = [BOARDING_PASS]
+var top_shelf_scenes = [BOARDING_PASS, NITRO]
 
-var bottom_shelf_scenes = [WHEEL_LUBRICANT, STICKY_WHEEL]
+var bottom_shelf_scenes = [WHEEL_LUBRICANT, STICKY_WHEEL, BIKEPUMP]
 
 var top_shelf_cur = []
 var bottom_shelf_cur = []

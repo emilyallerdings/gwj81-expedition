@@ -102,7 +102,7 @@ func _physics_process(delta: float) -> void:
 		forward_speed = move_toward(forward_speed, 0, 0.15)
 		velocity = velocity.move_toward(Vector3.ZERO, 0.15)
 		var forward_angle: float = atan2(forward_direction.x, forward_direction.z)
-		rotation.y = lerp_angle(rotation.y, forward_angle, 0.5)
+		rotation.y = lerp_angle(rotation.y, forward_angle, 0.7)
 		if velocity.length() < 1.0:
 			started = false
 			TransitionEffect.transition_to_scene("res://Scenes/victory_screen.tscn")
@@ -158,8 +158,12 @@ func handle_player_movement(delta:float):
 	var current_rotation: float = lerp_angle(rotation.y, target_rotation, smooth_factor)
 	rotation.y = current_rotation
 	
-	var angle_diff: float = abs(current_rotation) - abs(forward_angle)
 	
+	
+	
+	var angle_diff: float = abs(current_rotation) - abs(forward_angle)
+	var turning_sign = sign(current_rotation - forward_angle)
+	print("for: ", forward_angle, " targ: ", target_rotation, "cur: ", current_rotation, " dif: ", angle_diff)
 
 	var turning_intensity: float = abs(abs(angle_diff)) / deg_to_rad(max_turn_angle)
 
@@ -175,7 +179,7 @@ func handle_player_movement(delta:float):
 	var side_dir = forward_direction.rotated(Vector3.UP, deg_to_rad(90))
 
 	# Calculate lateral movement based on rotation
-	var strafe: Vector3 = side_dir * (input_direction * turn_speed * turning_intensity)
+	var strafe: Vector3 = side_dir * (turn_speed * turning_intensity * turning_sign)
 	#print(strafe)
 
 	# Combine forward and strafe motion
@@ -232,5 +236,6 @@ func start():
 
 func finish():
 	#SoundBus.rolling_suitcase.stop()
+	velocity = forward_direction * velocity.length()
 	reached_end = true
 	
