@@ -34,7 +34,8 @@ func _ready():
 	SoundBus.song_3.play()
 	$"Selection Menu UI/Buy".disabled = true
 	
-	
+	item_descriptor.text = ""
+	item_title.text = ""
 	select_map = GameManager.map_select_loaded
 	select_map.reset()
 	select_map.prev_scene = selection_menu_ui
@@ -108,10 +109,13 @@ func _on_next_pressed():
 
 
 func _on_buy_pressed() -> void:
+	SoundBus.buy.play()
 	if selected_item:
 		print("TEST")
 		selected_item.buy()
 		selected_item.queue_free()
 		selected_item = null
+		item_descriptor.text = ""
+		item_title.text = ""
 		$"Selection Menu UI/Buy".disabled = true
 	pass # Replace with function body.

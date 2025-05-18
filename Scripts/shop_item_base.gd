@@ -52,6 +52,7 @@ func _on_interact(collider: Node):
 
 func _update_outline():
 	if is_interacted:
+		SoundBus.click.play()
 		locked_in.emit(true)
 		_set_material(selected_outliner)
 	elif selected:
