@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://e363r7m2s217" path="res://Materials/official_luggage_material/black_material.tres" id="3_ovv6o"]
 [ext_resource type="FontFile" uid="uid://c2cwoacpy0sr5" path="res://Materials/Capture it.ttf" id="3_tdoey"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="5_edyp5"]
-[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="6_71hyn"]
+[ext_resource type="Shader" uid="uid://bs6u44y5vew56" path="res://Shaders/cel-shader-base_repl.gdshader" id="6_es1tj"]
 [ext_resource type="Shader" path="res://Shaders/fire_trail.gdshader" id="8_yeu0c"]
 [ext_resource type="Texture2D" uid="uid://be884dqn5kp7r" path="res://Assets/particles/scorch_02.png" id="9_es1tj"]
 [ext_resource type="AudioStream" uid="uid://pjcff2556ajn" path="res://Sounds/metal_collision.ogg" id="10_es1tj"]
@@ -50,12 +50,16 @@ shader = ExtResource("5_edyp5")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yeu0c"]
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_tdoey")
-shader = ExtResource("6_71hyn")
+shader = ExtResource("6_es1tj")
 shader_parameter/color = Color(0.537011, 0.537011, 0.537011, 1)
 shader_parameter/specular = Color(0.301961, 0.301961, 0.301961, 1)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0)
 shader_parameter/metallic = 1.0
 shader_parameter/roughness = 0.05
+shader_parameter/is_person = false
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/new_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.2
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 

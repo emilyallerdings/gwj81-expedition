@@ -207,7 +207,7 @@ item_title = "Pump & Dump"
 description = "Pump and dump - Tired of riding low? Legs burning but your tires aren't turning?
 
 Well you're in luck! The brand new TurboTread 5000 Bicycle Pump is here to puff up your ride and your pride! One squeeze and you're flying high — no questions asked."
-mesh_array = [NodePath("bike_pump/Cube"), NodePath("bike_pump/Cylinder_003"), NodePath("bike_pump/Cylinder_004"), NodePath("bike_pump/Cylinder_005"), NodePath("bike_pump/Cylinder_006"), NodePath("bike_pump/Cylinder_007")]
+mesh_array = [NodePath("mesh/Cube"), NodePath("mesh/Cylinder_003"), NodePath("mesh/Cylinder_004"), NodePath("mesh/Cylinder_005"), NodePath("mesh/Cylinder_006"), NodePath("mesh/Cylinder_007")]
 positive_modifier_description = "+ 5% Earnings"
 negative_modifier_description = "+ 1 Difficulty"
 price = 11999
@@ -218,25 +218,25 @@ earnings_increase = 0.05
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000182807, 1.09987, -0.18951)
 shape = SubResource("BoxShape3D_fwojl")
 
-[node name="bike_pump" parent="." instance=ExtResource("2_6pmtv")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.852419, 0)
+[node name="mesh" parent="." instance=ExtResource("2_6pmtv")]
+transform = Transform3D(0.571036, 0.292507, 0.279925, -0.298605, 0.631111, -0.0503361, -0.27341, -0.0783475, 0.639616, -1.06095, -0.852419, 0)
 
-[node name="Cube" parent="bike_pump" index="0"]
+[node name="Cube" parent="mesh" index="0"]
 mesh = SubResource("ArrayMesh_rtx3i")
 
-[node name="Cylinder_003" parent="bike_pump" index="1"]
+[node name="Cylinder_003" parent="mesh" index="1"]
 mesh = SubResource("ArrayMesh_ie3qn")
 
-[node name="Cylinder_004" parent="bike_pump" index="2"]
+[node name="Cylinder_004" parent="mesh" index="2"]
 mesh = SubResource("ArrayMesh_uiykg")
 
-[node name="Cylinder_005" parent="bike_pump" index="3"]
+[node name="Cylinder_005" parent="mesh" index="3"]
 mesh = SubResource("ArrayMesh_udx1q")
 
-[node name="Cylinder_006" parent="bike_pump" index="4"]
+[node name="Cylinder_006" parent="mesh" index="4"]
 mesh = SubResource("ArrayMesh_lbjmp")
 
-[node name="Cylinder_007" parent="bike_pump" index="5"]
+[node name="Cylinder_007" parent="mesh" index="5"]
 mesh = SubResource("ArrayMesh_40bqx")
 
-[editable path="bike_pump"]
+[editable path="mesh"]

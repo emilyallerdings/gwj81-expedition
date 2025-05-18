@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c7e6u8kc1g0yp"]
 
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="1_7pcw4"]
-[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="2_xofjy"]
+[ext_resource type="Shader" uid="uid://bs6u44y5vew56" path="res://Shaders/cel-shader-base_repl.gdshader" id="2_xofjy"]
 [ext_resource type="Texture2D" uid="uid://dcq6de00nmjje" path="res://Source Content/characters/Character_BaseColor.png" id="3_xofjy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vf4kb"]
@@ -9,6 +9,7 @@ render_priority = 0
 shader = ExtResource("1_7pcw4")
 
 [resource]
+resource_local_to_scene = true
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_vf4kb")
 shader = ExtResource("2_xofjy")
@@ -18,5 +19,9 @@ shader_parameter/specular = Color(0, 0, 0, 0.5)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.5
+shader_parameter/is_person = true
+shader_parameter/target_color = Color(0.0431373, 0.568627, 0.462745, 1)
+shader_parameter/new_color = Color(0.0431373, 0.568627, 0.462745, 1)
+shader_parameter/threshold = 0.315
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)

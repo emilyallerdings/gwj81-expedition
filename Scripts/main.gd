@@ -178,6 +178,7 @@ func player_finished():
 	player.finish()
 	SoundBus.whistle.play(0)
 	$CountDown.finish()
+	started = false
 	SoundBus.fade_out(SoundBus.song_1)
 	#SoundBus.song_1.stop()
 	#SoundBus.rolling_suitcase.stop()
