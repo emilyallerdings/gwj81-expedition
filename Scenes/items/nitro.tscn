@@ -11,7 +11,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("1_gj6y8")
 item_title = "Nitro Injection"
 description = "Every adrenaline junkie's favorite combination of nobel gasses. For you though, it's a normal Tuesday."
-mesh_array = [null, null, null, null, null, null]
+mesh_array = [NodePath("mesh/Cylinder_003"), NodePath("mesh/Sphere_001"), NodePath("mesh/Cylinder_004"), NodePath("mesh/Cylinder"), NodePath("mesh/Cylinder_001")]
 positive_modifier_description = "+ 4 Boost"
 price = 15999
 boost_change = 4.0
@@ -22,3 +22,5 @@ shape = SubResource("BoxShape3D_fwojl")
 
 [node name="mesh" parent="." instance=ExtResource("2_528fj")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.951668, 0)
+
+[editable path="mesh"]

@@ -3,18 +3,18 @@
 [ext_resource type="Script" uid="uid://cnhl0u3fbdlnh" path="res://Scripts/obstacle_info.gd" id="1_bvopb"]
 [ext_resource type="Script" uid="uid://dwp21mkadf4ja" path="res://Scripts/obstacle_pattern.gd" id="2_v6vee"]
 
-[sub_resource type="Resource" id="Resource_7ttdl"]
+[sub_resource type="Resource" id="Resource_bvopb"]
 script = ExtResource("1_bvopb")
-position = Vector3(8, 0, 5)
+position = Vector3(8, 0, 0)
 type = 0
 
-[sub_resource type="Resource" id="Resource_fyyn6"]
+[sub_resource type="Resource" id="Resource_v6vee"]
 script = ExtResource("1_bvopb")
-position = Vector3(-8, 0, 5)
+position = Vector3(-8, 0, 0)
 type = 0
 
 [resource]
 script = ExtResource("2_v6vee")
 difficulty = 0
 length = 1.0
-obstacles = Array[ExtResource("1_bvopb")]([SubResource("Resource_7ttdl"), SubResource("Resource_fyyn6")])
+obstacles = Array[ExtResource("1_bvopb")]([SubResource("Resource_bvopb"), SubResource("Resource_v6vee")])

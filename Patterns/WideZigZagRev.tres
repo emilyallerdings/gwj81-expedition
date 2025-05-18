@@ -3,38 +3,38 @@
 [ext_resource type="Script" uid="uid://cnhl0u3fbdlnh" path="res://Scripts/obstacle_info.gd" id="1_6gy3y"]
 [ext_resource type="Script" uid="uid://dwp21mkadf4ja" path="res://Scripts/obstacle_pattern.gd" id="2_fn5hg"]
 
+[sub_resource type="Resource" id="Resource_6gy3y"]
+script = ExtResource("1_6gy3y")
+position = Vector3(8, 0, 6)
+type = 0
+
+[sub_resource type="Resource" id="Resource_fn5hg"]
+script = ExtResource("1_6gy3y")
+position = Vector3(5, 0, 6)
+type = 0
+
 [sub_resource type="Resource" id="Resource_on4ar"]
 script = ExtResource("1_6gy3y")
-position = Vector3(8, 0, 13)
+position = Vector3(2, 0, 6)
 type = 0
 
 [sub_resource type="Resource" id="Resource_8owh0"]
 script = ExtResource("1_6gy3y")
-position = Vector3(5, 0, 13)
+position = Vector3(-2, 0, -7)
 type = 0
 
 [sub_resource type="Resource" id="Resource_twt5q"]
 script = ExtResource("1_6gy3y")
-position = Vector3(2, 0, 13)
+position = Vector3(-5, 0, -7)
 type = 0
 
 [sub_resource type="Resource" id="Resource_owqrt"]
 script = ExtResource("1_6gy3y")
-position = Vector3(-2, 0, 0)
-type = 0
-
-[sub_resource type="Resource" id="Resource_k8lxu"]
-script = ExtResource("1_6gy3y")
-position = Vector3(-5, 0, 0)
-type = 0
-
-[sub_resource type="Resource" id="Resource_nc7fn"]
-script = ExtResource("1_6gy3y")
-position = Vector3(-8, 0, 0)
+position = Vector3(-8, 0, -7)
 type = 0
 
 [resource]
 script = ExtResource("2_fn5hg")
 difficulty = 1
 length = 14.0
-obstacles = Array[ExtResource("1_6gy3y")]([SubResource("Resource_on4ar"), SubResource("Resource_8owh0"), SubResource("Resource_twt5q"), SubResource("Resource_owqrt"), SubResource("Resource_k8lxu"), SubResource("Resource_nc7fn")])
+obstacles = Array[ExtResource("1_6gy3y")]([SubResource("Resource_6gy3y"), SubResource("Resource_fn5hg"), SubResource("Resource_on4ar"), SubResource("Resource_8owh0"), SubResource("Resource_twt5q"), SubResource("Resource_owqrt")])

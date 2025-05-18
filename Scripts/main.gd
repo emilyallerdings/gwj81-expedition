@@ -121,7 +121,7 @@ func _process(delta: float) -> void:
 	main_camera_anchor.global_position.x = player.global_position.x
 	
 	if started:
-		start_money = max(0, start_money-int(delta*100*money_decrease_factor))
+		start_money = max(0, start_money-int(delta*100*money_decrease_factor*(1.00 + 0.02 * (GameManager.base_difficulty + GameManager.modifier_difficulty + GameManager.base_diff_mod))))
 
 	money.text = GameManager.cents_to_str(start_money)
 	

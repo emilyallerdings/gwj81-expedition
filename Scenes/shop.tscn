@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://bo14x17dt5ne3"]
+[gd_scene load_steps=42 format=4 uid="uid://bo14x17dt5ne3"]
 
 [ext_resource type="PackedScene" uid="uid://ciuxit5o1pvp4" path="res://Assets/shop.glb" id="1_io27d"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_fdj0q"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="5_s8dlv"]
 [ext_resource type="FontFile" uid="uid://b268wijfkjakj" path="res://Materials/BarberChop.otf" id="7_s8dlv"]
 [ext_resource type="FontFile" uid="uid://cwp8ay1qwwtb0" path="res://Materials/Terminal F4.ttf" id="8_s8dlv"]
+[ext_resource type="Texture2D" uid="uid://bg4qxorme13s8" path="res://UI Assets/moni.png" id="9_tyrku"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ps1r"]
 render_priority = 0
@@ -501,9 +502,9 @@ vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Selection Menu UI" index="4"]
 layout_mode = 0
-offset_left = 7.0
+offset_left = 92.0
 offset_top = 8.0
-offset_right = 202.0
+offset_right = 287.0
 offset_bottom = 47.5
 text = "YOUR CASH:"
 label_settings = SubResource("LabelSettings_tyrku")
@@ -558,6 +559,15 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("5_k6jq0")
 text = "Buy"
+
+[node name="TextureRect" type="TextureRect" parent="Selection Menu UI" index="7"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 211.0
+offset_bottom = 126.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_tyrku")
 
 [node name="Shop Items" type="Node3D" parent="." index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98627, 0)

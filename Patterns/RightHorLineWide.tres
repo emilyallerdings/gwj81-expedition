@@ -3,28 +3,28 @@
 [ext_resource type="Script" uid="uid://cnhl0u3fbdlnh" path="res://Scripts/obstacle_info.gd" id="1_t0qom"]
 [ext_resource type="Script" uid="uid://dwp21mkadf4ja" path="res://Scripts/obstacle_pattern.gd" id="2_mn6fe"]
 
+[sub_resource type="Resource" id="Resource_t0qom"]
+script = ExtResource("1_t0qom")
+position = Vector3(1, 0, 0)
+type = 0
+
+[sub_resource type="Resource" id="Resource_mn6fe"]
+script = ExtResource("1_t0qom")
+position = Vector3(-2, 0, 0)
+type = 0
+
 [sub_resource type="Resource" id="Resource_x5olu"]
 script = ExtResource("1_t0qom")
-position = Vector3(1, 0, 5)
+position = Vector3(-5, 0, 0)
 type = 0
 
 [sub_resource type="Resource" id="Resource_ndtj5"]
 script = ExtResource("1_t0qom")
-position = Vector3(-2, 0, 5)
-type = 0
-
-[sub_resource type="Resource" id="Resource_bwiqu"]
-script = ExtResource("1_t0qom")
-position = Vector3(-5, 0, 5)
-type = 0
-
-[sub_resource type="Resource" id="Resource_gneyw"]
-script = ExtResource("1_t0qom")
-position = Vector3(-8, 0, 5)
+position = Vector3(-8, 0, 0)
 type = 0
 
 [resource]
 script = ExtResource("2_mn6fe")
 difficulty = 0
 length = 1.0
-obstacles = Array[ExtResource("1_t0qom")]([SubResource("Resource_x5olu"), SubResource("Resource_ndtj5"), SubResource("Resource_bwiqu"), SubResource("Resource_gneyw")])
+obstacles = Array[ExtResource("1_t0qom")]([SubResource("Resource_t0qom"), SubResource("Resource_mn6fe"), SubResource("Resource_x5olu"), SubResource("Resource_ndtj5")])

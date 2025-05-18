@@ -97,7 +97,7 @@ func ready_stage(difficulty):
 	var total_dist = length - 5.0
 	var cur_position = starting_pos
 	# Raw weights: harder stages → more weight on HARD, less on EASY
-	var weight_easy:float = max(0.0, (16.0 - difficulty))      # e.g. at diff=1 → 10; diff=10 → 1
+	var weight_easy:float = max(0.0, (13.0 - difficulty))      # e.g. at diff=1 → 10; diff=10 → 1
 	var weight_hard:float = difficulty                     # e.g. at diff=1 → 1; diff=10 → 10
 	var weight_med:float  = (weight_easy + weight_hard) / 2.0
 

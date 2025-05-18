@@ -71,7 +71,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("1_nrdou")
 item_title = "Reinforced Hull"
 description = "Built like a tank, handles like one too. +1 Max HP, but you’re not winning any races."
-mesh_array = [null, null]
+mesh_array = [NodePath("mesh/Plane")]
 positive_modifier_description = "+1 Max HP"
 negative_modifier_description = "-1 Handling
 -1 Top Speed"

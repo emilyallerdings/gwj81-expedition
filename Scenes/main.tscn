@@ -421,6 +421,7 @@ label_settings = SubResource("LabelSettings_jjvhh")
 environment = ExtResource("5_kry3j")
 
 [node name="CountDown" type="Control" parent="."]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -432,6 +433,7 @@ grow_vertical = 2
 script = ExtResource("6_6bp64")
 
 [node name="CountdownText" type="Label" parent="CountDown"]
+process_mode = 1
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -450,6 +452,7 @@ label_settings = SubResource("LabelSettings_6bp64")
 horizontal_alignment = 1
 
 [node name="CountAnim" type="AnimationPlayer" parent="CountDown"]
+process_mode = 1
 libraries = {
 &"": SubResource("AnimationLibrary_344ge")
 }

@@ -43,7 +43,7 @@ var repair_inst = null
 
 func _ready():
 	randomize()
-	$"Selection Menu UI/Label".text = "YOUR CASH: " + GameManager.cents_to_str(GameManager.total_money)
+	$"Selection Menu UI/Label".text = GameManager.cents_to_str(GameManager.total_money)
 	SoundBus.rolling_suitcase.stop()
 	SoundBus.song_3.play()
 	$"Selection Menu UI/Buy".disabled = true
@@ -157,7 +157,7 @@ func _on_next_pressed():
 
 func _on_buy_pressed() -> void:
 	SoundBus.buy.play()
-	$"Selection Menu UI/Label".text = "YOUR CASH: " + GameManager.cents_to_str(GameManager.total_money)
+	$"Selection Menu UI/Label".text = GameManager.cents_to_str(GameManager.total_money)
 	if selected_item:
 		selected_item.buy()
 		if selected_item.name != "Repair":
@@ -172,7 +172,7 @@ func _on_buy_pressed() -> void:
 	
 	for item in $"Shop Items".get_children():
 		item.recheck_prices()
-	$"Selection Menu UI/Label".text = "YOUR CASH: " + GameManager.cents_to_str(GameManager.total_money)
+	$"Selection Menu UI/Label".text = GameManager.cents_to_str(GameManager.total_money)
 	pass # Replace with function body.
 
 func repair_check():

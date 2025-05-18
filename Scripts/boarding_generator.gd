@@ -43,7 +43,7 @@ func generate():
 	if Engine.is_editor_hint():
 		total_path =  200 + 10 * randi_range(10,5*editor_difficulty + 30)
 	else:
-		total_path =  200 + 10 * randi_range(10,13) * (GameManager.base_difficulty + GameManager.modifier_difficulty)
+		total_path =  250 + 10 * randi_range(10,13) * (GameManager.base_difficulty + GameManager.modifier_difficulty)
 		
 	right_turns = []
 	left_turns = []
@@ -61,7 +61,7 @@ func generate():
 	await get_tree().process_frame
 	
 	
-	var num_segs = rng.randi_range(2, total_path/75)
+	var num_segs = rng.randi_range(2, total_path/100)
 	#print("segs: ", num_segs)
 	
 	
@@ -69,7 +69,7 @@ func generate():
 	segment_lens.resize(num_segs)
 	segment_lens.fill(50)
 	
-	var len_remaining = total_path - 75*num_segs
+	var len_remaining = total_path - 100*num_segs
 	
 	#print("len_rem:",len_remaining, " = ", total_path, " - 50*", num_segs)
 	
