@@ -31,7 +31,10 @@ func _ready():
 
 func _on_next_pressed():
 	SoundBus.button.play()
-	TransitionEffect.transition_to_scene("res://Scenes/shop.tscn")
+	if GameManager.current_level >= 10:
+		TransitionEffect.transition_to_scene("res://Scenes/game_complete.tscn")
+	else:
+		TransitionEffect.transition_to_scene("res://Scenes/shop.tscn")
 	
 func _process(delta: float) -> void:
 	

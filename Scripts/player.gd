@@ -163,7 +163,7 @@ func handle_player_movement(delta:float):
 	
 	var angle_diff: float = abs(current_rotation) - abs(forward_angle)
 	var turning_sign = sign(current_rotation - forward_angle)
-	print("for: ", forward_angle, " targ: ", target_rotation, "cur: ", current_rotation, " dif: ", angle_diff)
+	#print("for: ", forward_angle, " targ: ", target_rotation, "cur: ", current_rotation, " dif: ", angle_diff)
 
 	var turning_intensity: float = abs(abs(angle_diff)) / deg_to_rad(max_turn_angle)
 
