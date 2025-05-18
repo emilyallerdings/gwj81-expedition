@@ -203,6 +203,7 @@ func on_hit_obstacle(collider):
 	velocity = forward_direction * -20
 	forward_speed = -20
 	GameManager.total_health -= 1
+	luggage_object.collision_sound.play()
 	player_hit.emit()
 	start_blinking()
 

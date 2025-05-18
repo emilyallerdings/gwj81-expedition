@@ -12,7 +12,8 @@ signal sounds_loaded
 @onready var start_game:AudioStreamPlayer = $"Start Game"
 @onready var flyby:AudioStreamPlayer = $Flyby
 @onready var countdown_horn:AudioStreamPlayer = $"Countdown Horn"
-
+@onready var click:AudioStreamPlayer = $Click
+@onready var buy:AudioStreamPlayer = $Buy
 #endregion
 
 #region music
