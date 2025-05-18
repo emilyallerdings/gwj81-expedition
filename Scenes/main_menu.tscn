@@ -42,7 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://ch54jtcl1r3ch" path="res://UI Assets/keyboard prompts/keyboard_ctrl.png" id="41_aj2v6"]
 [ext_resource type="PackedScene" uid="uid://c6tq872kip2qm" path="res://Assets/airplane.glb" id="42_3533h"]
 [ext_resource type="Texture2D" uid="uid://t3fwiwejd10p" path="res://UI Assets/keyboard prompts/keyboard_space.png" id="42_vj5y7"]
-[ext_resource type="Material" uid="uid://dabvn2guvn83j" path="res://Materials/airplane_white_toonshader.tres" id="43_dp8uv"]
+[ext_resource type="Material" uid="uid://qaoqd5un6sis" path="res://Materials/airplane_white_toonshader.tres" id="43_dp8uv"]
 
 [sub_resource type="Gradient" id="Gradient_6dk6o"]
 offsets = PackedFloat32Array(0.520548, 0.675799)
@@ -1478,7 +1478,11 @@ mesh = SubResource("ArrayMesh_ko05x")
 mesh = SubResource("ArrayMesh_aj2v6")
 
 [node name="Signpost" parent="main_menu_scene" index="6"]
+transform = Transform3D(0.169789, 0, 7.10543e-16, 0, 0.169789, 0, -7.10543e-16, 0, 0.169789, 4.33013, 0.357668, -0.795412)
 mesh = SubResource("ArrayMesh_ujm45")
+
+[node name="Sign" parent="main_menu_scene" index="7"]
+transform = Transform3D(-1.04389, -1.70071e-07, -1.31166e-07, 1.70071e-07, 1.41473e-21, -0.80509, 1.70071e-07, -1.04389, 2.13696e-14, 2.90484, 2.05173, -0.795406)
 
 [node name="Divider" parent="main_menu_scene" index="8"]
 mesh = SubResource("ArrayMesh_3l6me")
@@ -1486,6 +1490,9 @@ mesh = SubResource("ArrayMesh_3l6me")
 [node name="Left Wall" parent="main_menu_scene" index="9"]
 material_override = ExtResource("7_ne6ao")
 mesh = SubResource("ArrayMesh_hovqx")
+
+[node name="Sign Frame" parent="main_menu_scene" index="11"]
+transform = Transform3D(1.15896, 0, 5.68434e-15, 0, 0.762426, 0, 0, 0, 1, 2.90484, 2.05139, -0.795406)
 
 [node name="Window Grate" parent="main_menu_scene" index="14"]
 mesh = SubResource("ArrayMesh_y17f6")
@@ -1545,10 +1552,9 @@ transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -78.9037, 
 
 [node name="Main Menu Camera" type="Camera3D" parent="Main Menu"]
 transform = Transform3D(-0.815614, -0.17541, 0.551366, 0, 0.952938, 0.303165, -0.578596, 0.247266, -0.77723, 25.7932, 17.8789, 20.6814)
-fov = 80.0
+fov = 85.0
 
 [node name="Main Menu UI" type="Control" parent="Main Menu"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1563,10 +1569,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -236.0
-offset_top = -610.0
-offset_right = 788.0
-offset_bottom = 414.0
+offset_left = -230.0
+offset_top = -447.0
+offset_right = 794.0
+offset_bottom = 577.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -1577,17 +1583,18 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 23.0
-offset_top = 86.0
+offset_top = 96.0
 offset_right = -26.0
-offset_bottom = 234.0
+offset_bottom = 244.0
 grow_horizontal = 2
 theme = ExtResource("5_t1dhk")
-theme_override_colors/font_outline_color = Color(0.964367, 0.596282, 0, 1)
+theme_override_colors/default_color = Color(0.984314, 0, 0.466667, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("7_6dk6o")
 theme_override_font_sizes/normal_font_size = 90
 bbcode_enabled = true
-text = "[color=#005EF6]Terminal Velocity[/color]"
+text = "Terminal Velocity"
 horizontal_alignment = 1
 vertical_alignment = 1
 
