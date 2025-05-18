@@ -18,6 +18,10 @@ shader_parameter/specular = Color(0.223103, 0.223103, 0.223103, 0.5)
 shader_parameter/fresnel = Color(0, 0, 0, 0.3)
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.5
+shader_parameter/is_person = false
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/new_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.2
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 
@@ -34,6 +38,10 @@ shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.5
+shader_parameter/is_person = false
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/new_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.2
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 
@@ -50,6 +58,10 @@ shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.5
+shader_parameter/is_person = false
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/new_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.2
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 
@@ -66,6 +78,10 @@ shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.5
+shader_parameter/is_person = false
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/new_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.2
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 

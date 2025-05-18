@@ -127,6 +127,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("pause") \
 	and not get_tree().root.has_node("Main Menu") \
 	and not get_tree().root.has_node("Game Over Screen") \
+	and not TransitionEffect.in_progress \
 	and not get_tree().root.has_node("Transition Screen"):
 		var pause_menu := pause_menu_scene.instantiate()
 		get_tree().root.add_child(pause_menu)

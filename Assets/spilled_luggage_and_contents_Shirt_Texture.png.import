@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cexymoljgyir3"
+uid="uid://dugj3yewelivd"
 path.s3tc="res://.godot/imported/spilled_luggage_and_contents_Shirt_Texture.png-a37fe4760309e05b97b5f848769d6e2a.s3tc.ctex"
 path.etc2="res://.godot/imported/spilled_luggage_and_contents_Shirt_Texture.png-a37fe4760309e05b97b5f848769d6e2a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "c2682b8276b996061fdaa0c099a699a1"
 }
 
 [deps]

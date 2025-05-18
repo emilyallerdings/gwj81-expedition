@@ -7,14 +7,18 @@ signal wiped_out
 
 var loaded = false
 
+var in_progress = false
+
 var current_scene = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	layer = 1300
+	
 	$ColorRect.material.set_shader_parameter("progress", 0.0)
 	pass # Replace with function body.
 
 func transition_to_scene(path:String, signal_before_wipe_out = null):
+	in_progress = true
 	wipe_in()
 	await wiped_in
 	if current_scene:
@@ -40,6 +44,7 @@ func transition_to_scene(path:String, signal_before_wipe_out = null):
 		await signal_before_wipe_out
 	wipe_out()
 	await wiped_out
+	in_progress = false
 
 func wipe_in():
 	$ColorRect.material.set_shader_parameter("reverse", false)

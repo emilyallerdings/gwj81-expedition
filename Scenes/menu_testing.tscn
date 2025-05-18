@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7q35akmg4vo2"]
+[gd_scene load_steps=12 format=3 uid="uid://b7q35akmg4vo2"]
 
 [ext_resource type="Script" uid="uid://ieq2hasgdd62" path="res://Scripts/main_menu.gd" id="1_34v3d"]
 [ext_resource type="PackedScene" uid="uid://cl844rkgxivpm" path="res://Assets/selectionroom.glb" id="1_m6x4c"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="2_5dbda"]
 [ext_resource type="FontFile" uid="uid://d4da0phun8v4d" path="res://Materials/Fair Prosper.ttf" id="3_ycoxo"]
 [ext_resource type="Texture2D" uid="uid://crjk38l5pjmae" path="res://UI Assets/title_splash.png" id="4_ycoxo"]
-[ext_resource type="Shader" path="res://Materials/pseudo_3d.gdshader" id="6_fmuvw"]
 [ext_resource type="Texture2D" uid="uid://ge4oyevnnxel" path="res://UI Assets/suitecase_sprite.png" id="7_vxmc4"]
 [ext_resource type="PackedScene" uid="uid://c3st1sbq1ewwj" path="res://Scenes/luggage.tscn" id="8_vxmc4"]
 
@@ -20,18 +19,6 @@ background_mode = 2
 sky = SubResource("Sky_oqbs2")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fbgsc"]
-shader = ExtResource("6_fmuvw")
-shader_parameter/fov = 90.0
-shader_parameter/cull_back = true
-shader_parameter/y_rot = 0.0
-shader_parameter/x_rot = 0.0
-shader_parameter/inset = 0.0
-shader_parameter/hovering = 0.0
-shader_parameter/rand_trans_power = 1.0
-shader_parameter/rand_seed = 0.0
-shader_parameter/vortex_amt = 0.0
-shader_parameter/rotation = 0.0
-shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
 
 [node name="Main Menu" type="Node3D"]
 script = ExtResource("1_34v3d")

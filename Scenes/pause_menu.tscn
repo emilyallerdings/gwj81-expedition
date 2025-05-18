@@ -12,6 +12,8 @@ fill_from = Vector2(1, 1)
 
 [node name="Pause Menu" type="Control"]
 process_mode = 2
+z_index = 4096
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

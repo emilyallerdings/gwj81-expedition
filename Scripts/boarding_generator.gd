@@ -35,7 +35,7 @@ func randomize_seed():
 func generate():
 	if cur_loading:
 		return
-
+	randomize_seed()
 	var rng = RandomNumberGenerator.new()
 	rng.seed = seed
 	seed(seed)

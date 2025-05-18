@@ -97,7 +97,7 @@ item_title = "Teddy Bear"
 description = "You might have tougher times ahead, but good thing you can soothe the pain with this comforting teddy bear plushie! 
 
 Some say they feel a little bit safer in these spaces with a friend around!"
-mesh_array = [NodePath("mesh/Teddy Bear")]
+mesh_array = [null]
 positive_modifier_description = "+1 Max HP
 Full Heal"
 price = 25999

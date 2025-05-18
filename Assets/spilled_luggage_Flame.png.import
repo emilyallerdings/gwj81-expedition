@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c23rxls6hlm2f"
+uid="uid://yh3yjarfbak8"
 path.s3tc="res://.godot/imported/spilled_luggage_Flame.png-5e926a6e613e89bd576916883f584594.s3tc.ctex"
 path.etc2="res://.godot/imported/spilled_luggage_Flame.png-5e926a6e613e89bd576916883f584594.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "81a7c9a984064c5e4e1a73b3acba1933"
 }
 
 [deps]

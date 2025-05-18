@@ -31,7 +31,7 @@ func _ready():
 	SoundBus.rolling_suitcase.stop()
 	update_labels()
 	next.disabled = true
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0, false).timeout
 	victory_anims.play("MoneyDrop")
 	await victory_anims.animation_finished
 	transfer_money()
@@ -74,7 +74,7 @@ func _process(delta: float) -> void:
 			$blip.stop()
 
 func do_wait():
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0, false).timeout
 	$blip.play(0)
 	tweening2 = true
 				

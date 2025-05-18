@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_r18jl"]
 [ext_resource type="FontFile" uid="uid://cwp8ay1qwwtb0" path="res://Materials/Terminal F4.ttf" id="2_gryuy"]
-[ext_resource type="Shader" uid="uid://b6iunul8h752c" path="res://Shaders/crt_shader.gdshader" id="3_ccovl"]
-[ext_resource type="Shader" uid="uid://ud44g8ahsyxi" path="res://Shaders/pseudo_3d.gdshader" id="3_uah1q"]
+[ext_resource type="Shader" path="res://Shaders/crt_shader.gdshader" id="3_ccovl"]
+[ext_resource type="Shader" path="res://Shaders/pseudo_3d.gdshader" id="3_uah1q"]
 [ext_resource type="Texture2D" uid="uid://bp108t835ivdh" path="res://UI Assets/pills-here.png" id="3_xelri"]
 [ext_resource type="Texture2D" uid="uid://d003t6dae65rt" path="res://UI Assets/Im-the-bad-guy.png" id="4_uah1q"]
 

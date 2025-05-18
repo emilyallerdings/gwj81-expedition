@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://hdfxavqtdsj3"]
 
-[ext_resource type="Texture2D" uid="uid://ripkvxo1py04" path="res://Assets/sparklecorn_Glitter.png" id="1_850vs"]
+[ext_resource type="Texture2D" uid="uid://dpcq3ryan341m" path="res://Assets/spilled_luggage_Unicorn.png" id="1_850vs"]
 
 [resource]
 resource_name = "Glitter Fabric"

@@ -4,6 +4,7 @@ extends Node3D
 preload("res://Scenes/big_daddy_mainmenu.tscn"),
 preload("res://Scenes/sparklecorn_mainmenu.tscn"),
 preload("res://Scenes/hot_rod_mainmenu.tscn")]
+
 @export var rotation_speed : Vector3 = Vector3(0, 20, 0)
 
 @onready var suitecase_sprite = $SuitecaseSprite
@@ -68,7 +69,7 @@ var current_luggage_type = luggages[i].instantiate()
 var select_map = null
 
 func _ready() -> void:
-	
+	GameManager.reset()
 	TransitionEffect.current_scene = self
 	SoundBus.airport_ambience.play()
 	SoundBus.song_2.play()
