@@ -48,6 +48,9 @@ var boost_mod:float = 0
 var base_diff_mod:int = 0
 var payout_mod:float = 1.0
 
+var sfx_db : float = 0.0
+var music_db : float = 0.0
+
 func _ready():
 	var dir = DirAccess.open("res://City Data/")
 	var files = dir.get_files()
