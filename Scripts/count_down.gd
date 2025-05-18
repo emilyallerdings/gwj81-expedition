@@ -17,3 +17,8 @@ func start_countdown():
 	$CountAnim.play("go")
 	await get_tree().create_timer(0.2).timeout
 	countdown_finished.emit()
+	SoundBus.whistle.play()
+
+func finish():
+	$CountdownText.text = "fin"
+	$CountAnim.play("fin")

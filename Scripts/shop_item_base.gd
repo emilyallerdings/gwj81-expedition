@@ -10,8 +10,8 @@ var cant_buy_col:Color = Color.RED
 @export var item_title : String = ""
 @export_multiline var description : String = ""
 @export var mesh_array : Array[Node] = []
-@export var positive_modifier_description : String = ""
-@export var negative_modifier_description : String = ""
+@export_multiline var positive_modifier_description : String = ""
+@export_multiline var negative_modifier_description : String = ""
 
 @export var price:int = 0
 
@@ -21,6 +21,7 @@ var cant_buy_col:Color = Color.RED
 @export var max_hp_change:int = 0
 @export var hp_change:int = 0
 @export var base_dif_change:int = 0
+@export var earnings_increase:float = 0
 const PRICE_TAG = preload("res://Scenes/price_tag.tscn")
 @export var on_buy:String = ""
 
@@ -86,6 +87,7 @@ func _set_material(material: ShaderMaterial):
 func buy():
 	if bought:
 		return
+	GameManager.total_money -= price
 	
 	GameManager.boost_mod += boost_change
 	GameManager.speed_mod += top_speed_change
@@ -102,6 +104,7 @@ func disable():
 		$mesh.visible = false
 	$CollisionShape3D.disabled = true
 	bought = true
+	price_tag.buy()
 
 
 func enable():

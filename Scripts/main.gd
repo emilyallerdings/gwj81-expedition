@@ -11,7 +11,7 @@ extends Node3D
 @onready var main_camera_anchor: Node3D = $MainCameraAnchor
 @onready var money : RichTextLabel = $"MainCameraAnchor/MainCamera/Speed Lines/Money"
 
-@onready var heart_container = $"MainCameraAnchor/MainCamera/Speed Lines/BoxContainer/HeartContainer"
+@onready var heart_container: HBoxContainer = $"MainCameraAnchor/MainCamera/Speed Lines/HeartContainer"
 
 #@onready var speed_tweener := get_tree().create_tween().set_loops()
 #var shader_material : ShaderMaterial = preload("res://Assets/speed_lines_material.tres")
@@ -27,6 +27,8 @@ var started = false
 var dist_culling_objs = []
 
 var check_thread:Thread
+
+var heart_arr = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -57,22 +59,31 @@ func _ready() -> void:
 	player.connect("player_hit", player_on_hit)
 
 	main_camera.fov = 90.0
-	start_money = ceil(boarding_generator.total_path/ 3.0) * 100
+	start_money = ceil(boarding_generator.total_path/ 3.5) * 100 * (GameManager.payout_mod)
 	money.text = "$ " + str(start_money)
 	
 	
 	for lives in GameManager.total_health:
 		var one_life = hearts.instantiate()
 		heart_container.add_child(one_life)
+		heart_arr.append(one_life)
+		one_life.set_empty()
 	
+	check_health()
+		
 	GameManager.generation_finished.emit()
-	
+	for child in player.luggage_object.get_children():
+		if child is GPUParticles3D:
+			child.visible = false
 	await TransitionEffect.wiped_out
 	
 	$CountDown.start_countdown()
 	SoundBus.countdown_horn.play()
 	await $CountDown.countdown_finished
 	start_game()
+	for child in player.luggage_object.get_children():
+		if child is GPUParticles3D:
+			child.visible = true
 
 	
 #func initialize_player() -> void:
@@ -96,7 +107,7 @@ func _process(delta: float) -> void:
 	#print($Player.velocity)
 	str = (str % speed)
 	$Speed/SpeedLabel.text = "Speed: " + str + "m/s"
-	$Speed/Diff.text = "Diff: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty)
+	$Speed/Diff.text = "Diff: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty + GameManager.base_diff_mod)
 	main_camera_anchor.global_position.z = player.global_position.z
 	main_camera_anchor.global_position.x = player.global_position.x
 	
@@ -165,8 +176,13 @@ func player_finished():
 		if child is GPUParticles3D:
 			child.visible = false
 	player.finish()
-	SoundBus.song_1.stop()
-	SoundBus.rolling_suitcase.stop()
+	SoundBus.whistle.play(0)
+	$CountDown.finish()
+	SoundBus.fade_out(SoundBus.song_1)
+	#SoundBus.song_1.stop()
+	#SoundBus.rolling_suitcase.stop()
+	
+func transition_to_victory():
 	TransitionEffect.transition_to_scene("res://Scenes/victory_screen.tscn")
 
 func player_died():
@@ -177,7 +193,7 @@ func player_died():
 	for child in player.luggage_object.get_children():
 		if child is GPUParticles3D:
 			child.visible = false
-	player.finish()
+	#player.finish()
 	SoundBus.song_1.stop()
 	SoundBus.rolling_suitcase.stop()
 	TransitionEffect.transition_to_scene("res://Scenes/game_over_screen.tscn")
@@ -200,11 +216,14 @@ func _on_update_vis_timer_timeout() -> void:
 	pass # Replace with function body.
 
 func player_on_hit():
-	if heart_container.get_child_count() > 0:
-		heart_container.get_child(-1).queue_free()
-		#GameManager.total_health -= 1
-		#print(GameManager.total_health)
-		#print(current_health)
-	
-	if GameManager.total_health <= 0:
+	GameManager.health -= 1
+	check_health()
+	if GameManager.health <= 0:
 		player_died()
+
+func check_health():
+	for i in range(0, GameManager.total_health):
+		if i < GameManager.health:
+			heart_arr[i].set_full()
+		else:
+			heart_arr[i].set_empty()

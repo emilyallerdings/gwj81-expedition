@@ -123,14 +123,18 @@ func hover_none():
 	else:
 		item_title.text = ""
 		item_descriptor.text = ""
-		$"Selection Menu UI/Panel/Item Descriptor2".text = ""
+		negative_modifier.text = ""
+		positive_modifier.text = ""
 
 func set_pos_neg_mod(item):
-	$"Selection Menu UI/Panel/Item Descriptor2".text = ""
+	negative_modifier.text = ""
+	positive_modifier.text = ""
+	
+	#$"Selection Menu UI/Panel/Item Descriptor2".text = ""
 	if item.positive_modifier_description && item.positive_modifier_description != "":
-		$"Selection Menu UI/Panel/Item Descriptor2".text += "[color=green]" + item.positive_modifier_description + "[/color]\n"
+		positive_modifier.text = item.positive_modifier_description
 	if item.negative_modifier_description && item.negative_modifier_description != "":
-		$"Selection Menu UI/Panel/Item Descriptor2".text += "[color=red]" + item.negative_modifier_description + "[/color]\n"
+		negative_modifier.text = item.negative_modifier_description
 
 
 
@@ -150,11 +154,15 @@ func _on_buy_pressed() -> void:
 		selected_item.buy()
 		if selected_item.name != "Repair":
 			selected_item.disable()
+			$"Selection Menu UI/Buy".disabled = true
 		repair_check()
 		selected_item = null
 		item_descriptor.text = ""
 		item_title.text = ""
-		$"Selection Menu UI/Buy".disabled = true
+		
+	for item in $"Shop Items".get_children():
+		item.recheck_prices()
+	$"Selection Menu UI/Label".text = "YOUR CASH: " + GameManager.cents_to_str(GameManager.total_money)
 	pass # Replace with function body.
 
 func repair_check():

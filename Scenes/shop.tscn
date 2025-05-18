@@ -439,31 +439,14 @@ anchor_bottom = 1.0
 offset_left = 6.0
 offset_top = 9.0
 offset_right = -7.0
-offset_bottom = -80.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("7_s8dlv")
-theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "test"
-
-[node name="Item Descriptor2" type="RichTextLabel" parent="Selection Menu UI/Panel" index="1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 262.0
-offset_right = -7.0
-offset_bottom = -14.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/outline_size = 5
-theme_override_fonts/normal_font = ExtResource("7_s8dlv")
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-scroll_active = false
 
 [node name="Panel2" type="Panel" parent="Selection Menu UI" index="3"]
 layout_mode = 1
@@ -486,18 +469,30 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 6.0
-offset_top = 9.0
+offset_top = 2.0
 offset_right = -7.0
-offset_bottom = -17.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.498039, 1, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("7_s8dlv")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
 text = "test"
+scroll_active = false
+vertical_alignment = 1
 
-[node name="Panel3" type="Panel" parent="Selection Menu UI" index="4"]
+[node name="Label" type="Label" parent="Selection Menu UI" index="4"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 202.0
+offset_bottom = 47.5
+text = "YOUR CASH:"
+label_settings = SubResource("LabelSettings_tyrku")
+
+[node name="Panel3" type="Panel" parent="Selection Menu UI" index="5"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -518,18 +513,21 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 6.0
-offset_top = 9.0
+offset_top = 1.0
 offset_right = -7.0
-offset_bottom = -17.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.862745, 0.0784314, 0.235294, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("7_s8dlv")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
 text = "test"
+scroll_active = false
+vertical_alignment = 1
 
-[node name="Buy" type="Button" parent="Selection Menu UI" index="5"]
+[node name="Buy" type="Button" parent="Selection Menu UI" index="6"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -544,15 +542,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("5_k6jq0")
 text = "Buy"
-
-[node name="Label" type="Label" parent="Selection Menu UI" index="4"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 8.0
-offset_right = 202.0
-offset_bottom = 47.5
-text = "YOUR CASH:"
-label_settings = SubResource("LabelSettings_tyrku")
 
 [node name="Shop Items" type="Node3D" parent="." index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98627, 0)

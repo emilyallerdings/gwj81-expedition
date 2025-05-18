@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ckjr7lbj1cxxq"]
+[gd_scene load_steps=20 format=3 uid="uid://ckjr7lbj1cxxq"]
 
 [ext_resource type="Script" uid="uid://gavvic7ehdce" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://ddlqo71pgyb5i" path="res://Scenes/boarding_generator.tscn" id="2_kry3j"]
@@ -198,9 +198,62 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_hptm8"]
+resource_name = "fin"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CountdownText:anchor_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CountdownText:anchor_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CountdownText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.53333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 0.466516),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CountdownText:label_settings:font_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 0.203063, 0.517632),
+"update": 0,
+"values": [600, 80, 128]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_344ge"]
 _data = {
 &"RESET": SubResource("Animation_344ge"),
+&"fin": SubResource("Animation_hptm8"),
 &"go": SubResource("Animation_ynf5e"),
 &"number_down": SubResource("Animation_6bp64")
 }
@@ -265,15 +318,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BoxContainer" type="BoxContainer" parent="MainCameraAnchor/MainCamera/Speed Lines"]
-layout_mode = 1
+[node name="HeartContainer" type="HBoxContainer" parent="MainCameraAnchor/MainCamera/Speed Lines"]
+layout_mode = 2
 offset_left = 27.0
 offset_top = 25.0
-offset_right = 364.0
-offset_bottom = 125.0
-
-[node name="HeartContainer" type="HBoxContainer" parent="MainCameraAnchor/MainCamera/Speed Lines/BoxContainer"]
-layout_mode = 2
+offset_right = 389.0
+offset_bottom = 75.0
 size_flags_horizontal = 3
 
 [node name="Money" type="RichTextLabel" parent="MainCameraAnchor/MainCamera/Speed Lines"]

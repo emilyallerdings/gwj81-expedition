@@ -47,10 +47,10 @@ func _ready() -> void:
 	luggage_object.scale = Vector3(1, 1, 1)
 	
 	
-	max_speed = (luggage_object.top_speed + GameManager.speed_mod) * (1.0 + 0.05 * GameManager.base_difficulty)
-	smooth_factor = (luggage_object.handling + GameManager.handling_mod) / 150.0
+	max_speed = (luggage_object.top_speed + GameManager.speed_mod) * (1.0 + 0.04 * GameManager.base_difficulty)
+	smooth_factor = ((luggage_object.handling + GameManager.handling_mod) / 150.0) * .95
 	boost_bonus = luggage_object.boost + GameManager.boost_mod
-	turn_speed = luggage_object.strafe_speed
+	turn_speed = luggage_object.strafe_speed * 1.05
 	
 	collision_shape.shape = luggage_object.luggage_collider.shape
 	collision_shape.position = luggage_object.luggage_collider.position
@@ -99,10 +99,13 @@ func _physics_process(delta: float) -> void:
 	if !started:
 		return
 	if reached_end:
-		forward_speed = move_toward(forward_speed, 0, 0.2)
-		velocity = velocity.move_toward(Vector3.ZERO, 0.2)
+		forward_speed = move_toward(forward_speed, 0, 0.15)
+		velocity = velocity.move_toward(Vector3.ZERO, 0.15)
 		var forward_angle: float = atan2(forward_direction.x, forward_direction.z)
 		rotation.y = lerp_angle(rotation.y, forward_angle, 0.5)
+		if velocity.length() < 1.0:
+			started = false
+			TransitionEffect.transition_to_scene("res://Scenes/victory_screen.tscn")
 	else:
 		handle_player_movement(delta)
 	#print(forward_speed)
@@ -203,7 +206,7 @@ func on_hit_obstacle(collider):
 	GameManager.total_money = max(GameManager.total_money - 5 * 100, 0)
 	velocity = forward_direction * -20
 	forward_speed = -20
-	GameManager.total_health -= 1
+	
 	luggage_object.collision_sound.play()
 	player_hit.emit()
 	start_blinking()
@@ -228,6 +231,6 @@ func start():
 	pass
 
 func finish():
-	SoundBus.rolling_suitcase.stop()
+	#SoundBus.rolling_suitcase.stop()
 	reached_end = true
 	

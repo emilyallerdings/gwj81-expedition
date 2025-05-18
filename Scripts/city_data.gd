@@ -17,5 +17,6 @@ enum LevelDifficulty {
 
 var modifier_difficulty : int = 0
 
-func roll_modifier():
-	modifier_difficulty = randi_range(0, 3)
+func roll_modifier(list):
+	list.shuffle()
+	modifier_difficulty = list.pop_front()

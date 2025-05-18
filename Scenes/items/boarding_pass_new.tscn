@@ -47,9 +47,11 @@ description = "You're you. Of course you need this. You catch flights, not feeli
 
 ... until your next 'passport bro' situationship MAKES you catch feelings."
 mesh_array = [NodePath("mesh/Pass")]
-positive_modifier_description = "- 1 Base Difficulty"
+positive_modifier_description = "- 1 Base Difficulty
++ 10% Earnings"
 price = 19999
 base_dif_change = -1
+earnings_increase = 0.1
 
 [node name="mesh" parent="." instance=ExtResource("2_fwojl")]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

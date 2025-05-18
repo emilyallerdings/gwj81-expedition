@@ -28,19 +28,19 @@ func _ready() -> void:
 		else: 
 			hard_patterns.append(loaded_pattern)
 			
-func get_pattern_by_diff(diff, remaining_distance):
+func get_pattern_by_diff(diff, remaining_distance, prev_pattern):
 		if diff == Enums.PatternDifficulty.EASY:
-			return get_random_pattern_from_arr(easy_patterns, remaining_distance)
+			return get_random_pattern_from_arr(easy_patterns, remaining_distance, prev_pattern)
 		elif diff == Enums.PatternDifficulty.MED:
-			return get_random_pattern_from_arr(med_patterns, remaining_distance)
+			return get_random_pattern_from_arr(med_patterns, remaining_distance, prev_pattern)
 		else: 
-			return get_random_pattern_from_arr(hard_patterns, remaining_distance)
+			return get_random_pattern_from_arr(hard_patterns, remaining_distance, prev_pattern)
 
-func get_random_pattern_from_arr(arr:Array, remaining_distance):
+func get_random_pattern_from_arr(arr:Array, remaining_distance, prev_pattern):
 	var dup_arr = arr.duplicate()
 	while dup_arr.size() > 0:
 		var rand = dup_arr.pick_random()
-		if rand.length <= remaining_distance:
+		if rand.length <= remaining_distance && rand != prev_pattern:
 			return rand
 		dup_arr.erase(rand)
 	return null
