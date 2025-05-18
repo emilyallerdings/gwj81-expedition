@@ -3,9 +3,10 @@ extends Control
 @onready var money = $Panel/Money
 @onready var flight_coins_accumulated = $"Panel/FlightCoins Accumulated"
 @onready var total_time = $"Panel/Total Time"
+@onready var next = $Next
+@onready var victory_anims = $VictoryAnims
+
 var progress := 0.0
-
-
 var start_earned = GameManager.earned_money
 var end_earned = 0.0
 var start_total = GameManager.total_money
@@ -21,17 +22,19 @@ var speed_mod:float = 10.0
 func _ready():
 	SoundBus.rolling_suitcase.stop()
 	update_labels()
+	next.disabled = true
 	await get_tree().create_timer(1.0).timeout
-	$VictoryAnims.play("MoneyDrop")
-	await $VictoryAnims.animation_finished
+	victory_anims.play("MoneyDrop")
+	await victory_anims.animation_finished
 	transfer_money()
+	
 
 func _on_next_pressed():
 	SoundBus.button.play()
 	TransitionEffect.transition_to_scene("res://Scenes/shop.tscn")
 	
 func _process(delta: float) -> void:
-
+	
 	if tweening:
 		#print(speed_mod)
 		speed_mod = speed_mod * (1.0+(delta/10.0))
@@ -40,9 +43,10 @@ func _process(delta: float) -> void:
 		$blip.pitch_scale = speed_mod/11.0
 		update_labels()
 		if GameManager.total_money == end_total:
-			$VictoryAnims.play("Fade")
+			victory_anims.play("Fade")
 			tweening = false
 			$blip.stop()
+			next.disabled = false
 	
 
 func transfer_money():

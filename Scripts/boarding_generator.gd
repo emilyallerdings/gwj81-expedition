@@ -16,6 +16,7 @@ signal finished_generation
 @export_tool_button("Randomize Seed", "AudioStreamRandomizer") var rand_seed = randomize_seed
 @export_tool_button("Generate", "AudioStreamRandomizer") var gen = generate
 
+const AIRPLANE_END_GENERATE = preload("res://Scenes/airplane_end_generate.tscn")
 const END_ZONE = preload("res://Scenes/end_zone.tscn")
 const BOARDING_RAMP = preload("res://Scenes/boarding_ramp.tscn")
 const BOARDING_TURN_LEFT = preload("res://Scenes/boarding_turn_left.tscn")
@@ -142,6 +143,14 @@ func generate():
 			end_zone.position = current_pos
 			end_zone.owner = self
 			end_zone.connect("body_entered", body_entered_end_zone)
+			current_pos += 20 * forward_dir
+			var plane = AIRPLANE_END_GENERATE.instantiate()
+			add_child(plane)
+			#plane.position = end_zone.position + Vector3(-55, -1, 26)
+			plane.position = current_pos
+			plane.rotation_degrees = end_ramp.rotation_degrees + Vector3(0, -90, 0)
+			#plane.scale = Vector3(8, 8, 8)
+			plane.owner = self
 			#print("end")
 			break
 			

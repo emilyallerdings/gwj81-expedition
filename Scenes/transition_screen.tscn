@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="1_c4g4b"]
 [ext_resource type="Script" uid="uid://bmsnghvcqsqaj" path="res://Scripts/transition_screen.gd" id="1_milo2"]
-[ext_resource type="Texture2D" uid="uid://pacecgjr5n6t" path="res://UI Assets/PNG/Blue/Double/arrow_decorative_e.png" id="2_wqgbf"]
+[ext_resource type="Texture2D" uid="uid://pacecgjr5n6t" path="res://UI Assets/PNG/arrow_decorative_e.png" id="2_wqgbf"]
 
 [node name="Transition Screen" type="Control"]
 layout_mode = 3
@@ -22,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Current Location" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,6 +36,7 @@ offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_c4g4b")
+theme_override_colors/default_color = Color(0, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.964706, 0.596078, 0, 1)
 theme_override_constants/outline_size = 25
 bbcode_enabled = true
@@ -44,7 +45,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+[node name="Destination" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,6 +59,7 @@ offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_c4g4b")
+theme_override_colors/default_color = Color(0, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.964706, 0.596078, 0, 1)
 theme_override_constants/outline_size = 25
 bbcode_enabled = true

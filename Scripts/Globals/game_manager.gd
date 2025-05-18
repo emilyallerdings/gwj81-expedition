@@ -9,7 +9,7 @@ var difficulty = 5.0 # for testing my branch
 var chosen_luggage : PackedScene = null
 var base_difficulty : int = 0
 var modifier_difficulty : int = 0
-var current_level : int = 9
+var current_level : int = 0
 
 #In CENTS
 var total_money : int = 0
@@ -21,6 +21,7 @@ var health := 0
 var earned_money:int = 0
 
 var selected_city:CityInfo = null
+var current_city:CityInfo = null
 
 var max_levels : int = 10
 var easy_cities : Array[CityInfo] = []
@@ -113,7 +114,7 @@ func set_luggage(luggage, luggage_scene):
 	total_health = luggage.health
 	health = total_health
 
-func _input(event):
+func _process(delta):
 	if Input.is_action_just_pressed("pause") \
 	and not get_tree().root.has_node("Main Menu") \
 	and not get_tree().root.has_node("Game Over Screen") \

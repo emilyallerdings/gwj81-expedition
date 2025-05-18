@@ -88,7 +88,8 @@ func _ready() -> void:
 	for child in player.luggage_object.get_children():
 		if child is GPUParticles3D:
 			child.visible = true
-
+			
+	GameManager.current_city = GameManager.selected_city
 	
 #func initialize_player() -> void:
 	#var player = self.get_node("Player")

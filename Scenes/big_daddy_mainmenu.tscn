@@ -6,8 +6,8 @@
 [ext_resource type="Material" uid="uid://e363r7m2s217" path="res://Materials/official_luggage_material/black_material.tres" id="3_ovv6o"]
 [ext_resource type="FontFile" uid="uid://c2cwoacpy0sr5" path="res://Materials/Capture it.ttf" id="3_tdoey"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="5_edyp5"]
-[ext_resource type="Shader" uid="uid://bs6u44y5vew56" path="res://Shaders/cel-shader-base_repl.gdshader" id="6_es1tj"]
-[ext_resource type="Shader" path="res://Shaders/fire_trail.gdshader" id="8_yeu0c"]
+[ext_resource type="Shader" path="res://Shaders/cel-shader-base_repl.gdshader" id="6_es1tj"]
+[ext_resource type="Shader" uid="uid://cm3okf6o8rav4" path="res://Shaders/fire_trail.gdshader" id="8_yeu0c"]
 [ext_resource type="Texture2D" uid="uid://be884dqn5kp7r" path="res://Assets/particles/scorch_02.png" id="9_es1tj"]
 [ext_resource type="AudioStream" uid="uid://pjcff2556ajn" path="res://Sounds/metal_collision.ogg" id="10_es1tj"]
 
