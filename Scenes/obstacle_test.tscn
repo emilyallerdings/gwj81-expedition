@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://xicolt62u2x5" path="res://Scenes/boarding_ramp.tscn" id="1_pf0re"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="2_pf0re"]
-[ext_resource type="PackedScene" uid="uid://lswnet7qnmc6" path="res://Scenes/obstacle_crate.tscn" id="3_nyg1d"]
+[ext_resource type="PackedScene" uid="uid://dy8fe1r61jocd" path="res://Scenes/obstacle.tscn" id="3_fj5ct"]
 
 [sub_resource type="GDScript" id="GDScript_fj5ct"]
 script/source = "@tool
@@ -149,9 +149,9 @@ func _get_property_list():
 [node name="ObstacleTest" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0183983, -0.0457115, 0.05653)
 script = SubResource("GDScript_fj5ct")
-pattern_name = "CrateMiddle"
-pattern_difficulty = 1
-load_name = "WideZigZagRev"
+pattern_name = "QuadMiddle"
+pattern_difficulty = 2
+load_name = "SingleMiddle"
 
 [node name="BoardingRamp" parent="." instance=ExtResource("1_pf0re")]
 transform = Transform3D(1, 0, 0, 0, 0.999848, -0.0174524, 0, 0.0174524, 0.999848, 0, 3, -10)
@@ -163,8 +163,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6)
 [node name="ObstaclePattern" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
-[node name="Crate" parent="ObstaclePattern" instance=ExtResource("3_nyg1d")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.32591, 0, 0)
+[node name="Obstacle" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.22668, 0, 0)
 
-[node name="Crate2" parent="ObstaclePattern" instance=ExtResource("3_nyg1d")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.95648, 0, -0.722059)
+[node name="Obstacle2" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.22668, 0, 0)
+
+[node name="Obstacle3" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.77332, 0, 0)
+
+[node name="Obstacle4" parent="ObstaclePattern" instance=ExtResource("3_fj5ct")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.77332, 0, 0)

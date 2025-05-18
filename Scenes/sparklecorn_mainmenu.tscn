@@ -325,9 +325,10 @@ transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 0, 0, 
 script = ExtResource("2_wmmgg")
 title = "⋆˙⟡Sparklecorn⟡˙⋆"
 health = 3
-handling = 18.0
+top_speed = 11.0
+handling = 17.0
 boost = 5.0
-strafe_speed = 18
+strafe_speed = 17
 description = "Every little girls' dream suitcase! Use ONLY if you're feeling ⋆˙⟡bonita⟡˙⋆
 
 Trades health and boost for insane maneuverability and a smaller frame."

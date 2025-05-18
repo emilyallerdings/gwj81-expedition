@@ -38,6 +38,7 @@ func _ready():
 	
 
 func _on_next_pressed():
+	$Next.disabled = true
 	SoundBus.button.play()
 	if GameManager.current_level >= 10:
 		TransitionEffect.transition_to_scene("res://Scenes/game_complete.tscn")

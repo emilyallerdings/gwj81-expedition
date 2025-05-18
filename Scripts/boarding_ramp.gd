@@ -95,7 +95,7 @@ func set_size():
 func ready_stage(difficulty):
 	var starting_pos = 5.0
 	var total_dist = length - 5.0
-	var cur_position = starting_pos
+	var cur_position = starting_pos + 3.0
 	# Raw weights: harder stages → more weight on HARD, less on EASY
 	var weight_easy:float = max(0.0, (13.0 - difficulty))      # e.g. at diff=1 → 10; diff=10 → 1
 	var weight_hard:float = difficulty                     # e.g. at diff=1 → 1; diff=10 → 10
@@ -108,9 +108,10 @@ func ready_stage(difficulty):
 	var p_hard:float = weight_hard / sum_w
 
 	var gap_bias:float = 1.0 - (difficulty - 1) * 0.075   # goes from 1.0 → 0.55
-	var min_gap:float = max(4, BASE_MIN_GAP * gap_bias)
-	var max_gap:float = max(4, BASE_MAX_GAP * gap_bias)
-	
+	var min_gap:float = max(12.5, BASE_MIN_GAP * gap_bias)
+	var max_gap:float = max(13.5, BASE_MAX_GAP * gap_bias)
+	max_gap = min(max_gap, length/1.99)
+	min_gap = min(min_gap, length/2.0)
 	
 	while cur_position < total_dist:
 		var remaining_distance = total_dist - cur_position
@@ -139,11 +140,15 @@ func ready_stage(difficulty):
 		if pattern == null:
 			break
 		prev_pattern = pattern
+		
 		place_pattern(pattern, cur_position)
-		cur_position += pattern.length * 1.5
+		cur_position += max(5.0, pattern.length) * 1.0
+		
+	print("end of ramp")
 	return
 
 func place_pattern(pattern:ObstaclePattern, z_pos:float):
+	print("placing pattern with z offset: ", z_pos)
 	for ob in pattern.obstacles:
 		
 		var n_ob
@@ -151,10 +156,6 @@ func place_pattern(pattern:ObstaclePattern, z_pos:float):
 			n_ob = PatternManager.OBSTACLE.instantiate()
 		elif ob.type == Enums.ObstacleType.PICKUP:
 			#n_ob = PatternManager.PICKUP.instantiate()
-			pass
-		elif ob.type == Enums.ObstacleType.CRATE:
-			print("test")
-			n_ob = PatternManager.CRATE.instantiate()
 			pass
 		if n_ob:
 			obstacles.append(n_ob)

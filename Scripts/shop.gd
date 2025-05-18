@@ -34,7 +34,7 @@ const REPAIR = preload("res://Scenes/items/repair.tscn")
 var top_shelf_scenes = [BOARDING_PASS, NITRO, TEDDY, GRIPPY]
 
 var bottom_shelf_scenes = [REINFORCED, WHEEL_LUBRICANT, STICKY_WHEEL, BIKEPUMP, LIGHTWEIGHT]
-
+var bottom_shelf_scenes_omit_feather = [REINFORCED, WHEEL_LUBRICANT, STICKY_WHEEL, BIKEPUMP]
 var top_shelf_cur = []
 var bottom_shelf_cur = []
 
@@ -57,8 +57,15 @@ func _ready():
 	select_map.prev_scene = selection_menu_ui
 	select_map.visible = false
 	
-	var dup_bottom_scenes = bottom_shelf_scenes.duplicate()
+	var dup_bottom_scenes
+	if GameManager.total_health > 1:
+		dup_bottom_scenes = bottom_shelf_scenes.duplicate()
+	else:
+		dup_bottom_scenes = bottom_shelf_scenes_omit_feather.duplicate()
 	dup_bottom_scenes.shuffle()
+
+	
+		
 
 	for i in range (0,3):
 		var new_btm_shelf_item = dup_bottom_scenes.pop_front()
@@ -89,6 +96,9 @@ func _ready():
 		item.recheck_prices()
 		
 func _physics_process(delta: float) -> void:
+	
+	if GameManager.map_select_loaded.visible == true:
+		return
 	var mouse_pos = get_viewport().get_mouse_position()
 	
 	var ray_origin = camera.project_ray_origin(mouse_pos)

@@ -75,7 +75,7 @@ mesh_array = [NodePath("mesh/Plane")]
 positive_modifier_description = "+1 Max HP"
 negative_modifier_description = "-1 Handling
 -1 Top Speed"
-price = 10999
+price = 9999
 top_speed_change = -1.0
 handling_change = -1.0
 max_hp_change = 1

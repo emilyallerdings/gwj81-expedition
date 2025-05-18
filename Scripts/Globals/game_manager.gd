@@ -2,7 +2,7 @@ extends Node
 
 signal generation_finished
 
-var render_dist:float = 300
+var render_dist:float = 200
 
 var difficulty = 5.0 # for testing my branch
 

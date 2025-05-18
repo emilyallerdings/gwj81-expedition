@@ -83,9 +83,9 @@ description = "The crying, screaming baby behind your seat apparently had a boog
 
 For some reason though, your luggage feels easier to turn? Maybe you'll tolerate the next screaming baby..."
 mesh_array = [NodePath("mesh/Cylinder_003"), NodePath("mesh/Mball_009")]
-positive_modifier_description = "+ 2.5 Handling"
-negative_modifier_description = "- 1.0 Top Speed"
-price = 5999
+positive_modifier_description = "+ 2 Handling"
+negative_modifier_description = "- 1 Top Speed"
+price = 6999
 top_speed_change = -1.0
 handling_change = 2.5
 

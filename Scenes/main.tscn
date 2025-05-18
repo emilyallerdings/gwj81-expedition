@@ -31,11 +31,11 @@ func _process(delta: float) -> void:
 	var min_dens = 0.27
 	var max_dens = 0.5
 	
-	var min_fal = 0.917
-	var max_fal = 0.56
+	var min_fal = 0.93
+	var max_fal = 0.64
 	
-	var min_edge = 0.917
-	var max_edge = 0.56
+	var min_edge = 0.93
+	var max_edge = 0.64
 	
 	$ColorRect.material.set_shader_parameter(\"line_density\", lerpf(min_dens, max_dens, ratio))
 	$ColorRect.material.set_shader_parameter(\"line_faloff\", lerpf(min_fal, max_fal, ratio))
@@ -289,7 +289,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 3, 360)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 376)
 
 [node name="Ground" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.60037, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
 mesh = SubResource("PlaneMesh_jjgbg")
 
 [node name="MainCameraAnchor" type="Node3D" parent="."]

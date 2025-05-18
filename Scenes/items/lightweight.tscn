@@ -104,10 +104,10 @@ script = ExtResource("1_thuqw")
 item_title = "Lightweight Hull"
 description = "Traded armor for aerodynamics. Zips like a dream, dents like a can."
 mesh_array = [NodePath("mesh/Strandtype_002")]
-positive_modifier_description = "+ 2 Handling
+positive_modifier_description = "+ 1 Handling
 + 2 Top Speed"
 negative_modifier_description = "-1 Max HP"
-price = 9999
+price = 11999
 top_speed_change = 1.0
 handling_change = 2.0
 max_hp_change = -1

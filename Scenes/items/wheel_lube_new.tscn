@@ -154,9 +154,11 @@ description = "Are your wheels clunky, worn down, and look like they've seen bet
 
 Well you're in luck! The brand new WL-40 formulation's got you covered for smooth wheels all day! Better go get that honey packet!"
 mesh_array = [NodePath("mesh/Cylinder"), NodePath("mesh/Sphere"), NodePath("mesh/Cylinder_001"), NodePath("mesh/Cylinder_002")]
-positive_modifier_description = "+ 3.0 Top Speed"
+positive_modifier_description = "+ 3 Top Speed"
+negative_modifier_description = "- 1 Handling"
 price = 9999
 top_speed_change = 3.0
+handling_change = -1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0301514, 1.09987, -0.134536)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://eitq0nklnol6"]
+[gd_scene load_steps=11 format=4 uid="uid://nlrkb7hdie36"]
 
 [ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="1_u5lhq"]
 [ext_resource type="PackedScene" uid="uid://bddr7o3jt28fj" path="res://Assets/shop_items/wrench.glb" id="2_xsnnr"]
@@ -112,7 +112,7 @@ description = "\"Took a few hits on the way here? We’ll patch it up for a fee.
 Can’t say the same for how you’re making that money, though.\""
 mesh_array = [NodePath("mesh/Cylinder"), NodePath("mesh/Cylinder_001"), NodePath("mesh/Cube")]
 positive_modifier_description = "+ 1 HP"
-price = 4999
+price = 6999
 hp_change = 1
 
 [node name="mesh" parent="." instance=ExtResource("2_xsnnr")]
