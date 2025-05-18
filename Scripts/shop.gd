@@ -22,14 +22,16 @@ const LIGHTWEIGHT = preload("res://Scenes/items/lightweight.tscn")
 const WHEEL_LUBRICANT = preload("res://Scenes/items/wheel_lube_new.tscn")
 const STICKY_WHEEL = preload("res://Scenes/items/sticky_wheel_new.tscn")
 const BIKEPUMP = preload("res://Scenes/items/bikepump.tscn")
+const TEDDY = preload("res://Scenes/items/teddy.tscn")
+const REINFORCED = preload("res://Scenes/items/reinforced.tscn")
 
 const PRICE_TAG = preload("res://Scenes/price_tag.tscn")
 
 const REPAIR = preload("res://Scenes/items/repair.tscn")
 
-var top_shelf_scenes = [BOARDING_PASS, NITRO]
+var top_shelf_scenes = [BOARDING_PASS, NITRO, TEDDY]
 
-var bottom_shelf_scenes = [WHEEL_LUBRICANT, STICKY_WHEEL, BIKEPUMP, LIGHTWEIGHT]
+var bottom_shelf_scenes = [REINFORCED, WHEEL_LUBRICANT, STICKY_WHEEL, BIKEPUMP, LIGHTWEIGHT]
 
 var top_shelf_cur = []
 var bottom_shelf_cur = []
@@ -163,7 +165,9 @@ func _on_buy_pressed() -> void:
 		selected_item = null
 		item_descriptor.text = ""
 		item_title.text = ""
-		
+		$"Selection Menu UI/Buy".disabled = true
+	$"Selection Menu UI/Buy".disabled = true
+	
 	for item in $"Shop Items".get_children():
 		item.recheck_prices()
 	$"Selection Menu UI/Label".text = "YOUR CASH: " + GameManager.cents_to_str(GameManager.total_money)

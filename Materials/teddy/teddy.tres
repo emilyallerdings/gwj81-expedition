@@ -1,17 +1,17 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://fvwhrdu5l23j"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c7w0v4hrbjiv2"]
 
-[ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="1_ti0jl"]
-[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="2_lv5if"]
+[ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="1_4puvn"]
+[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="2_gtbag"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aphuo"]
 render_priority = 0
-shader = ExtResource("1_ti0jl")
+shader = ExtResource("1_4puvn")
 
 [resource]
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_aphuo")
-shader = ExtResource("2_lv5if")
-shader_parameter/color = Color(0.513233, 0.513233, 0.513233, 1)
+shader = ExtResource("2_gtbag")
+shader_parameter/color = Color(0.672931, 0.53788, 0.384511, 1)
 shader_parameter/specular = Color(1, 1, 1, 0)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0)
 shader_parameter/metallic = 0.0

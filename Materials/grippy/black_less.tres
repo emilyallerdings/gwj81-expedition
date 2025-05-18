@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://66bntrf6oryw"]
+
+[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="1_wyv1j"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wyv1j")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/specular = Color(0, 0, 0, 0)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.443
+shader_parameter/is_person = false
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/new_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.2
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

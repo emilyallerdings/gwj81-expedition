@@ -38,7 +38,8 @@ func fade_out(sound:AudioStreamPlayer):
 
 func preload_sounds():
 	#var prev = AudioServer.is_bus_mute(AudioServer.get_bus_index("Master"))
-	#AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	await get_tree().create_timer(0.2).timeout
 	for child:AudioStreamPlayer in get_children():
 		child.play(0)
 	await get_tree().process_frame
@@ -47,5 +48,5 @@ func preload_sounds():
 		child.stop()
 		child.seek(0)
 	await get_tree().process_frame
-	#AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), prev)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 	sounds_loaded.emit()

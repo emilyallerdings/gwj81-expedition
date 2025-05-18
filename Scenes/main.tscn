@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://ddlqo71pgyb5i" path="res://Scenes/boarding_generator.tscn" id="2_kry3j"]
 [ext_resource type="Material" uid="uid://bwfcdgloump5l" path="res://Shaders/speed_lines_material.tres" id="4_kry3j"]
 [ext_resource type="FontFile" uid="uid://dtshncsgw6tes" path="res://Materials/Frutiger_bold.ttf" id="5_d1ilt"]
-[ext_resource type="Texture2D" uid="uid://dq22rulx5iv7g" path="res://UI Assets/cash.png" id="5_hptm8"]
 [ext_resource type="Environment" uid="uid://b3s7xlhtiytky" path="res://Materials/game_level_worldenvironment.tres" id="5_kry3j"]
+[ext_resource type="Texture2D" uid="uid://bg4qxorme13s8" path="res://UI Assets/moni.png" id="5_ynf5e"]
 [ext_resource type="Script" uid="uid://cssi7rtq6i5dt" path="res://Scripts/count_down.gd" id="6_6bp64"]
 [ext_resource type="FontFile" uid="uid://djcwcwvpuh7qw" path="res://Materials/Parisienne-Regular.ttf" id="6_21xkr"]
 [ext_resource type="PackedScene" uid="uid://chp52opwuhulv" path="res://Scenes/player.tscn" id="7_6bp64"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7u77a"]
-albedo_color = Color(0.28485, 0.28485, 0.28485, 1)
+albedo_color = Color(0.31935, 0.576211, 0.324017, 1)
 metallic_specular = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jjgbg"]
@@ -282,14 +282,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 72)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 3, 92)
 length = 88.0
 
-[node name="BoardRampEnd" parent="BoardingGenerator" index="7"]
+[node name="BoardRampEnd" parent="BoardingGenerator" index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 3, 360)
 
-[node name="EndZone" parent="BoardingGenerator" index="8"]
+[node name="EndZone" parent="BoardingGenerator" index="12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 376)
 
 [node name="Ground" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.1087, 0)
 mesh = SubResource("PlaneMesh_jjgbg")
 
 [node name="MainCameraAnchor" type="Node3D" parent="."]
@@ -333,10 +333,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -217.0
-offset_top = -294.0
-offset_right = -36.0
-offset_bottom = -204.0
+offset_left = -176.0
+offset_top = -325.0
+offset_right = 5.0
+offset_bottom = -235.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.215686, 0.580392, 0.431373, 1)
@@ -346,17 +346,17 @@ theme_override_fonts/normal_font = ExtResource("5_d1ilt")
 theme_override_font_sizes/normal_font_size = 40
 text = "$1000000"
 fit_content = true
-horizontal_alignment = 2
+scroll_active = false
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MainCameraAnchor/MainCamera/Speed Lines"]
 layout_mode = 1
-offset_left = 829.0
-offset_top = 30.0
-offset_right = 929.0
-offset_bottom = 119.0
-texture = ExtResource("5_hptm8")
-expand_mode = 2
+offset_left = 883.0
+offset_top = 21.0
+offset_right = 1088.0
+offset_bottom = 141.0
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("5_ynf5e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.336559, -0.297803, 0.893332, 0.0138687, 0.947005, 0.32092, -0.94156, 0.120398, -0.314593, 0, 11.5126, 0)
@@ -373,6 +373,7 @@ blink_interval = 0.2
 transform = Transform3D(-1, 0, -8.74228e-08, -2.26267e-08, 0.965926, 0.258819, 8.44439e-08, 0.258819, -0.965926, 0, 4.81599, -4.59698)
 
 [node name="FPS Counter" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -386,6 +387,7 @@ text = "FPS: "
 label_settings = SubResource("LabelSettings_jjvhh")
 
 [node name="Speed" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0

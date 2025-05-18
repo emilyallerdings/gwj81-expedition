@@ -97,7 +97,15 @@ func generate():
 		segment_lens[0] = len_remaining
 	#print(segment_lens)
 	#print (turn_dir)
-
+	var start = BOARDING_RAMP.instantiate()
+	add_child(start)
+	await get_tree().process_frame
+	start.position = current_pos - (4 * forward_dir)
+	start.length
+	await get_tree().process_frame
+	start.set_size()
+	await get_tree().process_frame
+	
 	var counter = 0
 	for seg_len in segment_lens:
 		await get_tree().create_timer(0.11).timeout

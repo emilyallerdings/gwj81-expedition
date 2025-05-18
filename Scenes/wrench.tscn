@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bddr7o3jt28fj" path="res://Assets/shop_items/wrench.glb" id="1_36t74"]
 [ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="2_donwl"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_twu7b"]
-[ext_resource type="Shader" path="res://Shaders/cel-shader-base_repl.gdshader" id="4_twu7b"]
+[ext_resource type="Shader" uid="uid://bs6u44y5vew56" path="res://Shaders/cel-shader-base_repl.gdshader" id="4_twu7b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sojl7"]
 render_priority = 0
