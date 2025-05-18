@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://txt8d4yxj4jd"]
 
 [ext_resource type="Texture2D" uid="uid://dclddh86dnsq3" path="res://UI Assets/heartE.png" id="1_v4aiu"]
-[ext_resource type="Script" uid="uid://bk75mjrl3eoli" path="res://Scenes/heart.gd" id="3_jgxw8"]
+[ext_resource type="Script" path="res://Scenes/heart.gd" id="3_jgxw8"]
 
 [node name="Heart" type="TextureRect"]
 texture_filter = 2

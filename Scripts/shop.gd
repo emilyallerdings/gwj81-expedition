@@ -18,6 +18,7 @@ var current_interacted_item: StaticBody3D = null
 const NITRO = preload("res://Scenes/items/nitro.tscn")
 const BOARDING_PASS = preload("res://Scenes/items/boarding_pass_new.tscn")
 
+const LIGHTWEIGHT = preload("res://Scenes/items/lightweight.tscn")
 const WHEEL_LUBRICANT = preload("res://Scenes/items/wheel_lube_new.tscn")
 const STICKY_WHEEL = preload("res://Scenes/items/sticky_wheel_new.tscn")
 const BIKEPUMP = preload("res://Scenes/items/bikepump.tscn")
@@ -28,7 +29,7 @@ const REPAIR = preload("res://Scenes/items/repair.tscn")
 
 var top_shelf_scenes = [BOARDING_PASS, NITRO]
 
-var bottom_shelf_scenes = [WHEEL_LUBRICANT, STICKY_WHEEL, BIKEPUMP]
+var bottom_shelf_scenes = [WHEEL_LUBRICANT, STICKY_WHEEL, BIKEPUMP, LIGHTWEIGHT]
 
 var top_shelf_cur = []
 var bottom_shelf_cur = []
@@ -37,7 +38,7 @@ var selected_item = null
 var repair_inst = null
 
 func _ready():
-	
+	randomize()
 	$"Selection Menu UI/Label".text = "YOUR CASH: " + GameManager.cents_to_str(GameManager.total_money)
 	SoundBus.rolling_suitcase.stop()
 	SoundBus.song_3.play()
@@ -54,8 +55,9 @@ func _ready():
 	
 	var dup_bottom_scenes = bottom_shelf_scenes.duplicate()
 	dup_bottom_scenes.shuffle()
+
 	for i in range (0,3):
-		var new_btm_shelf_item = bottom_shelf_scenes.pop_front()
+		var new_btm_shelf_item = dup_bottom_scenes.pop_front()
 		if new_btm_shelf_item:
 			var inst = new_btm_shelf_item.instantiate()
 			bottom_shelf_cur.append(inst)
