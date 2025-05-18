@@ -13,9 +13,13 @@ var end_total = GameManager.total_money + start_earned
 var tweening = false
 var speed_mod:float = 10.0
 
+#region TODO update GameManager Time to reset to 0
+# GameManager.level_time
+# print(round(GameManager.level_time, 2))
+#endregion
+
 func _ready():
 	SoundBus.rolling_suitcase.stop()
-	#SoundBus.airplane_landing.play()
 	update_labels()
 	await get_tree().create_timer(1.0).timeout
 	$VictoryAnims.play("MoneyDrop")

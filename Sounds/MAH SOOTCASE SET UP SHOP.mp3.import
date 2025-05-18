@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6p6ofxch8h1s"
+path="res://.godot/imported/MAH SOOTCASE SET UP SHOP.mp3-dc509f72a56fe39bd3c78d09d5ad12af.mp3str"
+
+[deps]
+
+source_file="res://Sounds/MAH SOOTCASE SET UP SHOP.mp3"
+dest_files=["res://.godot/imported/MAH SOOTCASE SET UP SHOP.mp3-dc509f72a56fe39bd3c78d09d5ad12af.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

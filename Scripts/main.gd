@@ -28,7 +28,11 @@ var dist_culling_objs = []
 
 var check_thread:Thread
 
+
+var stopwatch_time : float = 0.0
+
 var heart_arr = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -96,10 +100,14 @@ func start_game():
 	#print("Modified Dif: " + str(GameManager.base_difficulty + GameManager.modifier_difficulty))
 	#SoundBus.song_1.play()
 	player.start()
-	started  = true
+	started = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if started == true:
+		stopwatch_time += delta
+	
 	var player_forward_vec = project_vector(player.velocity, player.forward_direction)
 	$"FPS Counter/FPSLabel".text = "FPS: " + str(Engine.get_frames_per_second())
 	var str = "%.2f"
@@ -170,12 +178,17 @@ func player_finished():
 	GameManager.base_difficulty += 1
 	GameManager.current_level += 1
 	GameManager.earned_money = start_money
-	
+	started = false
+	GameManager.level_time = stopwatch_time
 	#print("player_finished")
 	for child in player.luggage_object.get_children():
 		if child is GPUParticles3D:
 			child.visible = false
 	player.finish()
+
+	if GameManager.current_level >= 10:
+		TransitionEffect.transition_to_scene("res://Scenes/game_complete.tscn")
+
 	SoundBus.whistle.play(0)
 	$CountDown.finish()
 	started = false
@@ -186,11 +199,12 @@ func player_finished():
 func transition_to_victory():
 	TransitionEffect.transition_to_scene("res://Scenes/victory_screen.tscn")
 
+
 func player_died():
-	print("player died")
 	GameManager.base_difficulty = 0
 	GameManager.current_level = 0
 	GameManager.earned_money = 0
+	started = false
 	for child in player.luggage_object.get_children():
 		if child is GPUParticles3D:
 			child.visible = false
