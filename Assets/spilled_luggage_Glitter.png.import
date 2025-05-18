@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://45cflub6xgii"
 path.s3tc="res://.godot/imported/spilled_luggage_Glitter.png-f21c6377590516171109ed5ec5893273.s3tc.ctex"
+path.etc2="res://.godot/imported/spilled_luggage_Glitter.png-f21c6377590516171109ed5ec5893273.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/spilled_luggage_Glitter.png"
-dest_files=["res://.godot/imported/spilled_luggage_Glitter.png-f21c6377590516171109ed5ec5893273.s3tc.ctex"]
+dest_files=["res://.godot/imported/spilled_luggage_Glitter.png-f21c6377590516171109ed5ec5893273.s3tc.ctex", "res://.godot/imported/spilled_luggage_Glitter.png-f21c6377590516171109ed5ec5893273.etc2.ctex"]
 
 [params]
 

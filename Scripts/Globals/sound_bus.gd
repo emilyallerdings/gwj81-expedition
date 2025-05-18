@@ -17,6 +17,7 @@ signal sounds_loaded
 @onready var ocean_waves:AudioStreamPlayer = $"Ocean Waves"
 @onready var wrong: AudioStreamPlayer = $Wrong
 @onready var whistle: AudioStreamPlayer = $Whistle
+@onready var oof: AudioStreamPlayer = $Oof
 #endregion
 
 #region music
