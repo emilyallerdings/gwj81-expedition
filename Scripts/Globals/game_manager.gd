@@ -9,7 +9,7 @@ var difficulty = 5.0 # for testing my branch
 var chosen_luggage : PackedScene = null
 var base_difficulty : int = 0
 var modifier_difficulty : int = 0
-var current_level : int = 0
+var current_level : int = 9
 
 #In CENTS
 var total_money : int = 0
@@ -39,6 +39,7 @@ var save_file:SaveFile = null
 
 var paused : bool = false
 
+var level_time : float = 0.0
 
 var speed_mod:float = 0
 var handling_mod:float = 0
