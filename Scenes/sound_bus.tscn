@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqxl7brt3g1wi"]
+[gd_scene load_steps=21 format=3 uid="uid://dqxl7brt3g1wi"]
 
 [ext_resource type="Script" uid="uid://bijmlxakyblxw" path="res://Scripts/Globals/sound_bus.gd" id="1_oofcd"]
 [ext_resource type="AudioStream" uid="uid://c3ynucxb1maka" path="res://Sounds/airport_ambience_with_planes.ogg" id="2_otb3e"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://d15rxkgvpqkvy" path="res://Sounds/airplane_landing.ogg" id="10_gacuc"]
 [ext_resource type="AudioStream" uid="uid://bsvcvww6a7asa" path="res://Sounds/cash_register.ogg" id="11_nl74n"]
 [ext_resource type="AudioStream" uid="uid://c7lhd6dswcj6n" path="res://Sounds/ocean_waves.ogg" id="13_64gw5"]
+[ext_resource type="AudioStream" uid="uid://bsnok22ofiep2" path="res://Sounds/oof.ogg" id="13_n4ode"]
 [ext_resource type="AudioStream" uid="uid://b1tnbvs48kj8n" path="res://Sounds/MAH SUITCASE RAN AWAY.mp3" id="13_nl74n"]
 [ext_resource type="AudioStream" uid="uid://dlc1wmdilhqpg" path="res://Sounds/MAH SUITCASE MENU MUSIC.mp3" id="14_nl74n"]
 [ext_resource type="AudioStream" uid="uid://b6p6ofxch8h1s" path="res://Sounds/MAH SOOTCASE SET UP SHOP.mp3" id="15_nl74n"]
@@ -79,6 +80,12 @@ bus = &"SFX"
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_d4j3k")
 volume_db = -5.0
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="Oof" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_n4ode")
+volume_db = -10.0
 max_polyphony = 10
 bus = &"SFX"
 
