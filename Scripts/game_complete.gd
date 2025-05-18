@@ -1,6 +1,8 @@
 extends Node3D
 
 @onready var luggage_placement = $"Luggage Placement"
+@onready var quit = $Control/Quit
+@onready var main_menu = $"Control/Main Menu"
 
 func _ready():
 	SoundBus.ocean_waves.play()
@@ -13,3 +15,12 @@ func _ready():
 		if child is GPUParticles3D:
 			child.visible = false
 	
+
+
+func _on_quit_pressed():
+	get_tree().quit()
+
+
+func _on_main_menu_pressed():
+	SoundBus.reset_sounds()
+	TransitionEffect.transition_to_scene("res://Scenes/main_menu.tscn")

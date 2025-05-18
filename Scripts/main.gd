@@ -187,9 +187,6 @@ func player_finished():
 			child.visible = false
 	player.finish()
 
-	if GameManager.current_level >= 10:
-		TransitionEffect.transition_to_scene("res://Scenes/game_complete.tscn")
-
 	SoundBus.whistle.play(0)
 	$CountDown.finish()
 	started = false

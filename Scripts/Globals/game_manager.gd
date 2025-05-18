@@ -10,7 +10,6 @@ var chosen_luggage : PackedScene = null
 var base_difficulty : int = 0
 var modifier_difficulty : int = 0
 var current_level : int = 0
-
 #In CENTS
 var total_money : int = 0
 var max_money : int = 99999999999
