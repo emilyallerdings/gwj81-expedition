@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://bijmlxakyblxw" path="res://Scripts/Globals/sound_bus.gd" id="1_oofcd"]
 [ext_resource type="AudioStream" uid="uid://c3ynucxb1maka" path="res://Sounds/airport_ambience_with_planes.ogg" id="2_otb3e"]
 [ext_resource type="AudioStream" uid="uid://cx1e1cs24em1k" path="res://Sounds/airport_button.ogg" id="3_otb3e"]
+[ext_resource type="AudioStream" uid="uid://cboxl1nu74hw" path="res://Sounds/wrong.ogg" id="4_q5i7u"]
 [ext_resource type="AudioStream" uid="uid://bbiieojf6d6te" path="res://Sounds/luggage_rolling.ogg" id="4_yghvr"]
+[ext_resource type="AudioStream" uid="uid://b1pivksl0plxy" path="res://Sounds/whistle.ogg" id="5_64gw5"]
 [ext_resource type="AudioStream" uid="uid://caypbwsrlveqw" path="res://Sounds/click.ogg" id="5_qdc24"]
 [ext_resource type="AudioStream" uid="uid://b132spue567og" path="res://Sounds/whoosh.ogg" id="6_4mo3c"]
 [ext_resource type="AudioStream" uid="uid://dvq5x4molvf7r" path="res://Sounds/start_game.ogg" id="7_g0a8n"]
@@ -29,6 +31,16 @@ bus = &"SFX"
 [node name="Button" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_otb3e")
 volume_db = -5.0
+bus = &"SFX"
+
+[node name="Wrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q5i7u")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Whistle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_64gw5")
+volume_db = -6.935
 bus = &"SFX"
 
 [node name="Rolling Suitcase" type="AudioStreamPlayer" parent="."]

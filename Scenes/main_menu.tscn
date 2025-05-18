@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ieq2hasgdd62" path="res://Scripts/main_menu.gd" id="1_yhxw7"]
 [ext_resource type="Shader" uid="uid://j0vtcs1b5vgi" path="res://Shaders/toon_sky.gdshader" id="2_ehtkc"]
-[ext_resource type="Shader" uid="uid://ud44g8ahsyxi" path="res://Shaders/pseudo_3d.gdshader" id="3_16hvj"]
+[ext_resource type="Shader" path="res://Shaders/pseudo_3d.gdshader" id="3_16hvj"]
 [ext_resource type="Texture2D" uid="uid://ge4oyevnnxel" path="res://UI Assets/suitecase_sprite.png" id="4_vr1f0"]
 [ext_resource type="Theme" uid="uid://bncgplyvgv608" path="res://Materials/default_theme.tres" id="5_t1dhk"]
 [ext_resource type="FontFile" uid="uid://d4da0phun8v4d" path="res://Materials/Fair Prosper.ttf" id="6_5egv6"]
@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bcstmcu7cxqvx" path="res://UI Assets/PNG/Grey/Double/arrow_basic_w.png" id="10_vr1f0"]
 [ext_resource type="PackedScene" uid="uid://dyp0ruihjrtu3" path="res://Scenes/monitor.tscn" id="13_4nkqq"]
 [ext_resource type="PackedScene" uid="uid://cqsv33bhm2yi1" path="res://Scenes/credits_mesh.tscn" id="15_8dnnj"]
-[ext_resource type="Script" uid="uid://bgu6pfg5mqnh8" path="res://Scripts/options_menu.gd" id="18_tt8ml"]
+[ext_resource type="Script" path="res://Scripts/options_menu.gd" id="18_tt8ml"]
 [ext_resource type="PackedScene" uid="uid://b0por5lq4d3dn" path="res://Assets/luggage_stage.glb" id="22_6m47u"]
 [ext_resource type="Material" uid="uid://xexnvc4jdw7q" path="res://Materials/official_luggage_material/big_daddy.tres" id="23_84iac"]
 [ext_resource type="PackedScene" uid="uid://cqstjp5vuo6wc" path="res://Assets/main_menu_scene.glb" id="25_84iac"]

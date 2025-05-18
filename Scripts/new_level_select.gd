@@ -17,7 +17,10 @@ var stage_boxes = []
 
 const STAGE_BOX = preload("res://Scenes/stage_box2.tscn")
 
+var mod_list = [0,1,2,3]
+
 func _ready():
+	mod_list = [0,1,2,3]
 	$Panel2/HBoxContainer/StageNum.text = "#" + str(current_level + 1)
 	
 	#current_level = GameManager.current_level + current_level_amount
@@ -55,7 +58,7 @@ func generate_levels(city_array : Array, num:int):
 		selected_cities.append(new_city)
 	
 	for city:CityInfo in selected_cities:
-		city.roll_modifier()
+		city.roll_modifier(mod_list)
 		var stage_box = STAGE_BOX.instantiate()
 		stage_box.set_info(city)
 		stage_box.stage_select.connect(stage_selected)

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bddr7o3jt28fj" path="res://Assets/shop_items/wrench.glb" id="1_36t74"]
 [ext_resource type="Script" uid="uid://djoselp22xokr" path="res://Scripts/shop_item_base.gd" id="2_donwl"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="2_twu7b"]
-[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="3_donwl"]
+[ext_resource type="Shader" uid="uid://bs6u44y5vew56" path="res://Shaders/cel-shader-base_repl.gdshader" id="4_twu7b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sojl7"]
 render_priority = 0
@@ -12,12 +12,16 @@ shader = ExtResource("2_twu7b")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_21cqb"]
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_sojl7")
-shader = ExtResource("3_donwl")
+shader = ExtResource("4_twu7b")
 shader_parameter/color = Color(0.43134, 0.43134, 0.43134, 1)
 shader_parameter/specular = Color(0.301961, 0.301961, 0.301961, 1)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0)
 shader_parameter/metallic = 1.0
 shader_parameter/roughness = 0.0
+shader_parameter/is_person = false
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/new_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.2
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 

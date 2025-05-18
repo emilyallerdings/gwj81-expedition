@@ -1,15 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://txt8d4yxj4jd"]
+[gd_scene load_steps=3 format=3 uid="uid://txt8d4yxj4jd"]
 
-[ext_resource type="Texture2D" uid="uid://g8sv0i12dgmc" path="res://UI Assets/hearts.png" id="1_452e1"]
+[ext_resource type="Texture2D" uid="uid://dclddh86dnsq3" path="res://UI Assets/heartE.png" id="1_v4aiu"]
+[ext_resource type="Script" uid="uid://bk75mjrl3eoli" path="res://Scenes/heart.gd" id="3_jgxw8"]
 
 [node name="Heart" type="TextureRect"]
-custom_minimum_size = Vector2(16, 16)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_452e1")
-expand_mode = 2
+texture_filter = 2
+custom_minimum_size = Vector2(50, 50)
+offset_right = 10.0
+offset_bottom = 10.0
+texture = ExtResource("1_v4aiu")
+expand_mode = 4
+script = ExtResource("3_jgxw8")

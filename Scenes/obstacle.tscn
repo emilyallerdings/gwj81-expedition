@@ -13,6 +13,7 @@ radius = 0.75
 height = 3.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_km3lo"]
+resource_local_to_scene = true
 resource_name = "Character_Character_Mesh"
 _surfaces = [{
 "aabb": AABB(-0.640465, -0.00303966, -0.390849, 1.28093, 2.87637, 1.09775),

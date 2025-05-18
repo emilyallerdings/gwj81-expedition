@@ -15,6 +15,8 @@ signal sounds_loaded
 @onready var click:AudioStreamPlayer = $Click
 @onready var buy:AudioStreamPlayer = $Buy
 @onready var ocean_waves:AudioStreamPlayer = $"Ocean Waves"
+@onready var wrong: AudioStreamPlayer = $Wrong
+@onready var whistle: AudioStreamPlayer = $Whistle
 
 #endregion
 
@@ -26,6 +28,13 @@ signal sounds_loaded
 
 #endregion
 
+func fade_out(sound:AudioStreamPlayer):
+	var prev_vol = sound.volume_db
+	var tween = create_tween()
+	tween.tween_property(sound, "volume_db", -80, 2.0)
+	await tween.finished
+	sound.stop()
+	sound.volume_db = prev_vol
 
 func preload_sounds():
 	#var prev = AudioServer.is_bus_mute(AudioServer.get_bus_index("Master"))

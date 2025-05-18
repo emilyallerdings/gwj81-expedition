@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://ct4vx6uf4cwou" path="res://Materials/Blazed.ttf" id="3_t2c5w"]
 [ext_resource type="Material" uid="uid://xyq8eo03rxwr" path="res://Materials/official_luggage_material/hot_rod_flame.tres" id="4_badxc"]
 [ext_resource type="Material" uid="uid://0vb6qwdm5xdy" path="res://Materials/official_luggage_material/orange_material.tres" id="5_068ws"]
-[ext_resource type="Shader" uid="uid://cm3okf6o8rav4" path="res://Shaders/fire_trail.gdshader" id="8_povj1"]
+[ext_resource type="Shader" path="res://Shaders/fire_trail.gdshader" id="8_povj1"]
 [ext_resource type="Texture2D" uid="uid://vm8mxd3tkfxg" path="res://Assets/particles/flame_01.png" id="9_fbp52"]
 [ext_resource type="AudioStream" uid="uid://cu3eddt7uujl8" path="res://Sounds/plastic_collision.ogg" id="10_povj1"]
 
@@ -298,10 +298,10 @@ size = Vector3(1.5818, 2.8717, 2.09546)
 transform = Transform3D(-1.39876e-07, 0, -3.2, 0, 3.2, 0, 3.2, 0, -1.39876e-07, 0, 0, 0)
 script = ExtResource("2_068ws")
 title = "Hot Rod"
-top_speed = 6.0
-handling = 14.0
+top_speed = 6.5
+handling = 13.0
 boost = 22.0
-strafe_speed = 19
+strafe_speed = 16
 description = "Kicks like you slapped your mama! Not for the faint of heart. Really nice fuel efficiency of a whopping 10 MPG.
 
 Trades top speed and maneuverability for insane boost! "

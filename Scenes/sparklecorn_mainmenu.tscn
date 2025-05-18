@@ -4,12 +4,12 @@
 [ext_resource type="Script" uid="uid://c0dvlbuemp5wx" path="res://Scripts/luggage.gd" id="2_wmmgg"]
 [ext_resource type="FontFile" uid="uid://brm3h3rux1f3" path="res://Materials/Because I am Happy Regular.ttf" id="3_u3d1e"]
 [ext_resource type="Shader" uid="uid://bafe76fyrnmwb" path="res://Shaders/outline.gdshader" id="3_wvnd7"]
-[ext_resource type="Shader" uid="uid://cbjskieqsncfx" path="res://Shaders/cel-shader-base.gdshader" id="4_yhw8e"]
 [ext_resource type="Material" uid="uid://bm5wooing53qc" path="res://Materials/official_luggage_material/sparklecorn.tres" id="5_c5ap0"]
+[ext_resource type="Shader" uid="uid://bs6u44y5vew56" path="res://Shaders/cel-shader-base_repl.gdshader" id="5_nl6ec"]
 [ext_resource type="Texture2D" uid="uid://bbj14frmq7i62" path="res://Assets/sparklecorn_materials/Glitter.png" id="5_phb58"]
 [ext_resource type="Material" uid="uid://chktpch7mxrfq" path="res://Materials/official_luggage_material/metal_material.tres" id="6_wvnd7"]
 [ext_resource type="Material" uid="uid://dxscaj1oqselm" path="res://Materials/official_luggage_material/pink_material.tres" id="7_phb58"]
-[ext_resource type="Shader" uid="uid://cm3okf6o8rav4" path="res://Shaders/fire_trail.gdshader" id="10_nl6ec"]
+[ext_resource type="Shader" path="res://Shaders/fire_trail.gdshader" id="10_nl6ec"]
 [ext_resource type="Texture2D" uid="uid://cjmpc17ujijkw" path="res://Assets/particles/star_06.png" id="11_knafu"]
 [ext_resource type="AudioStream" uid="uid://cu3eddt7uujl8" path="res://Sounds/plastic_collision.ogg" id="12_nl6ec"]
 
@@ -20,13 +20,17 @@ shader = ExtResource("3_wvnd7")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yhw8e"]
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_wvnd7")
-shader = ExtResource("4_yhw8e")
+shader = ExtResource("5_nl6ec")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/base_texture = ExtResource("5_phb58")
 shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.5
+shader_parameter/is_person = false
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/new_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.2
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 
@@ -321,7 +325,7 @@ transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 0, 0, 
 script = ExtResource("2_wmmgg")
 title = "⋆˙⟡Sparklecorn⟡˙⋆"
 health = 3
-handling = 20.0
+handling = 18.0
 boost = 5.0
 strafe_speed = 18
 description = "Every little girls' dream suitcase! Use ONLY if you're feeling ⋆˙⟡bonita⟡˙⋆
