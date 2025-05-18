@@ -8,6 +8,8 @@ signal interact_item
 @onready var camera = $Camera3D
 @onready var item_descriptor = $"Selection Menu UI/Panel/Item Descriptor"
 @onready var item_title = $"Selection Menu UI/Item Title"
+@onready var positive_modifier = $"Selection Menu UI/Panel2/Positive Modifier"
+@onready var negative_modifier = $"Selection Menu UI/Panel3/Negative Modifier"
 
 var select_map = null
 var collider = null
@@ -36,6 +38,8 @@ func _ready():
 	
 	item_descriptor.text = ""
 	item_title.text = ""
+	positive_modifier.text = ""
+	negative_modifier.text = ""
 	select_map = GameManager.map_select_loaded
 	select_map.reset()
 	select_map.prev_scene = selection_menu_ui
@@ -91,12 +95,16 @@ func _process(delta):
 				
 			item_descriptor.text = collider.description
 			item_title.text = collider.item_title
+			positive_modifier.text = collider.positive_modifier_description
+			negative_modifier.text = collider.negative_modifier_description
 	else:
 		highlight_item.emit(null)
 		
 		if selected_item != null:
 			item_descriptor.text = selected_item.description
 			item_title.text = selected_item.item_title
+			positive_modifier.text = collider.positive_modifier_description
+			negative_modifier.text = collider.negative_modifier_description
 
 
 func _on_next_pressed():

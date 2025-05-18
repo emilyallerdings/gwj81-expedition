@@ -210,6 +210,7 @@ process_mode = 1
 script = ExtResource("1_jjgbg")
 
 [node name="BoardingGenerator" parent="." instance=ExtResource("2_kry3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.5126, 0)
 seed = 384412
 total_path = 460
 editor_difficulty = 10
@@ -235,9 +236,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 3, 360)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 376)
 
 [node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14, 0)
 mesh = SubResource("PlaneMesh_jjgbg")
 
 [node name="MainCameraAnchor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.5126, 0)
 
 [node name="MainCamera" type="Camera3D" parent="MainCameraAnchor"]
 transform = Transform3D(-1, 8.72542e-08, -1.23234e-07, 0, 0.816138, 0.577858, 1.50996e-07, 0.577858, -0.816138, 0, 10.239, -4)
@@ -306,14 +309,14 @@ texture = ExtResource("5_hptm8")
 expand_mode = 2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.336559, -0.297803, 0.893332, 0.0138687, 0.947005, 0.32092, -0.94156, 0.120398, -0.314593, 0, 0, 0)
+transform = Transform3D(-0.336559, -0.297803, 0.893332, 0.0138687, 0.947005, 0.32092, -0.94156, 0.120398, -0.314593, 0, 11.5126, 0)
 light_bake_mode = 1
 shadow_enabled = true
 directional_shadow_max_distance = 250.0
 
 [node name="Player" parent="." instance=ExtResource("7_6bp64")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.35489, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.8675, 0)
 blink_interval = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="Player"]

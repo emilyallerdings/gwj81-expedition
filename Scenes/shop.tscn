@@ -413,9 +413,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -290.0
-offset_top = -159.0
+offset_top = -183.0
 offset_right = -43.0
-offset_bottom = 174.0
+offset_bottom = 52.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tyrku")
@@ -436,7 +436,71 @@ theme_override_fonts/normal_font = ExtResource("7_s8dlv")
 theme_override_font_sizes/normal_font_size = 20
 text = "test"
 
-[node name="Buy" type="Button" parent="Selection Menu UI" index="3"]
+[node name="Panel2" type="Panel" parent="Selection Menu UI" index="3"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = 62.0
+offset_right = -43.0
+offset_bottom = 111.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tyrku")
+
+[node name="Positive Modifier" type="RichTextLabel" parent="Selection Menu UI/Panel2" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = -7.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.498039, 1, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("7_s8dlv")
+theme_override_font_sizes/normal_font_size = 20
+text = "test"
+
+[node name="Panel3" type="Panel" parent="Selection Menu UI" index="4"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = 122.0
+offset_right = -43.0
+offset_bottom = 171.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tyrku")
+
+[node name="Negative Modifier" type="RichTextLabel" parent="Selection Menu UI/Panel3" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = -7.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("7_s8dlv")
+theme_override_font_sizes/normal_font_size = 20
+text = "test"
+
+[node name="Buy" type="Button" parent="Selection Menu UI" index="5"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
