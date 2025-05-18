@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d06n2gjgmsf3t"
 path.s3tc="res://.godot/imported/HoleNoise.png-27fcdcb4b0ff725d56308a4785243960.s3tc.ctex"
+path.etc2="res://.godot/imported/HoleNoise.png-27fcdcb4b0ff725d56308a4785243960.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/particles/HoleNoise.png"
-dest_files=["res://.godot/imported/HoleNoise.png-27fcdcb4b0ff725d56308a4785243960.s3tc.ctex"]
+dest_files=["res://.godot/imported/HoleNoise.png-27fcdcb4b0ff725d56308a4785243960.s3tc.ctex", "res://.godot/imported/HoleNoise.png-27fcdcb4b0ff725d56308a4785243960.etc2.ctex"]
 
 [params]
 

@@ -18,5 +18,6 @@ func set_vis(bol):
 
 func on_hit():
 	$"Character Mesh/AnimationPlayer".play("character_anim_oof/Oof")
+	SoundBus.oof.play()
 	await animation_player.animation_finished
 	animation_player.play("character_anim_idle_02/Idle_02")

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://q0nj7x7b46dc"
 path.s3tc="res://.godot/imported/sea_water.png-0149ac496d0c11c6224e0a31c2ecf690.s3tc.ctex"
+path.etc2="res://.godot/imported/sea_water.png-0149ac496d0c11c6224e0a31c2ecf690.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/sea_water.png"
-dest_files=["res://.godot/imported/sea_water.png-0149ac496d0c11c6224e0a31c2ecf690.s3tc.ctex"]
+dest_files=["res://.godot/imported/sea_water.png-0149ac496d0c11c6224e0a31c2ecf690.s3tc.ctex", "res://.godot/imported/sea_water.png-0149ac496d0c11c6224e0a31c2ecf690.etc2.ctex"]
 
 [params]
 

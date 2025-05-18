@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbj14frmq7i62"
 path.s3tc="res://.godot/imported/Glitter.png-9f9119473229849a5275e8b92d720e56.s3tc.ctex"
+path.etc2="res://.godot/imported/Glitter.png-9f9119473229849a5275e8b92d720e56.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/sparklecorn_materials/Glitter.png"
-dest_files=["res://.godot/imported/Glitter.png-9f9119473229849a5275e8b92d720e56.s3tc.ctex"]
+dest_files=["res://.godot/imported/Glitter.png-9f9119473229849a5275e8b92d720e56.s3tc.ctex", "res://.godot/imported/Glitter.png-9f9119473229849a5275e8b92d720e56.etc2.ctex"]
 
 [params]
 
