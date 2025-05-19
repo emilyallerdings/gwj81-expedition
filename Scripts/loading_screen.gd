@@ -18,6 +18,7 @@ func _ready() -> void:
 		var path = "res://Scenes/" + obj + ".tscn"
 		print("loading: " + path)
 		ResourceLoader.load_threaded_request(path)
+		await get_tree().process_frame
 		while true:
 			if load_status_sub == ResourceLoader.THREAD_LOAD_LOADED:
 				break
@@ -37,6 +38,7 @@ func _ready() -> void:
 	await get_tree().create_timer(0.05).timeout
 	
 	ResourceLoader.load_threaded_request(MENU_TESTING)
+	await get_tree().process_frame
 	while true:
 		if load_status == ResourceLoader.THREAD_LOAD_LOADED:
 			break
